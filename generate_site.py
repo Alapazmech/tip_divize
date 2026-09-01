@@ -501,18 +501,37 @@ td.ocell.click:hover {{ color:var(--accent); }}
 td.ocell.sel {{ background:rgba(250,204,21,.15); color:var(--accent2); }}
 td.ocell.win {{ color:var(--accent); }}
 td.ocell.lost {{ color:var(--lost); }}
-#tbar {{ position:fixed; bottom:0; left:0; right:0; background:var(--card2);
-  border-top:2px solid var(--accent); padding:10px 14px; display:none; z-index:9;
-  box-shadow:0 -6px 18px rgba(0,0,0,.4); }}
+#tbar {{ position:fixed; right:18px; bottom:18px; width:330px; max-height:80vh;
+  overflow-y:auto; background:var(--card2); border:1px solid var(--line);
+  border-radius:14px; display:none; z-index:9;
+  box-shadow:0 12px 34px rgba(0,0,0,.55); }}
 #tbar.on {{ display:block; }}
-#tbar .tlegs {{ font-size:14px; margin-bottom:8px; }}
-#tbar .trow {{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }}
-#tbar input {{ width:90px; background:var(--bg); color:var(--text);
+.slip-head {{ background:var(--accent); color:#08120c; font-weight:800;
+  padding:9px 14px; font-size:15px; letter-spacing:.3px; }}
+.slip-leg {{ display:flex; justify-content:space-between; align-items:center;
+  gap:10px; padding:9px 14px; border-bottom:1px solid var(--line); }}
+.slip-match {{ display:block; font-size:13px; line-height:1.3; }}
+.slip-mk {{ color:var(--muted); font-size:12px; }}
+.slip-odd {{ color:var(--accent2); font-weight:800; white-space:nowrap; }}
+.slip-x {{ cursor:pointer; color:var(--muted); font-weight:700; padding:0 2px 0 8px; }}
+.slip-x:hover {{ color:var(--red); }}
+.slip-row {{ display:flex; justify-content:space-between; align-items:center;
+  padding:8px 14px; font-size:14px; }}
+.slip-row b {{ font-size:16px; }}
+.slip-row.winrow b {{ color:var(--accent); }}
+.slip-row.total {{ border-bottom:1px solid var(--line); }}
+#tbar input {{ width:110px; background:var(--bg); color:var(--text); text-align:right;
   border:1px solid var(--line); border-radius:8px; padding:6px 8px; font-size:15px; }}
-#tbar button {{ background:var(--accent); color:#08120c; font-weight:700; border:none;
-  border-radius:8px; padding:7px 16px; cursor:pointer; font-size:15px; }}
-#tbar textarea {{ width:100%; margin-top:8px; background:var(--bg); color:var(--accent2);
+#tbar button {{ background:var(--accent); color:#08120c; font-weight:800; border:none;
+  border-radius:10px; padding:9px 16px; cursor:pointer; font-size:15px;
+  display:block; width:calc(100% - 28px); margin:8px 14px 14px; }}
+#tbar button:hover {{ filter:brightness(1.1); }}
+#tout {{ padding:0 14px 6px; }}
+#tout textarea {{ width:100%; background:var(--bg); color:var(--accent2); box-sizing:border-box;
   border:1px solid var(--line); border-radius:8px; padding:6px; font:12px monospace; }}
+#tout button {{ margin:8px 0 6px; width:100%; }}
+.slipnote {{ color:var(--muted); font-size:12px; margin:0 0 10px; text-align:center; }}
+@media (max-width:700px) {{ #tbar {{ left:12px; right:12px; bottom:12px; width:auto; }} }}
 details.round {{ background:var(--card); border:1px solid var(--line);
   border-radius:12px; margin:10px 0; overflow:hidden; }}
 details.round summary {{ cursor:pointer; padding:10px 14px; font-weight:700;
@@ -549,38 +568,65 @@ footer a {{ color:var(--muted); }}
 </div>
 
 <div id="tbar">
-  <div class="tlegs" id="tlegs"></div>
-  <div class="trow">
-    vklad: <input id="tstake" type="number" min="1" placeholder="100">
-    <button id="tseal">🔒 Zapečetit tiket</button>
-    <span style="color:var(--muted);font-size:13px">kód pak pošli botovi do Telegramu</span>
-  </div>
+  <div class="slip-head">🎫 TIKET</div>
+  <div id="tlegs"></div>
+  <div class="slip-row total"><span>Celkový kurz</span><b id="ttotal">–</b></div>
+  <div class="slip-row"><span>Vklad</span><input id="tstake" type="number" min="1" placeholder="100"></div>
+  <div class="slip-row winrow"><span>Možná výhra</span><b id="twin">–</b></div>
+  <button id="tseal">🔒 Zapečetit tiket</button>
   <div id="tout" style="display:none">
     <textarea id="tcode" rows="3" readonly></textarea>
-    <button id="tcopy" style="margin-top:6px">Zkopírovat</button>
+    <button id="tcopy">Zkopírovat</button>
+    <p class="slipnote">Kód pošli do skupiny na Telegramu.</p>
   </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tweetnacl/1.0.3/nacl.min.js"></script>
 <script>
 var PUBKEY = "{pubkey}";
+var MKLABEL = {{ "1": "výhra domácích", "10": "neprohra domácích",
+  "02": "neprohra hostů", "2": "výhra hostů" }};
 var sel = {{}};
+function totalOdd() {{
+  var total = 1;
+  Object.keys(sel).forEach(function (mid) {{ total *= parseFloat(sel[mid].odd); }});
+  return total;
+}}
+function renderWin() {{
+  var stake = parseInt(document.getElementById("tstake").value, 10);
+  document.getElementById("twin").textContent =
+    stake > 0 ? Math.round(stake * totalOdd()) : "–";
+}}
 function renderBar() {{
   var bar = document.getElementById("tbar");
   var mids = Object.keys(sel);
   if (!mids.length) {{ bar.classList.remove("on"); return; }}
-  var total = 1, parts = [];
+  var rows = "";
   mids.forEach(function (mid) {{
     var s = sel[mid];
-    total *= parseFloat(s.odd);
-    parts.push(s.label + " <b>" + s.mk + "</b> @" + s.odd);
+    rows += '<div class="slip-leg"><div>' +
+      '<span class="slip-match">' + s.label + '</span>' +
+      '<span class="slip-mk">tip ' + s.mk + ' · ' + MKLABEL[s.mk] + '</span></div>' +
+      '<div><span class="slip-odd">' + parseFloat(s.odd).toFixed(2) + '</span>' +
+      '<span class="slip-x" data-x="' + mid + '" title="odebrat">×</span></div></div>';
   }});
-  document.getElementById("tlegs").innerHTML =
-    "Tiket: " + parts.join(" &nbsp;+&nbsp; ") +
-    " &nbsp;→&nbsp; celkový kurz <b>" + total.toFixed(2) + "</b>";
+  document.getElementById("tlegs").innerHTML = rows;
+  document.getElementById("ttotal").textContent = totalOdd().toFixed(2);
+  renderWin();
   document.getElementById("tout").style.display = "none";
   bar.classList.add("on");
 }}
+function removeLeg(mid) {{
+  delete sel[mid];
+  var cell = document.querySelector('.ocell.sel[data-mid="' + mid + '"]');
+  if (cell) cell.classList.remove("sel");
+  renderBar();
+}}
+document.getElementById("tlegs").addEventListener("click", function (ev) {{
+  var mid = ev.target.dataset && ev.target.dataset.x;
+  if (mid) removeLeg(mid);
+}});
+document.getElementById("tstake").addEventListener("input", renderWin);
 document.querySelectorAll(".ocell.click").forEach(function (el) {{
   el.addEventListener("click", function () {{
     var mid = el.dataset.mid;
