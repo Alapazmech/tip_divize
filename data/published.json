@@ -1,0 +1,161 @@
+{
+ "1312143": {
+  "match_id": 1312143,
+  "round": 1,
+  "home": "Sokol Rudná",
+  "away": "T.B.C. Králův Dvůr",
+  "special": false,
+  "odds": {
+   "1": 1.97,
+   "2": 2.25,
+   "10": 1.57,
+   "02": 1.75
+  },
+  "model": {
+   "p1": 0.4704,
+   "p0": 0.1177,
+   "p2": 0.4119,
+   "lambda": [
+    5.97,
+    5.72
+   ],
+   "elo": [
+    1474,
+    1507
+   ]
+  },
+  "published_at": "2026-09-01 11:10:42"
+ },
+ "1312140": {
+  "match_id": 1312140,
+  "round": 1,
+  "home": "FA Č. Budějovice",
+  "away": "Banes Florbal Soběslav",
+  "special": false,
+  "odds": {
+   "1": 1.65,
+   "2": 2.82,
+   "10": 1.38,
+   "02": 2.12
+  },
+  "model": {
+   "p1": 0.5624,
+   "p0": 0.1094,
+   "p2": 0.3283,
+   "lambda": [
+    6.76,
+    5.7
+   ],
+   "elo": [
+    1415,
+    1400
+   ]
+  },
+  "published_at": "2026-09-01 11:10:42"
+ },
+ "1312142": {
+  "match_id": 1312142,
+  "round": 1,
+  "home": "TJ Centropen Dačice",
+  "away": "Fbc Strakonice",
+  "special": false,
+  "odds": {
+   "1": 3.18,
+   "2": 1.53,
+   "10": 2.33,
+   "02": 1.31
+  },
+  "model": {
+   "p1": 0.2914,
+   "p0": 0.1052,
+   "p2": 0.6034,
+   "lambda": [
+    5.56,
+    6.99
+   ],
+   "elo": [
+    1418,
+    1552
+   ]
+  },
+  "published_at": "2026-09-01 11:10:42"
+ },
+ "1312145": {
+  "match_id": 1312145,
+  "round": 1,
+  "home": "OLYMP FLORBAL",
+  "away": "FbŠ Florbal Bohemians",
+  "special": true,
+  "odds": {
+   "2": 1.58
+  },
+  "model": {
+   "p1": 0.3111,
+   "p0": 0.1044,
+   "p2": 0.5845,
+   "lambda": [
+    5.97,
+    7.25
+   ],
+   "elo": [
+    1480,
+    1606
+   ]
+  },
+  "published_at": "2026-09-01 11:10:42"
+ },
+ "1312141": {
+  "match_id": 1312141,
+  "round": 1,
+  "home": "FBC Štíři Č. Budějovice",
+  "away": "SK Florbal Benešov",
+  "special": false,
+  "odds": {
+   "1": 1.42,
+   "2": 3.73,
+   "10": 1.23,
+   "02": 2.66
+  },
+  "model": {
+   "p1": 0.6516,
+   "p0": 0.1004,
+   "p2": 0.248,
+   "lambda": [
+    7.07,
+    5.2
+   ],
+   "elo": [
+    1485,
+    1421
+   ]
+  },
+  "published_at": "2026-09-01 11:10:42"
+ },
+ "1312144": {
+  "match_id": 1312144,
+  "round": 1,
+  "home": "FbC Plzeň",
+  "away": "Florbal Jindřichův Hradec",
+  "special": false,
+  "odds": {
+   "1": 1.45,
+   "2": 3.54,
+   "10": 1.25,
+   "02": 2.55
+  },
+  "model": {
+   "p1": 0.6368,
+   "p0": 0.1014,
+   "p2": 0.2618,
+   "lambda": [
+    7.13,
+    5.39
+   ],
+   "elo": [
+    1591,
+    1535
+   ]
+  },
+  "published_at": "2026-09-01 11:10:42"
+ }
+}

@@ -1,0 +1,3392 @@
+{
+ "label": "Národní liga východ 2025/26",
+ "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM3?divisionAlias=8XM3-B&competitionFisId=4490",
+ "scraped_at": "2026-09-01 10:37:56",
+ "prior": 1620,
+ "matches": [
+  {
+   "id": 1222431,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-13",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Zlín",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222429,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-13",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "FBC Přerov",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222433,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-13",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Náchod",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222428,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Troopers",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222432,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Třinec",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222430,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Blansko",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222435,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Petrovice",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222437,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "Zlín Lions",
+   "home_short": "Pelhřimov",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222438,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Litomyšl",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222434,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Jaroměř",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222436,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "FBC Intevo Třinec",
+   "home_short": "ZŠ Horní",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222439,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FBC Přerov",
+   "home_short": "Troopers",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    14,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222445,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-26",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Letka",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222442,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-27",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Zlín",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222440,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-27",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "FBC Přerov",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222444,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-27",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Náchod",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222443,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Třinec",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222441,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "TROOPERS",
+   "home_short": "Blansko",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222448,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Pelhřimov",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222449,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Litomyšl",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222451,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "FBC Přerov",
+   "home_short": "Blansko",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222446,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Jaroměř",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222447,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Letka",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222450,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "Zlín Lions",
+   "home_short": "Troopers",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222454,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "TROOPERS",
+   "home_short": "Třinec",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222453,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBC Přerov",
+   "home_short": "Zlín",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222457,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Petrovice",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    11
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222452,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Blansko",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222455,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Náchod",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222456,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Letka",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222462,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "FBC Intevo Třinec",
+   "home_short": "FBC Přerov",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222458,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Jaroměř",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222459,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Pelhřimov",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222460,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Litomyšl",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    2
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222461,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Troopers",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222463,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "Zlín Lions",
+   "home_short": "Blansko",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    11
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222464,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Zlín",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222465,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Třinec",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222468,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Petrovice",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222469,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "Spartak Pelhřimov",
+   "home_short": "ZŠ Horní",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222466,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FBC Přerov",
+   "home_short": "Náchod",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222467,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-26",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "TROOPERS",
+   "home_short": "Letka",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222475,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Zlín",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222470,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Jaroměř",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222471,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Litomyšl",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222472,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Troopers",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222474,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Blansko",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222473,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBC Přerov",
+   "home_short": "Letka",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222476,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Třinec",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222479,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "FBC Přerov",
+   "home_short": "Petrovice",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222481,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Pelhřimov",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222477,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "Zlín Lions",
+   "home_short": "Náchod",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222478,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Letka",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222480,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "TROOPERS",
+   "home_short": "ZŠ Horní",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222486,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-06",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Zlín",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222485,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Petrovice",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222487,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Třinec",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222482,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Jaroměř",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222483,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Troopers",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222489,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-14",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Letka",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222490,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-15",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "Zlín Lions",
+   "home_short": "Petrovice",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222488,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-15",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Jaroměř",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222492,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-15",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "FBC Přerov",
+   "home_short": "Pelhřimov",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222493,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-15",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "TROOPERS",
+   "home_short": "Litomyšl",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222491,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "FBK Atlas Blansko",
+   "home_short": "ZŠ Horní",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222499,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-22",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "TROOPERS",
+   "home_short": "FBC Přerov",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    15
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222495,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-22",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Náchod",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222494,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Letka",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222496,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Třinec",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222497,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Zlín",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222498,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Blansko",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222505,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Petrovice",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222504,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "ZŠ Horní",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222500,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FBC Přerov",
+   "home_short": "Jaroměř",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222502,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "Zlín Lions",
+   "home_short": "Litomyšl",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222503,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Pelhřimov",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222501,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Troopers",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222509,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Třinec",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222510,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "TROOPERS",
+   "home_short": "Zlín",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222507,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "ZŠ Horní",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222511,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "FBK Atlas Blansko",
+   "home_short": "FBC Přerov",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222508,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Náchod",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222506,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-04",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Petrovice",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222517,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "ZŠ Horní",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222513,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "Zlín Lions",
+   "home_short": "FBC Přerov",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222512,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Jaroměř",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222515,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Litomyšl",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222516,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Pelhřimov",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222519,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Petrovice",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222522,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "FBC Přerov",
+   "home_short": "Třinec",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222523,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Zlín",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222518,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "ZŠ Horní",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222521,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "TROOPERS",
+   "home_short": "Náchod",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222520,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Letka",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222525,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Blansko",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222526,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "FBC Přerov",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222524,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Zlín Lions",
+   "home_short": "Jaroměř",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222528,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Litomyšl",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222529,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Pelhřimov",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222527,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-25",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Troopers",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222535,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Zlín Lions",
+   "home_short": "Třinec",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222531,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "ZŠ Horní",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222533,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "FBC Přerov",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222530,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Pelhřimov",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1222534,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Náchod",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222532,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "TROOPERS",
+   "home_short": "Petrovice",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222484,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "FBC Přerov",
+   "home_short": "ZŠ Horní",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222538,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-06",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Blansko",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222537,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Zlín",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1222539,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "FBC Přerov",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222540,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Troopers",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222536,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Jaroměř",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222541,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Litomyšl",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1222514,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-02-09",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Troopers",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    11
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222545,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Blansko",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222544,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "FBC Přerov",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222542,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Litomyšl",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222543,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "TROOPERS",
+   "home_short": "Pelhřimov",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222547,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Náchod",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222546,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "Zlín Lions",
+   "home_short": "Letka",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222550,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Zlín",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222551,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Blansko",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222552,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "Spartak Pelhřimov",
+   "home_short": "FBC Přerov",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222548,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Náchod",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222553,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Troopers",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222549,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Třinec",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222558,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Petrovice",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222557,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "Zlín Lions",
+   "home_short": "ZŠ Horní",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222554,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "TROOPERS",
+   "home_short": "Jaroměř",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222555,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "FBC Přerov",
+   "home_short": "Litomyšl",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222556,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Pelhřimov",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1222559,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-03-01",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Letka",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289229,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Náchod",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289228,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Zlín",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289230,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Třinec",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289231,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FBC Přerov",
+   "home_short": "Troopers",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289232,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "Hornets Brno ZŠ Horní",
+   "home_short": "Zlín",
+   "away_short": "ZŠ Horní",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289233,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "Spartak Pelhřimov",
+   "home_short": "Náchod",
+   "away_short": "Pelhřimov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289234,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Třinec",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289235,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FBC Přerov",
+   "home_short": "Troopers",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289239,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "TROOPERS",
+   "home_short": "FBC Přerov",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289236,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "Zlín Lions",
+   "home_short": "ZŠ Horní",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289237,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Spartak Pelhřimov",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Pelhřimov",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289802,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Letka",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289803,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Jaroměř",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289238,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Litomyšl",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289243,
+   "round": null,
+   "round_label": "4. utkání čtvrtfinále",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "TROOPERS",
+   "home_short": "FBC Přerov",
+   "away_short": "Troopers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289242,
+   "round": null,
+   "round_label": "4. utkání čtvrtfinále",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "FLORBAL LITOMYŠL",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Litomyšl",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289804,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Letka",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    0
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289805,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Jaroměř",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289240,
+   "round": null,
+   "round_label": "4. utkání čtvrtfinále",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "Hornets Brno ZŠ Horní",
+   "away": "Zlín Lions",
+   "home_short": "ZŠ Horní",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    11
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289246,
+   "round": null,
+   "round_label": "5. utkání čtvrtfinále",
+   "date": "2026-03-18",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "FLORBAL LITOMYŠL",
+   "home_short": "Třinec",
+   "away_short": "Litomyšl",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289247,
+   "round": null,
+   "round_label": "5. utkání čtvrtfinále",
+   "date": "2026-03-18",
+   "time": null,
+   "home": "TROOPERS",
+   "away": "FBC Přerov",
+   "home_short": "Troopers",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289806,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-20",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Blansko",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289807,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Petrovice",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289808,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FBK Atlas Blansko",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Blansko",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289248,
+   "round": null,
+   "round_label": "1. utkání semifinále",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBC Přerov",
+   "home_short": "Zlín",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    0
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289249,
+   "round": null,
+   "round_label": "1. utkání semifinále",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Náchod",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289251,
+   "round": null,
+   "round_label": "2. utkání semifinále",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Náchod",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289809,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Petrovice",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    2
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289250,
+   "round": null,
+   "round_label": "2. utkání semifinále",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBC Přerov",
+   "home_short": "Zlín",
+   "away_short": "FBC Přerov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289252,
+   "round": null,
+   "round_label": "3. utkání semifinále",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "Zlín Lions",
+   "home_short": "FBC Přerov",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    0,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289253,
+   "round": null,
+   "round_label": "3. utkání semifinále",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Třinec",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289811,
+   "round": null,
+   "round_label": "5. utkání 1. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "Z.F.K. Petrovice",
+   "home_short": "Jaroměř",
+   "away_short": "Petrovice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289255,
+   "round": null,
+   "round_label": "4. utkání semifinále",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Florbal Primátor Náchod",
+   "home_short": "Třinec",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289810,
+   "round": null,
+   "round_label": "5. utkání 1. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBK Atlas Blansko",
+   "home_short": "Letka",
+   "away_short": "Blansko",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    0
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289254,
+   "round": null,
+   "round_label": "4. utkání semifinále",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "FBC Přerov",
+   "away": "Zlín Lions",
+   "home_short": "FBC Přerov",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289257,
+   "round": null,
+   "round_label": "5. utkání semifinále",
+   "date": "2026-03-31",
+   "time": null,
+   "home": "Florbal Primátor Náchod",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Náchod",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    0,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289258,
+   "round": null,
+   "round_label": "1. utkání finále",
+   "date": "2026-04-04",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Zlín",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289259,
+   "round": null,
+   "round_label": "2. utkání finále",
+   "date": "2026-04-05",
+   "time": null,
+   "home": "Zlín Lions",
+   "away": "FBC Intevo Třinec",
+   "home_short": "Zlín",
+   "away_short": "Třinec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289813,
+   "round": null,
+   "round_label": "6. utkání 1. kolo",
+   "date": "2026-04-05",
+   "time": null,
+   "home": "Z.F.K. Petrovice",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Petrovice",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289260,
+   "round": null,
+   "round_label": "3. utkání finále",
+   "date": "2026-04-10",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Zlín Lions",
+   "home_short": "Třinec",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289261,
+   "round": null,
+   "round_label": "4. utkání finále",
+   "date": "2026-04-11",
+   "time": null,
+   "home": "FBC Intevo Třinec",
+   "away": "Zlín Lions",
+   "home_short": "Třinec",
+   "away_short": "Zlín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292273,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-18",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FbC Plzeň",
+   "home_short": "Kobylisy",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1292274,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-18",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Start98",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    15,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292284,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-18",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Jaroměř",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292283,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-19",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Letka",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292285,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Kadaň",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292276,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "FAT PIPE Start98",
+   "home_short": "Slavia",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292286,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1292275,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "FbC Plzeň",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292277,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-04-28",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FbC Plzeň",
+   "home_short": "Kobylisy",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292287,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-05-01",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Letka",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292288,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-05-01",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Jaroměř",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292278,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-05-01",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Start98",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    14,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292290,
+   "round": 4,
+   "round_label": "4. kolo baráž",
+   "date": "2026-05-03",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292279,
+   "round": 4,
+   "round_label": "4. kolo baráž",
+   "date": "2026-05-03",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "FbC Plzeň",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1292292,
+   "round": 5,
+   "round_label": "5. kolo baráž",
+   "date": "2026-05-08",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Jaroměř",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    7
+   ],
+   "score_note": ""
+  }
+ ]
+}

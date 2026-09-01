@@ -1,0 +1,6 @@
+__pycache__/
+data/telegram.json
+data/telegram_offset.txt
+data/bets_sealed.json
+data/secret_key.txt
+data/players.json

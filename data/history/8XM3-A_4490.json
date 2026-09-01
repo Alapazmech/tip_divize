@@ -1,0 +1,3374 @@
+{
+ "label": "Národní liga západ 2025/26",
+ "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM3?divisionAlias=8XM3-A&competitionFisId=4490",
+ "scraped_at": "2026-09-01 10:37:54",
+ "prior": 1620,
+ "matches": [
+  {
+   "id": 1216880,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-13",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Falcon",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216881,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Panthers Praha",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216882,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Draci",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216878,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Black Angels",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216879,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Kutná Hora",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216883,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "Florbal Děčín",
+   "home_short": "Start98",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216885,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "FAT PIPE Start98",
+   "home_short": "Štíři",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216884,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "Florbal Děčín",
+   "home_short": "SO Praha",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216886,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FBC Draci Říčany",
+   "home_short": "Kobylisy",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216887,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "Panthers Praha",
+   "home_short": "Králův Dvůr",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216888,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "Floorball Club FALCON",
+   "home_short": "Gorily",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216889,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Black Angels",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216895,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-27",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Děčín",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216891,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-27",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "BLACK ANGELS",
+   "home_short": "Falcon",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216893,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Draci",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216894,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Start98",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216890,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Kutná Hora",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216892,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Panthers Praha",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216896,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "SO Praha",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216897,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "Florbal Děčín",
+   "home_short": "Kobylisy",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216898,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "FAT PIPE Start98",
+   "home_short": "Králův Dvůr",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216899,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "FBC Draci Říčany",
+   "home_short": "Gorily",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216901,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "Floorball Club FALCON",
+   "home_short": "Kutná Hora",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216900,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-05",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Panthers Praha",
+   "home_short": "Black Angels",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216906,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Děčín",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1216902,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Falcon",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216903,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Panthers Praha",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216904,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "BLACK ANGELS",
+   "home_short": "Draci",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216907,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Štíři",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216905,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Start98",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216911,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "FAT PIPE Start98",
+   "home_short": "Black Angels",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216910,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "Florbal Děčín",
+   "home_short": "Gorily",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1216908,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "SO Praha",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216909,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Králův Dvůr",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    13,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216912,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "FBC Draci Říčany",
+   "home_short": "Kutná Hora",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216913,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "Panthers Praha",
+   "home_short": "Falcon",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216914,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Panthers Praha",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216916,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Start98",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216917,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "BLACK ANGELS",
+   "home_short": "Děčín",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216919,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Kobylisy",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216918,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-26",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Štíři",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216915,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-26",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "Floorball Club FALCON",
+   "home_short": "Draci",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216923,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "Florbal Děčín",
+   "home_short": "Kutná Hora",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216925,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "FBC Draci Říčany",
+   "home_short": "Panthers Praha",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216920,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "SO Praha",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216921,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Gorily",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216922,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Black Angels",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216924,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "FAT PIPE Start98",
+   "home_short": "Falcon",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    15,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216928,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "Floorball Club FALCON",
+   "home_short": "Děčín",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1216929,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Štíři",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216930,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "BLACK ANGELS",
+   "home_short": "Kobylisy",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216926,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Draci",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216927,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "Panthers Praha",
+   "home_short": "Start98",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216931,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Králův Dvůr",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216935,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Falcon",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216937,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "FAT PIPE Start98",
+   "home_short": "Draci",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216932,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "SO Praha",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216933,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Black Angels",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216934,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Kutná Hora",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216936,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Florbal Děčín",
+   "home_short": "Panthers Praha",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216941,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-15",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "Floorball Club FALCON",
+   "home_short": "Kobylisy",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216939,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "FBC Draci Říčany",
+   "home_short": "Děčín",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216940,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Panthers Praha",
+   "home_short": "Štíři",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216938,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "FAT PIPE Start98",
+   "home_short": "SO Praha",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216942,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Králův Dvůr",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216943,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "BLACK ANGELS",
+   "home_short": "Gorily",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216944,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-22",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Děčín",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216948,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-22",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Falcon",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216947,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Panthers Praha",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216945,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Start98",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216946,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Draci",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216949,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "BLACK ANGELS",
+   "home_short": "Kutná Hora",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216955,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Florbal Děčín",
+   "home_short": "Štíři",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216950,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "SO Praha",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216951,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Floorball Club FALCON",
+   "home_short": "Black Angels",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216952,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "Panthers Praha",
+   "home_short": "Gorily",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216953,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "FBC Draci Říčany",
+   "home_short": "Králův Dvůr",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    0,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216954,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FAT PIPE Start98",
+   "home_short": "Kobylisy",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216990,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2025-12-20",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Black Angels",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1216960,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "BLACK ANGELS",
+   "home_short": "Panthers Praha",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1216957,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Děčín",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216956,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-04",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Štíři",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216959,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-04",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Draci",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216958,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-04",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Start98",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216962,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-11",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "Floorball Club FALCON",
+   "home_short": "SO Praha",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216967,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-11",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Kobylisy",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216963,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-11",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "Panthers Praha",
+   "home_short": "Kutná Hora",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    9
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216965,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-11",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "FAT PIPE Start98",
+   "home_short": "Gorily",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216966,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-11",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "Florbal Děčín",
+   "home_short": "Králův Dvůr",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216964,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-15",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "FBC Draci Říčany",
+   "home_short": "Black Angels",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216968,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Kobylisy",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216970,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Děčín",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216973,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Floorball Club FALCON",
+   "home_short": "Panthers Praha",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216969,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Štíři",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216972,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Draci",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216975,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "FBC Draci Říčany",
+   "home_short": "Falcon",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    2
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1216974,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "Panthers Praha",
+   "home_short": "SO Praha",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216976,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-25",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "FAT PIPE Start98",
+   "home_short": "Kutná Hora",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216977,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-25",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Florbal Děčín",
+   "home_short": "Black Angels",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216978,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-25",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Gorily",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216979,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-25",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Králův Dvůr",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216971,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-29",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "BLACK ANGELS",
+   "home_short": "Start98",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216981,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Kobylisy",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216984,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "Floorball Club FALCON",
+   "home_short": "Start98",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216983,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Děčín",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216982,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "BLACK ANGELS",
+   "home_short": "Štíři",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    14
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216985,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "Panthers Praha",
+   "home_short": "Draci",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216980,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Králův Dvůr",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216987,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "FAT PIPE Start98",
+   "home_short": "Panthers Praha",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216988,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "Florbal Děčín",
+   "home_short": "Falcon",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216986,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "FBC Draci Říčany",
+   "home_short": "SO Praha",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216989,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Kutná Hora",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    16,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216991,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Gorily",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216996,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "Panthers Praha",
+   "home_short": "Děčín",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216997,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "FBC Draci Říčany",
+   "home_short": "Start98",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1216995,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Floorball Club FALCON",
+   "home_short": "Štíři",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216992,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Gorily",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216993,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "BLACK ANGELS",
+   "home_short": "Králův Dvůr",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216994,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Kobylisy",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217000,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Panthers Praha",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217001,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Falcon",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216998,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Start98",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216999,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "Florbal Děčín",
+   "home_short": "Draci",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217002,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Kutná Hora",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217003,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Black Angels",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1216961,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-02-27",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Falcon",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217004,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "BLACK ANGELS",
+   "home_short": "SO Praha",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217009,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "FAT PIPE Start98",
+   "home_short": "Děčín",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217008,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-03-01",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "FBC Draci Říčany",
+   "home_short": "Štíři",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1217005,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-03-01",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "Gorily",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217006,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-03-01",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "Floorball Club FALCON",
+   "home_short": "Králův Dvůr",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1217007,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-03-01",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "Panthers Praha",
+   "home_short": "Kobylisy",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289264,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Floorball Club FALCON",
+   "home_short": "Panthers Praha",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289265,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Black Angels",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289266,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "Florbal Děčín",
+   "home_short": "Draci",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289267,
+   "round": null,
+   "round_label": "1. utkání čtvrtfinále",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "SO Praha",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289269,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "ATT Gorily Plzeň",
+   "home_short": "Black Angels",
+   "away_short": "Gorily",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289270,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "Florbal Děčín",
+   "home_short": "Draci",
+   "away_short": "Děčín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289271,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "FBC VHST Kutná Hora",
+   "home_short": "SO Praha",
+   "away_short": "Kutná Hora",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289268,
+   "round": null,
+   "round_label": "2. utkání čtvrtfinále",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Floorball Club FALCON",
+   "home_short": "Panthers Praha",
+   "away_short": "Falcon",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289275,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FBC VHST Kutná Hora",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Kutná Hora",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289273,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "ATT Gorily Plzeň",
+   "away": "BLACK ANGELS",
+   "home_short": "Gorily",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289816,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Kobylisy",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289272,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "Panthers Praha",
+   "home_short": "Falcon",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289274,
+   "round": null,
+   "round_label": "3. utkání čtvrtfinále",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "FBC Draci Říčany",
+   "home_short": "Děčín",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289817,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Start98",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289278,
+   "round": null,
+   "round_label": "4. utkání čtvrtfinále",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "Florbal Děčín",
+   "away": "FBC Draci Říčany",
+   "home_short": "Děčín",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    0,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289818,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Kobylisy",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289819,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Start98",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289276,
+   "round": null,
+   "round_label": "4. utkání čtvrtfinále",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "Floorball Club FALCON",
+   "away": "Panthers Praha",
+   "home_short": "Falcon",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289284,
+   "round": null,
+   "round_label": "1. utkání semifinále",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Panthers Praha",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289285,
+   "round": null,
+   "round_label": "1. utkání semifinále",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "FBC Draci Říčany",
+   "home_short": "Black Angels",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289820,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Štíři",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289821,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "FAT PIPE Start98",
+   "home_short": "Králův Dvůr",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289286,
+   "round": null,
+   "round_label": "2. utkání semifinále",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Panthers Praha",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289822,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "Štíři",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    12
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289287,
+   "round": null,
+   "round_label": "2. utkání semifinále",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "FBC Draci Říčany",
+   "home_short": "Black Angels",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289823,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "FAT PIPE Start98",
+   "home_short": "Králův Dvůr",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289288,
+   "round": null,
+   "round_label": "3. utkání semifinále",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "Panthers Praha",
+   "home_short": "SO Praha",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289289,
+   "round": null,
+   "round_label": "3. utkání semifinále",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "BLACK ANGELS",
+   "home_short": "Draci",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289824,
+   "round": null,
+   "round_label": "5. utkání 1. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Kobylisy",
+   "away_short": "Štíři",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289825,
+   "round": null,
+   "round_label": "5. utkání 1. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Start98",
+   "away_short": "Králův Dvůr",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289291,
+   "round": null,
+   "round_label": "4. utkání semifinále",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "FBC Draci Říčany",
+   "away": "BLACK ANGELS",
+   "home_short": "Draci",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289290,
+   "round": null,
+   "round_label": "4. utkání semifinále",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "Panthers Praha",
+   "home_short": "SO Praha",
+   "away_short": "Panthers Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289292,
+   "round": null,
+   "round_label": "5. utkání semifinále",
+   "date": "2026-03-31",
+   "time": null,
+   "home": "Panthers Praha",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Panthers Praha",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289293,
+   "round": null,
+   "round_label": "5. utkání semifinále",
+   "date": "2026-04-01",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "FBC Draci Říčany",
+   "home_short": "Black Angels",
+   "away_short": "Draci",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289827,
+   "round": null,
+   "round_label": "6. utkání 1. kolo",
+   "date": "2026-04-05",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "FAT PIPE Start98",
+   "home_short": "Králův Dvůr",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289294,
+   "round": null,
+   "round_label": "1. utkání finále",
+   "date": "2026-04-07",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "BLACK ANGELS",
+   "home_short": "SO Praha",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289295,
+   "round": null,
+   "round_label": "2. utkání finále",
+   "date": "2026-04-08",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Black Angels",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289296,
+   "round": null,
+   "round_label": "3. utkání finále",
+   "date": "2026-04-11",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Black Angels",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289297,
+   "round": null,
+   "round_label": "4. utkání finále",
+   "date": "2026-04-12",
+   "time": null,
+   "home": "Wizards SO Praha 10",
+   "away": "BLACK ANGELS",
+   "home_short": "SO Praha",
+   "away_short": "Black Angels",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289298,
+   "round": null,
+   "round_label": "5. utkání finále",
+   "date": "2026-04-15",
+   "time": null,
+   "home": "BLACK ANGELS",
+   "away": "Wizards SO Praha 10",
+   "home_short": "Black Angels",
+   "away_short": "SO Praha",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1292273,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-18",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FbC Plzeň",
+   "home_short": "Kobylisy",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1292274,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-18",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Start98",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    15,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292284,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-18",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Jaroměř",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292283,
+   "round": 1,
+   "round_label": "1. kolo baráž",
+   "date": "2026-04-19",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Letka",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292285,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBC Letka Toman Finance Group",
+   "home_short": "Kadaň",
+   "away_short": "Letka",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292276,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "FAT PIPE Start98",
+   "home_short": "Slavia",
+   "away_short": "Start98",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292286,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1292275,
+   "round": 2,
+   "round_label": "2. kolo baráž",
+   "date": "2026-04-26",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "FbC Plzeň",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292277,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-04-28",
+   "time": null,
+   "home": "Florbal TJ Kobylisy",
+   "away": "FbC Plzeň",
+   "home_short": "Kobylisy",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292287,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-05-01",
+   "time": null,
+   "home": "FBC Letka Toman Finance Group",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Letka",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292288,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-05-01",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Jaroměř",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292278,
+   "round": 3,
+   "round_label": "3. kolo baráž",
+   "date": "2026-05-01",
+   "time": null,
+   "home": "FAT PIPE Start98",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Start98",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    14,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292290,
+   "round": 4,
+   "round_label": "4. kolo baráž",
+   "date": "2026-05-03",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "TJ Sokol Jaroměř",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Jaroměř",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1292279,
+   "round": 4,
+   "round_label": "4. kolo baráž",
+   "date": "2026-05-03",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "Florbal TJ Kobylisy",
+   "home_short": "FbC Plzeň",
+   "away_short": "Kobylisy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1292292,
+   "round": 5,
+   "round_label": "5. kolo baráž",
+   "date": "2026-05-08",
+   "time": null,
+   "home": "TJ Sokol Jaroměř",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Jaroměř",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    7
+   ],
+   "score_note": ""
+  }
+ ]
+}

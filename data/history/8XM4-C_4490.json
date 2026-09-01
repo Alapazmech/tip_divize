@@ -1,0 +1,4094 @@
+{
+ "label": "Divize C 2025/26",
+ "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-C&competitionFisId=4490",
+ "scraped_at": "2026-09-01 10:37:48",
+ "prior": 1500,
+ "matches": [
+  {
+   "id": 1218893,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-13",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Jablonec",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218891,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-13",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Dobruška",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218895,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Trutnov",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218892,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Koberovy",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218894,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "FbC Skuteč",
+   "home_short": "Panthers",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    15,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218896,
+   "round": 1,
+   "round_label": "1. kolo",
+   "date": "2025-09-14",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Všestary",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218897,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "H. Králové",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218900,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Jablonec",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    20,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218902,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Dobruška",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218901,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-20",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Rtyně v/P",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218898,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "FBŠ Všestary",
+   "home_short": "Náchod",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218899,
+   "round": 2,
+   "round_label": "2. kolo",
+   "date": "2025-09-21",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Skuteč",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218906,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-27",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Trutnov",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    15
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218908,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-27",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Dvůr Králové",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218907,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "FbC Skuteč",
+   "home_short": "Všestary",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218903,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Koberovy",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218905,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Panthers",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218904,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2025-09-28",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Turnov",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218909,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "H. Králové",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218911,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "FBŠ Všestary",
+   "home_short": "Jablonec",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1218913,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Dobruška",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218914,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Turnov",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218912,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2025-10-04",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Rtyně v/P",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218917,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Trutnov",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218919,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-11",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Dvůr Králové",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218915,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Turnov",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218916,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Panthers",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218918,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Všestary",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218920,
+   "round": 5,
+   "round_label": "5. kolo",
+   "date": "2025-10-12",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "FbC Skuteč",
+   "home_short": "Náchod",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218924,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "FBŠ Všestary",
+   "home_short": "Dobruška",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218926,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Turnov",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    10
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218923,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-18",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Rtyně v/P",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218965,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Rtyně v/P",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218922,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Jablonec",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    15,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218925,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Koberovy",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218921,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2025-10-19",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "FbC Skuteč",
+   "home_short": "H. Králové",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218927,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Panthers",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218928,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Trutnov",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218930,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-25",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Dvůr Králové",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218929,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-26",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Všestary",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218931,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-26",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Náchod",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218932,
+   "round": 7,
+   "round_label": "7. kolo",
+   "date": "2025-10-26",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Skuteč",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    15
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218933,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "H. Králové",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    12
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218936,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Koberovy",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218937,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "FBŠ Všestary",
+   "home_short": "Turnov",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218935,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Dobruška",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218934,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2025-10-28",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "FbC Skuteč",
+   "home_short": "Rtyně v/P",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218939,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Trutnov",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218941,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Dvůr Králové",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218943,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-01",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Skuteč",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218940,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Všestary",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218942,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Náchod",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218944,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2025-11-02",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Jablonec",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218946,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-08",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Dobruška",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1218950,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-08",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "FBŠ Všestary",
+   "home_short": "Trutnov",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218948,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-08",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Turnov",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218945,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "H. Králové",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218949,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-11-09",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Panthers",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218951,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-15",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "FBŠ Všestary",
+   "home_short": "H. Králové",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218952,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-15",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Dvůr Králové",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218955,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Jablonec",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    14,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218953,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Náchod",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218956,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Rtyně v/P",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1218954,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2025-11-16",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Skuteč",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218993,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2025-11-17",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Jablonec",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218959,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-22",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "FbC Skuteč",
+   "home_short": "Trutnov",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218961,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-22",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Turnov",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218957,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-22",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Dvůr Králové",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218962,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Koberovy",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218958,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Všestary",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218960,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2025-11-23",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Panthers",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218966,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Jablonec",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218964,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Dobruška",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218967,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "FBŠ Všestary",
+   "home_short": "Skuteč",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218963,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-29",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "H. Králové",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218968,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2025-11-30",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Náchod",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1218947,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2025-12-21",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "FbC Skuteč",
+   "home_short": "Koberovy",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218970,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "FbC Skuteč",
+   "home_short": "Dvůr Králové",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    15,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218972,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-03",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Trutnov",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218974,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-04",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Koberovy",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218969,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-04",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Náchod",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218971,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-04",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Všestary",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    12
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218979,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Jablonec",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218978,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "FBŠ Všestary",
+   "home_short": "Rtyně v/P",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218980,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Skuteč",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218975,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "H. Králové",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218977,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-10",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Dobruška",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218976,
+   "round": 15,
+   "round_label": "15. kolo",
+   "date": "2026-01-11",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Koberovy",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218973,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Panthers",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218983,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Dvůr Králové",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218985,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-17",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Trutnov",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218986,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Panthers",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218984,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Všestary",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1218981,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Skuteč",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218982,
+   "round": 16,
+   "round_label": "16. kolo",
+   "date": "2026-01-18",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Náchod",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218987,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "FBC Panthers Liberec",
+   "home_short": "H. Králové",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218988,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Turnov",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218989,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "FBŠ Všestary",
+   "home_short": "Koberovy",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218991,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-24",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Rtyně v/P",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218990,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-01-25",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Dobruška",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218910,
+   "round": 4,
+   "round_label": "4. kolo",
+   "date": "2026-01-29",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Skuteč",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218996,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Dvůr Králové",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218998,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Trutnov",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218994,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-01-31",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Skuteč",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218938,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Panthers",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    11
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1218995,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Náchod",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218997,
+   "round": 18,
+   "round_label": "18. kolo",
+   "date": "2026-02-01",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Všestary",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219001,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-06",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Turnov",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219003,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "FbC Skuteč",
+   "home_short": "Dobruška",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    13,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218999,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "H. Králové",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219004,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-07",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Rtyně v/P",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1219000,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-08",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "FBŠ Všestary",
+   "home_short": "Panthers",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    13
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219002,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2026-02-08",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Koberovy",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1218992,
+   "round": 17,
+   "round_label": "17. kolo",
+   "date": "2026-02-13",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "FbC Skuteč",
+   "home_short": "Jablonec",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219006,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Jablonec",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219009,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Dvůr Králové",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219005,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-14",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Rtyně v/P",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    0
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219010,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Všestary",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219007,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Skuteč",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    8
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1219008,
+   "round": 20,
+   "round_label": "20. kolo",
+   "date": "2026-02-15",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "T.K.S. TJ Turnov",
+   "home_short": "Náchod",
+   "away_short": "Turnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219015,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-20",
+   "time": null,
+   "home": "T.K.S. TJ Sokol Koberovy",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Koberovy",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219012,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "TJ Sokol Dvůr Králové nL",
+   "home_short": "Trutnov",
+   "away_short": "Dvůr Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219014,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-21",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "FbC Skuteč",
+   "home_short": "Turnov",
+   "away_short": "Skuteč",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219013,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "FBC Panthers Liberec",
+   "away": "Florbal Primátor Náchod B",
+   "home_short": "Panthers",
+   "away_short": "Náchod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    19,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219011,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "Florbal Hradec Králové B",
+   "home_short": "Všestary",
+   "away_short": "H. Králové",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    9
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1219016,
+   "round": 21,
+   "round_label": "21. kolo",
+   "date": "2026-02-22",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Dobruška",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219021,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "Florbal Primátor Náchod B",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Náchod",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219022,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "TJ Sokol Dvůr Králové nL",
+   "away": "FBŠ Všestary",
+   "home_short": "Dvůr Králové",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219019,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "T.K.S. TJ Turnov",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Turnov",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219020,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-02-28",
+   "time": null,
+   "home": "FbC Skuteč",
+   "away": "FBC Panthers Liberec",
+   "home_short": "Skuteč",
+   "away_short": "Panthers",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219017,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-03-01",
+   "time": null,
+   "home": "Florbal Hradec Králové B",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "H. Králové",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1219018,
+   "round": 22,
+   "round_label": "22. kolo",
+   "date": "2026-03-01",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "T.K.S. TJ Sokol Koberovy",
+   "home_short": "Rtyně v/P",
+   "away_short": "Koberovy",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289397,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "FD Teplice",
+   "home_short": "Slavia",
+   "away_short": "Teplice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289400,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FBC Hranice",
+   "away": "FBC Mohelnice",
+   "home_short": "Hranice",
+   "away_short": "Mohelnice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289402,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "Warriors Nový Jičín",
+   "away": "FbK Orlicko-Třebovsko",
+   "home_short": "Warriors",
+   "away_short": "FbK OT",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    17,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289394,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FbŠ Florbal Bohemians",
+   "away": "Florbal Jindřichův Hradec",
+   "home_short": "Bohemians",
+   "away_short": "Florbal J. Hradec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289396,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "Kralupy Wolves",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Kralupy n/V",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289398,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBC AGA24 Český Těšín",
+   "home_short": "Kadaň",
+   "away_short": "Č. Těšín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    14,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289399,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "SK BIVOJ LITVÍNOV",
+   "home_short": "Všestary",
+   "away_short": "Bivoj",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    0
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289403,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "Aligators Klobouky",
+   "away": "1.MVIL Ostrava",
+   "home_short": "Aligators",
+   "away_short": "MVIL",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289401,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "FBC Spartak Bílovec",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Bílovec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289393,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "Fbc Strakonice",
+   "home_short": "Dobruška",
+   "away_short": "Strakonice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289395,
+   "round": null,
+   "round_label": "1. utkání 1. kolo",
+   "date": "2026-03-07",
+   "time": null,
+   "home": "FBC DOŠWICH MILEVSKO",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Došwich",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289408,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "FD Teplice",
+   "home_short": "Slavia",
+   "away_short": "Teplice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289404,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FBC KAMAT Dobruška",
+   "away": "Fbc Strakonice",
+   "home_short": "Dobruška",
+   "away_short": "Strakonice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289409,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBC AGA24 Český Těšín",
+   "home_short": "Kadaň",
+   "away_short": "Č. Těšín",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289410,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "SK BIVOJ LITVÍNOV",
+   "home_short": "Všestary",
+   "away_short": "Bivoj",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289411,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FBC Hranice",
+   "away": "FBC Mohelnice",
+   "home_short": "Hranice",
+   "away_short": "Mohelnice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289412,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "FBC Spartak Bílovec",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Bílovec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289413,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "Warriors Nový Jičín",
+   "away": "FbK Orlicko-Třebovsko",
+   "home_short": "Warriors",
+   "away_short": "FbK OT",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289414,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "Aligators Klobouky",
+   "away": "1.MVIL Ostrava",
+   "home_short": "Aligators",
+   "away_short": "MVIL",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289405,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FbŠ Florbal Bohemians",
+   "away": "Florbal Jindřichův Hradec",
+   "home_short": "Bohemians",
+   "away_short": "Florbal J. Hradec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289406,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "FBC DOŠWICH MILEVSKO",
+   "away": "FBC Trutnov Šelma (DTJ)",
+   "home_short": "Došwich",
+   "away_short": "Trutnov",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289407,
+   "round": null,
+   "round_label": "2. utkání 1. kolo",
+   "date": "2026-03-08",
+   "time": null,
+   "home": "Kralupy Wolves",
+   "away": "Orel Rtyně v Podkrkonoší",
+   "home_short": "Kralupy n/V",
+   "away_short": "Rtyně v/P",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289420,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FBC AGA24 Český Těšín",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Č. Těšín",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289424,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FbK Orlicko-Třebovsko",
+   "away": "Warriors Nový Jičín",
+   "home_short": "FbK OT",
+   "away_short": "Warriors",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289421,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "SK BIVOJ LITVÍNOV",
+   "away": "FBŠ Všestary",
+   "home_short": "Bivoj",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    11
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289419,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FD Teplice",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Teplice",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289416,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Florbal Jindřichův Hradec",
+   "away": "FbŠ Florbal Bohemians",
+   "home_short": "Florbal J. Hradec",
+   "away_short": "Bohemians",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    1,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289423,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FBC Spartak Bílovec",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Bílovec",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289425,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "1.MVIL Ostrava",
+   "away": "Aligators Klobouky",
+   "home_short": "MVIL",
+   "away_short": "Aligators",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289417,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FBC Trutnov Šelma (DTJ)",
+   "away": "FBC DOŠWICH MILEVSKO",
+   "home_short": "Trutnov",
+   "away_short": "Došwich",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289422,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "FBC Mohelnice",
+   "away": "FBC Hranice",
+   "home_short": "Mohelnice",
+   "away_short": "Hranice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289418,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "Kralupy Wolves",
+   "home_short": "Rtyně v/P",
+   "away_short": "Kralupy n/V",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289415,
+   "round": null,
+   "round_label": "3. utkání 1. kolo",
+   "date": "2026-03-14",
+   "time": null,
+   "home": "Fbc Strakonice",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Strakonice",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289426,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "Fbc Strakonice",
+   "away": "FBC KAMAT Dobruška",
+   "home_short": "Strakonice",
+   "away_short": "Dobruška",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289433,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "FBC Mohelnice",
+   "away": "FBC Hranice",
+   "home_short": "Mohelnice",
+   "away_short": "Hranice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    2
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289434,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "FBC Spartak Bílovec",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Bílovec",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289436,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "1.MVIL Ostrava",
+   "away": "Aligators Klobouky",
+   "home_short": "MVIL",
+   "away_short": "Aligators",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289429,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "Orel Rtyně v Podkrkonoší",
+   "away": "Kralupy Wolves",
+   "home_short": "Rtyně v/P",
+   "away_short": "Kralupy n/V",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289430,
+   "round": null,
+   "round_label": "4. utkání 1. kolo",
+   "date": "2026-03-15",
+   "time": null,
+   "home": "FD Teplice",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Teplice",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289445,
+   "round": null,
+   "round_label": "5. utkání 1. kolo",
+   "date": "2026-03-18",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "FBC Spartak Bílovec",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Bílovec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289441,
+   "round": null,
+   "round_label": "5. utkání 1. kolo",
+   "date": "2026-03-18",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "FD Teplice",
+   "home_short": "Slavia",
+   "away_short": "Teplice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289448,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "Fbc Strakonice",
+   "home_short": "FbC Plzeň",
+   "away_short": "Strakonice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289451,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Jablonec",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    11
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289453,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FBK Extraklima Spartak Hluk",
+   "away": "FBC Mohelnice",
+   "home_short": "Hluk",
+   "away_short": "Mohelnice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289452,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBŠ Všestary",
+   "home_short": "Kadaň",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289455,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "1. FBK Eagles Orlová",
+   "away": "Aligators Klobouky",
+   "home_short": "Eagles",
+   "away_short": "Aligators",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289454,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "Warriors Nový Jičín",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Warriors",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289450,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "TJ Sokol H.Brod Erupting Dragons",
+   "away": "Kralupy Wolves",
+   "home_short": "Havlíčkův Brod",
+   "away_short": "Kralupy n/V",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289449,
+   "round": null,
+   "round_label": "1. utkání 2. kolo",
+   "date": "2026-03-21",
+   "time": null,
+   "home": "FBC DOŠWICH MILEVSKO",
+   "away": "FbŠ Florbal Bohemians",
+   "home_short": "Došwich",
+   "away_short": "Bohemians",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289459,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "FLORBAL JABLONEC",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Jablonec",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289460,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBŠ Všestary",
+   "home_short": "Kadaň",
+   "away_short": "Všestary",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289462,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "Warriors Nový Jičín",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Warriors",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289463,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "1. FBK Eagles Orlová",
+   "away": "Aligators Klobouky",
+   "home_short": "Eagles",
+   "away_short": "Aligators",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289457,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "FBC DOŠWICH MILEVSKO",
+   "away": "FbŠ Florbal Bohemians",
+   "home_short": "Došwich",
+   "away_short": "Bohemians",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289458,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "TJ Sokol H.Brod Erupting Dragons",
+   "away": "Kralupy Wolves",
+   "home_short": "Havlíčkův Brod",
+   "away_short": "Kralupy n/V",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289461,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "FBK Extraklima Spartak Hluk",
+   "away": "FBC Mohelnice",
+   "home_short": "Hluk",
+   "away_short": "Mohelnice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289456,
+   "round": null,
+   "round_label": "2. utkání 2. kolo",
+   "date": "2026-03-22",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "Fbc Strakonice",
+   "home_short": "FbC Plzeň",
+   "away_short": "Strakonice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289470,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "Warriors Nový Jičín",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Warriors",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289466,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "Kralupy Wolves",
+   "away": "TJ Sokol H.Brod Erupting Dragons",
+   "home_short": "Kralupy n/V",
+   "away_short": "Havlíčkův Brod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    8
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289469,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "FBC Mohelnice",
+   "away": "FBK Extraklima Spartak Hluk",
+   "home_short": "Mohelnice",
+   "away_short": "Hluk",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289467,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Slavia",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289465,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "FbŠ Florbal Bohemians",
+   "away": "FBC DOŠWICH MILEVSKO",
+   "home_short": "Bohemians",
+   "away_short": "Došwich",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    9
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289471,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "Aligators Klobouky",
+   "away": "1. FBK Eagles Orlová",
+   "home_short": "Aligators",
+   "away_short": "Eagles",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289468,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Všestary",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289464,
+   "round": null,
+   "round_label": "3. utkání 2. kolo",
+   "date": "2026-03-28",
+   "time": null,
+   "home": "Fbc Strakonice",
+   "away": "FbC Plzeň",
+   "home_short": "Strakonice",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289472,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "Fbc Strakonice",
+   "away": "FbC Plzeň",
+   "home_short": "Strakonice",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289478,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "Warriors Nový Jičín",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Warriors",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289479,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "Aligators Klobouky",
+   "away": "1. FBK Eagles Orlová",
+   "home_short": "Aligators",
+   "away_short": "Eagles",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289473,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "FbŠ Florbal Bohemians",
+   "away": "FBC DOŠWICH MILEVSKO",
+   "home_short": "Bohemians",
+   "away_short": "Došwich",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    1
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289474,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "Kralupy Wolves",
+   "away": "TJ Sokol H.Brod Erupting Dragons",
+   "home_short": "Kralupy n/V",
+   "away_short": "Havlíčkův Brod",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289475,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "FLORBAL JABLONEC",
+   "home_short": "Slavia",
+   "away_short": "Jablonec",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289477,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "FBC Mohelnice",
+   "away": "FBK Extraklima Spartak Hluk",
+   "home_short": "Mohelnice",
+   "away_short": "Hluk",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289476,
+   "round": null,
+   "round_label": "4. utkání 2. kolo",
+   "date": "2026-03-29",
+   "time": null,
+   "home": "FBŠ Všestary",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Všestary",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289480,
+   "round": null,
+   "round_label": "5. utkání 2. kolo",
+   "date": "2026-03-31",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "Fbc Strakonice",
+   "home_short": "FbC Plzeň",
+   "away_short": "Strakonice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289481,
+   "round": null,
+   "round_label": "5. utkání 2. kolo",
+   "date": "2026-04-01",
+   "time": null,
+   "home": "FBC DOŠWICH MILEVSKO",
+   "away": "FbŠ Florbal Bohemians",
+   "home_short": "Došwich",
+   "away_short": "Bohemians",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289487,
+   "round": null,
+   "round_label": "5. utkání 2. kolo",
+   "date": "2026-04-01",
+   "time": null,
+   "home": "1. FBK Eagles Orlová",
+   "away": "Aligators Klobouky",
+   "home_short": "Eagles",
+   "away_short": "Aligators",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    8,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289485,
+   "round": null,
+   "round_label": "5. utkání 2. kolo",
+   "date": "2026-04-01",
+   "time": null,
+   "home": "FBK Extraklima Spartak Hluk",
+   "away": "FBC Mohelnice",
+   "home_short": "Hluk",
+   "away_short": "Mohelnice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289488,
+   "round": null,
+   "round_label": "1. utkání 3. kolo",
+   "date": "2026-04-04",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "FBC DOŠWICH MILEVSKO",
+   "home_short": "FbC Plzeň",
+   "away_short": "Došwich",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    12,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289489,
+   "round": null,
+   "round_label": "1. utkání 3. kolo",
+   "date": "2026-04-04",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "Kralupy Wolves",
+   "home_short": "Slavia",
+   "away_short": "Kralupy n/V",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289491,
+   "round": null,
+   "round_label": "1. utkání 3. kolo",
+   "date": "2026-04-04",
+   "time": null,
+   "home": "1. FBK Eagles Orlová",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Eagles",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "pn"
+  },
+  {
+   "id": 1289490,
+   "round": null,
+   "round_label": "1. utkání 3. kolo",
+   "date": "2026-04-04",
+   "time": null,
+   "home": "FBK Extraklima Spartak Hluk",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Hluk",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    6
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289493,
+   "round": null,
+   "round_label": "2. utkání 3. kolo",
+   "date": "2026-04-05",
+   "time": null,
+   "home": "SK Slavia Praha FLORBAL",
+   "away": "Kralupy Wolves",
+   "home_short": "Slavia",
+   "away_short": "Kralupy n/V",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    13,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289495,
+   "round": null,
+   "round_label": "2. utkání 3. kolo",
+   "date": "2026-04-05",
+   "time": null,
+   "home": "1. FBK Eagles Orlová",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Eagles",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289492,
+   "round": null,
+   "round_label": "2. utkání 3. kolo",
+   "date": "2026-04-05",
+   "time": null,
+   "home": "FbC Plzeň",
+   "away": "FBC DOŠWICH MILEVSKO",
+   "home_short": "FbC Plzeň",
+   "away_short": "Došwich",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    8
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289494,
+   "round": null,
+   "round_label": "2. utkání 3. kolo",
+   "date": "2026-04-05",
+   "time": null,
+   "home": "FBK Extraklima Spartak Hluk",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Hluk",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    7
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289497,
+   "round": null,
+   "round_label": "3. utkání 3. kolo",
+   "date": "2026-04-11",
+   "time": null,
+   "home": "Kralupy Wolves",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Kralupy n/V",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    6
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289498,
+   "round": null,
+   "round_label": "3. utkání 3. kolo",
+   "date": "2026-04-11",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBK Extraklima Spartak Hluk",
+   "home_short": "Kadaň",
+   "away_short": "Hluk",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289499,
+   "round": null,
+   "round_label": "3. utkání 3. kolo",
+   "date": "2026-04-11",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "1. FBK Eagles Orlová",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Eagles",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289496,
+   "round": null,
+   "round_label": "3. utkání 3. kolo",
+   "date": "2026-04-11",
+   "time": null,
+   "home": "FBC DOŠWICH MILEVSKO",
+   "away": "FbC Plzeň",
+   "home_short": "Došwich",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    2
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289502,
+   "round": null,
+   "round_label": "4. utkání 3. kolo",
+   "date": "2026-04-12",
+   "time": null,
+   "home": "FBC DDM Kati Kadaň",
+   "away": "FBK Extraklima Spartak Hluk",
+   "home_short": "Kadaň",
+   "away_short": "Hluk",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    7,
+    10
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289503,
+   "round": null,
+   "round_label": "4. utkání 3. kolo",
+   "date": "2026-04-12",
+   "time": null,
+   "home": "FTC Vysoké Mýto",
+   "away": "1. FBK Eagles Orlová",
+   "home_short": "Vysoké Mýto",
+   "away_short": "Eagles",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    3
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289500,
+   "round": null,
+   "round_label": "4. utkání 3. kolo",
+   "date": "2026-04-12",
+   "time": null,
+   "home": "FBC DOŠWICH MILEVSKO",
+   "away": "FbC Plzeň",
+   "home_short": "Došwich",
+   "away_short": "FbC Plzeň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    3
+   ],
+   "score_note": "p"
+  },
+  {
+   "id": 1289501,
+   "round": null,
+   "round_label": "4. utkání 3. kolo",
+   "date": "2026-04-12",
+   "time": null,
+   "home": "Kralupy Wolves",
+   "away": "SK Slavia Praha FLORBAL",
+   "home_short": "Kralupy n/V",
+   "away_short": "Slavia",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    4
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289507,
+   "round": null,
+   "round_label": "5. utkání 3. kolo",
+   "date": "2026-04-15",
+   "time": null,
+   "home": "1. FBK Eagles Orlová",
+   "away": "FTC Vysoké Mýto",
+   "home_short": "Eagles",
+   "away_short": "Vysoké Mýto",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": ""
+  },
+  {
+   "id": 1289506,
+   "round": null,
+   "round_label": "5. utkání 3. kolo",
+   "date": "2026-04-15",
+   "time": null,
+   "home": "FBK Extraklima Spartak Hluk",
+   "away": "FBC DDM Kati Kadaň",
+   "home_short": "Hluk",
+   "away_short": "Kadaň",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": ""
+  }
+ ]
+}
