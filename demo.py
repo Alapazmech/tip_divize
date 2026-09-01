@@ -148,6 +148,14 @@ def _push(msg: str) -> None:
     if subprocess.run(["git", "diff", "--cached", "--quiet"], cwd=root).returncode:
         subprocess.run(["git", "commit", "-q", "-m", msg], cwd=root, check=True)
         subprocess.run(["git", "push", "-q", "origin", "main"], cwd=root)
+    hook = DATA / "render_hook.txt"
+    if hook.exists():  # Render nemá webhook na repu — deploy budí hook
+        import urllib.request
+
+        try:
+            urllib.request.urlopen(hook.read_text().strip(), timeout=15).read()
+        except Exception as exc:
+            print("deploy hook selhal:", exc)
 
 
 def start() -> str:

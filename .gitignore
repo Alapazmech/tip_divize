@@ -7,3 +7,4 @@ data/players.json
 data/demo_*
 data/demo_active
 *.log
+data/render_hook.txt
