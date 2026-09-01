@@ -33,6 +33,16 @@ OUR_TEAM = "FbŠ Florbal Bohemians"
 
 ELO_K = 24
 ELO_HOME_ADV = 35
+
+# Expertní korekce bookmakera k Elo ze startu sezóny (znalost kádrů > loňská
+# čísla). Aplikují se jednou na startovní rating; průběžné výsledky pak
+# ratingy dál posouvají normálně.
+EXPERT_ADJUST = {
+    "FbC Plzeň": +30,  # o chlup lepší než Bohemians
+    "T.B.C. Králův Dvůr": +40,  # slušný tým, ne podprůměr
+    "OLYMP FLORBAL": -110,  # bude děsnej
+    "Banes Florbal Soběslav": -60,  # nováček, bude děsnej
+}
 REGRESS = 0.30  # návrat ke startovnímu ratingu mezi sezónami
 NEWCOMER_PRIOR = 1400  # postupující z krajského přeboru
 MARGIN = 0.08  # marže kanceláře na trh
@@ -183,6 +193,10 @@ def build_model() -> Model:
     model.feed(history, collect_fit=True)
     model.fit()
     model.regress()
+    for team, delta in EXPERT_ADJUST.items():
+        model._ensure(team, NEWCOMER_PRIOR)
+        model.rating[team] += delta
+        model.start[team] += delta
     season = json.load(open(DATA / "season.json", encoding="utf-8"))
     played = [m for m in season["matches"] if m["score"]]
     played.sort(key=lambda m: (m["date"] or "9999", m["id"]))
