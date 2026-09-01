@@ -446,6 +446,53 @@ def main() -> None:
             f"{round_table(ms, published, odds_cols=False)}</details>"
         )
 
+    # ---------- záložka Tikety (vyhodnocené, s filtry) ----------
+    ticket_rows = ""
+    persons = sorted(state["banks"])
+    for rnd in sorted(state["settled"], reverse=True):
+        for t in state["settled"][rnd]:
+            legs = "<br>".join(
+                f'{e(leg["match"]["home"])} – {e(leg["match"]["away"])} '
+                f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {"✓" if win else "✗"}'
+                for leg, win in zip(t["legs"], t["leg_wins"])
+            )
+            ticket_rows += (
+                f'<tr class="{"plus" if t["won"] else "minus"}" data-person="{e(t["person"])}"'
+                f' data-won="{"win" if t["won"] else "lost"}" data-round="{rnd}"'
+                f' data-delta="{t["delta"]:.0f}">'
+                f'<td>{rnd}.</td><td>{e(t["person"])}</td><td class="tname">{legs}</td>'
+                f'<td>{"AKO" if len(t["legs"]) > 1 else "sólo"}</td><td>{t["odd"]:.2f}</td>'
+                f'<td>{t["stake"]:.0f}</td>'
+                f'<td>{"✅ " if t["won"] else "❌ "}{t["delta"]:+.0f}</td></tr>'
+            )
+    if ticket_rows:
+        person_chips = '<span class="fchip active" data-f="">Všichni</span>' + "".join(
+            f'<span class="fchip" data-f="{e(p)}">{e(p)}</span>' for p in persons
+        )
+        round_opts = '<option value="">Všechna kola</option>' + "".join(
+            f'<option value="{r}">{r}. kolo</option>'
+            for r in sorted(state["settled"], reverse=True)
+        )
+        tikety = f"""<h2>Vyhodnocené tikety</h2>
+<div class="filters">
+  <div class="fgroup" data-key="person">{person_chips}</div>
+  <div class="fgroup" data-key="result">
+    <span class="fchip active" data-f="">Vše</span>
+    <span class="fchip" data-f="win">✅ Výherní</span>
+    <span class="fchip" data-f="lost">❌ Proherní</span>
+  </div>
+  <select id="f-round">{round_opts}</select>
+</div>
+<p class="note" id="tikety-sum"></p>
+<div class="scrollx"><table class="bets" id="tickets-table">
+<tr><th>Kolo</th><th>Sázkař</th><th class="tname">Tiket</th><th>Typ</th>
+<th>Kurz</th><th>Vklad</th><th>Výsledek</th></tr>{ticket_rows}</table></div>"""
+    else:
+        tikety = (
+            "<h2>Vyhodnocené tikety</h2>"
+            '<p class="note">Zatím žádné — objeví se po dohrání prvního kola.</p>'
+        )
+
     pub_key_path = DATA / "public_key.txt"
     pubkey = pub_key_path.read_text().strip() if pub_key_path.exists() else ""
     generated = datetime.datetime.now().strftime("%d. %m. %Y %H:%M")
@@ -542,6 +589,14 @@ details.round p.note {{ padding:0 14px; }}
 details.round .scrollx table {{ margin:0; border-radius:0; }}
 .rspan {{ color:var(--muted); font-weight:400; }}
 p.note {{ color:var(--muted); font-size:13px; }}
+.filters {{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin:14px 0 8px; }}
+.fgroup {{ display:flex; gap:6px; flex-wrap:wrap; }}
+.fchip {{ background:var(--card2); border:1px solid var(--line); border-radius:20px;
+  padding:4px 13px; font-size:13px; cursor:pointer; color:var(--muted); user-select:none; }}
+.fchip:hover {{ border-color:var(--accent); }}
+.fchip.active {{ border-color:var(--accent); color:var(--accent); font-weight:700; }}
+#f-round {{ background:var(--card2); color:var(--text); border:1px solid var(--line);
+  border-radius:20px; padding:5px 10px; font-size:13px; }}
 footer {{ margin-top:34px; color:var(--muted); font-size:13px; }}
 footer a {{ color:var(--muted); }}
 </style>
@@ -556,10 +611,12 @@ footer a {{ color:var(--muted); }}
 
 <nav>
   <a href="#sazky" id="nav-sazky">Divize Sázky</a>
+  <a href="#tikety" id="nav-tikety">Tikety</a>
   <a href="#los" id="nav-los">Los a tabulka</a>
 </nav>
 
 <section class="tab" id="tab-sazky">{''.join(sazky)}</section>
+<section class="tab" id="tab-tikety">{tikety}</section>
 <section class="tab" id="tab-los">{''.join(los)}</section>
 
 <footer>
@@ -675,7 +732,8 @@ document.getElementById("tcopy").addEventListener("click", function () {{
   document.getElementById("tcopy").textContent = "Zkopírováno ✓";
 }});
 function showTab() {{
-  var t = location.hash === "#los" ? "los" : "sazky";
+  var t = location.hash === "#los" ? "los"
+    : location.hash === "#tikety" ? "tikety" : "sazky";
   document.querySelectorAll("section.tab, nav a").forEach(function (el) {{
     el.classList.remove("active");
   }});
@@ -684,6 +742,37 @@ function showTab() {{
 }}
 window.addEventListener("hashchange", showTab);
 showTab();
+
+if (document.getElementById("tickets-table")) {{
+  var fState = {{ person: "", result: "", round: "" }};
+  var applyF = function () {{
+    var n = 0, sum = 0;
+    document.querySelectorAll("#tickets-table tr[data-person]").forEach(function (r) {{
+      var ok = (!fState.person || r.dataset.person === fState.person) &&
+               (!fState.result || r.dataset.won === fState.result) &&
+               (!fState.round || r.dataset.round === fState.round);
+      r.style.display = ok ? "" : "none";
+      if (ok) {{ n++; sum += parseFloat(r.dataset.delta); }}
+    }});
+    document.getElementById("tikety-sum").textContent = n
+      ? "Tiketů: " + n + " · bilance " + (sum > 0 ? "+" : "") + Math.round(sum)
+      : "Žádný tiket neodpovídá filtru.";
+  }};
+  document.querySelectorAll(".fchip").forEach(function (ch) {{
+    ch.addEventListener("click", function () {{
+      var g = ch.parentElement;
+      g.querySelectorAll(".fchip").forEach(function (x) {{ x.classList.remove("active"); }});
+      ch.classList.add("active");
+      fState[g.dataset.key] = ch.dataset.f;
+      applyF();
+    }});
+  }});
+  document.getElementById("f-round").addEventListener("change", function (ev) {{
+    fState.round = ev.target.value;
+    applyF();
+  }});
+  applyF();
+}}
 </script>
 </body>
 </html>
