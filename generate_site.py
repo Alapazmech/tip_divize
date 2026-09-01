@@ -758,20 +758,32 @@ document.getElementById("tseal").addEventListener("click", function () {{
   if (typeof nacl === "undefined") {{
     alert("Šifrovací knihovna se nenačetla — jsi online?"); return;
   }}
+  var MKCODE = {{ "1": 0, "2": 1, "10": 2, "02": 3 }};
   var legs = Object.keys(sel).map(function (mid) {{
     return [parseInt(mid, 10), sel[mid].mk];
   }});
-  var msg = new TextEncoder().encode(JSON.stringify({{ stake: stake, legs: legs }}));
+  // kompaktní binární payload: vklad uint24 | počet | (match_id uint32, trh u8)*
+  var body = new Uint8Array(4 + legs.length * 5);
+  body[0] = (stake >> 16) & 255; body[1] = (stake >> 8) & 255; body[2] = stake & 255;
+  body[3] = legs.length;
+  legs.forEach(function (l, i) {{
+    var o = 4 + i * 5, id = l[0];
+    body[o] = (id >>> 24) & 255; body[o + 1] = (id >>> 16) & 255;
+    body[o + 2] = (id >>> 8) & 255; body[o + 3] = id & 255;
+    body[o + 4] = MKCODE[l[1]];
+  }});
   var pk = new Uint8Array(PUBKEY.match(/.{{2}}/g).map(function (h) {{
     return parseInt(h, 16);
   }}));
   var eph = nacl.box.keyPair();
-  var nonce = nacl.randomBytes(24);
-  var ct = nacl.box(msg, nonce, pk, eph.secretKey);
-  var out = new Uint8Array(56 + ct.length);
+  // nonce se neposílá — obě strany ho odvodí z klíčů
+  var cat = new Uint8Array(64);
+  cat.set(eph.publicKey, 0); cat.set(pk, 32);
+  var nonce = nacl.hash(cat).slice(0, 24);
+  var ct = nacl.box(body, nonce, pk, eph.secretKey);
+  var out = new Uint8Array(32 + ct.length);
   out.set(eph.publicKey, 0);
-  out.set(nonce, 32);
-  out.set(ct, 56);
+  out.set(ct, 32);
   var code = "tip: " + btoa(String.fromCharCode.apply(null, out));
   var ta = document.getElementById("tcode");
   ta.value = code;

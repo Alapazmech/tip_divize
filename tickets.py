@@ -207,16 +207,40 @@ def place(
     return True, "\n".join(lines), h
 
 
+MK_CODE = {"1": 0, "2": 1, "10": 2, "02": 3}
+MK_FROM_CODE = {v: k for k, v in MK_CODE.items()}
+
+
 def decrypt_tip(code: str) -> dict:
-    """Rozbalí kód „tip: …“ ze stránky: base64(ephemeral_pk ‖ nonce ‖ box)."""
+    """Rozbalí kód „tip: …“ ze stránky.
+
+    v2 (krátký): base64(ephemeral_pk ‖ box), nonce = SHA-512(epk‖pk)[:24],
+    payload binárně: vklad uint24 ‖ počet legů ‖ (match_id uint32 ‖ trh u8)*.
+    v1 (starý, fallback): base64(epk ‖ nonce ‖ box) s JSON payloadem.
+    """
     from nacl.public import Box, PrivateKey, PublicKey
 
     raw = base64.b64decode(code)
-    if len(raw) < 32 + 24 + 1:
+    if len(raw) < 32 + 17:
         raise ValueError("kód je moc krátký")
-    secret = bytes.fromhex((DATA / "secret_key.txt").read_text().strip())
-    box = Box(PrivateKey(secret), PublicKey(raw[:32]))
-    return json.loads(box.decrypt(raw[56:], raw[32:56]))
+    sk = PrivateKey(bytes.fromhex((DATA / "secret_key.txt").read_text().strip()))
+    pk = bytes(sk.public_key)
+    epk = raw[:32]
+    try:
+        nonce = hashlib.sha512(epk + pk).digest()[:24]
+        body = Box(sk, PublicKey(epk)).decrypt(raw[32:], nonce)
+        stake = int.from_bytes(body[0:3], "big")
+        legs = [
+            [
+                int.from_bytes(body[4 + i * 5 : 8 + i * 5], "big"),
+                MK_FROM_CODE[body[8 + i * 5]],
+            ]
+            for i in range(body[3])
+        ]
+        return {"stake": stake, "legs": legs}
+    except Exception:
+        box = Box(sk, PublicKey(epk))
+        return json.loads(box.decrypt(raw[56:], raw[32:56]))
 
 
 def place_from_tip(
