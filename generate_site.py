@@ -245,12 +245,6 @@ def standings(matches: list[dict]) -> list[dict]:
     )
 
 
-def team_html(m: dict, side: str) -> str:
-    name = m[f"{side}_short"] or m[side]
-    cls = " us" if m[side] == OUR_TEAM else ""
-    return f'<span class="team{cls}" title="{e(m[side])}">{e(name)}</span>'
-
-
 def score_html(m: dict) -> str:
     note = (
         " p"
@@ -261,31 +255,32 @@ def score_html(m: dict) -> str:
     return f'<span class="score">{gh}:{ga}{e(note)}</span>'
 
 
-def round_table(ms: list[dict], published: dict) -> str:
+def round_table(ms: list[dict], published: dict, odds_cols: bool = True) -> str:
     """Tabulka kola: zápasy v řádcích, trhy 1/10/02/2 ve sloupcích.
 
     Kurzy neodehraných zápasů jsou klikací (skládají tiket), u odehraných
-    se obarví vítězný/prohraný trh.
+    se obarví vítězný/prohraný trh. S odds_cols=False jen los bez kurzů.
     """
-    head = (
-        '<tr><th class="tname">Zápas</th><th></th>'
-        + "".join(f'<th title="{MARKET_LABEL[mk]}">{mk}</th>' for mk in MARKETS)
-        + "</tr>"
-    )
+    head = ""
+    if odds_cols:
+        head = (
+            '<tr><th class="tname">Zápas</th><th></th>'
+            + "".join(f'<th title="{MARKET_LABEL[mk]}">{mk}</th>' for mk in MARKETS)
+            + "</tr>"
+        )
     rows = []
     for m in ms:
         entry = published.get(str(m["id"]))
         odds = entry["odds"] if entry else {}
         outcome = reg_outcome(m)
-        us = OUR_TEAM in (m["home"], m["away"])
         center = (
             score_html(m)
             if m["score"]
             else f'<span class="mtime">{e(m["time"] if m["time"] and m["time"] != "00:00" else "—")}</span>'
         )
-        label = f'{m["home_short"] or m["home"]} – {m["away_short"] or m["away"]}'
+        label = f'{m["home"]} – {m["away"]}'
         cells = []
-        for mk in MARKETS:
+        for mk in MARKETS if odds_cols else ():
             if mk not in odds:
                 cells.append('<td class="ocell empty">–</td>')
                 continue
@@ -301,9 +296,8 @@ def round_table(ms: list[dict], published: dict) -> str:
                 )
             cells.append(f'<td class="{cls}"{attrs}>{odds[mk]:.2f}</td>')
         rows.append(
-            f'<tr class="{"us" if us else ""}">'
-            f'<td class="tname"><span class="mdate">{cz_date(m["date"])}</span> '
-            f'{team_html(m, "home")} – {team_html(m, "away")}</td>'
+            f'<tr><td class="tname"><span class="mdate">{cz_date(m["date"])}</span> '
+            f'{e(m["home"])} – {e(m["away"])}</td>'
             f"<td>{center}</td>" + "".join(cells) + "</tr>"
         )
     return (
@@ -332,6 +326,21 @@ def main() -> None:
         (r for r in published_rounds if any(not m["score"] for m in by_round[r])), None
     )
     settled_rounds = [r for r in published_rounds if r != open_round]
+
+    # náš zápas aktuálního kola — hvězdička v hlavičce stránky
+    our_line = ""
+    if open_round:
+        om = next(
+            (m for m in by_round[open_round] if OUR_TEAM in (m["home"], m["away"])),
+            None,
+        )
+        if om:
+            t = om["time"] if om["time"] and om["time"] != "00:00" else ""
+            when = f'{cz_date(om["date"])}{" " + t if t else ""}'
+            our_line = (
+                f'<p class="ourmatch">⭐ Náš zápas: {e(om["home"])} – {e(om["away"])}'
+                f" · {when}</p>"
+            )
 
     # ---------- záložka Divize Sázky ----------
     sazky = []
@@ -389,14 +398,10 @@ def main() -> None:
     future = [r for r in sorted(by_round) if r not in published_rounds]
     if future:
         nxt = future[0]
-        rows = "".join(
-            f'<div class="mrow slim"><span class="mdate">{cz_date(m["date"])}</span>'
-            f'<span class="pair">{team_html(m, "home")}<span class="vs">–</span>{team_html(m, "away")}</span></div>'
-            for m in by_round[nxt]
-        )
         sazky.append(
-            f"<h2>Příští kolo: {nxt}. kolo</h2><div class='mcard'>{rows}</div>"
-            f'<p class="note">Kurzy vypíšeme po dohrání {open_round or nxt - 1}. kola — '
+            f"<h2>Příští kolo: {nxt}. kolo</h2>"
+            + round_table(by_round[nxt], published, odds_cols=False)
+            + f'<p class="note">Kurzy vypíšeme po dohrání {open_round or nxt - 1}. kola — '
             "podle formy a výsledků.</p>"
         )
 
@@ -407,8 +412,7 @@ def main() -> None:
             bet_rows = ""
             for t in state["settled"].get(rnd, []):
                 legs = "<br>".join(
-                    f'{e(leg["match"]["home_short"] or leg["match"]["home"])} – '
-                    f'{e(leg["match"]["away_short"] or leg["match"]["away"])} '
+                    f'{e(leg["match"]["home"])} – {e(leg["match"]["away"])} '
                     f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {"✓" if win else "✗"}'
                     for leg, win in zip(t["legs"], t["leg_wins"])
                 )
@@ -449,17 +453,10 @@ def main() -> None:
         span = cz_date(dates[0]) + (
             f" – {cz_date(dates[-1])}" if len(dates) > 1 else ""
         )
-        rows = "".join(
-            f'<div class="mrow"><span class="mdate">{cz_date(m["date"])}</span>'
-            f'<span class="pair">{team_html(m, "home")}'
-            f'<span class="vs">{score_html(m) if m["score"] else e(m["time"] if m["time"] and m["time"] != "00:00" else "—")}</span>'
-            f'{team_html(m, "away")}</span>'
-            f'<span class="mplace">{e(m["place"])}</span></div>'
-            for m in ms
-        )
         los.append(
             f'<details class="round"{" open" if rnd == open_round else ""}><summary>{rnd}. kolo '
-            f'<span class="rspan">{span}</span></summary>{rows}</details>'
+            f'<span class="rspan">{span}</span></summary>'
+            f"{round_table(ms, published, odds_cols=False)}</details>"
         )
 
     pub_key_path = DATA / "public_key.txt"
@@ -501,32 +498,11 @@ tr.us td {{ background:rgba(74,222,128,.09); }}
 tr:last-child td {{ border-bottom:none; }}
 td.plus, tr.plus td:last-child {{ color:var(--accent); }}
 td.minus, tr.minus td:last-child {{ color:var(--red); }}
-.mcard {{ background:var(--card); border:1px solid var(--line); border-radius:12px;
-  margin:10px 0; overflow:hidden; }}
-.mcard.ours {{ border-color:var(--accent); }}
-.mrow {{ display:flex; align-items:center; gap:10px; padding:9px 14px;
-  border-top:1px solid var(--line); flex-wrap:wrap; }}
-.mrow:first-child {{ border-top:none; }}
-.mrow.slim {{ padding:6px 14px; }}
-.mdate {{ width:64px; color:var(--muted); font-size:13px; flex:none; }}
-.pair {{ display:flex; align-items:center; gap:8px; flex:1; min-width:240px; }}
-.pair .team {{ flex:1; }}
-.pair .team:first-child {{ text-align:right; }}
-.team.us {{ color:var(--accent); font-weight:700; }}
-.vs {{ flex:none; min-width:52px; text-align:center; color:var(--muted); }}
+.mdate {{ color:var(--muted); font-size:13px; margin-right:6px; }}
 .mtime {{ color:var(--muted); font-size:13px; }}
-.mplace {{ color:var(--muted); font-size:12px; flex:none; }}
 .score {{ font-weight:800; color:var(--accent2); }}
-.chips {{ display:flex; gap:6px; flex:none; }}
-.obox {{ background:var(--card2); border:1px solid var(--line); border-radius:8px;
-  padding:3px 9px; font-size:14px; white-space:nowrap; display:inline-flex;
-  gap:6px; align-items:baseline; }}
-.obox i {{ font-style:normal; color:var(--muted); font-size:11px; font-weight:700; }}
-.obox.win {{ border-color:var(--accent); color:var(--accent); }}
-.obox.lost {{ color:var(--lost); }}
-.specbox {{ padding:8px 14px; background:rgba(250,204,21,.07);
-  border-top:1px solid var(--line); font-size:14px; }}
 .hash {{ font-family:monospace; font-size:12px; color:var(--muted); }}
+.ourmatch {{ margin:8px 0 0; color:var(--accent); font-weight:700; }}
 .scrollx {{ overflow-x:auto; }}
 table.odds {{ margin:10px 0; }}
 table.odds th {{ min-width:52px; }}
@@ -555,15 +531,13 @@ details.round {{ background:var(--card); border:1px solid var(--line);
 details.round summary {{ cursor:pointer; padding:10px 14px; font-weight:700;
   background:var(--card2); list-style:none; display:flex; justify-content:space-between; }}
 details.round summary::-webkit-details-marker {{ display:none; }}
-details.round .mcard {{ margin:0; border:none; border-radius:0; }}
 details.round table.bets {{ border-radius:0; }}
 details.round p.note {{ padding:0 14px; }}
+details.round .scrollx table {{ margin:0; border-radius:0; }}
 .rspan {{ color:var(--muted); font-weight:400; }}
 p.note {{ color:var(--muted); font-size:13px; }}
 footer {{ margin-top:34px; color:var(--muted); font-size:13px; }}
 footer a {{ color:var(--muted); }}
-@media (max-width:560px) {{ .mdate {{ width:auto; }}
-  .chips {{ width:100%; justify-content:flex-end; }} .mplace {{ display:none; }} }}
 </style>
 </head>
 <body>
@@ -571,6 +545,7 @@ footer a {{ color:var(--muted); }}
 <header>
   <h1>TIP<b>DIVIZE</b></h1>
   <p>Florbal · Divize mužů, skupina B · sezóna 2026/2027</p>
+  {our_line}
 </header>
 
 <nav>
