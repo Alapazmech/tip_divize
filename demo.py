@@ -121,24 +121,18 @@ def _round_odds_text(targets: list[dict]) -> str:
 
 
 def _settle_summary(rnd: int) -> str:
+    """Jen řádky vyhodnocení — výsledky a kurzy jsou na stránce."""
     season = json.load(open(SEASON, encoding="utf-8"))
     state = gs.settle(season["matches"], _load_pub(), DATA / "demo_bets.csv")
-    lines = [f"🎲 Vylosované výsledky {rnd}. zkušebního kola:"]
-    for m in [x for x in season["matches"] if x["round"] == rnd]:
-        lines.append(
-            f"{m['home']} – {m['away']}  {m['score'][0]}:{m['score'][1]}{_score_note(m)}"
-        )
-    if state["banks"]:
-        lines.append("")
-        lines.append("📊 Vyhodnocení:")
-        per = {p: 0.0 for p in state["banks"]}
-        for t in state["settled"].get(rnd, []):
-            per[t["person"]] = per.get(t["person"], 0.0) + t["delta"]
-        for p, d in sorted(per.items(), key=lambda x: (-x[1], x[0])):
-            mark = "✅" if d > 0 else ("❌" if d < 0 else "➖")
-            lines.append(f"{mark} {p}: {d:+.0f}  (bank {state['banks'][p]:.0f})")
-    else:
-        lines.append("(nikdo nesázel)")
+    if not state["banks"]:
+        return f"📊 {rnd}. zkušební kolo dohráno — nikdo nesázel."
+    lines = [f"📊 Vyhodnocení {rnd}. zkušebního kola:"]
+    per = {p: 0.0 for p in state["banks"]}
+    for t in state["settled"].get(rnd, []):
+        per[t["person"]] = per.get(t["person"], 0.0) + t["delta"]
+    for p, d in sorted(per.items(), key=lambda x: (-x[1], x[0])):
+        mark = "✅" if d > 0 else ("❌" if d < 0 else "➖")
+        lines.append(f"{mark} {p}: {d:+.0f}  (bank {state['banks'][p]:.0f})")
     return "\n".join(lines)
 
 
@@ -170,10 +164,10 @@ def start() -> str:
     targets = _publish_next(odds.build_model())
     gs.main()
     _push("Zkušební liga: start")
+    del targets
     return (
-        "🧪 Zkušební liga odstartována — záložka „Test“ na stránce.\n"
-        "Sázejte tam jako v ostré hře; výsledky se pak vylosují.\n\n"
-        + _round_odds_text(targets)
+        "🧪 Zkušební liga odstartována — kurzy najdete v záložce „Test“ na stránce. "
+        "Sázejte jako v ostré hře; výsledky se pak vylosují."
     )
 
 
@@ -196,14 +190,12 @@ def step() -> str:
     targets = _publish_next(model)
     gs.main()
     _push("Zkušební liga: další kolo")
-    if targets:
-        parts.append(_round_odds_text(targets))
-    else:
+    if not targets:
         parts.append(
             "🏁 Zkušební liga dohrána! Ukončete ji příkazem /demo stop "
             "(záložka zmizí a ostrá hra pojede načisto)."
         )
-    return "\n\n".join(parts)
+    return "\n\n".join(parts) if parts else "Není co vyhodnocovat."
 
 
 def stop() -> str:

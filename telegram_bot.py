@@ -164,13 +164,10 @@ def run_update() -> str:
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout).strip().splitlines()[-5:]
         return "❌ Update selhal:\n" + "\n".join(tail)
-    parts = ["✅ Update hotov."]
-    if _published_rounds() - before:  # vypsalo se nové kolo -> zúčtuj to minulé
-        results = results_summary()
-        if results:
-            parts.append(results)
-    parts.append(round_summary())
-    return "\n\n".join(parts)
+    # do chatu jde jen vyhodnocení — výsledky a nové kurzy jsou na stránce
+    if _published_rounds() - before:
+        return results_summary() or "Nové kolo vypsáno — kurzy jsou na stránce."
+    return "Vypsané kolo ještě není dohrané — vyhodnocení přijde po posledním zápase."
 
 
 def is_admin(cfg: dict, username: str, user_id: int) -> bool:
@@ -270,13 +267,7 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
                 msg["message_id"],
             )
             return
-        send(
-            token,
-            chat_id,
-            "Jdu na to — stahuju výsledky a počítám kurzy…",
-            msg["message_id"],
-        )
-        send(token, chat_id, run_update())
+        send(token, chat_id, run_update(), msg["message_id"])
     elif low.startswith("/kurzy"):
         send(token, chat_id, round_summary(), msg["message_id"])
     elif low.startswith("/banky"):
