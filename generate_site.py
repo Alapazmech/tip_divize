@@ -615,13 +615,11 @@ footer a {{ color:var(--muted); }}
   <a href="#los" id="nav-los">Los a tabulka</a>
 </nav>
 
-<section class="tab" id="tab-sazky">{''.join(sazky)}</section>
+<section class="tab" id="tab-sazky">{''.join(sazky)}
+<footer>Zdroj dat: <a href="{season['url']}">ceskyflorbal.cz</a> · vygenerováno {generated}</footer>
+</section>
 <section class="tab" id="tab-tikety">{tikety}</section>
 <section class="tab" id="tab-los">{''.join(los)}</section>
-
-<footer>
-  Zdroj dat: <a href="{season['url']}">ceskyflorbal.cz</a> · vygenerováno {generated}
-</footer>
 </div>
 
 <div id="tbar">
