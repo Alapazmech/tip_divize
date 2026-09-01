@@ -234,19 +234,29 @@ def main() -> None:
         ]
         verb = "přepočteno"
     else:
-        # nové kolo se vypisuje až po dohrání toho vypsaného (dohrávku obejde --force)
-        open_matches = [
-            m for m in season["matches"] if str(m["id"]) in published and not m["score"]
-        ]
-        if open_matches and "--force" not in sys.argv:
-            print("Vypsané kolo ještě není dohrané, nové se nevypisuje. Čeká se na:")
-            for m in open_matches:
-                print(f"  {m['round']}. kolo: {m['home']} - {m['away']} ({m['date']})")
-            print("(dohrávku lze přeskočit pomocí --force)")
-            return
         rnd = current_round(season["matches"], published)
         if rnd is None:
             print("Není co vypsat — všechny neodehrané zápasy už mají kurz.")
+            return
+        # Nové kolo se vypisuje po dohrání toho vypsaného. Zápas odložený až ZA
+        # start nového kola je dohrávka — ta vypsání neblokuje (tikety na ní
+        # visí dál, ale nové sázky už nepřijímá). --force přeskočí i blokující.
+        next_start = min(
+            (m["date"] or "9999")
+            for m in season["matches"]
+            if m["round"] == rnd and not m["score"]
+        )
+        blocking = [
+            m
+            for m in season["matches"]
+            if str(m["id"]) in published
+            and not m["score"]
+            and (m["date"] or "") <= next_start
+        ]
+        if blocking and "--force" not in sys.argv:
+            print("Vypsané kolo ještě není dohrané, nové se nevypisuje. Čeká se na:")
+            for m in blocking:
+                print(f"  {m['round']}. kolo: {m['home']} - {m['away']} ({m['date']})")
             return
         targets = [
             m

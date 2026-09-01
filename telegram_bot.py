@@ -92,8 +92,10 @@ def round_summary() -> str:
     if not open_entries:
         return "Žádné kolo není vypsané."
     lines = []
+    latest = max(v["round"] for v in published.values())
     for rnd in sorted({e["round"] for e in open_entries}):
-        lines.append(f"🏑 Vypsané {rnd}. kolo:")
+        closed = " (dohrávka — sázky uzavřeny)" if rnd < latest else ""
+        lines.append(f"🏑 Vypsané {rnd}. kolo:{closed}")
         entries = [e for e in open_entries if e["round"] == rnd]
         entries.sort(key=lambda v: (by_id[v["match_id"]]["date"] or "", v["match_id"]))
         for v in entries:
@@ -167,11 +169,7 @@ def run_update(force: bool = False) -> str:
     # do chatu jde jen vyhodnocení — výsledky a nové kurzy jsou na stránce
     if _published_rounds() - before:
         return results_summary() or "Nové kolo vypsáno — kurzy jsou na stránce."
-    return (
-        "Vypsané kolo ještě není dohrané — vyhodnocení přijde po posledním zápase. "
-        "Když jde jen o odloženou dohrávku a chceš vypsat nové kolo hned, "
-        "napiš „/update force“ (tikety s dohrávkou zůstanou viset a počkají)."
-    )
+    return "Vypsané kolo ještě není dohrané — vyhodnocení přijde po posledním zápase."
 
 
 def is_admin(cfg: dict, username: str, user_id: int) -> bool:

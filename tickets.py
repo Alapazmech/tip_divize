@@ -120,19 +120,28 @@ def place(
     """
     season = _season()
     published = _published()
-    matches = open_matches(season, published)
-    if not matches:
+    all_open = open_matches(season, published)
+    if not all_open:
         return False, "Teď není vypsané žádné kolo — počkej na nové kurzy.", None
+    # sázet jde jen na aktuální (nejnovější vypsané) kolo; starší neodehraný
+    # zápas je odložená dohrávka a nové sázky už nepřijímá
+    latest = max(v["round"] for v in published.values())
 
     now = datetime.datetime.now()
     legs = []
-    rounds: set[int] = set()
     for team_ref, market in legs_spec:
-        m = gs.resolve_match(str(team_ref), matches)
+        m = gs.resolve_match(str(team_ref), all_open)
         if not m:
             return (
                 False,
                 f"Nenašel jsem jednoznačný zápas pro „{team_ref}“ mezi vypsanými.",
+                None,
+            )
+        if m["round"] != latest:
+            return (
+                False,
+                f"Zápas {m['home']} – {m['away']} je odložená dohrávka — "
+                "sázky na ni jsou už uzavřené.",
                 None,
             )
         entry = published.get(str(m["id"]))
@@ -157,19 +166,11 @@ def place(
             )
         if any(leg["match_id"] == m["id"] for leg in legs):
             return False, "Stejný zápas nemůže být na tiketu dvakrát.", None
-        rounds.add(m["round"])
         legs.append(
             {"match_id": m["id"], "market": market, "odd": entry["odds"][market]}
         )
 
-    if len(rounds) > 1:
-        return (
-            False,
-            "Tiket nesmí míchat zápasy z různých kol (dohrávka + nové kolo) — "
-            "rozděl to na dva tikety.",
-            None,
-        )
-    rnd = rounds.pop()
+    rnd = latest
     if stake <= 0:
         return False, "Vklad musí být kladný.", None
     avail = available_bank(person)
@@ -302,7 +303,9 @@ def storno(user_id: int) -> str:
 
 def my_tickets(user_id: int, person: str) -> str:
     season = _season()
+    published = _published()
     by_id = {m["id"]: m for m in season["matches"]}
+    latest = max((v["round"] for v in published.values()), default=None)
     mine = [t for t in _load(_p("bets_sealed.json"), []) if t["user_id"] == user_id]
     lines = [f"Bank k dispozici: {available_bank(person):.0f}"]
     if not mine:
@@ -313,8 +316,9 @@ def my_tickets(user_id: int, person: str) -> str:
             f" {leg['market']} @{leg['odd']:.2f}"
             for leg in t["legs"]
         )
+        waiting = " ⏳ čeká na dohrávku" if latest and t["round"] < latest else ""
         lines.append(
-            f"🔒 #{t['hash'][:8]} ({t['round']}. kolo): {legs} — vklad {t['stake']:.0f}"
+            f"🔒 #{t['hash'][:8]} ({t['round']}. kolo): {legs} — vklad {t['stake']:.0f}{waiting}"
         )
     return "\n".join(lines)
 

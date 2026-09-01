@@ -358,26 +358,27 @@ def betting_sections(
             "první tiket zakládá účet.</p>"
         )
 
-    # vypsaná kola (víc než jedno = čeká se na dohrávku)
-    for i, rnd in enumerate(open_rounds):
+    # vypsaná kola (víc než jedno = čeká se na dohrávku; sázet jde jen na nejnovější)
+    latest_pub = published_rounds[-1] if published_rounds else None
+    for rnd in open_rounds:
+        is_latest = rnd == latest_pub
         ms = (
-            [m for m in by_round[rnd] if not m["score"]]
-            if i < len(open_rounds) - 1
-            else by_round[rnd]
+            by_round[rnd] if is_latest else [m for m in by_round[rnd] if not m["score"]]
         )
         dates = sorted({m["date"] for m in ms if m["date"]})
         span = cz_date(dates[0]) + (
             f" – {cz_date(dates[-1])}" if len(dates) > 1 else ""
         )
-        tag = " · dohrávka" if len(open_rounds) > 1 and i < len(open_rounds) - 1 else ""
+        tag = "" if is_latest else " · dohrávka — sázky uzavřeny"
         sazky.append(
             f"<h2>Vypsané kolo: {rnd}. kolo <span class='hspan'>{span}{tag}</span></h2>"
         )
-        sazky.append(round_table(ms, published, clickable=clickable))
+        sazky.append(round_table(ms, published, clickable=clickable and is_latest))
     if open_rounds:
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
         sealed_notes = [
             f'{e(c["person"])} <span class="hash">#{c["hash"][:8]}</span>'
+            + (" ⏳ čeká na dohrávku" if latest_pub and c["round"] < latest_pub else "")
             for c in commits
             if "revealed" not in c
         ]
