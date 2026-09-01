@@ -112,7 +112,11 @@ def _ticket_hash(ticket: dict) -> str:
 
 
 def place(
-    user_id: int, person: str, stake: float, legs_spec: list[tuple[str, str]]
+    user_id: int,
+    person: str,
+    stake: float,
+    legs_spec: list[tuple[str, str]],
+    code_hash: str | None = None,
 ) -> tuple[bool, str, str | None]:
     """Přijme tiket (legs_spec = [(tým/id, trh), …]).
 
@@ -177,6 +181,7 @@ def place(
         "legs": legs,
         "nonce": secrets.token_hex(8),
         "placed_at": now.strftime("%Y-%m-%d %H:%M:%S"),
+        "code_hash": code_hash,
     }
     h = _ticket_hash(ticket)
     ticket["hash"] = h
@@ -217,7 +222,19 @@ def decrypt_tip(code: str) -> dict:
 def place_from_tip(
     user_id: int, person: str, code: str
 ) -> tuple[bool, str, str | None]:
-    """Dešifruje kód ze stránky a vsadí tiket."""
+    """Dešifruje kód ze stránky a vsadí tiket.
+
+    Stejný kód podruhé = omylem přeposlaný tiket, ne nová sázka.
+    """
+    code_hash = hashlib.sha256(code.encode()).hexdigest()
+    for t in _load(_p("bets_sealed.json"), []):
+        if t.get("code_hash") == code_hash:
+            return (
+                False,
+                f"Tenhle kód už mám zapečetěný (#{t['hash'][:8]}) — tiket platí "
+                "jen jednou. Chceš-li stejnou sázku znovu, naklikej nový tiket.",
+                None,
+            )
     try:
         payload = decrypt_tip(code)
         stake = float(payload["stake"])
@@ -228,7 +245,7 @@ def place_from_tip(
             "Kód tiketu se nepodařilo rozbalit — zkopíroval jsi ho celý?",
             None,
         )
-    return place(user_id, person, stake, legs_spec)
+    return place(user_id, person, stake, legs_spec, code_hash=code_hash)
 
 
 def storno(user_id: int) -> str:
