@@ -327,20 +327,7 @@ def main() -> None:
     )
     settled_rounds = [r for r in published_rounds if r != open_round]
 
-    # náš zápas aktuálního kola — hvězdička v hlavičce stránky
-    our_line = ""
-    if open_round:
-        om = next(
-            (m for m in by_round[open_round] if OUR_TEAM in (m["home"], m["away"])),
-            None,
-        )
-        if om:
-            t = om["time"] if om["time"] and om["time"] != "00:00" else ""
-            when = f'{cz_date(om["date"])}{" " + t if t else ""}'
-            our_line = (
-                f'<p class="ourmatch">⭐ Náš zápas: {e(om["home"])} – {e(om["away"])}'
-                f" · {when}</p>"
-            )
+    our_line = '<p class="ourmatch">⭐ Na náš zápas lze sázet jen výhru</p>'
 
     # ---------- záložka Divize Sázky ----------
     sazky = []

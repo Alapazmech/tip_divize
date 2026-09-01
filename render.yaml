@@ -1,0 +1,6 @@
+services:
+  - type: web
+    runtime: static
+    name: tipdivize
+    buildCommand: ""
+    staticPublishPath: .
