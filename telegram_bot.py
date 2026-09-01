@@ -173,6 +173,12 @@ def run_update() -> str:
     return "\n\n".join(parts)
 
 
+def is_admin(cfg: dict, username: str, user_id: int) -> bool:
+    """Admin podle username NEBO telegram user_id (kdo nemá @username)."""
+    admins = [str(a) for a in cfg.get("admins") or []]
+    return not admins or username in admins or str(user_id) in admins
+
+
 def handle(token: str, cfg: dict, msg: dict) -> None:
     text = (msg.get("text") or "").strip()
     if not text:
@@ -183,6 +189,11 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
     username = sender.get("username") or ""
     private = msg["chat"].get("type") == "private"
     low = text.lower()
+    print(
+        f"[msg] chat={chat_id} from={sender.get('first_name', '')}"
+        f" @{username} id={user_id}: {text[:80]}",
+        flush=True,
+    )
 
     if low.startswith("/chatid"):
         send(token, chat_id, f"chat_id: {chat_id}", msg["message_id"])
@@ -196,7 +207,7 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
 
     # /demo start|stop — zkušební liga (jen bookmaker)
     if low.startswith("/demo"):
-        if cfg.get("admins") and username not in cfg["admins"]:
+        if not is_admin(cfg, username, user_id):
             send(
                 token,
                 chat_id,
@@ -251,7 +262,7 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
         return
 
     if "updatuj kurzy" in low or low.startswith("/update"):
-        if cfg.get("admins") and username not in cfg["admins"]:
+        if not is_admin(cfg, username, user_id):
             send(
                 token,
                 chat_id,
