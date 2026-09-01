@@ -44,7 +44,8 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   kurzy se násobí, vyjít musí všechny. U zápasů Bohemians jedině výhra Bohemky.
 - **Sází se klikáním na kurzy na stránce**: sestavíš tiket, zadáš vklad,
   „Zapečetit" — prohlížeč tiket zašifruje NaCl boxem veřejným klíčem
-  bookmakera (tweetnacl z CDN) a vyplivne kód `tip: …`. Ten pošleš botovi
+  bookmakera (tweetnacl z CDN) a vyplivne krátký kód `tip: …` (v2: binární payload, nonce odvozený
+  z klíčů — sólo ~81 znaků; starší delší kódy bot pořád přijme). Ten pošleš botovi
   do Telegramu (klidně do skupiny — je to šifra). **Identita = Telegram
   účet odesílatele**, žádná hesla.
 - Bot kód dešifruje (`tickets.py`), ověří kurz/uzávěrku/bank, tiket uloží do

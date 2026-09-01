@@ -60,18 +60,14 @@ def person_for(user_id: int, fallback: str) -> str:
     return players[key]
 
 
-def open_round(season: dict, published: dict) -> tuple[int | None, list[dict]]:
-    """Vypsané kolo (kurzy venku, ještě se hraje) a jeho zápasy."""
+def open_matches(season: dict, published: dict) -> list[dict]:
+    """Všechny vypsané a neodehrané zápasy (může jít o víc kol — dohrávky)."""
     by_id = {m["id"]: m for m in season["matches"]}
-    open_matches = [
+    return [
         by_id[v["match_id"]]
         for v in published.values()
         if not by_id[v["match_id"]].get("score")
     ]
-    if not open_matches:
-        return None, []
-    rnd = min(m["round"] for m in open_matches)
-    return rnd, [m for m in season["matches"] if m["round"] == rnd]
 
 
 def deadline(m: dict) -> datetime.datetime:
@@ -124,18 +120,19 @@ def place(
     """
     season = _season()
     published = _published()
-    rnd, matches = open_round(season, published)
-    if rnd is None:
+    matches = open_matches(season, published)
+    if not matches:
         return False, "Teď není vypsané žádné kolo — počkej na nové kurzy.", None
 
     now = datetime.datetime.now()
     legs = []
+    rounds: set[int] = set()
     for team_ref, market in legs_spec:
         m = gs.resolve_match(str(team_ref), matches)
         if not m:
             return (
                 False,
-                f"Nenašel jsem jednoznačný zápas pro „{team_ref}“ v {rnd}. kole.",
+                f"Nenašel jsem jednoznačný zápas pro „{team_ref}“ mezi vypsanými.",
                 None,
             )
         entry = published.get(str(m["id"]))
@@ -160,10 +157,19 @@ def place(
             )
         if any(leg["match_id"] == m["id"] for leg in legs):
             return False, "Stejný zápas nemůže být na tiketu dvakrát.", None
+        rounds.add(m["round"])
         legs.append(
             {"match_id": m["id"], "market": market, "odd": entry["odds"][market]}
         )
 
+    if len(rounds) > 1:
+        return (
+            False,
+            "Tiket nesmí míchat zápasy z různých kol (dohrávka + nové kolo) — "
+            "rozděl to na dva tikety.",
+            None,
+        )
+    rnd = rounds.pop()
     if stake <= 0:
         return False, "Vklad musí být kladný.", None
     avail = available_bank(person)
@@ -314,12 +320,13 @@ def my_tickets(user_id: int, person: str) -> str:
 
 
 def reveal_completed() -> list[str]:
-    """Odhalí tikety dohraných kol -> bets.csv + doplní commitments."""
+    """Odhalí tikety, jejichž VŠECHNY zápasy jsou dohrané -> bets.csv.
+
+    Tiket s odloženým zápasem (dohrávkou) zůstává zapečetěný a čeká,
+    dokud se nedohraje i on; ostatní tikety kola se odhalí normálně.
+    """
     season = _season()
-    by_round: dict[int, list[dict]] = {}
-    for m in season["matches"]:
-        if m["round"]:
-            by_round.setdefault(m["round"], []).append(m)
+    by_id = {m["id"]: m for m in season["matches"]}
     sealed = _load(_p("bets_sealed.json"), [])
     commits = _load(_p("commitments.json"), [])
     by_hash = {c["hash"]: c for c in commits}
@@ -330,7 +337,7 @@ def reveal_completed() -> list[str]:
         bets_path.write_text("round,person,ticket,match,market,stake\n")
     lines_to_append = []
     for t in sealed:
-        done = all(m["score"] for m in by_round.get(t["round"], []))
+        done = all(by_id[leg["match_id"]].get("score") for leg in t["legs"])
         if not done:
             keep.append(t)
             continue

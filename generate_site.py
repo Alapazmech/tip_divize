@@ -331,10 +331,11 @@ def betting_sections(
     state = settle(matches, published, bets_path)
 
     published_rounds = sorted({v["round"] for v in published.values()})
-    open_round = next(
-        (r for r in published_rounds if any(not m["score"] for m in by_round[r])), None
-    )
-    settled_rounds = [r for r in published_rounds if r != open_round]
+    open_rounds = [
+        r for r in published_rounds if any(not m["score"] for m in by_round[r])
+    ]
+    open_round = open_rounds[0] if open_rounds else None
+    settled_rounds = [r for r in published_rounds if r not in open_rounds]
 
     sazky = []
 
@@ -357,30 +358,36 @@ def betting_sections(
             "první tiket zakládá účet.</p>"
         )
 
-    # vypsané kolo
-    if open_round:
-        ms = by_round[open_round]
+    # vypsaná kola (víc než jedno = čeká se na dohrávku)
+    for i, rnd in enumerate(open_rounds):
+        ms = (
+            [m for m in by_round[rnd] if not m["score"]]
+            if i < len(open_rounds) - 1
+            else by_round[rnd]
+        )
         dates = sorted({m["date"] for m in ms if m["date"]})
         span = cz_date(dates[0]) + (
             f" – {cz_date(dates[-1])}" if len(dates) > 1 else ""
         )
+        tag = " · dohrávka" if len(open_rounds) > 1 and i < len(open_rounds) - 1 else ""
         sazky.append(
-            f"<h2>Vypsané kolo: {open_round}. kolo <span class='hspan'>{span}</span></h2>"
+            f"<h2>Vypsané kolo: {rnd}. kolo <span class='hspan'>{span}{tag}</span></h2>"
         )
         sazky.append(round_table(ms, published, clickable=clickable))
+    if open_rounds:
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
         sealed_notes = [
             f'{e(c["person"])} <span class="hash">#{c["hash"][:8]}</span>'
             for c in commits
-            if c["round"] == open_round and "revealed" not in c
+            if "revealed" not in c
         ]
         per = collections.Counter(
-            t["person"] for t in state["open"].get(open_round, [])
+            t["person"] for rows in state["open"].values() for t in rows
         )
         sealed_notes += [f"{e(p)} ({n})" for p, n in sorted(per.items())]
         if sealed_notes:
             sazky.append(
-                '<p class="note">🔒 Zapečetěné tikety (odhalí se po dohrání kola): '
+                '<p class="note">🔒 Zapečetěné tikety (odhalí se po dohrání zápasů): '
                 + ", ".join(sealed_notes)
                 + "</p>"
             )

@@ -91,18 +91,19 @@ def round_summary() -> str:
     ]
     if not open_entries:
         return "Žádné kolo není vypsané."
-    rnd = min(e["round"] for e in open_entries)
-    lines = [f"🏑 Vypsané {rnd}. kolo:"]
-    entries = [e for e in open_entries if e["round"] == rnd]
-    entries.sort(key=lambda v: (by_id[v["match_id"]]["date"] or "", v["match_id"]))
-    for v in entries:
-        m = by_id[v["match_id"]]
-        o = v["odds"]
-        cols = "  ".join(
-            f"{mk}: {o[mk]:.2f}" for mk in ("1", "10", "02", "2") if mk in o
-        )
-        star = " ⭐ (jen výhry!)" if v.get("special") else ""
-        lines.append(f"{m['date']} {m['home']} – {m['away']}\n   {cols}{star}")
+    lines = []
+    for rnd in sorted({e["round"] for e in open_entries}):
+        lines.append(f"🏑 Vypsané {rnd}. kolo:")
+        entries = [e for e in open_entries if e["round"] == rnd]
+        entries.sort(key=lambda v: (by_id[v["match_id"]]["date"] or "", v["match_id"]))
+        for v in entries:
+            m = by_id[v["match_id"]]
+            o = v["odds"]
+            cols = "  ".join(
+                f"{mk}: {o[mk]:.2f}" for mk in ("1", "10", "02", "2") if mk in o
+            )
+            star = " ⭐ (jen výhra Bohemky!)" if v.get("special") else ""
+            lines.append(f"{m['date']} {m['home']} – {m['away']}\n   {cols}{star}")
     return "\n".join(lines)
 
 
@@ -149,7 +150,7 @@ def _published_rounds() -> set[int]:
     return {v["round"] for v in json.loads(pub_path.read_text()).values()}
 
 
-def run_update() -> str:
+def run_update(force: bool = False) -> str:
     if tickets.is_demo():
         import demo
 
@@ -158,16 +159,19 @@ def run_update() -> str:
         except Exception as exc:
             return f"❌ Zkušební update selhal: {exc}"
     before = _published_rounds()
-    proc = subprocess.run(
-        [str(ROOT / "update.sh")], capture_output=True, text=True, cwd=ROOT, timeout=600
-    )
+    cmd = [str(ROOT / "update.sh")] + (["force"] if force else [])
+    proc = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT, timeout=600)
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout).strip().splitlines()[-5:]
         return "❌ Update selhal:\n" + "\n".join(tail)
     # do chatu jde jen vyhodnocení — výsledky a nové kurzy jsou na stránce
     if _published_rounds() - before:
         return results_summary() or "Nové kolo vypsáno — kurzy jsou na stránce."
-    return "Vypsané kolo ještě není dohrané — vyhodnocení přijde po posledním zápase."
+    return (
+        "Vypsané kolo ještě není dohrané — vyhodnocení přijde po posledním zápase. "
+        "Když jde jen o odloženou dohrávku a chceš vypsat nové kolo hned, "
+        "napiš „/update force“ (tikety s dohrávkou zůstanou viset a počkají)."
+    )
 
 
 def is_admin(cfg: dict, username: str, user_id: int) -> bool:
@@ -267,7 +271,7 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
                 msg["message_id"],
             )
             return
-        send(token, chat_id, run_update(), msg["message_id"])
+        send(token, chat_id, run_update(force="force" in low), msg["message_id"])
     elif low.startswith("/kurzy"):
         send(token, chat_id, round_summary(), msg["message_id"])
     elif low.startswith("/banky"):
