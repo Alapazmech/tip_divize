@@ -79,9 +79,9 @@ def react(token: str, chat_id: int, message_id: int) -> None:
 
 
 def round_summary() -> str:
-    """Vypsané kolo s kurzy (z published.json + season.json)."""
-    season = json.load(open(DATA / "season.json", encoding="utf-8"))
-    pub_path = DATA / "published.json"
+    """Vypsané kolo s kurzy (z published.json + season.json; v demo režimu demo_*)."""
+    season = json.load(open(tickets._p("season.json"), encoding="utf-8"))
+    pub_path = tickets._p("published.json")
     published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
     by_id = {m["id"]: m for m in season["matches"]}
     open_entries = [
@@ -109,10 +109,10 @@ def round_summary() -> str:
 def banks_summary() -> str:
     import generate_site
 
-    season = json.load(open(DATA / "season.json", encoding="utf-8"))
-    pub_path = DATA / "published.json"
+    season = json.load(open(tickets._p("season.json"), encoding="utf-8"))
+    pub_path = tickets._p("published.json")
     published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
-    state = generate_site.settle(season["matches"], published)
+    state = generate_site.settle(season["matches"], published, tickets._p("bets.csv"))
     if not state["banks"]:
         return f"Zatím nikdo nesází. Každý začíná s bankem {generate_site.START_BANK}."
     lines = ["💰 Banky:"]
@@ -125,10 +125,10 @@ def results_summary() -> str:
     """Vyhodnocení posledního dohraného kola: všichni členové a jejich ±."""
     import generate_site
 
-    season = json.load(open(DATA / "season.json", encoding="utf-8"))
-    pub_path = DATA / "published.json"
+    season = json.load(open(tickets._p("season.json"), encoding="utf-8"))
+    pub_path = tickets._p("published.json")
     published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
-    state = generate_site.settle(season["matches"], published)
+    state = generate_site.settle(season["matches"], published, tickets._p("bets.csv"))
     if not state["settled"] or not state["banks"]:
         return ""
     rnd = max(state["settled"])
@@ -150,6 +150,13 @@ def _published_rounds() -> set[int]:
 
 
 def run_update() -> str:
+    if tickets.is_demo():
+        import demo
+
+        try:
+            return demo.step()
+        except Exception as exc:
+            return f"❌ Zkušební update selhal: {exc}"
     before = _published_rounds()
     proc = subprocess.run(
         [str(ROOT / "update.sh")], capture_output=True, text=True, cwd=ROOT, timeout=600
@@ -186,6 +193,30 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
     person = tickets.person_for(
         user_id, username or sender.get("first_name") or str(user_id)
     )
+
+    # /demo start|stop — zkušební liga (jen bookmaker)
+    if low.startswith("/demo"):
+        if cfg.get("admins") and username not in cfg["admins"]:
+            send(
+                token,
+                chat_id,
+                "Zkušební ligu ovládá jen bookmaker 🎩",
+                msg["message_id"],
+            )
+            return
+        import demo
+
+        arg = (low.split() + [""])[1]
+        try:
+            if arg == "start":
+                send(token, chat_id, demo.start())
+            elif arg == "stop":
+                send(token, chat_id, demo.stop())
+            else:
+                send(token, chat_id, "Použij /demo start nebo /demo stop.")
+        except Exception as exc:
+            send(token, chat_id, f"❌ /demo {arg} selhalo: {exc}")
+        return
 
     # zapečetěný tiket ze stránky (funguje v DM i ve skupině);
     # platný tiket dostane jen ✅ reakci, ať se chat nespamuje

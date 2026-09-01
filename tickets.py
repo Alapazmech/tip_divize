@@ -21,9 +21,18 @@ import secrets
 import generate_site as gs
 
 DATA = pathlib.Path(__file__).parent / "data"
-SEALED = DATA / "bets_sealed.json"  # gitignored — jen u bookmakera
-COMMITS = DATA / "commitments.json"  # veřejné, commituje se
-PLAYERS = DATA / "players.json"  # telegram user_id -> jméno sázkaře
+PLAYERS = DATA / "players.json"  # telegram user_id -> jméno sázkaře (společné)
+DEMO_FLAG = DATA / "demo_active"
+
+
+def is_demo() -> bool:
+    """Zkušební režim: všechno sázení běží nad demo_* soubory."""
+    return DEMO_FLAG.exists()
+
+
+def _p(name: str) -> pathlib.Path:
+    """Datový soubor podle režimu: bets.csv vs demo_bets.csv apod."""
+    return DATA / (("demo_" if is_demo() else "") + name)
 
 
 def _load(path: pathlib.Path, default):
@@ -35,11 +44,11 @@ def _save(path: pathlib.Path, obj) -> None:
 
 
 def _season():
-    return json.load(open(DATA / "season.json", encoding="utf-8"))
+    return json.load(open(_p("season.json"), encoding="utf-8"))
 
 
 def _published():
-    return _load(DATA / "published.json", {})
+    return _load(_p("published.json"), {})
 
 
 def person_for(user_id: int, fallback: str) -> str:
@@ -74,7 +83,7 @@ def deadline(m: dict) -> datetime.datetime:
 def available_bank(person: str) -> float:
     """Bank po vypořádání minus vklady ve hře (bets.csv i zapečetěné)."""
     season = _season()
-    state = gs.settle(season["matches"], _published())
+    state = gs.settle(season["matches"], _published(), _p("bets.csv"))
     bank = state["banks"].get(person, gs.START_BANK)
     in_play = sum(
         t["stake"]
@@ -82,7 +91,9 @@ def available_bank(person: str) -> float:
         for t in rows
         if t["person"] == person
     )
-    sealed = sum(t["stake"] for t in _load(SEALED, []) if t["person"] == person)
+    sealed = sum(
+        t["stake"] for t in _load(_p("bets_sealed.json"), []) if t["person"] == person
+    )
     return bank - in_play - sealed
 
 
@@ -170,14 +181,14 @@ def place(
     h = _ticket_hash(ticket)
     ticket["hash"] = h
 
-    sealed = _load(SEALED, [])
+    sealed = _load(_p("bets_sealed.json"), [])
     sealed.append(ticket)
-    _save(SEALED, sealed)
-    commits = _load(COMMITS, [])
+    _save(_p("bets_sealed.json"), sealed)
+    commits = _load(_p("commitments.json"), [])
     commits.append(
         {"hash": h, "person": person, "round": rnd, "placed_at": ticket["placed_at"]}
     )
-    _save(COMMITS, commits)
+    _save(_p("commitments.json"), commits)
 
     by_id = {m["id"]: m for m in season["matches"]}
     lines = [f"🔒 Tiket přijat (#{h[:8]}), {rnd}. kolo:"]
@@ -225,7 +236,7 @@ def storno(user_id: int) -> str:
     season = _season()
     by_id = {m["id"]: m for m in season["matches"]}
     now = datetime.datetime.now()
-    sealed = _load(SEALED, [])
+    sealed = _load(_p("bets_sealed.json"), [])
     keep, cancelled = [], []
     for t in sealed:
         mine = t["user_id"] == user_id
@@ -233,16 +244,19 @@ def storno(user_id: int) -> str:
         (cancelled if mine and not started else keep).append(t)
     if not cancelled:
         return "Nemáš žádný tiket, který by šel stornovat."
-    _save(SEALED, keep)
+    _save(_p("bets_sealed.json"), keep)
     gone = {t["hash"] for t in cancelled}
-    _save(COMMITS, [c for c in _load(COMMITS, []) if c["hash"] not in gone])
+    _save(
+        _p("commitments.json"),
+        [c for c in _load(_p("commitments.json"), []) if c["hash"] not in gone],
+    )
     return f"Stornováno tiketů: {len(cancelled)}. Vklady se vrací do banku."
 
 
 def my_tickets(user_id: int, person: str) -> str:
     season = _season()
     by_id = {m["id"]: m for m in season["matches"]}
-    mine = [t for t in _load(SEALED, []) if t["user_id"] == user_id]
+    mine = [t for t in _load(_p("bets_sealed.json"), []) if t["user_id"] == user_id]
     lines = [f"Bank k dispozici: {available_bank(person):.0f}"]
     if not mine:
         lines.append("Žádný zapečetěný tiket.")
@@ -265,12 +279,14 @@ def reveal_completed() -> list[str]:
     for m in season["matches"]:
         if m["round"]:
             by_round.setdefault(m["round"], []).append(m)
-    sealed = _load(SEALED, [])
-    commits = _load(COMMITS, [])
+    sealed = _load(_p("bets_sealed.json"), [])
+    commits = _load(_p("commitments.json"), [])
     by_hash = {c["hash"]: c for c in commits}
 
     keep, revealed_msgs = [], []
-    bets_path = DATA / "bets.csv"
+    bets_path = _p("bets.csv")
+    if not bets_path.exists():
+        bets_path.write_text("round,person,ticket,match,market,stake\n")
     lines_to_append = []
     for t in sealed:
         done = all(m["score"] for m in by_round.get(t["round"], []))
@@ -293,8 +309,8 @@ def reveal_completed() -> list[str]:
     if lines_to_append:
         with open(bets_path, "a", encoding="utf-8") as f:
             f.write("\n".join(lines_to_append) + "\n")
-        _save(SEALED, keep)
-        _save(COMMITS, commits)
+        _save(_p("bets_sealed.json"), keep)
+        _save(_p("commitments.json"), commits)
     return revealed_msgs
 
 

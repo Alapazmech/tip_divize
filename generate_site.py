@@ -95,14 +95,16 @@ def resolve_match(ref: str, round_matches: list[dict]) -> dict | None:
     return hits[0] if len(hits) == 1 else None
 
 
-def settle(matches: list[dict], published: dict) -> dict:
+def settle(
+    matches: list[dict], published: dict, bets_path: pathlib.Path | None = None
+) -> dict:
     """Projde kola chronologicky, vypořádá tikety -> stav bank."""
     by_round: dict[int, list[dict]] = collections.defaultdict(list)
     for m in matches:
         if m["round"]:
             by_round[m["round"]].append(m)
 
-    bets = load_csv(DATA / "bets.csv")
+    bets = load_csv(bets_path or DATA / "bets.csv")
     banks: dict[str, float] = {}
     settled_rows: dict[int, list[dict]] = collections.defaultdict(list)
     open_rows: dict[int, list[dict]] = collections.defaultdict(list)
@@ -255,7 +257,9 @@ def score_html(m: dict) -> str:
     return f'<span class="score">{gh}:{ga}{e(note)}</span>'
 
 
-def round_table(ms: list[dict], published: dict, odds_cols: bool = True) -> str:
+def round_table(
+    ms: list[dict], published: dict, odds_cols: bool = True, clickable: bool = True
+) -> str:
     """Tabulka kola: zápasy v řádcích, trhy 1/10/02/2 ve sloupcích.
 
     Kurzy neodehraných zápasů jsou klikací (skládají tiket), u odehraných
@@ -288,7 +292,7 @@ def round_table(ms: list[dict], published: dict, odds_cols: bool = True) -> str:
             attrs = ""
             if outcome:
                 cls += " win" if outcome in WINS[mk] else " lost"
-            elif not m["score"]:
+            elif clickable and not m["score"]:
                 cls += " click"
                 attrs = (
                     f' data-mid="{m["id"]}" data-mk="{mk}" data-odd="{odds[mk]:.2f}"'
@@ -305,11 +309,18 @@ def round_table(ms: list[dict], published: dict, odds_cols: bool = True) -> str:
     )
 
 
-def main() -> None:
-    season = json.load(open(DATA / "season.json", encoding="utf-8"))
-    pub_path = DATA / "published.json"
-    published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
-    matches = season["matches"]
+def betting_sections(
+    matches: list[dict],
+    published: dict,
+    bets_path: pathlib.Path,
+    commits_path: pathlib.Path,
+    clickable: bool,
+) -> tuple[list[str], dict, int | None, dict]:
+    """Sázková sekce (banky, vypsané kolo, příští kolo, historie).
+
+    Společné pro ostrou ligu i zkušební záložku; vrací (html části, stav
+    vypořádání, vypsané kolo, zápasy po kolech).
+    """
     by_round: dict[int, list[dict]] = collections.defaultdict(list)
     for m in matches:
         if m["round"]:
@@ -317,9 +328,7 @@ def main() -> None:
     for ms in by_round.values():
         ms.sort(key=lambda m: (m["date"] or "9999", m["time"] or "99"))
 
-    state = settle(matches, published)
-    for w in state["warnings"]:
-        print("⚠", w)
+    state = settle(matches, published, bets_path)
 
     published_rounds = sorted({v["round"] for v in published.values()})
     open_round = next(
@@ -327,9 +336,6 @@ def main() -> None:
     )
     settled_rounds = [r for r in published_rounds if r != open_round]
 
-    our_line = '<p class="ourmatch">⭐ Na náš zápas lze sázet jen výhru</p>'
-
-    # ---------- záložka Divize Sázky ----------
     sazky = []
 
     # banky
@@ -344,7 +350,6 @@ def main() -> None:
         sazky.append(
             "<h2>Banky</h2><table><tr><th>#</th><th class='tname'>Sázkař</th>"
             f"<th>Bank</th><th>±</th></tr>{rows}</table>"
-            f'<p class="note">Každý začíná s bankem {START_BANK}. Sázky hlaš bookmakerovi.</p>'
         )
     else:
         sazky.append(
@@ -362,8 +367,7 @@ def main() -> None:
         sazky.append(
             f"<h2>Vypsané kolo: {open_round}. kolo <span class='hspan'>{span}</span></h2>"
         )
-        sazky.append(round_table(ms, published))
-        commits_path = DATA / "commitments.json"
+        sazky.append(round_table(ms, published, clickable=clickable))
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
         sealed_notes = [
             f'{e(c["person"])} <span class="hash">#{c["hash"][:8]}</span>'
@@ -420,6 +424,51 @@ def main() -> None:
                 f'<details class="round"><summary>{rnd}. kolo</summary>'
                 f"{round_table(by_round[rnd], published)}{bets_html}</details>"
             )
+
+    return sazky, state, open_round, by_round
+
+
+def main() -> None:
+    season = json.load(open(DATA / "season.json", encoding="utf-8"))
+    pub_path = DATA / "published.json"
+    published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
+    matches = season["matches"]
+
+    demo_season_path = DATA / "demo_season.json"
+    demo_active = (DATA / "demo_active").exists()
+
+    sazky, state, open_round, by_round = betting_sections(
+        matches,
+        published,
+        DATA / "bets.csv",
+        DATA / "commitments.json",
+        clickable=not demo_active,  # během testu se ostré kurzy neklikají
+    )
+    for w in state["warnings"]:
+        print("⚠", w)
+
+    our_line = '<p class="ourmatch">⭐ Na náš zápas lze sázet jen výhru</p>'
+
+    # ---------- dočasná zkušební záložka ----------
+    demo_tab = ""
+    if demo_season_path.exists():
+        demo_season = json.load(open(demo_season_path, encoding="utf-8"))
+        dpub_path = DATA / "demo_published.json"
+        demo_pub = json.loads(dpub_path.read_text()) if dpub_path.exists() else {}
+        demo_parts, demo_state, _, _ = betting_sections(
+            demo_season["matches"],
+            demo_pub,
+            DATA / "demo_bets.csv",
+            DATA / "demo_commitments.json",
+            clickable=demo_active,
+        )
+        for w in demo_state["warnings"]:
+            print("⚠ [test]", w)
+        demo_tab = (
+            '<p class="note">🧪 Zkušební liga na osahání sázení (zápasy Divize A, '
+            "výsledky se losují). O nic nejde, banky jsou oddělené od ostré hry.</p>"
+            + "".join(demo_parts)
+        )
 
     # ---------- záložka Los a tabulka ----------
     tab_rows = "".join(
@@ -493,6 +542,10 @@ def main() -> None:
             '<p class="note">Zatím žádné — objeví se po dohrání prvního kola.</p>'
         )
 
+    demo_nav = '<a href="#test" id="nav-test">🧪 Test</a>' if demo_tab else ""
+    demo_section = (
+        f'<section class="tab" id="tab-test">{demo_tab}</section>' if demo_tab else ""
+    )
     pub_key_path = DATA / "public_key.txt"
     pubkey = pub_key_path.read_text().strip() if pub_key_path.exists() else ""
     generated = datetime.datetime.now().strftime("%d. %m. %Y %H:%M")
@@ -611,6 +664,7 @@ footer a {{ color:var(--muted); }}
 
 <nav>
   <a href="#sazky" id="nav-sazky">Divize Sázky</a>
+  {demo_nav}
   <a href="#tikety" id="nav-tikety">Tikety</a>
   <a href="#los" id="nav-los">Los a tabulka</a>
 </nav>
@@ -618,6 +672,7 @@ footer a {{ color:var(--muted); }}
 <section class="tab" id="tab-sazky">{''.join(sazky)}
 <footer>Zdroj dat: <a href="{season['url']}">ceskyflorbal.cz</a> · vygenerováno {generated}</footer>
 </section>
+{demo_section}
 <section class="tab" id="tab-tikety">{tikety}</section>
 <section class="tab" id="tab-los">{''.join(los)}</section>
 </div>
@@ -730,8 +785,8 @@ document.getElementById("tcopy").addEventListener("click", function () {{
   document.getElementById("tcopy").textContent = "Zkopírováno ✓";
 }});
 function showTab() {{
-  var t = location.hash === "#los" ? "los"
-    : location.hash === "#tikety" ? "tikety" : "sazky";
+  var t = location.hash.replace("#", "") || "sazky";
+  if (!document.getElementById("tab-" + t)) t = "sazky";
   document.querySelectorAll("section.tab, nav a").forEach(function (el) {{
     el.classList.remove("active");
   }});
