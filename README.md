@@ -63,6 +63,10 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   (`round,person,ticket,match,market,stake`; stejný `ticket` = AKO).
 - Vypořádání: podle základní hrací doby (prodloužení/nájezdy = remíza
   v základní době); výhra = vklad × (kurz − 1), prohra = −vklad.
+- **Dohrávky**: tiket se odhalí a vyhodnotí, až jsou dohrané VŠECHNY jeho
+  zápasy — tiket s odloženým zápasem visí zapečetěný a čeká. Nové kolo se
+  při viselci vypíše přes „/update force" (dohrávka zůstane otevřená vedle
+  nového kola a sázet jde na obojí). Tiket nesmí míchat zápasy různých kol.
 - Klíče: `python3 keygen.py` (jednorázově) → `data/secret_key.txt`
   (gitignored, jen bookmaker) + `data/public_key.txt` (zabuduje se do
   stránky). Jména hráčů mapuje `data/players.json` (telegram id → jméno,
