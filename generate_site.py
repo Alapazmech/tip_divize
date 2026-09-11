@@ -599,7 +599,7 @@ td.ocell.click:hover {{ color:var(--accent); }}
 td.ocell.sel {{ background:rgba(250,204,21,.15); color:var(--accent2); }}
 td.ocell.win {{ color:var(--accent); }}
 td.ocell.lost {{ color:var(--lost); }}
-#tbar {{ position:fixed; right:18px; bottom:18px; width:330px; max-height:80vh;
+#tbar {{ position:fixed; right:18px; bottom:18px; width:290px; max-height:80vh;
   overflow-y:auto; background:var(--card2); border:1px solid var(--line);
   border-radius:14px; display:none; z-index:9;
   box-shadow:0 12px 34px rgba(0,0,0,.55); }}
@@ -629,7 +629,13 @@ td.ocell.lost {{ color:var(--lost); }}
   border:1px solid var(--line); border-radius:8px; padding:6px; font:12px monospace; }}
 #tout button {{ margin:8px 0 6px; width:100%; }}
 .slipnote {{ color:var(--muted); font-size:12px; margin:0 0 10px; text-align:center; }}
-@media (max-width:700px) {{ #tbar {{ left:12px; right:12px; bottom:12px; width:auto; }} }}
+/* otevřený tiket nesmí nic překrývat: na širokém displeji dostane vlastní
+   sloupec vpravo od obsahu, na úzkém je dole a stránka pod ním dostane místo */
+@media (min-width:1000px) {{
+  body.slip-on .wrap {{ max-width:1200px; padding-right:320px; }} }}
+@media (max-width:999px) {{
+  #tbar {{ left:12px; right:12px; bottom:12px; width:auto; max-height:45vh; }}
+  body.slip-on .wrap {{ padding-bottom:50vh; }} }}
 details.round {{ background:var(--card); border:1px solid var(--line);
   border-radius:12px; margin:10px 0; overflow:hidden; }}
 details.round summary {{ cursor:pointer; padding:10px 14px; font-weight:700;
@@ -708,6 +714,7 @@ function renderWin() {{
 function renderBar() {{
   var bar = document.getElementById("tbar");
   var mids = Object.keys(sel);
+  document.body.classList.toggle("slip-on", mids.length > 0);
   if (!mids.length) {{ bar.classList.remove("on"); return; }}
   var rows = "";
   mids.forEach(function (mid) {{
