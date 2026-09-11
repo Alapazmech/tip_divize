@@ -120,9 +120,17 @@ def banks_summary() -> str:
     state = generate_site.settle(season["matches"], published, tickets._p("bets.csv"))
     if not state["banks"]:
         return f"Zatím nikdo nesází. Každý začíná s bankem {generate_site.START_BANK}."
+    stats = generate_site.person_stats(state)
     lines = ["💰 Banky:"]
     for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
-        lines.append(f"{i}. {p}: {b:.0f} ({b - generate_site.START_BANK:+.0f})")
+        st = stats[p]
+        extra = ""
+        if st["tickets"]:
+            extra = (
+                f" · tikety {st['wins']}/{st['tickets']}"
+                f" · ROI {st['roi'] * 100:+.0f} %"
+            )
+        lines.append(f"{i}. {p}: {b:.0f} ({b - generate_site.START_BANK:+.0f}){extra}")
     return "\n".join(lines)
 
 

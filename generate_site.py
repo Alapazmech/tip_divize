@@ -17,6 +17,7 @@ import csv
 import datetime
 import html
 import json
+import math
 import pathlib
 import unicodedata
 
@@ -174,6 +175,7 @@ def settle(
         )
         banks.setdefault(person, START_BANK)
 
+    history: list[dict] = []  # vývoj banků: snapshot po každém vypořádaném kole
     for rnd in sorted(by_round):
         stakes_this_round: dict[str, float] = collections.defaultdict(float)
         for t in [x for x in tickets if x["round"] == rnd]:
@@ -194,13 +196,116 @@ def settle(
                 warnings.append(
                     f"{person} má v {rnd}. kole vsazeno {staked:.0f}, ale bank je {banks[person]:.0f}"
                 )
+        if settled_rows.get(rnd):
+            history.append({"round": rnd, "banks": dict(banks)})
 
     return {
         "banks": banks,
+        "history": history,
         "settled": settled_rows,
         "open": open_rows,
         "warnings": warnings,
     }
+
+
+def person_stats(state: dict) -> dict[str, dict]:
+    """Statistika sázkaře z vypořádaných tiketů: počet, úspěšnost, ROI, nejvyšší výhra."""
+    stats: dict[str, dict] = {}
+    for p in state["banks"]:
+        stats[p] = {"tickets": 0, "wins": 0, "staked": 0.0, "profit": 0.0, "best": 0.0}
+    for rows in state["settled"].values():
+        for t in rows:
+            st = stats[t["person"]]
+            st["tickets"] += 1
+            st["wins"] += t["won"]
+            st["staked"] += t["stake"]
+            st["profit"] += t["delta"]
+            st["best"] = max(st["best"], t["delta"])
+    for st in stats.values():
+        st["hit"] = st["wins"] / st["tickets"] if st["tickets"] else None
+        st["roi"] = st["profit"] / st["staked"] if st["staked"] else None
+    return stats
+
+
+# kategorická paleta pro graf (validovaná na tmavém podkladu karty), pořadí pevné
+CHART_COLORS = (
+    "#3987e5", "#d95926", "#199e70", "#c98500",
+    "#d55181", "#008300", "#9085e9", "#e66767",
+)
+
+
+def bank_chart(history: list[dict], persons: list[str]) -> str:
+    """Inline SVG: vývoj banku každého sázkaře po kolech (start = 1000)."""
+    if not history or not persons:
+        return ""
+    if len(persons) > len(CHART_COLORS):
+        # víc než 8 sázkařů: graf jen pro 8 s nejvyšším bankem, zbytek v tabulce
+        persons = sorted(persons, key=lambda p: -history[-1]["banks"].get(p, 0))[:8]
+    color = {p: CHART_COLORS[i] for i, p in enumerate(sorted(persons))}
+    rounds = [0] + [h["round"] for h in history]
+    series = {
+        p: [START_BANK] + [h["banks"].get(p, START_BANK) for h in history]
+        for p in persons
+    }
+    vals = [v for vs in series.values() for v in vs]
+    vmin, vmax = min(vals), max(vals)
+    # hezké kroky osy: nejmenší krok, při kterém vyjde nejvýš 6 linek
+    step = next(
+        st for st in (50, 100, 200, 250, 500, 1000, 2000, 5000)
+        if (vmax - vmin) / st <= 5
+    )
+    lo = math.floor(vmin / step) * step
+    hi = math.ceil(vmax / step) * step
+    if hi == lo:
+        hi = lo + step
+    ticks = [lo + step * k for k in range(int((hi - lo) / step) + 1)]
+    W, H, L, R, T, B = 640, 260, 46, 110, 14, 30
+    px = lambda i: L + (W - L - R) * i / max(len(rounds) - 1, 1)
+    py = lambda v: T + (H - T - B) * (hi - v) / (hi - lo)
+    out = [
+        f'<svg class="bankchart" viewBox="0 0 {W} {H}" role="img" '
+        'aria-label="Vývoj banků po kolech">'
+    ]
+    # mřížka na hezkých hodnotách + start 1000 čárkovaně
+    for v in ticks:
+        y = py(v)
+        out.append(
+            f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" class="grid"/>'
+            f'<text x="{L - 6}" y="{y + 4:.1f}" class="ax" text-anchor="end">{v:.0f}</text>'
+        )
+    if lo < START_BANK < hi:
+        y = py(START_BANK)
+        out.append(
+            f'<line x1="{L}" x2="{W - R}" y1="{y:.1f}" y2="{y:.1f}" class="base"/>'
+        )
+    for i, r in enumerate(rounds):
+        out.append(
+            f'<text x="{px(i):.1f}" y="{H - 10}" class="ax" text-anchor="middle">'
+            f'{"start" if r == 0 else f"{r}."}</text>'
+        )
+    # čáry, body s tooltipem, přímé popisky na konci (barva + text = identita nejen barvou)
+    ends = sorted(persons, key=lambda p: -series[p][-1])
+    used_y: list[float] = []
+    for p in ends:
+        pts = " ".join(f"{px(i):.1f},{py(v):.1f}" for i, v in enumerate(series[p]))
+        out.append(f'<polyline points="{pts}" fill="none" stroke="{color[p]}" stroke-width="2"/>')
+        for i, v in enumerate(series[p]):
+            r = rounds[i]
+            tip = f"{p} · {'start' if r == 0 else f'{r}. kolo'} · bank {v:.0f}"
+            out.append(
+                f'<circle cx="{px(i):.1f}" cy="{py(v):.1f}" r="4" fill="{color[p]}" '
+                f'stroke="var(--card)" stroke-width="2"><title>{e(tip)}</title></circle>'
+            )
+        y = py(series[p][-1])
+        while any(abs(y - u) < 13 for u in used_y):
+            y += 13
+        used_y.append(y)
+        out.append(
+            f'<text x="{W - R + 8}" y="{y + 4:.1f}" class="lbl" fill="{color[p]}">'
+            f'{e(p)} {series[p][-1]:.0f}</text>'
+        )
+    out.append("</svg>")
+    return "".join(out)
 
 
 def standings(matches: list[dict]) -> list[dict]:
@@ -340,19 +445,44 @@ def betting_sections(
 
     sazky = []
 
-    # banky
+    # banky + statistika sázkařů
     if state["banks"]:
-        rows = "".join(
-            f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td>{b:.0f}</td>'
-            f'<td class="{"plus" if b >= START_BANK else "minus"}">{b - START_BANK:+.0f}</td></tr>'
-            for i, (p, b) in enumerate(
-                sorted(state["banks"].items(), key=lambda x: -x[1]), 1
+        stats = person_stats(state)
+        has_stats = any(st["tickets"] for st in stats.values())
+        pct = lambda x: f"{x * 100:.0f} %" if x is not None else "–"
+        rows = ""
+        for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
+            st = stats[p]
+            rows += (
+                f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td><b>{b:.0f}</b></td>'
+                f'<td class="{"plus" if b >= START_BANK else "minus"}">{b - START_BANK:+.0f}</td>'
             )
-        )
+            if has_stats:
+                roi_cls = "" if st["roi"] is None else ("plus" if st["roi"] >= 0 else "minus")
+                rows += (
+                    f'<td>{st["tickets"]}</td>'
+                    f'<td title="výherních tiketů / všech">{st["wins"]}/{st["tickets"]} · {pct(st["hit"])}</td>'
+                    f'<td>{st["staked"]:.0f}</td>'
+                    f'<td class="{roi_cls}" title="čistý zisk / vsazeno">{pct(st["roi"])}</td>'
+                    + (f'<td>{st["best"]:+.0f}</td>' if st["best"] else "<td>–</td>")
+                )
+            rows += "</tr>"
+        head = "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th>±</th>"
+        if has_stats:
+            head += (
+                "<th title='vypořádaných tiketů'>Tiketů</th><th title='výherních / všech'>Úspěšnost</th>"
+                "<th>Vsazeno</th><th title='čistý zisk / vsazeno'>ROI</th><th title='nejvyšší čistá výhra na tiket'>Top výhra</th>"
+            )
         sazky.append(
-            "<h2>Banky</h2><table><tr><th>#</th><th class='tname'>Sázkař</th>"
-            f"<th>Bank</th><th>±</th></tr>{rows}</table>"
+            f'<h2>Banky</h2><div class="scrollx"><table class="stats"><tr>{head}</tr>{rows}</table></div>'
         )
+        chart = bank_chart(state["history"], sorted(state["banks"]))
+        if chart:
+            sazky.append(
+                '<h3>Vývoj banků</h3><div class="chartwrap">' + chart + "</div>"
+                '<p class="note">Bank po každém dohraném kole. Šedá linka = startovních '
+                f"{START_BANK}. Najetím na bod uvidíš hodnotu.</p>"
+            )
     else:
         sazky.append(
             f'<h2>Banky</h2><p class="note">Zatím nikdo nesází. Každý začíná s bankem {START_BANK} — '
@@ -589,6 +719,13 @@ td.minus, tr.minus td:last-child {{ color:var(--red); }}
 .hash {{ font-family:monospace; font-size:12px; color:var(--muted); }}
 .ourmatch {{ margin:8px 0 0; color:var(--accent); font-weight:700; }}
 .scrollx {{ overflow-x:auto; }}
+h3 {{ color:var(--muted); font-size:15px; margin:18px 0 6px; font-weight:600; }}
+.chartwrap {{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 6px; }}
+.bankchart {{ width:100%; height:auto; display:block; font:11px system-ui,sans-serif; }}
+.bankchart .grid {{ stroke:var(--line); stroke-width:1; }}
+.bankchart .base {{ stroke:var(--muted); stroke-width:1; stroke-dasharray:4 4; }}
+.bankchart .ax {{ fill:var(--muted); }}
+.bankchart .lbl {{ font-weight:700; font-size:12px; }}
 table.odds {{ margin:10px 0; }}
 table.odds th {{ min-width:52px; }}
 table.odds td.tname .mdate {{ margin-right:6px; }}
