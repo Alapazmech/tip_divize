@@ -49,6 +49,18 @@ NEWCOMER_PRIOR = 1400  # postupující z krajského přeboru
 MARGIN = 0.08  # marže kanceláře na trh
 MIN_ODD, MAX_ODD = 1.02, 15.0
 GRID = 25  # Poissonova mřížka 0..GRID gólů
+# Poisson remízy podstřeluje (loňsko: 14 % zápasů skončilo v základní době
+# nerozhodně, mřížka dává ~10 %). Faktor se fituje na historii, viz Model.fit.
+DRAW_FACTOR_BOUNDS = (1.0, 2.0)
+
+
+def regulation_score(m: dict) -> tuple[int, int]:
+    """Skóre ZÁKLADNÍ hrací doby: prodloužení/nájezdy přidaly vítězi jeden gól."""
+    gh, ga = m["score"]
+    note = (m.get("score_note") or "").lower()
+    if m.get("overtime") or m.get("shootout") or note in ("p", "pn", "sn"):
+        gh = ga = min(gh, ga)
+    return gh, ga
 
 
 def elo_expect(r_home: float, r_away: float, home_adv: float = ELO_HOME_ADV) -> float:
@@ -79,6 +91,8 @@ class Model:
         self._diff_samples: list[tuple[float, int]] = []  # (elo diff, rozdíl gólů)
         self.beta = 1.0 / 130.0  # góly rozdílu na bod Elo, přefituje se
         self.home_goal_edge = 0.3
+        self.draw_factor = 1.0  # kolikrát víc remíz než Poisson, přefituje se
+        self._fit_pairs: list[tuple[str, str, bool]] = []  # (domácí, hosté, remíza?)
 
     def _ensure(self, team: str, prior: float) -> None:
         if team not in self.rating:
@@ -92,7 +106,7 @@ class Model:
             prior = m.get("prior", 1500)
             self._ensure(h, prior)
             self._ensure(a, prior)
-            gh, ga = m["score"]
+            gh, ga = regulation_score(m)  # výhra v prodloužení = remíza
             exp = elo_expect(self.rating[h], self.rating[a])
             if collect_fit:
                 self._diff_samples.append(
@@ -101,8 +115,9 @@ class Model:
                 self.totals.append(gh + ga)
                 self.pace[h].append(gh + ga)
                 self.pace[a].append(gh + ga)
+                self._fit_pairs.append((h, a, gh == ga))
             result = 1.0 if gh > ga else (0.0 if gh < ga else 0.5)
-            mult = math.log1p(abs(gh - ga))
+            mult = math.log1p(max(1, abs(gh - ga)))  # remíza váží jako výhra o gól
             delta = ELO_K * mult * (result - exp)
             self.rating[h] += delta
             self.rating[a] -= delta
@@ -121,6 +136,15 @@ class Model:
             if homes
             else 0.3
         )
+        # kalibrace remíz: poměr skutečného podílu remíz k tomu, co dává
+        # Poissonova mřížka (s finálními ratingy — na faktor to stačí)
+        if self._fit_pairs:
+            model_p0 = sum(
+                self._raw_probabilities(h, a)["p0"] for h, a, _ in self._fit_pairs
+            ) / len(self._fit_pairs)
+            real_p0 = sum(d for _, _, d in self._fit_pairs) / len(self._fit_pairs)
+            lo, hi = DRAW_FACTOR_BOUNDS
+            self.draw_factor = max(lo, min(hi, real_p0 / max(model_p0, 1e-6)))
 
     def regress(self) -> None:
         for t in self.rating:
@@ -144,7 +168,14 @@ class Model:
         return lam_h, lam_a
 
     def probabilities(self, home: str, away: str) -> dict:
-        """Pravděpodobnosti výsledku základní hrací doby (1/0/2)."""
+        """Pravděpodobnosti výsledku základní hrací doby (1/0/2), remízy kalibrované."""
+        probs = self._raw_probabilities(home, away)
+        p0 = min(0.5, probs["p0"] * self.draw_factor)
+        rest = (1 - p0) / max(1 - probs["p0"], 1e-9)
+        probs.update(p1=probs["p1"] * rest, p0=p0, p2=probs["p2"] * rest)
+        return probs
+
+    def _raw_probabilities(self, home: str, away: str) -> dict:
         lam_h, lam_a = self.expected_goals(home, away)
         ph = [math.exp(-lam_h) * lam_h**k / math.factorial(k) for k in range(GRID)]
         pa = [math.exp(-lam_a) * lam_a**k / math.factorial(k) for k in range(GRID)]
