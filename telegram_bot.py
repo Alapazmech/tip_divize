@@ -181,11 +181,14 @@ def is_admin(cfg: dict, username: str, user_id: int) -> bool:
 
 
 def handle(token: str, cfg: dict, msg: dict) -> None:
-    text = (msg.get("text") or "").strip()
-    if not text:
-        return
+    # kód tiketu může přijít i jako popisek k obrázku/souboru — bereme i caption
+    text = (msg.get("text") or msg.get("caption") or "").strip()
     chat_id = msg["chat"]["id"]
     sender = msg.get("from") or {}
+    if not text:
+        kind = ",".join(k for k in msg if k not in ("chat", "from", "date", "message_id"))
+        print(f"[msg] chat={chat_id} from={sender.get('first_name', '')}: bez textu ({kind})", flush=True)
+        return
     user_id = sender.get("id")
     username = sender.get("username") or ""
     private = msg["chat"].get("type") == "private"
@@ -317,7 +320,10 @@ def main() -> None:
                 try:
                     handle(token, cfg, upd["message"])
                 except Exception as exc:
-                    print("zpracování zprávy selhalo:", exc)
+                    print("zpracování zprávy selhalo:", exc, flush=True)
+            else:
+                kind = ",".join(k for k in upd if k != "update_id")
+                print(f"[upd] ignorováno: {kind}", flush=True)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,24 @@
+# Telegram bot Tipdivize jako systemd user service (přežije odhlášení i reboot).
+# Instalace (jednorázově, jako běžný uživatel):
+#   mkdir -p ~/.config/systemd/user
+#   cp tipdivize-bot.service ~/.config/systemd/user/
+#   systemctl --user daemon-reload
+#   systemctl --user enable --now tipdivize-bot
+#   loginctl enable-linger $USER      # ať služba běží i bez přihlášení
+# Stav / log:  systemctl --user status tipdivize-bot ; tail -f .bot.log
+# Po změně kódu bota:  systemctl --user restart tipdivize-bot
+[Unit]
+Description=Tipdivize Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/home/trader/Projects/tipdivize
+ExecStart=/usr/bin/python3 -u telegram_bot.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/trader/Projects/tipdivize/.bot.log
+StandardError=append:/home/trader/Projects/tipdivize/.bot.log
+
+[Install]
+WantedBy=default.target
