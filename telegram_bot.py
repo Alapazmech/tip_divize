@@ -80,6 +80,8 @@ def react(token: str, chat_id: int, message_id: int) -> None:
 
 def round_summary() -> str:
     """Vypsané kolo s kurzy (z published.json + season.json; v demo režimu demo_*)."""
+    import generate_site
+
     season = json.load(open(tickets._p("season.json"), encoding="utf-8"))
     pub_path = tickets._p("published.json")
     published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
@@ -102,7 +104,7 @@ def round_summary() -> str:
             m = by_id[v["match_id"]]
             o = v["odds"]
             cols = "  ".join(
-                f"{mk}: {o[mk]:.2f}" for mk in ("1", "10", "02", "2") if mk in o
+                f"{mk}: {o[mk]:.2f}" for mk in generate_site.MARKETS if mk in o
             )
             star = " ⭐ (jen výhra Bohemky!)" if v.get("special") else ""
             lines.append(f"{m['date']} {m['home']} – {m['away']}\n   {cols}{star}")

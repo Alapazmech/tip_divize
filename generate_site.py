@@ -1,7 +1,7 @@
 """Generuje statický index.html: záložky „Divize Sázky" a „Los a tabulka".
 
 Vstupy: data/season.json (los + výsledky), data/published.json (zmrazené
-kurzy), data/bets.csv (tikety). Vypořádání: trhy 1/10/02/2 se vztahují
+kurzy), data/bets.csv (tikety). Vypořádání: trhy 1/10/0/02/2 se vztahují
 k ZÁKLADNÍ HRACÍ DOBĚ (prodloužení/nájezdy = remíza v základní době).
 Na zápasy Bohemians jsou vypsané jen výhry (1 a 2) — žádné zajišťování.
 
@@ -25,14 +25,15 @@ DATA = ROOT / "data"
 
 OUR_TEAM = "FbŠ Florbal Bohemians"
 START_BANK = 1000
-MARKETS = ("1", "10", "02", "2")
+MARKETS = ("1", "10", "0", "02", "2")
 MARKET_LABEL = {
     "1": "výhra domácích",
     "10": "neprohra domácích",
+    "0": "remíza v základní době",
     "02": "neprohra hostů",
     "2": "výhra hostů",
 }
-WINS = {"1": {"1"}, "10": {"1", "0"}, "02": {"0", "2"}, "2": {"2"}}
+WINS = {"1": {"1"}, "10": {"1", "0"}, "0": {"0"}, "02": {"0", "2"}, "2": {"2"}}
 
 DAYS = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"]
 
@@ -260,7 +261,7 @@ def score_html(m: dict) -> str:
 def round_table(
     ms: list[dict], published: dict, odds_cols: bool = True, clickable: bool = True
 ) -> str:
-    """Tabulka kola: zápasy v řádcích, trhy 1/10/02/2 ve sloupcích.
+    """Tabulka kola: zápasy v řádcích, trhy 1/10/0/02/2 ve sloupcích.
 
     Kurzy neodehraných zápasů jsou klikací (skládají tiket), u odehraných
     se obarví vítězný/prohraný trh. S odds_cols=False jen los bez kurzů.
@@ -703,7 +704,7 @@ footer a {{ color:var(--muted); }}
 <script>
 var PUBKEY = "{pubkey}";
 var MKLABEL = {{ "1": "výhra domácích", "10": "neprohra domácích",
-  "02": "neprohra hostů", "2": "výhra hostů" }};
+  "0": "remíza v základní době", "02": "neprohra hostů", "2": "výhra hostů" }};
 var sel = {{}};
 function totalOdd() {{
   var total = 1;
@@ -766,7 +767,7 @@ document.getElementById("tseal").addEventListener("click", function () {{
   if (typeof nacl === "undefined") {{
     alert("Šifrovací knihovna se nenačetla — jsi online?"); return;
   }}
-  var MKCODE = {{ "1": 0, "2": 1, "10": 2, "02": 3 }};
+  var MKCODE = {{ "1": 0, "2": 1, "10": 2, "02": 3, "0": 4 }};
   var legs = Object.keys(sel).map(function (mid) {{
     return [parseInt(mid, 10), sel[mid].mk];
   }});

@@ -21,7 +21,8 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
    - Očekávané góly z rozdílu Elo (koeficient fitovaný na loňsku) + tempo
      týmů; Poissonova mřížka → pravděpodobnosti výsledku základní hrací doby.
    - Trhy klasika na základní hrací dobu: **1** (výhra domácích), **10**
-     (neprohra domácích), **02** (neprohra hostů), **2** (výhra hostů).
+     (neprohra domácích), **0** (čistá remíza v základní době), **02**
+     (neprohra hostů), **2** (výhra hostů).
      **Na zápasy Bohemians jedině výhra Bohemky** — buď věříš, nebo nesázíš. Marže 8 %.
    - **Vypisuje se vždy jedno celé kolo** — další až po dohrání vypsaného
      (dohrávku přeskočí `--force`). Model se mezitím učí z výsledků, kurzy

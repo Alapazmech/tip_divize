@@ -30,6 +30,7 @@ import time
 DATA = pathlib.Path(__file__).parent / "data"
 
 OUR_TEAM = "FbŠ Florbal Bohemians"
+MARKETS = ("1", "10", "0", "02", "2")  # pořadí sloupců při výpisu
 
 ELO_K = 24
 ELO_HOME_ADV = 35
@@ -170,7 +171,7 @@ def to_odd(p: float) -> float:
 
 
 def market_odds(probs: dict, our_side: str | None = None) -> dict:
-    """Klasické trhy na základní hrací dobu: 1, 2, 10 (neprohra domácích), 02.
+    """Klasické trhy na základní hrací dobu: 1, 0 (remíza), 2, 10 (neprohra domácích), 02.
 
     Na zápas Bohemians (`our_side` = 'home'/'away') se vypisuje JEDINÝ trh:
     výhra Bohemky. Buď na ni věříš, nebo na ten zápas nesázíš vůbec.
@@ -181,6 +182,7 @@ def market_odds(probs: dict, our_side: str | None = None) -> dict:
         return {"2": to_odd(probs["p2"])}
     return {
         "1": to_odd(probs["p1"]),
+        "0": to_odd(probs["p0"]),
         "2": to_odd(probs["p2"]),
         "10": to_odd(probs["p1"] + probs["p0"]),
         "02": to_odd(probs["p0"] + probs["p2"]),
@@ -298,7 +300,7 @@ def main() -> None:
         o = published[str(m["id"])]["odds"]
         star = " ⭐ jen výhra Bohemky" if published[str(m["id"])]["special"] else ""
         cols = "  ".join(
-            f"{mk}:{o[mk]:5.2f}" for mk in ("1", "10", "02", "2") if mk in o
+            f"{mk}:{o[mk]:5.2f}" for mk in MARKETS if mk in o
         )
         print(f"  {m['home']:26s} - {m['away']:26s}  {cols}{star}")
 

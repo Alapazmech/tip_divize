@@ -114,7 +114,7 @@ def _round_odds_text(targets: list[dict]) -> str:
     for m in targets:
         o = pub[str(m["id"])]["odds"]
         cols = "  ".join(
-            f"{mk}: {o[mk]:.2f}" for mk in ("1", "10", "02", "2") if mk in o
+            f"{mk}: {o[mk]:.2f}" for mk in gs.MARKETS if mk in o
         )
         lines.append(f"{m['home']} – {m['away']}\n   {cols}")
     return "\n".join(lines)

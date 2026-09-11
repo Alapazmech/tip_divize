@@ -214,7 +214,7 @@ def place(
     return True, "\n".join(lines), h
 
 
-MK_CODE = {"1": 0, "2": 1, "10": 2, "02": 3}
+MK_CODE = {"1": 0, "2": 1, "10": 2, "02": 3, "0": 4}
 MK_FROM_CODE = {v: k for k, v in MK_CODE.items()}
 
 
