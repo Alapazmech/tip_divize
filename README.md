@@ -30,8 +30,9 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
    - Vypsaný kurz je zmrazený v `data/published.json` a nemění se
      (`--refresh` přepočítá jen neodehrané, používat vědomě).
 3. **`generate_site.py`** — statický `index.html` se záložkami:
-   - **Divize Sázky**: banky sázkařů, vypsané kolo s kurzy, náhled příštího
-     kola, historie kol s vypořádanými tikety.
+   - **Divize Sázky**: banky sázkařů, vypsané kolo s kurzy (jen to, na které
+     se právě sází — příští kolo se neukazuje, celý los je v druhé záložce),
+     historie kol s vypořádanými tikety.
    - **Los a tabulka**: tabulka (bodování 3/2/1/0) a kompletní los.
 4. **`telegram_bot.py`** — bot v sázkovém Telegram chatu: na „updatuj kurzy"
    od bookmakera spustí `update.sh` a pošle nově vypsané kolo; dál umí

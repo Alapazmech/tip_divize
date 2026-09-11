@@ -317,7 +317,7 @@ def betting_sections(
     commits_path: pathlib.Path,
     clickable: bool,
 ) -> tuple[list[str], dict, int | None, dict]:
-    """Sázková sekce (banky, vypsané kolo, příští kolo, historie).
+    """Sázková sekce (banky, vypsané kolo, historie).
 
     Společné pro ostrou ligu i zkušební záložku; vrací (html části, stav
     vypořádání, vypsané kolo, zápasy po kolech).
@@ -393,17 +393,6 @@ def betting_sections(
                 + ", ".join(sealed_notes)
                 + "</p>"
             )
-
-    # příští kolo
-    future = [r for r in sorted(by_round) if r not in published_rounds]
-    if future:
-        nxt = future[0]
-        sazky.append(
-            f"<h2>Příští kolo: {nxt}. kolo</h2>"
-            + round_table(by_round[nxt], published, odds_cols=False)
-            + f'<p class="note">Kurzy vypíšeme po dohrání {open_round or nxt - 1}. kola — '
-            "podle formy a výsledků.</p>"
-        )
 
     # historie vypořádaných kol
     if settled_rounds:
