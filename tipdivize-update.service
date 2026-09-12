@@ -1,0 +1,13 @@
+# Pravidelný update (scrape losu a výsledků -> kurzy -> stránka -> push).
+# Spouští ho tipdivize-update.timer; instalace je popsaná v timeru.
+[Unit]
+Description=Tipdivize update (scrape + kurzy + stránka)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/trader/Projects/tipdivize
+ExecStart=/home/trader/Projects/tipdivize/update.sh
+StandardOutput=append:/home/trader/Projects/tipdivize/.update.log
+StandardError=append:/home/trader/Projects/tipdivize/.update.log

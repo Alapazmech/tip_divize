@@ -88,13 +88,23 @@ Bot importuje `tickets.py`/`generate_site.py` jen při startu, po změně kódu
 ho restartuj. Zprávy bez textu (samotný obrázek) ignoruje a zaloguje; kód
 tiketu pošli jako text nebo jako popisek k obrázku.
 
-## Denní použití
+## Update běží automaticky
+
+Systemd user timer `tipdivize-update.timer` spouští `update.sh` **každou
+půlhodinu** (instalace v hlavičce souboru timeru). Los na ceskyflorbal.cz se
+mění — přesuny zápasů, doplněné časy, výsledky — a bez pravidelného scrapu by
+stránka ukazovala starý termín. Commit + push + Render deploy vznikne jen když
+se data opravdu změní (samotné razítko `scraped_at` se zahazuje). `update.sh`
+drží zámek `.update.lock`, takže se timer, bot a ruční spuštění nepoperou.
+Log: `.update.log`; stav: `systemctl --user list-timers`.
+
+Ručně kdykoli:
 
 ```sh
 ./update.sh   # scraper season → odds (vypíše kolo, když je čas) → index.html
 ```
 
-…nebo napsat botovi „updatuj kurzy" do chatu. `scraper.py history` je
+…nebo napsat botovi „updatuj kurzy" do chatu (bot navíc pošle vyhodnocení). `scraper.py history` je
 jednorázový (loňská data pro seed modelu).
 
 ## Data
