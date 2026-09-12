@@ -1,5 +1,6 @@
 # Telegram bot Tipdivize jako systemd user service (přežije odhlášení i reboot).
 # Instalace (jednorázově, jako běžný uživatel):
+#   python3 -m venv --system-site-packages .venv && .venv/bin/pip install pynacl
 #   mkdir -p ~/.config/systemd/user
 #   cp tipdivize-bot.service ~/.config/systemd/user/
 #   systemctl --user daemon-reload
@@ -14,7 +15,7 @@ Wants=network-online.target
 
 [Service]
 WorkingDirectory=/home/trader/Projects/tipdivize
-ExecStart=/usr/bin/python3 -u telegram_bot.py
+ExecStart=/home/trader/Projects/tipdivize/.venv/bin/python3 -u telegram_bot.py
 Restart=always
 RestartSec=10
 StandardOutput=append:/home/trader/Projects/tipdivize/.bot.log

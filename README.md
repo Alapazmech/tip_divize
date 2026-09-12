@@ -37,7 +37,7 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
    - **Los a tabulka**: tabulka (bodování 3/2/1/0) a kompletní los.
 4. **`telegram_bot.py`** — bot v sázkovém Telegram chatu: na „updatuj kurzy"
    od bookmakera spustí `update.sh` a pošle nově vypsané kolo; dál umí
-   /kurzy, /banky, /chatid, /help. Nastavení je v docstringu souboru
+   jen /banky a /vysledky (pro všechny), jiné zprávy ignoruje. Nastavení je v docstringu souboru
    (token od @BotFather, **/setprivacy → Disable**, `data/telegram.json`
    je v .gitignore). Běží dlouhodobě, např. v tmux/systemd.
 
@@ -60,8 +60,6 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   zapíše je do `data/bets.csv` a k otisku doplní obsah + nonce, takže si
   každý může hash přepočítat — nikdo (ani bookmaker) nemohl tiket zpětně
   změnit nebo přidat.
-- V DM bot umí: `/moje` (mé zapečetěné tikety), `/storno` (vrátí tikety,
-  u kterých nic nezačalo), `/bank`, `/kurzy`.
 - Ruční tikety může bookmaker dál psát přímo do `bets.csv`
   (`round,person,ticket,match,market,stake`; stejný `ticket` = AKO).
 - Vypořádání: podle základní hrací doby (prodloužení/nájezdy = remíza
@@ -78,11 +76,16 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
 
 ## Bot musí běžet
 
+Jediná závislost mimo stdlib je **pynacl** (dešifrování tiketů). Bot běží
+z projektového venv: `python3 -m venv --system-site-packages .venv &&
+.venv/bin/pip install pynacl` (`.venv/` je v .gitignore). Bez pynacl bot
+každý tiket odmítne s „Kód tiketu se nepodařilo rozbalit“.
+
 Bot je obyčejný proces — když neběží, tikety v chatu nikdo nepřijme (Telegram
 je drží 24 h, po startu je bot dožene). Trvalé spuštění je přes systemd user
 service `tipdivize-bot.service` (návod v hlavičce souboru: `systemctl --user
 enable --now tipdivize-bot` + `loginctl enable-linger`). Nouzově stačí
-`tmux new -d -s tipbot 'python3 -u telegram_bot.py >> .bot.log 2>&1'`.
+`tmux new -d -s tipbot '.venv/bin/python3 -u telegram_bot.py >> .bot.log 2>&1'`.
 Musí běžet **jen jedna instance** — dvě se perou o token (HTTP 409 v logu).
 Bot importuje `tickets.py`/`generate_site.py` jen při startu, po změně kódu
 ho restartuj. Zprávy bez textu (samotný obrázek) ignoruje a zaloguje; kód

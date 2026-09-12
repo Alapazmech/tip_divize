@@ -9,3 +9,4 @@ data/demo_active
 *.log
 data/render_hook.txt
 .update.lock
+.venv/

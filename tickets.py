@@ -270,10 +270,17 @@ def place_from_tip(
         payload = decrypt_tip(code)
         stake = float(payload["stake"])
         legs_spec = [(str(mid), str(mk)) for mid, mk in payload["legs"]]
-    except Exception:
+    except Exception as exc:
+        # celý kód do logu, ať jde selhání zpětně přehrát (log vidí jen bookmaker)
+        print(
+            f"[tip] rozbalení selhalo ({type(exc).__name__}: {exc}), "
+            f"{len(code)} znaků: {code}",
+            flush=True,
+        )
         return (
             False,
-            "Kód tiketu se nepodařilo rozbalit — zkopíroval jsi ho celý?",
+            f"Kód tiketu se nepodařilo rozbalit (dorazilo {len(code)} znaků) — "
+            "zkopíruj ho celý tlačítkem „Zkopírovat“ a pošli znovu.",
             None,
         )
     return place(user_id, person, stake, legs_spec, code_hash=code_hash)
