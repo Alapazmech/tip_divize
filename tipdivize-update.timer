@@ -1,6 +1,6 @@
-# Timer: update každou půlhodinu (los se na ceskyflorbal.cz mění — přesuny
-# zápasů, doplněné časy, výsledky). Scrape je jedna HTML stránka, commit
-# vznikne jen když se něco opravdu změní.
+# Timer: update každý den v poledne (los se na ceskyflorbal.cz mění — přesuny
+# zápasů, doplněné časy, výsledky). Commit vznikne jen když se něco opravdu
+# změní. Když stroj v poledne nebyl zapnutý, Persistent= to dohoní po startu.
 # Instalace (jednorázově, jako běžný uživatel):
 #   cp tipdivize-update.service tipdivize-update.timer ~/.config/systemd/user/
 #   systemctl --user daemon-reload
@@ -9,11 +9,11 @@
 # Stav / log:  systemctl --user list-timers ; tail -f .update.log
 # Ruční spuštění hned:  systemctl --user start tipdivize-update.service
 [Unit]
-Description=Tipdivize update každou půlhodinu
+Description=Tipdivize update denně v poledne
 
 [Timer]
-OnCalendar=*:00/30
-RandomizedDelaySec=120
+OnCalendar=*-*-* 12:00:00
+RandomizedDelaySec=300
 Persistent=true
 
 [Install]

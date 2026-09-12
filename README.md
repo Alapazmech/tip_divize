@@ -90,13 +90,14 @@ tiketu pošli jako text nebo jako popisek k obrázku.
 
 ## Update běží automaticky
 
-Systemd user timer `tipdivize-update.timer` spouští `update.sh` **každou
-půlhodinu** (instalace v hlavičce souboru timeru). Los na ceskyflorbal.cz se
+Systemd user timer `tipdivize-update.timer` spouští `update.sh` **každý den
+v poledne** (instalace v hlavičce souboru timeru). Los na ceskyflorbal.cz se
 mění — přesuny zápasů, doplněné časy, výsledky — a bez pravidelného scrapu by
 stránka ukazovala starý termín. Commit + push + Render deploy vznikne jen když
 se data opravdu změní (samotné razítko `scraped_at` se zahazuje). `update.sh`
 drží zámek `.update.lock`, takže se timer, bot a ruční spuštění nepoperou.
-Log: `.update.log`; stav: `systemctl --user list-timers`.
+Log: `.update.log`; stav: `systemctl --user list-timers`. Když je potřeba mít
+výsledky dřív (třeba hned po nedělním zápase), stačí botovi napsat „updatuj kurzy".
 
 Ručně kdykoli:
 
