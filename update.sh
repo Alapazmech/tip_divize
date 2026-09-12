@@ -14,6 +14,10 @@ fi
 python3 tickets.py
 python3 odds.py ${1:+--force}
 python3 generate_site.py
+# Totéž pro stránku: změnil se jen čas „vygenerováno" v patičce -> necommitovat.
+if [ -z "$(git diff -U0 -- index.html | grep '^[-+][^-+]' | grep -v 'vygenerováno')" ]; then
+    git checkout -q -- index.html
+fi
 git add -A
 git diff --cached --quiet || git commit -q -m "Update dat $(date '+%Y-%m-%d %H:%M')"
 git push -q origin main 2>/dev/null || echo "(push se nepovedl — nasadí se při příštím updatu)"
