@@ -507,21 +507,31 @@ def betting_sections(
         sazky.append(round_table(ms, published, clickable=clickable and is_latest))
     if open_rounds:
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
-        sealed_notes = [
-            f'{e(c["person"])} <span class="hash">#{c["hash"][:8]}</span>'
-            + (" ⏳ čeká na dohrávku" if latest_pub and c["round"] < latest_pub else "")
-            for c in commits
-            if "revealed" not in c
-        ]
-        per = collections.Counter(
-            t["person"] for rows in state["open"].values() for t in rows
-        )
-        sealed_notes += [f"{e(p)} ({n})" for p, n in sorted(per.items())]
-        if sealed_notes:
+        # přehled po lidech: jméno + počet tiketů (otisky jen v tooltipu,
+        # ověřit si je může kdo chce po odhalení)
+        per: dict[str, dict] = {}
+        for c in commits:
+            if "revealed" in c:
+                continue
+            d = per.setdefault(c["person"], {"n": 0, "hashes": [], "wait": False})
+            d["n"] += 1
+            d["hashes"].append(c["hash"][:8])
+            if latest_pub and c["round"] < latest_pub:
+                d["wait"] = True
+        for rows in state["open"].values():
+            for t in rows:
+                per.setdefault(t["person"], {"n": 0, "hashes": [], "wait": False})["n"] += 1
+        if per:
+            items = []
+            for person, d in sorted(per.items(), key=lambda kv: (-kv[1]["n"], kv[0])):
+                n = d["n"]
+                word = "tiket" if n == 1 else "tikety" if n < 5 else "tiketů"
+                title = f' title="#{", #".join(d["hashes"])}"' if d["hashes"] else ""
+                wait = " ⏳ čeká na dohrávku" if d["wait"] else ""
+                items.append(f"<li{title}>{e(person)} — {n} {word}{wait}</li>")
             sazky.append(
-                '<p class="note">🔒 Zapečetěné tikety (odhalí se po dohrání zápasů): '
-                + ", ".join(sealed_notes)
-                + "</p>"
+                '<p class="note">🔒 Zapečetěné tikety (odhalí se po dohrání zápasů):</p>'
+                '<ul class="sealed">' + "".join(items) + "</ul>"
             )
 
     # historie vypořádaných kol
@@ -783,6 +793,8 @@ details.round p.note {{ padding:0 14px; }}
 details.round .scrollx table {{ margin:0; border-radius:0; }}
 .rspan {{ color:var(--muted); font-weight:400; }}
 p.note {{ color:var(--muted); font-size:13px; }}
+ul.sealed {{ margin:-6px 0 14px; padding-left:22px; font-size:14px; }}
+ul.sealed li {{ margin:2px 0; }}
 .filters {{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin:14px 0 8px; }}
 .fgroup {{ display:flex; gap:6px; flex-wrap:wrap; }}
 .fchip {{ background:var(--card2); border:1px solid var(--line); border-radius:20px;
