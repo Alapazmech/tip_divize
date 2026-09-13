@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-12 11:08:52",
+ "scraped_at": "2026-09-13 12:04:35",
  "prior": 1500,
  "matches": [
   {
@@ -9,42 +9,60 @@
    "round": 1,
    "round_label": "1. kolo",
    "date": "2026-09-12",
-   "time": "17:05",
+   "time": null,
    "home": "FA Č. Budějovice",
    "away": "Banes Florbal Soběslav",
    "home_short": "FA ČB",
    "away_short": "Soběslav",
-   "place": "TJ Lokomotiva Č. Budějovice",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    5,
+    8
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312142,
    "round": 1,
    "round_label": "1. kolo",
    "date": "2026-09-12",
-   "time": "18:00",
+   "time": null,
    "home": "TJ Centropen Dačice",
    "away": "Fbc Strakonice",
    "home_short": "Dačice",
    "away_short": "Strakonice",
-   "place": "SH SŠTO Dačice",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    5
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312145,
    "round": 1,
    "round_label": "1. kolo",
    "date": "2026-09-12",
-   "time": "20:00",
+   "time": null,
    "home": "OLYMP FLORBAL",
    "away": "FbŠ Florbal Bohemians",
    "home_short": "Olymp",
    "away_short": "Bohemians",
-   "place": "SH Zelený Pruh",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    13
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312141,
