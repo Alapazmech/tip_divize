@@ -296,7 +296,7 @@ def info_tab() -> str:
 <ul class="rules">
 <li><b>Vklad {BUYIN_KC} Kč = bank {START_BANK} kreditů.</b> 1 kredit = 1 Kč. Peníze se vybírají a vyplácejí až na konci.</li>
 <li><b>Hraje se jen základní část</b> (22 kol), na play-off se nesází.</li>
-<li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu.</li>
+<li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu — na dohrávky se nesází.</li>
 <li><b>Vše je vidět.</b> Živý tiket je tajný (na stránce jen 🔒 otisk). Po dohrání kola se odhalí a vyhodnotí — všechny jsou v záložce <a href="#tikety">Tikety</a>.</li>
 <li><b>Bank 0? Dokup.</b> Dalších {BUYIN_KC} Kč = <b>90 kreditů</b>, potom <b>80</b>, a tak dál. Napiš <code>/dokoupit</code>.</li>
 <li><b>Na konci berou první dva vše</b>, v poměru svých banků. Pavel 3000 a Jan 1000 → Pavel ¾, Jan ¼.</li>
@@ -304,27 +304,19 @@ def info_tab() -> str:
 
 <h2>Jak vsadit</h2>
 <ol class="rules">
-<li>Klikni na kurzy v <a href="#sazky">Divize Sázky</a>. Víc kurzů = AKO.</li>
+<li>Klikni na kurzy v <a href="#sazky">Divize Sázky</a>.</li>
 <li>Zadej vklad, klikni <b>🔒 Zapečetit tiket</b>, zkopíruj kód <code>tip: …</code>.</li>
 <li>Kód pošli do Telegram skupiny. Bot dá ✅ = tiket je podaný.</li>
 </ol>
 <p class="note"><b>1</b> výhra domácích · <b>10</b> neprohra domácích · <b>0</b> remíza · <b>02</b> neprohra hostů · <b>2</b> výhra hostů.
 Počítá se základní hrací doba (prodloužení = remíza). Bohemians: jen výhra Bohemky.</p>
 
-<h2>Pojmy</h2>
-<ul class="rules">
-<li><b>Zapečetěný</b> — kód ze stránky. Ještě nic neplatí.</li>
-<li><b>Podaný</b> — kód poslaný do chatu, bot dal ✅. Platí, vklad je odečtený.</li>
-<li><b>Živý</b> — podaný a ještě nevyhodnocený.</li>
-<li><b>Vyhodnocený</b> — zápasy dohrané: ✅ výhra / ❌ prohra.</li>
-</ul>
-
 <h2>Bot v chatu</h2>
 <ul class="rules">
 <li><code>tip: …</code> — podá tiket.</li>
 <li><code>/banky</code> — stav banků.</li>
 <li><code>/vysledky</code> — vyhodnocení posledního kola.</li>
-<li><code>/dokoupit</code> — dokup při banku 0. Když nejde: „Bank není 0, je …“ nebo „Máš ještě živý tiket“.</li>
+<li><code>/dokoupit</code> — dokup při banku 0.</li>
 </ul>
 
 <h2>Emoji</h2>
