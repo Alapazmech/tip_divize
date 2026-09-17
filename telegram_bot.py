@@ -83,32 +83,19 @@ def react(token: str, chat_id: int, message_id: int) -> None:
 
 
 def banks_summary() -> str:
+    """Jen jména a banky. Kdo ještě nesázel, má startovní bank."""
     import generate_site
 
     season = json.load(open(tickets._p("season.json"), encoding="utf-8"))
     pub_path = tickets._p("published.json")
     published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
     state = generate_site.settle(season["matches"], published, tickets._p("bets.csv"))
-    if not state["banks"]:
-        return (
-            f"Zatím nikdo nesází. Každý vloží {generate_site.BUYIN_KC} Kč "
-            f"a začíná s bankem {generate_site.START_BANK}."
-        )
-    stats = generate_site.person_stats(state)
+    banks = dict(state["banks"])
+    for name in tickets._load(tickets.PLAYERS, {}).values():
+        banks.setdefault(name, float(generate_site.START_BANK))
     lines = ["💰 Banky:"]
-    for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
-        st = stats[p]
-        extra = ""
-        if st["tickets"]:
-            extra = (
-                f" · tikety {st['wins']}/{st['tickets']}"
-                f" · ROI {st['roi'] * 100:+.0f} %"
-            )
-        put_in = state["deposits"][p]["credits"]
-        lines.append(f"{i}. {p}: {b:.0f} ({b - put_in:+.0f}){extra}")
-    lines.append(
-        f"V banku je {state['pot_kc']:.0f} Kč — na konci základní části berou první dva vše v poměru banků."
-    )
+    for i, (p, b) in enumerate(sorted(banks.items(), key=lambda x: (-x[1], x[0])), 1):
+        lines.append(f"{i}. {p}: {b:.0f}")
     return "\n".join(lines)
 
 
