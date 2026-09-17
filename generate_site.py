@@ -86,6 +86,17 @@ def fold(s: str) -> str:
     )
 
 
+def dohravka_bettable(m: dict, next_matches: list[dict]) -> bool:
+    """Odložený zápas ze staršího kola se sází spolu s aktuálním kolem, když se
+    hraje dřív než první zápas PŘÍŠTÍHO kola (cokoliv před 3. kolem patří do
+    okna 2. kola). Bez známého termínu se nesází; když příští kolo termíny
+    nemá, sází se."""
+    if not m.get("date"):
+        return False
+    dates = [x["date"] for x in next_matches if x["date"]]
+    return not dates or m["date"] < min(dates)
+
+
 def resolve_match(ref: str, round_matches: list[dict]) -> dict | None:
     ref = ref.strip()
     if ref.isdigit():
@@ -154,6 +165,9 @@ def settle(
         ok = True
         for b in rows:
             match = resolve_match(b["match"], by_round.get(rnd, []))
+            if not match and b["match"].strip().isdigit():
+                # dohrávka ze staršího kola vsazená spolu s aktuálním kolem
+                match = resolve_match(b["match"], matches)
             if not match:
                 warnings.append(
                     f"bets.csv: nejednoznačný zápas '{b['match']}' v {rnd}. kole — tiket ignorován"
@@ -296,7 +310,7 @@ def info_tab() -> str:
 <ul class="rules">
 <li><b>Vklad {BUYIN_KC} Kč = bank {START_BANK} kreditů.</b> 1 kredit = 1 Kč. Peníze se vybírají a vyplácejí až na konci.</li>
 <li><b>Hraje se jen základní část</b> (22 kol), na play-off se nesází.</li>
-<li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu — na dohrávky se nesází.</li>
+<li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu. Dohrávky hrané před dalším kolem se sází spolu s ním.</li>
 <li><b>Vše je vidět.</b> Živý tiket je tajný (na stránce jen 🔒 otisk). Po dohrání kola se odhalí a vyhodnotí — všechny jsou v záložce <a href="#tikety">Tikety</a>.</li>
 <li><b>Bank 0? Dokup.</b> Dalších {BUYIN_KC} Kč = dalších <b>{START_BANK} kreditů</b>, kdykoliv a kolikrát chceš. Napiš <code>/dokoupit</code>.</li>
 <li><b>Na konci berou první dva vše</b>, v poměru svých banků. Pavel 3000 a Jan 1000 → Pavel ¾, Jan ¼.</li>
@@ -463,6 +477,7 @@ def round_table(
 
     Kurzy neodehraných zápasů jsou klikací (skládají tiket), u odehraných
     se obarví vítězný/prohraný trh. S odds_cols=False jen los bez kurzů.
+    `clickable` je bool, nebo predikát match -> bool (dohrávky po zápasech).
     """
     head = ""
     if odds_cols:
@@ -491,7 +506,7 @@ def round_table(
             attrs = ""
             if outcome:
                 cls += " win" if outcome in WINS[mk] else " lost"
-            elif clickable and not m["score"]:
+            elif (clickable(m) if callable(clickable) else clickable) and not m["score"]:
                 cls += " click"
                 attrs = (
                     f' data-mid="{m["id"]}" data-mk="{mk}" data-odd="{odds[mk]:.2f}"'
@@ -589,9 +604,11 @@ def betting_sections(
             'první tiket zakládá účet. Pravidla jsou v záložce <a href="#info">Informace</a>.</p>'
         )
 
-    # vypsaná kola (víc než jedno = čeká se na dohrávku; sázet jde jen na nejnovější)
+    # vypsaná kola (víc než jedno = čeká se na dohrávku; ta se sází spolu
+    # s aktuálním kolem, pokud se hraje nejpozději s ním)
     latest_pub = published_rounds[-1] if published_rounds else None
-    for rnd in open_rounds:
+    next_ms = by_round.get(latest_pub + 1, []) if latest_pub else []
+    for rnd in sorted(open_rounds, key=lambda r: r != latest_pub):  # aktuální kolo první
         is_latest = rnd == latest_pub
         ms = (
             by_round[rnd] if is_latest else [m for m in by_round[rnd] if not m["score"]]
@@ -600,11 +617,17 @@ def betting_sections(
         span = cz_date(dates[0]) + (
             f" – {cz_date(dates[-1])}" if len(dates) > 1 else ""
         )
-        tag = "" if is_latest else " · dohrávka — sázky uzavřeny"
+        if is_latest:
+            tag = ""
+        elif any(dohravka_bettable(m, next_ms) for m in ms):
+            tag = " · dohrávka — sází se spolu s aktuálním kolem"
+        else:
+            tag = " · dohrávka — sázky se otevřou s dalším kolem"
         sazky.append(
             f"<h2>Vypsané kolo: {rnd}. kolo <span class='hspan'>{span}{tag}</span></h2>"
         )
-        sazky.append(round_table(ms, published, clickable=clickable and is_latest))
+        can = clickable and (is_latest or (lambda m: dohravka_bettable(m, next_ms)))
+        sazky.append(round_table(ms, published, clickable=can))
     if open_rounds:
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
         # přehled po lidech: jméno + počet tiketů (otisky jen v tooltipu,

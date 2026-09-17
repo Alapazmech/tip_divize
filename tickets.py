@@ -169,9 +169,10 @@ def place(
     all_open = open_matches(season, published)
     if not all_open:
         return False, "Teď není vypsané žádné kolo — počkej na nové kurzy.", None
-    # sázet jde jen na aktuální (nejnovější vypsané) kolo; starší neodehraný
-    # zápas je odložená dohrávka a nové sázky už nepřijímá
+    # sází se aktuální (nejnovější vypsané) kolo; odložená dohrávka ze
+    # staršího kola jde s ním, pokud se hraje dřív než začne příští kolo
     latest = max(v["round"] for v in published.values())
+    next_ms = [m for m in season["matches"] if m["round"] == latest + 1]
 
     now = datetime.datetime.now()
     legs = []
@@ -183,11 +184,11 @@ def place(
                 f"Nenašel jsem jednoznačný zápas pro „{team_ref}“ mezi vypsanými.",
                 None,
             )
-        if m["round"] != latest:
+        if m["round"] != latest and not gs.dohravka_bettable(m, next_ms):
             return (
                 False,
-                f"Zápas {m['home']} – {m['away']} je odložená dohrávka — "
-                "sázky na ni jsou už uzavřené.",
+                f"Dohrávka {m['home']} – {m['away']} se hraje až v dalším kole — "
+                "sázky se otevřou s ním.",
                 None,
             )
         entry = published.get(str(m["id"]))

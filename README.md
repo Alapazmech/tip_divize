@@ -89,8 +89,11 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
 - **Dohrávky**: tiket se odhalí a vyhodnotí, až jsou dohrané VŠECHNY jeho
   zápasy — tiket s odloženým zápasem zůstává živý („⏳ čeká na dohrávku")
   a vklad zůstává blokovaný. Nové kolo se vypíše normálním updatem (odložený
-  zápas ho neblokuje) a dohrávka je od té chvíle **nevsaditelná** — sázet jde
-  vždy jen na nejnovější vypsané kolo.
+  zápas ho neblokuje). Dohrávka se **sází spolu s aktuálním kolem**, pokud se
+  hraje dřív než první zápas příštího kola (`dohravka_bettable`; cokoliv
+  před 3. kolem patří do okna 2. kola); kurz zůstává ten původně vypsaný.
+  Dohrávka s pozdějším nebo neznámým termínem se otevře až s dalším kolem. Tiket s dohrávkou patří do
+  aktuálního kola (v bets.csv má jeho číslo, zápas je podle id).
 - Klíče: `python3 keygen.py` (jednorázově) → `data/secret_key.txt`
   (gitignored, jen bookmaker) + `data/public_key.txt` (zabuduje se do
   stránky). Jména hráčů mapuje `data/players.json` (telegram id → jméno,
