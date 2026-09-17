@@ -53,8 +53,8 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
 - **Dokupy**: kdo prohraje všechno, napíše do chatu `/dokoupit`. Bot ověří,
   že bank je na nule a hráč nemá živý tiket (podaný a nevyhodnocený, včetně
   čekání na dohrávku), a zapíše řádek do `data/topups.csv` (`round,person,credits,paid`):
-  za dalších 100 Kč 90 kreditů, při dalším dokupu 80 atd. Kredity platí od
-  kola, na které se právě sází. Když dokup nejde, bot odpoví „Bank není 0,
+  za dalších 100 Kč dalších 100 kreditů, kdykoliv a kolikrát chce. Kredity
+  platí od kola, na které se právě sází. Když dokup nejde, bot odpoví „Bank není 0,
   je …“ nebo „Máš ještě živý tiket“. Na stránce se pak ukáže sloupec Dokupy.
 - **Hraje se jen základní část.** Na jejím konci si celý bank (součet
   vložených korun, vybírají se až tehdy) rozdělí dva sázkaři s nejvyšším

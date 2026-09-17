@@ -94,7 +94,8 @@ def available_bank(person: str) -> float:
 
 
 def dokoupit(user_id: int, person: str) -> str:
-    """Dokup po prohře všeho: zaplatí BUYIN_KC, dostane 90/80/… kreditů.
+    """Dokup po prohře všeho: zaplatí BUYIN_KC, dostane START_BANK kreditů.
+    Kdykoliv a kolikrát chce.
 
     Projde jen když je bank na nule a sázkař nemá živý (= podaný, ještě
     nevyhodnocený) tiket. Zapíše řádek do topups.csv; kredity platí od
@@ -117,9 +118,7 @@ def dokoupit(user_id: int, person: str) -> str:
         return "Máš ještě živý tiket."
 
     done = state["deposits"][person]["topups"]
-    credits = gs.START_BANK - 10 * (done + 1)
-    if credits <= 0:
-        return "Nejde: tolikrát už dokoupit nelze."
+    credits = gs.START_BANK
     # kredity platí od kola, na které se právě sází; když žádné otevřené není,
     # od příštího vypsaného
     open_rounds = [

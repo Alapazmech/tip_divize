@@ -9,7 +9,7 @@ Poslouchá skupinu přes oficiální Bot API (long polling, čisté stdlib) a um
   /vysledky                  — vyhodnocení dohraných kol
   /dokoupit                  — po prohře všeho: bot ověří nulový bank a žádný
                                živý (podaný, nevyhodnocený) tiket,
-                               zapíše dokup (90, 80, … kreditů za 100 Kč)
+                               zapíše dokup (100 kreditů za 100 Kč, bez limitu)
 Nic jiného bot neumí a jiné zprávy mlčky ignoruje.
 
 Nastavení (jednorázově):

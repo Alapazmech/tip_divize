@@ -13,7 +13,7 @@ Prázdný `ticket` = sólo tiket.
 
 Dokupy v data/topups.csv: round,person,credits,paid — když někdo prohraje
 všechno, zaplatí dalších 100 Kč (`paid`) a dostane `credits` kreditů do banku
-(1. dokup 90, 2. dokup 80, …). Kredity se přičtou na začátku daného kola.
+(vždy 100, kolikrát chce). Kredity se přičtou na začátku daného kola.
 Řádky zapisuje bot na /dokoupit (tickets.dokoupit), ručně jde taky.
 """
 
@@ -298,7 +298,7 @@ def info_tab() -> str:
 <li><b>Hraje se jen základní část</b> (22 kol), na play-off se nesází.</li>
 <li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu — na dohrávky se nesází.</li>
 <li><b>Vše je vidět.</b> Živý tiket je tajný (na stránce jen 🔒 otisk). Po dohrání kola se odhalí a vyhodnotí — všechny jsou v záložce <a href="#tikety">Tikety</a>.</li>
-<li><b>Bank 0? Dokup.</b> Dalších {BUYIN_KC} Kč = <b>90 kreditů</b>, potom <b>80</b>, a tak dál. Napiš <code>/dokoupit</code>.</li>
+<li><b>Bank 0? Dokup.</b> Dalších {BUYIN_KC} Kč = dalších <b>{START_BANK} kreditů</b>, kdykoliv a kolikrát chceš. Napiš <code>/dokoupit</code>.</li>
 <li><b>Na konci berou první dva vše</b>, v poměru svých banků. Pavel 3000 a Jan 1000 → Pavel ¾, Jan ¼.</li>
 </ul>
 
