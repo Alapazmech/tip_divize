@@ -32,6 +32,7 @@ import pathlib
 import re
 import subprocess
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 
@@ -94,7 +95,8 @@ def banks_summary() -> str:
     for name in tickets._load(tickets.PLAYERS, {}).values():
         banks.setdefault(name, float(generate_site.START_BANK))
     lines = ["💰 Banky:"]
-    for i, (p, b) in enumerate(sorted(banks.items(), key=lambda x: (-x[1], x[0])), 1):
+    key = lambda x: (-x[1], unicodedata.normalize("NFKD", x[0]).encode("ascii", "ignore").lower())
+    for i, (p, b) in enumerate(sorted(banks.items(), key=key), 1):
         lines.append(f"{i}. {p}: {b:.0f}")
     return "\n".join(lines)
 
