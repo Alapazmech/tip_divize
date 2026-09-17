@@ -56,6 +56,8 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   za dalších 100 Kč dalších 100 kreditů, kdykoliv a kolikrát chce. Kredity
   platí od kola, na které se právě sází. Když dokup nejde, bot odpoví „Bank není 0,
   je …“ nebo „Máš ještě živý tiket“. Na stránce se pak ukáže sloupec Dokupy.
+  Kdo ve vyhodnocení kola skončí na nule, dostane od bota vtipnou hlášku
+  s týmem, který mu to zkazil, a pobídkou k dokupu (`BROKE_LINES`).
 - **Hraje se jen základní část.** Na jejím konci si celý bank (součet
   vložených korun, vybírají se až tehdy) rozdělí dva sázkaři s nejvyšším
   bankem v poměru svých banků (3000 : 1000 → ¾ : ¼).

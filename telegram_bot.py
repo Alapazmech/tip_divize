@@ -6,7 +6,8 @@ Poslouchá skupinu přes oficiální Bot API (long polling, čisté stdlib) a um
   „updatuj kurzy" / /update  — spustí ./update.sh a pošle, co se stalo
                                (jen pro adminy z configu)
   /banky                     — stav bank sázkařů
-  /vysledky                  — vyhodnocení dohraných kol
+  /vysledky                  — vyhodnocení dohraných kol (kdo skončil na
+                               nule, dostane hlášku s pobídkou k dokupu)
   /dokoupit                  — po prohře všeho: bot ověří nulový bank a žádný
                                živý (podaný, nevyhodnocený) tiket,
                                zapíše dokup (100 kreditů za 100 Kč, bez limitu)
@@ -111,6 +112,56 @@ def banks_summary() -> str:
     return "\n".join(lines)
 
 
+BROKE_LINES = (
+    "Tyjo, to byla fakt smůla, {p}. {team} je kousavá potvůrka. 🐾 Co takhle si dokoupit další dukáty? /dokoupit",
+    "{p}, tým {team} ti sebral poslední dukáty. 💸 Nevadí, mincovna má otevřeno: /dokoupit",
+    "Au, {p}. Tým {team} ti vybral bank do posledního dukátu. 🪙 Za stovku nová truhla: /dokoupit",
+    "{p}, tohle bolelo. Tým {team} zařídil nulu na kontě. Dukáty se dají dokoupit, hrdost ne. 🛡️ /dokoupit",
+    "{p} je na nule a může za to {team}. 🏑 Doplň dukáty a vrať jim to: /dokoupit",
+    "Smůla, {p}. Tým {team} dneska kousal. Truhla je prázdná, ale /dokoupit ji naplní. 🪙",
+    "{p}, tým {team} ti sfoukl poslední dukát. 🕯️ Nová stovka, nový bank: /dokoupit",
+    "{p} je bez dukátů, tým {team} byl bez slitování. 🧾 /dokoupit a jde se znovu.",
+    "{p}, bank 0. Tým {team} se prostě nezeptal. 🤷 Dukáty na dokoupení jsou za stovku: /dokoupit",
+    "Kdo by to od týmu {team} čekal, že, {p}? 😅 Poslední dukát je pryč, ale /dokoupit tě vrátí do hry.",
+)
+
+
+def _culprit(ticket: dict) -> str:
+    """Tým, který hráči zkazil tiket: soupeř toho, na koho sázel v prvním
+    prohraném legu (u remízy nebo sázky na remízu ten, kdo neprohrál/vyhrál)."""
+    import generate_site
+
+    for leg, win in zip(ticket["legs"], ticket["leg_wins"]):
+        if win:
+            continue
+        m = leg["match"]
+        home = m.get("home_short") or m["home"]
+        away = m.get("away_short") or m["away"]
+        out = generate_site.reg_outcome(m)
+        if leg["market"] in ("1", "10"):
+            return away
+        if leg["market"] in ("2", "02"):
+            return home
+        return home if out == "1" else away  # sázka na remízu
+    return "florbal"
+
+
+def broke_lines(state: dict, rnd: int) -> list[str]:
+    """Kdo v tomto kole prohrál poslední kredity: hláška s viníkem + pobídka k dokupu."""
+    import hashlib
+
+    lost: dict[str, dict] = {}
+    for t in state["settled"][rnd]:
+        if not t["won"]:
+            lost.setdefault(t["person"], t)
+    out = []
+    for p in sorted(lost):
+        if state["banks"][p] < 1:
+            i = int(hashlib.sha1(f"{rnd}:{p}".encode()).hexdigest(), 16) % len(BROKE_LINES)
+            out.append(BROKE_LINES[i].format(p=p, team=_culprit(lost[p])))
+    return out
+
+
 def results_summary() -> str:
     """Vyhodnocení posledního dohraného kola: všichni členové a jejich ±."""
     import generate_site
@@ -129,6 +180,10 @@ def results_summary() -> str:
     for p, d in sorted(per.items(), key=lambda x: (-x[1], x[0])):
         mark = "✅" if d > 0 else ("❌" if d < 0 else "➖")
         lines.append(f"{mark} {p}: {d:+.0f}  (bank {state['banks'][p]:.0f})")
+    broke = broke_lines(state, rnd)
+    if broke:
+        lines.append("")
+        lines.extend(broke)
     return "\n".join(lines)
 
 
