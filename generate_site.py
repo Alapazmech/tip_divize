@@ -1,4 +1,4 @@
-"""Generuje statický index.html: záložky „Divize Sázky" a „Los a tabulka".
+"""Generuje statický index.html: záložky „Divize Sázky", „Tikety", „Los a tabulka" a „Informace".
 
 Vstupy: data/season.json (los + výsledky), data/published.json (zmrazené
 kurzy), data/bets.csv (tikety). Vypořádání: trhy 1/10/0/02/2 se vztahují
@@ -10,6 +10,11 @@ zápasu, nebo jednoznačný kus jména týmu v daném kole (např. „Olymp").
 Řádky se stejným (round, person, ticket) tvoří jeden AKO tiket: kurzy legů
 se násobí a vyjít musí všechny; vklad platí ten z prvního řádku tiketu.
 Prázdný `ticket` = sólo tiket.
+
+Dokupy v data/topups.csv: round,person,credits,paid — když někdo prohraje
+všechno, zaplatí dalších 100 Kč (`paid`) a dostane `credits` kreditů do banku
+(1. dokup 90, 2. dokup 80, …). Kredity se přičtou na začátku daného kola.
+Řádky zapisuje bot na /dokoupit (tickets.dokoupit), ručně jde taky.
 """
 
 import collections
@@ -25,7 +30,8 @@ ROOT = pathlib.Path(__file__).parent
 DATA = ROOT / "data"
 
 OUR_TEAM = "FbŠ Florbal Bohemians"
-START_BANK = 1000
+START_BANK = 100  # 100 Kč reálného vkladu = 100 kreditů
+BUYIN_KC = 100  # skutečná cena vstupu i každého dokupu
 MARKETS = ("1", "10", "0", "02", "2")
 MARKET_LABEL = {
     "1": "výhra domácích",
@@ -106,8 +112,28 @@ def settle(
         if m["round"]:
             by_round[m["round"]].append(m)
 
-    bets = load_csv(bets_path or DATA / "bets.csv")
+    bets_path = bets_path or DATA / "bets.csv"
+    bets = load_csv(bets_path)
+    # dokupy leží vedle tiketů: bets.csv -> topups.csv, demo_bets.csv -> demo_topups.csv
+    topups_path = bets_path.with_name(bets_path.name.replace("bets", "topups"))
+    topups: dict[int, list[dict]] = collections.defaultdict(list)
+    for row in load_csv(topups_path) if topups_path.exists() else []:
+        topups[int(row["round"])].append(
+            {
+                "person": row["person"].strip(),
+                "credits": float(row["credits"]),
+                "paid": float(row.get("paid") or BUYIN_KC),
+            }
+        )
     banks: dict[str, float] = {}
+    # kolik kdo do hry vložil: kredity (start + dokupy) a skutečné koruny
+    deposits: dict[str, dict] = {}
+
+    def join(person: str) -> None:
+        if person not in banks:
+            banks[person] = START_BANK
+            deposits[person] = {"credits": START_BANK, "kc": BUYIN_KC, "topups": 0}
+
     settled_rows: dict[int, list[dict]] = collections.defaultdict(list)
     open_rows: dict[int, list[dict]] = collections.defaultdict(list)
     warnings: list[str] = []
@@ -173,10 +199,19 @@ def settle(
                 "odd": round(total_odd, 2),
             }
         )
-        banks.setdefault(person, START_BANK)
+        join(person)
+    for rows in topups.values():
+        for tu in rows:
+            join(tu["person"])
 
     history: list[dict] = []  # vývoj banků: snapshot po každém vypořádaném kole
     for rnd in sorted(by_round):
+        # dokupy platí od začátku kola — dřív než se vypořádají jeho tikety
+        for tu in topups.get(rnd, []):
+            banks[tu["person"]] += tu["credits"]
+            deposits[tu["person"]]["credits"] += tu["credits"]
+            deposits[tu["person"]]["kc"] += tu["paid"]
+            deposits[tu["person"]]["topups"] += 1
         stakes_this_round: dict[str, float] = collections.defaultdict(float)
         for t in [x for x in tickets if x["round"] == rnd]:
             outcomes = [reg_outcome(leg["match"]) for leg in t["legs"]]
@@ -201,6 +236,8 @@ def settle(
 
     return {
         "banks": banks,
+        "deposits": deposits,
+        "pot_kc": sum(d["kc"] for d in deposits.values()),
         "history": history,
         "settled": settled_rows,
         "open": open_rows,
@@ -234,8 +271,72 @@ CHART_COLORS = (
 )
 
 
+def pot_note(state: dict) -> str:
+    """Věta pod tabulkou banků: kolik je reálně ve hře a jak by se to teď dělilo."""
+    pot = state["pot_kc"]
+    if not pot:
+        return ""
+    n = len(state["deposits"])
+    topups_kc = sum(d["kc"] - BUYIN_KC for d in state["deposits"].values())
+    text = f"V banku je <b>{pot:.0f} Kč</b> ({n} × {BUYIN_KC} Kč"
+    text += f" + dokupy {topups_kc:.0f} Kč)." if topups_kc else ")."
+    top = sorted(state["banks"].items(), key=lambda x: -x[1])[:2]
+    if len(top) == 2 and top[0][1] + top[1][1] > 0:
+        total = top[0][1] + top[1][1]
+        share = " a ".join(
+            f"{e(p)} {b / total * 100:.0f} % = {pot * b / total:.0f} Kč" for p, b in top
+        )
+        text += f" Kdyby základní část skončila teď, berou první dva: {share}."
+    return f'<p class="note">{text}</p>'
+
+
+def info_tab() -> str:
+    """Záložka Informace: pravidla hry, jak sázet, příkazy bota, emoji."""
+    return f"""<h2>Pravidla</h2>
+<ul class="rules">
+<li><b>Vklad {BUYIN_KC} Kč = bank {START_BANK} kreditů.</b> 1 kredit = 1 Kč. Peníze se vybírají a vyplácejí až na konci.</li>
+<li><b>Hraje se jen základní část</b> (22 kol), na play-off se nesází.</li>
+<li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu.</li>
+<li><b>Vše je vidět.</b> Živý tiket je tajný (na stránce jen 🔒 otisk). Po dohrání kola se odhalí a vyhodnotí — všechny jsou v záložce <a href="#tikety">Tikety</a>.</li>
+<li><b>Bank 0? Dokup.</b> Dalších {BUYIN_KC} Kč = <b>90 kreditů</b>, potom <b>80</b>, a tak dál. Napiš <code>/dokoupit</code>.</li>
+<li><b>Na konci berou první dva vše</b>, v poměru svých banků. Pavel 3000 a Jan 1000 → Pavel ¾, Jan ¼.</li>
+</ul>
+
+<h2>Jak vsadit</h2>
+<ol class="rules">
+<li>Klikni na kurzy v <a href="#sazky">Divize Sázky</a>. Víc kurzů = AKO.</li>
+<li>Zadej vklad, klikni <b>🔒 Zapečetit tiket</b>, zkopíruj kód <code>tip: …</code>.</li>
+<li>Kód pošli do Telegram skupiny. Bot dá ✅ = tiket je podaný.</li>
+</ol>
+<p class="note"><b>1</b> výhra domácích · <b>10</b> neprohra domácích · <b>0</b> remíza · <b>02</b> neprohra hostů · <b>2</b> výhra hostů.
+Počítá se základní hrací doba (prodloužení = remíza). Bohemians: jen výhra Bohemky.</p>
+
+<h2>Pojmy</h2>
+<ul class="rules">
+<li><b>Zapečetěný</b> — kód ze stránky. Ještě nic neplatí.</li>
+<li><b>Podaný</b> — kód poslaný do chatu, bot dal ✅. Platí, vklad je odečtený.</li>
+<li><b>Živý</b> — podaný a ještě nevyhodnocený.</li>
+<li><b>Vyhodnocený</b> — zápasy dohrané: ✅ výhra / ❌ prohra.</li>
+</ul>
+
+<h2>Bot v chatu</h2>
+<ul class="rules">
+<li><code>tip: …</code> — podá tiket.</li>
+<li><code>/banky</code> — stav banků.</li>
+<li><code>/vysledky</code> — vyhodnocení posledního kola.</li>
+<li><code>/dokoupit</code> — dokup při banku 0. Když nejde: „Bank není 0, je …“ nebo „Máš ještě živý tiket“.</li>
+</ul>
+
+<h2>Emoji</h2>
+<ul class="rules">
+<li>✅ reakce na tvůj kód — tiket podaný. Bez reakce a s odpovědí — tiket nepodaný, bot napíše proč.</li>
+<li>Po kole: ✅ tiket vyhrál, ❌ prohrál, ⏳ čeká na dohrávku.</li>
+</ul>
+"""
+
+
 def bank_chart(history: list[dict], persons: list[str]) -> str:
-    """Inline SVG: vývoj banku každého sázkaře po kolech (start = 1000)."""
+    """Inline SVG: vývoj banku každého sázkaře po kolech (start = START_BANK)."""
     if not history or not persons:
         return ""
     if len(persons) > len(CHART_COLORS):
@@ -251,7 +352,7 @@ def bank_chart(history: list[dict], persons: list[str]) -> str:
     vmin, vmax = min(vals), max(vals)
     # hezké kroky osy: nejmenší krok, při kterém vyjde nejvýš 6 linek
     step = next(
-        st for st in (50, 100, 200, 250, 500, 1000, 2000, 5000)
+        st for st in (10, 20, 25, 50, 100, 200, 250, 500, 1000, 2000, 5000)
         if (vmax - vmin) / st <= 5
     )
     lo = math.floor(vmin / step) * step
@@ -451,12 +552,16 @@ def betting_sections(
         has_stats = any(st["tickets"] for st in stats.values())
         pct = lambda x: f"{x * 100:.0f} %" if x is not None else "–"
         rows = ""
+        has_topups = any(d["topups"] for d in state["deposits"].values())
         for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
             st = stats[p]
+            dep = state["deposits"][p]
             rows += (
                 f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td><b>{b:.0f}</b></td>'
-                f'<td class="{"plus" if b >= START_BANK else "minus"}">{b - START_BANK:+.0f}</td>'
+                f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{b - dep["credits"]:+.0f}</td>'
             )
+            if has_topups:
+                rows += f'<td title="dokupů · zaplaceno celkem">{dep["topups"]} · {dep["kc"]:.0f} Kč</td>'
             if has_stats:
                 roi_cls = "" if st["roi"] is None else ("plus" if st["roi"] >= 0 else "minus")
                 rows += (
@@ -467,7 +572,9 @@ def betting_sections(
                     + (f'<td>{st["best"]:+.0f}</td>' if st["best"] else "<td>–</td>")
                 )
             rows += "</tr>"
-        head = "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th>±</th>"
+        head = "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th title='bank − vložené kredity'>±</th>"
+        if has_topups:
+            head += "<th title='počet dokupů · zaplaceno celkem'>Dokupy</th>"
         if has_stats:
             head += (
                 "<th title='vypořádaných tiketů'>Tiketů</th><th title='výherních / všech'>Úspěšnost</th>"
@@ -475,6 +582,7 @@ def betting_sections(
             )
         sazky.append(
             f'<h2>Banky</h2><div class="scrollx"><table class="stats"><tr>{head}</tr>{rows}</table></div>'
+            + pot_note(state)
         )
         chart = bank_chart(state["history"], sorted(state["banks"]))
         if chart:
@@ -485,8 +593,8 @@ def betting_sections(
             )
     else:
         sazky.append(
-            f'<h2>Banky</h2><p class="note">Zatím nikdo nesází. Každý začíná s bankem {START_BANK} — '
-            "první tiket zakládá účet.</p>"
+            f'<h2>Banky</h2><p class="note">Zatím nikdo nesází. Každý vloží {BUYIN_KC} Kč a začíná s bankem {START_BANK} — '
+            'první tiket zakládá účet. Pravidla jsou v záložce <a href="#info">Informace</a>.</p>'
         )
 
     # vypsaná kola (víc než jedno = čeká se na dohrávku; sázet jde jen na nejnovější)
@@ -530,7 +638,7 @@ def betting_sections(
                 wait = " ⏳ čeká na dohrávku" if d["wait"] else ""
                 items.append(f"<li{title}>{e(person)} — {n} {word}{wait}</li>")
             sazky.append(
-                '<p class="note">🔒 Zapečetěné tikety (odhalí se po dohrání zápasů):</p>'
+                '<p class="note">🔒 Živé tikety — podané, odhalí se po dohrání zápasů:</p>'
                 '<ul class="sealed">' + "".join(items) + "</ul>"
             )
 
@@ -794,6 +902,9 @@ details.round .scrollx table {{ margin:0; border-radius:0; }}
 .rspan {{ color:var(--muted); font-weight:400; }}
 p.note {{ color:var(--muted); font-size:13px; }}
 ul.sealed {{ margin:-6px 0 14px; padding-left:22px; font-size:14px; }}
+ul.rules, ol.rules {{ padding-left:22px; font-size:15px; line-height:1.55; max-width:720px; }}
+ul.rules li, ol.rules li {{ margin:8px 0; }}
+.rules code, p.note code {{ background:var(--card2); border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-size:13px; }}
 ul.sealed li {{ margin:2px 0; }}
 .filters {{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; margin:14px 0 8px; }}
 .fgroup {{ display:flex; gap:6px; flex-wrap:wrap; }}
@@ -820,6 +931,7 @@ footer a {{ color:var(--muted); }}
   {demo_nav}
   <a href="#tikety" id="nav-tikety">Tikety</a>
   <a href="#los" id="nav-los">Los a tabulka</a>
+  <a href="#info" id="nav-info">Informace</a>
 </nav>
 
 <section class="tab" id="tab-sazky">{''.join(sazky)}
@@ -828,6 +940,7 @@ footer a {{ color:var(--muted); }}
 {demo_section}
 <section class="tab" id="tab-tikety">{tikety}</section>
 <section class="tab" id="tab-los">{''.join(los)}</section>
+<section class="tab" id="tab-info">{info_tab()}</section>
 </div>
 
 <div id="tbar">
@@ -840,7 +953,7 @@ footer a {{ color:var(--muted); }}
   <div id="tout" style="display:none">
     <textarea id="tcode" rows="3" readonly></textarea>
     <button id="tcopy">Zkopírovat</button>
-    <p class="slipnote">Kód pošli do skupiny na Telegramu.</p>
+    <p class="slipnote">Kód pošli do skupiny na Telegramu. Tiket je podaný, až bot dá ✅.</p>
   </div>
 </div>
 

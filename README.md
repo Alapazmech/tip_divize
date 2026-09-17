@@ -31,31 +31,51 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
      (`--refresh` přepočítá jen neodehrané, používat vědomě).
 3. **`generate_site.py`** — statický `index.html` se záložkami:
    - **Divize Sázky**: banky sázkařů se statistikou (tikety, úspěšnost, vsazeno,
-     ROI, top výhra) a grafem vývoje banků po kolech, vypsané kolo s kurzy (jen to, na které
+     ROI, top výhra), kolik korun je reálně v banku a jak by se teď dělily,
+     graf vývoje banků po kolech, vypsané kolo s kurzy (jen to, na které
      se právě sází — příští kolo se neukazuje, celý los je v druhé záložce),
      historie kol s vypořádanými tikety.
+   - **Tikety**: všechny vyhodnocené tikety s filtry.
    - **Los a tabulka**: tabulka (bodování 3/2/1/0) a kompletní los.
+   - **Informace**: pravidla pro hráče (vklad, dokupy, dělení banku), jak
+     sázet, příkazy bota a co znamenají emoji.
 4. **`telegram_bot.py`** — bot v sázkovém Telegram chatu: na „updatuj kurzy"
    od bookmakera spustí `update.sh` a pošle nově vypsané kolo; dál umí
-   jen /banky a /vysledky (pro všechny), jiné zprávy ignoruje. Nastavení je v docstringu souboru
+   jen /banky, /vysledky a /dokoupit (pro všechny), jiné zprávy ignoruje. Nastavení je v docstringu souboru
    (token od @BotFather, **/setprivacy → Disable**, `data/telegram.json`
    je v .gitignore). Běží dlouhodobě, např. v tmux/systemd.
 
 ## Sázení — tajné tikety (commit–reveal)
 
-- Každý začíná s bankem **1000**. Sólo tiket = jeden zápas; AKO = víc zápasů,
+- **Reálné peníze**: každý zaplatí 100 Kč a začíná s bankem **100 kreditů**
+  (`START_BANK`, 1 kredit = 1 Kč). Sólo tiket = jeden zápas; AKO = víc zápasů,
   kurzy se násobí, vyjít musí všechny. U zápasů Bohemians jedině výhra Bohemky.
+- **Dokupy**: kdo prohraje všechno, napíše do chatu `/dokoupit`. Bot ověří,
+  že bank je na nule a hráč nemá živý tiket (podaný a nevyhodnocený, včetně
+  čekání na dohrávku), a zapíše řádek do `data/topups.csv` (`round,person,credits,paid`):
+  za dalších 100 Kč 90 kreditů, při dalším dokupu 80 atd. Kredity platí od
+  kola, na které se právě sází. Když dokup nejde, bot odpoví „Bank není 0,
+  je …“ nebo „Máš ještě živý tiket“. Na stránce se pak ukáže sloupec Dokupy.
+- **Hraje se jen základní část.** Na jejím konci si celý bank (součet
+  vložených korun, vybírají se až tehdy) rozdělí dva sázkaři s nejvyšším
+  bankem v poměru svých banků (3000 : 1000 → ¾ : ¼).
+  Stránka i `/banky` průběžně ukazují, kolik je v banku a jak by se teď dělil.
+- Tikety 1. kola (hrané ještě s bankem 1000, před přechodem na reálný vklad)
+  jsou vyřazené a archivované v `data/archiv/`.
 - **Sází se klikáním na kurzy na stránce**: sestavíš tiket, zadáš vklad,
   „Zapečetit" — prohlížeč tiket zašifruje NaCl boxem veřejným klíčem
   bookmakera (tweetnacl z CDN) a vyplivne krátký kód `tip: …` (v2: binární payload, nonce odvozený
   z klíčů — sólo ~81 znaků; starší delší kódy bot pořád přijme). Ten pošleš botovi
   do Telegramu (klidně do skupiny — je to šifra). **Identita = Telegram
   účet odesílatele**, žádná hesla.
-- Bot kód dešifruje (`tickets.py`), ověří kurz/uzávěrku/bank, tiket uloží do
-  `data/bets_sealed.json` (gitignored, vidí jen bookmaker) a veřejně
-  publikuje jen SHA-256 otisk do `data/commitments.json` — na stránce visí
-  „🔒 Kunc #a3f2c1". Platný tiket dostane v chatu jen **✅ reakci** (žádné
-  zprávy navíc), chybný krátkou odpověď s důvodem.
+- Bot kód dešifruje (`tickets.py`), ověří kurz/uzávěrku/bank a tiket tím
+  **podá**: uloží ho do `data/bets_sealed.json` (gitignored, vidí jen
+  bookmaker) a veřejně publikuje jen SHA-256 otisk do `data/commitments.json`
+  — na stránce visí „🔒 Kunc #a3f2c1". Podaný tiket dostane v chatu jen
+  **✅ reakci** (žádné zprávy navíc), nepodaný krátkou odpověď s důvodem.
+- **Pojmy** (stejně na stránce v Informacích): *zapečetěný* = kód vyrobený
+  v prohlížeči, ještě nic neplatí; *podaný* = bot dal ✅, vklad je odečtený;
+  *živý* = podaný a nevyhodnocený; *vyhodnocený* = po dohrání všech zápasů.
 - Po dohrání kola `python3 tickets.py` (součást update.sh) tikety **odhalí**:
   zapíše je do `data/bets.csv` a k otisku doplní obsah + nonce, takže si
   každý může hash přepočítat — nikdo (ani bookmaker) nemohl tiket zpětně
@@ -65,7 +85,7 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
 - Vypořádání: podle základní hrací doby (prodloužení/nájezdy = remíza
   v základní době); výhra = vklad × (kurz − 1), prohra = −vklad.
 - **Dohrávky**: tiket se odhalí a vyhodnotí, až jsou dohrané VŠECHNY jeho
-  zápasy — tiket s odloženým zápasem visí zapečetěný („⏳ čeká na dohrávku")
+  zápasy — tiket s odloženým zápasem zůstává živý („⏳ čeká na dohrávku")
   a vklad zůstává blokovaný. Nové kolo se vypíše normálním updatem (odložený
   zápas ho neblokuje) a dohrávka je od té chvíle **nevsaditelná** — sázet jde
   vždy jen na nejnovější vypsané kolo.
@@ -118,8 +138,10 @@ jednorázový (loňská data pro seed modelu).
 - `data/history/*.json` — loňské soutěže (seed, stahují se jednou)
 - `data/published.json` — **zmrazené vypsané kurzy, nikdy nemazat** (commituje se)
 - `data/bets.csv` — odhalené/ruční tikety (zdroj vypořádání, commituje se)
+- `data/topups.csv` — dokupy (kolo, sázkař, kredity, zaplaceno Kč; commituje se)
+- `data/archiv/` — vyřazené tikety 1. kola z doby banku 1000
 - `data/commitments.json` — veřejné otisky tiketů (commituje se)
-- `data/bets_sealed.json` — zapečetěné tikety (gitignored, jen bookmaker)
+- `data/bets_sealed.json` — podané, ještě neodhalené tikety (gitignored, jen bookmaker)
 - `data/public_key.txt` / `data/secret_key.txt` — NaCl klíče (secret gitignored!)
 - `data/players.json` — telegram id → jméno (gitignored)
 - `data/telegram.json`, `data/telegram_offset.txt` — bot (gitignored, token!)

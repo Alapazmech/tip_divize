@@ -7,6 +7,9 @@ Poslouchá skupinu přes oficiální Bot API (long polling, čisté stdlib) a um
                                (jen pro adminy z configu)
   /banky                     — stav bank sázkařů
   /vysledky                  — vyhodnocení dohraných kol
+  /dokoupit                  — po prohře všeho: bot ověří nulový bank a žádný
+                               živý (podaný, nevyhodnocený) tiket,
+                               zapíše dokup (90, 80, … kreditů za 100 Kč)
 Nic jiného bot neumí a jiné zprávy mlčky ignoruje.
 
 Nastavení (jednorázově):
@@ -86,7 +89,10 @@ def banks_summary() -> str:
     published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
     state = generate_site.settle(season["matches"], published, tickets._p("bets.csv"))
     if not state["banks"]:
-        return f"Zatím nikdo nesází. Každý začíná s bankem {generate_site.START_BANK}."
+        return (
+            f"Zatím nikdo nesází. Každý vloží {generate_site.BUYIN_KC} Kč "
+            f"a začíná s bankem {generate_site.START_BANK}."
+        )
     stats = generate_site.person_stats(state)
     lines = ["💰 Banky:"]
     for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
@@ -97,7 +103,11 @@ def banks_summary() -> str:
                 f" · tikety {st['wins']}/{st['tickets']}"
                 f" · ROI {st['roi'] * 100:+.0f} %"
             )
-        lines.append(f"{i}. {p}: {b:.0f} ({b - generate_site.START_BANK:+.0f}){extra}")
+        put_in = state["deposits"][p]["credits"]
+        lines.append(f"{i}. {p}: {b:.0f} ({b - put_in:+.0f}){extra}")
+    lines.append(
+        f"V banku je {state['pot_kc']:.0f} Kč — na konci základní části berou první dva vše v poměru banků."
+    )
     return "\n".join(lines)
 
 
@@ -181,7 +191,7 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
         user_id, username or sender.get("first_name") or str(user_id)
     )
 
-    # zapečetěný tiket ze stránky (funguje v DM i ve skupině);
+    # kód tiketu ze stránky -> podání tiketu (funguje v DM i ve skupině);
     # platný tiket dostane jen ✅ reakci, ať se chat nespamuje
     m_tip = TIP_RE.search(text)
     if m_tip:
@@ -193,7 +203,7 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
             send(token, chat_id, f"{person}: {reply}", msg["message_id"])
         return
 
-    # jediné příkazy: update (admin), banky a výsledky (všichni);
+    # jediné příkazy: update (admin), banky, výsledky a dokoupit (všichni);
     # cokoli jiného bot mlčky ignoruje
     word = low.lstrip("/").split()[0] if low.strip() else ""
     if "updatuj kurzy" in low or word == "update":
@@ -208,6 +218,10 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
         send(token, chat_id, run_update(force="force" in low), msg["message_id"])
     elif word == "banky":
         send(token, chat_id, banks_summary(), msg["message_id"])
+    elif word == "dokoupit":
+        reply = tickets.dokoupit(user_id, person)
+        print(f"[dokup] {person}: {reply}", flush=True)
+        send(token, chat_id, f"{person}: {reply}", msg["message_id"])
     elif word == "vysledky":
         send(
             token,

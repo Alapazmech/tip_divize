@@ -77,7 +77,7 @@ def deadline(m: dict) -> datetime.datetime:
 
 
 def available_bank(person: str) -> float:
-    """Bank po vypořádání minus vklady ve hře (bets.csv i zapečetěné)."""
+    """Bank po vypořádání minus vklady živých tiketů (bets.csv i bets_sealed)."""
     season = _season()
     state = gs.settle(season["matches"], _published(), _p("bets.csv"))
     bank = state["banks"].get(person, gs.START_BANK)
@@ -91,6 +91,53 @@ def available_bank(person: str) -> float:
         t["stake"] for t in _load(_p("bets_sealed.json"), []) if t["person"] == person
     )
     return bank - in_play - sealed
+
+
+def dokoupit(user_id: int, person: str) -> str:
+    """Dokup po prohře všeho: zaplatí BUYIN_KC, dostane 90/80/… kreditů.
+
+    Projde jen když je bank na nule a sázkař nemá živý (= podaný, ještě
+    nevyhodnocený) tiket. Zapíše řádek do topups.csv; kredity platí od
+    aktuálního (nebo příštího) kola. Peníze se řeší až na konci základní části.
+    """
+    season = _season()
+    published = _published()
+    state = gs.settle(season["matches"], published, _p("bets.csv"))
+    if person not in state["banks"]:
+        return f"Bank není 0, je {gs.START_BANK}."
+    bank = state["banks"][person]
+    # živý tiket = podaný a ještě nevyhodnocený (bets_sealed.json = podané tikety
+    # čekající na dohrání kola; bets.csv "open" = odhalené, čekající na dohrávku)
+    live = sum(
+        1 for rows in state["open"].values() for t in rows if t["person"] == person
+    ) + sum(1 for t in _load(_p("bets_sealed.json"), []) if t["user_id"] == user_id)
+    if bank >= 1:
+        return f"Bank není 0, je {bank:.0f}."
+    if live:
+        return "Máš ještě živý tiket."
+
+    done = state["deposits"][person]["topups"]
+    credits = gs.START_BANK - 10 * (done + 1)
+    if credits <= 0:
+        return "Nejde: tolikrát už dokoupit nelze."
+    # kredity platí od kola, na které se právě sází; když žádné otevřené není,
+    # od příštího vypsaného
+    open_rounds = [
+        v["round"] for m in open_matches(season, published)
+        for v in [published[str(m["id"])]]
+    ]
+    latest = max((v["round"] for v in published.values()), default=0)
+    rnd = max(open_rounds) if open_rounds else latest + 1
+
+    path = _p("topups.csv")
+    if not path.exists():
+        path.write_text("round,person,credits,paid\n")
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(f"{rnd},{person},{credits},{gs.BUYIN_KC}\n")
+    return (
+        f"✅ V pořádku, {done + 1}. dokup: máš {credits} kreditů (od {rnd}. kola). "
+        f"Celkem vloženo {state['deposits'][person]['kc'] + gs.BUYIN_KC:.0f} Kč."
+    )
 
 
 def _ticket_hash(ticket: dict) -> str:
@@ -203,7 +250,7 @@ def place(
     _save(_p("commitments.json"), commits)
 
     by_id = {m["id"]: m for m in season["matches"]}
-    lines = [f"🔒 Tiket přijat (#{h[:8]}), {rnd}. kolo:"]
+    lines = [f"🔒 Tiket podán (#{h[:8]}), {rnd}. kolo:"]
     for leg in legs:
         m = by_id[leg["match_id"]]
         lines.append(f"  {m['home']} – {m['away']}  {leg['market']} @ {leg['odd']:.2f}")
@@ -262,7 +309,7 @@ def place_from_tip(
         if t.get("code_hash") == code_hash:
             return (
                 False,
-                f"Tenhle kód už mám zapečetěný (#{t['hash'][:8]}) — tiket platí "
+                f"Tenhle tiket už je podaný (#{t['hash'][:8]}) — jeden kód platí "
                 "jen jednou. Chceš-li stejnou sázku znovu, naklikej nový tiket.",
                 None,
             )
@@ -287,7 +334,7 @@ def place_from_tip(
 
 
 def storno(user_id: int) -> str:
-    """Zruší uživatelovy zapečetěné tikety, u kterých ještě nic nezačalo."""
+    """Zruší uživatelovy živé tikety, u kterých ještě nic nezačalo."""
     season = _season()
     by_id = {m["id"]: m for m in season["matches"]}
     now = datetime.datetime.now()
@@ -316,7 +363,7 @@ def my_tickets(user_id: int, person: str) -> str:
     mine = [t for t in _load(_p("bets_sealed.json"), []) if t["user_id"] == user_id]
     lines = [f"Bank k dispozici: {available_bank(person):.0f}"]
     if not mine:
-        lines.append("Žádný zapečetěný tiket.")
+        lines.append("Žádný živý tiket.")
     for t in mine:
         legs = ", ".join(
             f"{by_id[leg['match_id']]['home_short'] or by_id[leg['match_id']]['home']}"
