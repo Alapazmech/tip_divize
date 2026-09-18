@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-15 12:00:35",
+ "scraped_at": "2026-09-18 12:04:35",
  "prior": 1500,
  "matches": [
   {
@@ -461,20 +461,6 @@
    "score": null
   },
   {
-   "id": 1312170,
-   "round": 6,
-   "round_label": "6. kolo",
-   "date": "2026-10-17",
-   "time": "00:00",
-   "home": "Banes Florbal Soběslav",
-   "away": "T.B.C. Králův Dvůr",
-   "home_short": "Soběslav",
-   "away_short": "Králův Dvůr",
-   "place": "SH TJ Spartak Soběslav",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312171,
    "round": 6,
    "round_label": "6. kolo",
@@ -507,7 +493,7 @@
    "round": 6,
    "round_label": "6. kolo",
    "date": "2026-10-17",
-   "time": "00:00",
+   "time": "16:30",
    "home": "FA Č. Budějovice",
    "away": "OLYMP FLORBAL",
    "home_short": "FA ČB",
@@ -517,11 +503,25 @@
    "score": null
   },
   {
+   "id": 1312170,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2026-10-17",
+   "time": "17:00",
+   "home": "Banes Florbal Soběslav",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Soběslav",
+   "away_short": "Králův Dvůr",
+   "place": "SH TJ Spartak Soběslav",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312175,
    "round": 6,
    "round_label": "6. kolo",
    "date": "2026-10-17",
-   "time": "00:00",
+   "time": "18:00",
    "home": "TJ Centropen Dačice",
    "away": "Sokol Rudná",
    "home_short": "Dačice",
@@ -535,7 +535,7 @@
    "round": 6,
    "round_label": "6. kolo",
    "date": "2026-10-18",
-   "time": "00:00",
+   "time": "16:00",
    "home": "FBC Štíři Č. Budějovice",
    "away": "FbC Plzeň",
    "home_short": "Štíři",
@@ -979,20 +979,6 @@
    "score": null
   },
   {
-   "id": 1312209,
-   "round": 12,
-   "round_label": "12. kolo",
-   "date": "2026-11-28",
-   "time": "00:00",
-   "home": "Sokol Rudná",
-   "away": "Fbc Strakonice",
-   "home_short": "Rudná",
-   "away_short": "Strakonice",
-   "place": "",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312210,
    "round": 12,
    "round_label": "12. kolo",
@@ -1031,6 +1017,20 @@
    "home_short": "FbC Plzeň",
    "away_short": "Králův Dvůr",
    "place": "MSH Plzeň III (Lokomotiva III)",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312209,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2026-11-29",
+   "time": "00:00",
+   "home": "Sokol Rudná",
+   "away": "Fbc Strakonice",
+   "home_short": "Rudná",
+   "away_short": "Strakonice",
+   "place": "SH ZŠ Rudná",
    "status": "",
    "score": null
   },
@@ -1567,20 +1567,6 @@
    "score": null
   },
   {
-   "id": 1312249,
-   "round": 19,
-   "round_label": "19. kolo",
-   "date": "2027-01-30",
-   "time": "00:00",
-   "home": "Sokol Rudná",
-   "away": "OLYMP FLORBAL",
-   "home_short": "Rudná",
-   "away_short": "Olymp",
-   "place": "",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312250,
    "round": 19,
    "round_label": "19. kolo",
@@ -1605,6 +1591,20 @@
    "home_short": "FA ČB",
    "away_short": "Králův Dvůr",
    "place": "TJ Lokomotiva Č. Budějovice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312249,
+   "round": 19,
+   "round_label": "19. kolo",
+   "date": "2027-01-31",
+   "time": "00:00",
+   "home": "Sokol Rudná",
+   "away": "OLYMP FLORBAL",
+   "home_short": "Rudná",
+   "away_short": "Olymp",
+   "place": "SH ZŠ Rudná",
    "status": "",
    "score": null
   },
