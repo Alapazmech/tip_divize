@@ -15,18 +15,132 @@
   "hash": "466dbc928d7239170af43f790fc9b982a2a65103d94eab7fdc41e212800a143b",
   "person": "Honza",
   "round": 2,
-  "placed_at": "2026-09-17 13:20:08"
+  "placed_at": "2026-09-17 13:20:08",
+  "revealed": {
+   "stake": 42.0,
+   "legs": [
+    [
+     1312146,
+     "2"
+    ]
+   ],
+   "nonce": "f5a554b508266ccf",
+   "placed_at": "2026-09-17 13:20:08"
+  }
  },
  {
   "hash": "b8d55ac8cd467bf1a834d1cddfd1f1f0406fbe10b9d1630706ce475074967506",
   "person": "Jakub",
   "round": 2,
-  "placed_at": "2026-09-17 13:38:05"
+  "placed_at": "2026-09-17 13:38:05",
+  "revealed": {
+   "stake": 20.0,
+   "legs": [
+    [
+     1312146,
+     "2"
+    ]
+   ],
+   "nonce": "abd101825c1bfd60",
+   "placed_at": "2026-09-17 13:38:05"
+  }
  },
  {
   "hash": "f679ca89412962f7149154eb2d9b8183fefb2af073a1205a14d7aaa2bc597cb9",
   "person": "Radek",
   "round": 2,
   "placed_at": "2026-09-18 07:50:17"
+ },
+ {
+  "hash": "f00901c5d03f7f70e812a083e4bf133c167dfa683b9765c5a4cb56b87288d4f0",
+  "person": "Ejdm",
+  "round": 2,
+  "placed_at": "2026-09-19 14:40:35",
+  "revealed": {
+   "stake": 30.0,
+   "legs": [
+    [
+     1312146,
+     "2"
+    ],
+    [
+     1312148,
+     "2"
+    ]
+   ],
+   "nonce": "e4fc3246e53d3122",
+   "placed_at": "2026-09-19 14:40:35"
+  }
+ },
+ {
+  "hash": "49883dc9c4ec074adad140bd54eff677a5f09ff0472e870a6bc4003f835d346a",
+  "person": "Jakub",
+  "round": 2,
+  "placed_at": "2026-09-19 15:38:36",
+  "revealed": {
+   "stake": 10.0,
+   "legs": [
+    [
+     1312146,
+     "2"
+    ],
+    [
+     1312148,
+     "2"
+    ],
+    [
+     1312151,
+     "2"
+    ]
+   ],
+   "nonce": "7445086eeef5aad6",
+   "placed_at": "2026-09-19 15:38:36"
+  }
+ },
+ {
+  "hash": "e5b961ecc26d60d2b743f94796b3691f9756d7a0f3844d7e1e40c4bd71fe3b77",
+  "person": "J.",
+  "round": 2,
+  "placed_at": "2026-09-19 15:40:12",
+  "revealed": {
+   "stake": 100.0,
+   "legs": [
+    [
+     1312146,
+     "2"
+    ],
+    [
+     1312148,
+     "2"
+    ],
+    [
+     1312151,
+     "2"
+    ]
+   ],
+   "nonce": "e9c2ac84246ddec0",
+   "placed_at": "2026-09-19 15:40:12"
+  }
+ },
+ {
+  "hash": "bd9422f13a622602a020f2d1045057a52b2009d8f4146c7b5acb9d04fc06f8c5",
+  "person": "Michal",
+  "round": 2,
+  "placed_at": "2026-09-19 15:45:50",
+  "revealed": {
+   "stake": 50.0,
+   "legs": [
+    [
+     1312146,
+     "2"
+    ],
+    [
+     1312151,
+     "2"
+    ]
+   ],
+   "nonce": "98427bb034e87795",
+   "placed_at": "2026-09-19 15:45:50"
+  }
  }
 ]

@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-18 12:04:35",
+ "scraped_at": "2026-09-20 00:01:29",
  "prior": 1500,
  "matches": [
   {
@@ -129,42 +129,60 @@
    "round": 2,
    "round_label": "2. kolo",
    "date": "2026-09-19",
-   "time": "16:30",
+   "time": null,
    "home": "Banes Florbal Soběslav",
    "away": "FbŠ Florbal Bohemians",
    "home_short": "Soběslav",
    "away_short": "Bohemians",
-   "place": "SH TJ Spartak Soběslav",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    8
+   ],
+   "score_note": "p",
+   "overtime": true,
+   "shootout": false
   },
   {
    "id": 1312148,
    "round": 2,
    "round_label": "2. kolo",
    "date": "2026-09-19",
-   "time": "18:00",
+   "time": null,
    "home": "T.B.C. Králův Dvůr",
    "away": "FbC Plzeň",
    "home_short": "Králův Dvůr",
    "away_short": "FbC Plzeň",
-   "place": "SH Králův Dvůr",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    10
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312151,
    "round": 2,
    "round_label": "2. kolo",
    "date": "2026-09-19",
-   "time": "19:15",
+   "time": null,
    "home": "FA Č. Budějovice",
    "away": "FBC Štíři Č. Budějovice",
    "home_short": "FA ČB",
    "away_short": "Štíři",
-   "place": "TJ Lokomotiva Č. Budějovice",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    9
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312147,
