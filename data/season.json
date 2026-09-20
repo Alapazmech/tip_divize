@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-20 00:01:29",
+ "scraped_at": "2026-09-20 20:33:56",
  "prior": 1500,
  "matches": [
   {
@@ -189,42 +189,60 @@
    "round": 2,
    "round_label": "2. kolo",
    "date": "2026-09-20",
-   "time": "17:00",
+   "time": null,
    "home": "Florbal Jindřichův Hradec",
    "away": "OLYMP FLORBAL",
    "home_short": "Florbal J. Hradec",
    "away_short": "Olymp",
-   "place": "SH Jindřichův Hradec",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    2
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312149,
    "round": 2,
    "round_label": "2. kolo",
    "date": "2026-09-20",
-   "time": "17:00",
+   "time": null,
    "home": "Fbc Strakonice",
    "away": "Sokol Rudná",
    "home_short": "Strakonice",
    "away_short": "Rudná",
-   "place": "SH Strakonice",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    11,
+    1
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312150,
    "round": 2,
    "round_label": "2. kolo",
    "date": "2026-09-20",
-   "time": "17:00",
+   "time": null,
    "home": "SK Florbal Benešov",
    "away": "TJ Centropen Dačice",
    "home_short": "Benešov",
    "away_short": "Dačice",
-   "place": "ZŠ Jiráskova Benešov",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    9,
+    0
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312153,
