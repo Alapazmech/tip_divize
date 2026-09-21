@@ -47,7 +47,9 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
    Všechno ostatní je jen na stránce. Co už hlásil, drží v `data/reported.json`
    (gitignored; při prvním startu si tam zapíše vše dosud vyhodnocené). Hráče
    oslovuje 5. pádem (`cestina.py`; jména/přezdívky jsou v `data/players.json`,
-   nepravidelné tvary v `IRREGULAR`). Nastavení je v docstringu souboru
+   nepravidelné tvary v `IRREGULAR`). Přejmenování hráče = přepsat jméno
+   v players.json, bets.csv, topups.csv, commitments.json, archivu **i
+   reported.json** (klíče tiketů nesou jméno; jinak bot hlášky pošle znovu). Nastavení je v docstringu souboru
    (token od @BotFather, **/setprivacy → Disable**, `data/telegram.json`
    je v .gitignore). Běží dlouhodobě, např. v tmux/systemd.
 
