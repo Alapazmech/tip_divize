@@ -1,4 +1,4 @@
-"""Generuje statický index.html: záložky „Divize Sázky", „Tikety", „Los a tabulka" a „Informace".
+"""Generuje statický index.html: záložky „Divize Sázky", „Banky", „Tikety", „Los a tabulka" a „Informace".
 
 Vstupy: data/season.json (los + výsledky), data/published.json (zmrazené
 kurzy), data/bets.csv (tikety). Vypořádání: trhy 1/10/0/02/2 se vztahují
@@ -288,6 +288,16 @@ CHART_COLORS = (
 )
 
 
+def payout_now(state: dict) -> dict[str, float]:
+    """Kdyby základní část skončila teď: první dva si dělí bank v poměru svých banků."""
+    pot = state["pot_kc"]
+    top = sorted(state["banks"].items(), key=lambda x: -x[1])[:2]
+    total = sum(b for _, b in top)
+    if not pot or len(top) < 2 or total <= 0:
+        return {}
+    return {p: pot * b / total for p, b in top}
+
+
 def pot_note(state: dict) -> str:
     """Věta pod tabulkou banků: kolik je reálně ve hře a jak by se to teď dělilo."""
     pot = state["pot_kc"]
@@ -532,11 +542,11 @@ def betting_sections(
     bets_path: pathlib.Path,
     commits_path: pathlib.Path,
     clickable: bool,
-) -> tuple[list[str], dict, int | None, dict]:
-    """Sázková sekce (banky, vypsané kolo, historie).
+) -> tuple[list[str], list[str], dict, int | None, dict]:
+    """Sázkové sekce: banky (vlastní záložka) a sázky (vypsané kolo, historie).
 
-    Společné pro ostrou ligu i zkušební záložku; vrací (html části, stav
-    vypořádání, vypsané kolo, zápasy po kolech).
+    Společné pro ostrou ligu i zkušební záložku; vrací (html banky, html
+    sázky, stav vypořádání, vypsané kolo, zápasy po kolech).
     """
     by_round: dict[int, list[dict]] = collections.defaultdict(list)
     for m in matches:
@@ -554,24 +564,26 @@ def betting_sections(
     open_round = open_rounds[0] if open_rounds else None
     settled_rounds = [r for r in published_rounds if r not in open_rounds]
 
-    sazky = []
+    sazky: list[str] = []
+    banky: list[str] = []
 
-    # banky + statistika sázkařů
+    # banky + statistika sázkařů (vlastní záložka)
     if state["banks"]:
         stats = person_stats(state)
         has_stats = any(st["tickets"] for st in stats.values())
         pct = lambda x: f"{x * 100:.0f} %" if x is not None else "–"
+        payout = payout_now(state)
         rows = ""
-        has_topups = any(d["topups"] for d in state["deposits"].values())
         for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
             st = stats[p]
             dep = state["deposits"][p]
+            pay = payout.get(p)
             rows += (
                 f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td><b>{b:.0f}</b></td>'
                 f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{b - dep["credits"]:+.0f}</td>'
+                + (f'<td class="plus"><b>{pay:.0f} Kč</b></td>' if pay else "<td>–</td>")
             )
-            if has_topups:
-                rows += f'<td title="dokupů · zaplaceno celkem">{dep["topups"]} · {dep["kc"]:.0f} Kč</td>'
+            rows += f'<td title="dokupů · zaplaceno celkem">{dep["topups"]}× · {dep["kc"]:.0f} Kč</td>'
             if has_stats:
                 roi_cls = "" if st["roi"] is None else ("plus" if st["roi"] >= 0 else "minus")
                 rows += (
@@ -582,27 +594,29 @@ def betting_sections(
                     + (f'<td>{st["best"]:+.0f}</td>' if st["best"] else "<td>–</td>")
                 )
             rows += "</tr>"
-        head = "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th title='bank − vložené kredity'>±</th>"
-        if has_topups:
-            head += "<th title='počet dokupů · zaplaceno celkem'>Dokupy</th>"
+        head = (
+            "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th title='bank − vložené kredity'>±</th>"
+            "<th title='kdyby základní část skončila teď: první dva si dělí bank v poměru banků'>Bere teď</th>"
+        )
+        head += "<th title='počet dokupů · zaplaceno celkem'>Dokupy</th>"
         if has_stats:
             head += (
                 "<th title='vypořádaných tiketů'>Tiketů</th><th title='výherních / všech'>Úspěšnost</th>"
                 "<th>Vsazeno</th><th title='čistý zisk / vsazeno'>ROI</th><th title='nejvyšší čistá výhra na tiket'>Top výhra</th>"
             )
-        sazky.append(
+        banky.append(
             f'<h2>Banky</h2><div class="scrollx"><table class="stats"><tr>{head}</tr>{rows}</table></div>'
             + pot_note(state)
         )
         chart = bank_chart(state["history"], sorted(state["banks"]))
         if chart:
-            sazky.append(
+            banky.append(
                 '<h3>Vývoj banků</h3><div class="chartwrap">' + chart + "</div>"
                 '<p class="note">Bank po každém dohraném kole. Šedá linka = startovních '
                 f"{START_BANK}. Najetím na bod uvidíš hodnotu.</p>"
             )
     else:
-        sazky.append(
+        banky.append(
             f'<h2>Banky</h2><p class="note">Zatím nikdo nesází. Každý vloží {BUYIN_KC} Kč a začíná s bankem {START_BANK} — '
             'první tiket zakládá účet. Pravidla jsou v záložce <a href="#info">Informace</a>.</p>'
         )
@@ -689,7 +703,7 @@ def betting_sections(
                 f"{round_table(by_round[rnd], published)}{bets_html}</details>"
             )
 
-    return sazky, state, open_round, by_round
+    return banky, sazky, state, open_round, by_round
 
 
 def main() -> None:
@@ -701,7 +715,7 @@ def main() -> None:
     demo_season_path = DATA / "demo_season.json"
     demo_active = (DATA / "demo_active").exists()
 
-    sazky, state, open_round, by_round = betting_sections(
+    banky, sazky, state, open_round, by_round = betting_sections(
         matches,
         published,
         DATA / "bets.csv",
@@ -719,7 +733,7 @@ def main() -> None:
         demo_season = json.load(open(demo_season_path, encoding="utf-8"))
         dpub_path = DATA / "demo_published.json"
         demo_pub = json.loads(dpub_path.read_text()) if dpub_path.exists() else {}
-        demo_parts, demo_state, _, _ = betting_sections(
+        demo_banky, demo_parts, demo_state, _, _ = betting_sections(
             demo_season["matches"],
             demo_pub,
             DATA / "demo_bets.csv",
@@ -731,7 +745,7 @@ def main() -> None:
         demo_tab = (
             '<p class="note">🧪 Zkušební liga na osahání sázení (zápasy Divize A, '
             "výsledky se losují). O nic nejde, banky jsou oddělené od ostré hry.</p>"
-            + "".join(demo_parts)
+            + "".join(demo_banky + demo_parts)
         )
 
     # ---------- záložka Los a tabulka ----------
@@ -946,6 +960,7 @@ footer a {{ color:var(--muted); }}
 
 <nav>
   <a href="#sazky" id="nav-sazky">Divize Sázky</a>
+  <a href="#banky" id="nav-banky">Banky</a>
   {demo_nav}
   <a href="#tikety" id="nav-tikety">Tikety</a>
   <a href="#los" id="nav-los">Los a tabulka</a>
@@ -955,6 +970,7 @@ footer a {{ color:var(--muted); }}
 <section class="tab" id="tab-sazky">{''.join(sazky)}
 <footer>Zdroj dat: <a href="{season['url']}">ceskyflorbal.cz</a> · vygenerováno {generated}</footer>
 </section>
+<section class="tab" id="tab-banky">{''.join(banky)}</section>
 {demo_section}
 <section class="tab" id="tab-tikety">{tikety}</section>
 <section class="tab" id="tab-los">{''.join(los)}</section>
