@@ -10,3 +10,4 @@ data/demo_active
 data/render_hook.txt
 .update.lock
 .venv/
+data/reported.json

@@ -13,7 +13,8 @@ Prázdný `ticket` = sólo tiket.
 
 Dokupy v data/topups.csv: round,person,credits,paid — když někdo prohraje
 všechno, zaplatí dalších 100 Kč (`paid`) a dostane `credits` kreditů do banku
-(vždy 100, kolikrát chce). Kredity se přičtou na začátku daného kola.
+(vždy 100, kolikrát chce). Bank se připíše hned; `round` říká, od kterého
+kola dokup figuruje v grafu a historii.
 Řádky zapisuje bot na /dokoupit (tickets.dokoupit), ručně jde taky.
 """
 
@@ -208,6 +209,7 @@ def settle(
             {
                 "round": rnd,
                 "person": person,
+                "label": label,
                 "legs": legs,
                 "stake": float(rows[0]["stake"]),
                 "odd": round(total_odd, 2),
@@ -220,7 +222,8 @@ def settle(
 
     history: list[dict] = []  # vývoj banků: snapshot po každém vypořádaném kole
     for rnd in sorted(by_round):
-        # dokupy platí od začátku kola — dřív než se vypořádají jeho tikety
+        # dokupy se počítají od začátku kola — dřív než se vypořádají jeho tikety
+        # (bank hráče je tak připsaný hned, i když se kolo teprve hraje)
         for tu in topups.get(rnd, []):
             banks[tu["person"]] += tu["credits"]
             deposits[tu["person"]]["credits"] += tu["credits"]

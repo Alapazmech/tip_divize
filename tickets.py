@@ -19,6 +19,7 @@ import pathlib
 import secrets
 
 import generate_site as gs
+from cestina import vokativ
 
 DATA = pathlib.Path(__file__).parent / "data"
 PLAYERS = DATA / "players.json"  # telegram user_id -> jméno sázkaře (společné)
@@ -94,18 +95,20 @@ def available_bank(person: str) -> float:
 
 
 def dokoupit(user_id: int, person: str) -> str:
-    """Dokup po prohře všeho: zaplatí BUYIN_KC, dostane START_BANK kreditů.
+    """Dokup po prohře všeho: zaplatí BUYIN_KC, dostane START_BANK kreditů hned.
     Kdykoliv a kolikrát chce.
 
     Projde jen když je bank na nule a sázkař nemá živý (= podaný, ještě
-    nevyhodnocený) tiket. Zapíše řádek do topups.csv; kredity platí od
-    aktuálního (nebo příštího) kola. Peníze se řeší až na konci základní části.
+    nevyhodnocený) tiket. Zapíše řádek do topups.csv (kolo = to, na které se
+    právě sází; slouží jen pro graf a historii, bank se připíše okamžitě).
+    Peníze se řeší až na konci základní části.
     """
     season = _season()
     published = _published()
     state = gs.settle(season["matches"], published, _p("bets.csv"))
+    who = vokativ(person)
     if person not in state["banks"]:
-        return f"Bank není 0, je {gs.START_BANK}."
+        return f"{who}, bank není 0, je {gs.START_BANK}."
     bank = state["banks"][person]
     # živý tiket = podaný a ještě nevyhodnocený (bets_sealed.json = podané tikety
     # čekající na dohrání kola; bets.csv "open" = odhalené, čekající na dohrávku)
@@ -113,14 +116,12 @@ def dokoupit(user_id: int, person: str) -> str:
         1 for rows in state["open"].values() for t in rows if t["person"] == person
     ) + sum(1 for t in _load(_p("bets_sealed.json"), []) if t["user_id"] == user_id)
     if bank >= 1:
-        return f"Bank není 0, je {bank:.0f}."
+        return f"{who}, bank není 0, je {bank:.0f}."
     if live:
-        return "Máš ještě živý tiket."
+        return f"{who}, máš ještě živý tiket."
 
     done = state["deposits"][person]["topups"]
     credits = gs.START_BANK
-    # kredity platí od kola, na které se právě sází; když žádné otevřené není,
-    # od příštího vypsaného
     open_rounds = [
         v["round"] for m in open_matches(season, published)
         for v in [published[str(m["id"])]]
@@ -134,8 +135,8 @@ def dokoupit(user_id: int, person: str) -> str:
     with open(path, "a", encoding="utf-8") as f:
         f.write(f"{rnd},{person},{credits},{gs.BUYIN_KC}\n")
     return (
-        f"✅ V pořádku, {done + 1}. dokup: máš {credits} kreditů (od {rnd}. kola). "
-        f"Celkem vloženo {state['deposits'][person]['kc'] + gs.BUYIN_KC:.0f} Kč."
+        f"✅ {who}, máš {credits} kreditů. {done + 1}. dokup, "
+        f"celkem vloženo {state['deposits'][person]['kc'] + gs.BUYIN_KC:.0f} Kč."
     )
 
 

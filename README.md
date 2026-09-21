@@ -40,8 +40,15 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
    - **Informace**: pravidla pro hráče (vklad, dokupy, dělení banku), jak
      sázet, příkazy bota a co znamenají emoji.
 4. **`telegram_bot.py`** — bot v sázkovém Telegram chatu: na „updatuj kurzy"
-   od bookmakera spustí `update.sh` a pošle nově vypsané kolo; dál umí
-   jen /banky, /vysledky a /dokoupit (pro všechny), jiné zprávy ignoruje. Nastavení je v docstringu souboru
+   od bookmakera spustí `update.sh` a pošle nově vyhodnocené tikety; dál umí
+   jen /banky, /vysledky a /dokoupit (pro všechny), jiné zprávy ignoruje.
+   **Dohrané zápasy hlídá sám**: od 2 h po začátku každého vypsaného zápasu
+   bez výsledku spouští každou půlhodinu update (max. 10 h po začátku) a do
+   skupiny pošle, co se nově vyhodnotilo — po sobotě jen sobotní tikety
+   („zatím dohrané tikety“ + kdo má ještě živý tiket), po neděli celé kolo.
+   Co už hlásil, drží v `data/reported.json` (gitignored; při prvním startu
+   si tam zapíše vše dosud vyhodnocené). Hráče oslovuje 5. pádem
+   (`cestina.py`, jména/přezdívky jsou v `data/players.json`). Nastavení je v docstringu souboru
    (token od @BotFather, **/setprivacy → Disable**, `data/telegram.json`
    je v .gitignore). Běží dlouhodobě, např. v tmux/systemd.
 
@@ -54,8 +61,8 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   že bank je na nule a hráč nemá živý tiket (podaný a nevyhodnocený, včetně
   čekání na dohrávku), a zapíše řádek do `data/topups.csv` (`round,person,credits,paid`):
   za dalších 100 Kč dalších 100 kreditů, kdykoliv a kolikrát chce. Kredity
-  platí od kola, na které se právě sází. Když dokup nejde, bot odpoví „Bank není 0,
-  je …“ nebo „Máš ještě živý tiket“. Na stránce se pak ukáže sloupec Dokupy.
+  má hned (sloupec `round` jen říká, od kterého kola dokup figuruje v grafu).
+  Když dokup nejde, bot odpoví „…, bank není 0, je …“ nebo „…, máš ještě živý tiket“. Na stránce se pak ukáže sloupec Dokupy.
   Kdo ve vyhodnocení kola skončí na nule, dostane od bota vtipnou hlášku
   s týmem, který mu to zkazil, a pobídkou k dokupu (`BROKE_LINES`).
 - **Hraje se jen základní část.** Na jejím konci si celý bank (součet
@@ -150,6 +157,7 @@ jednorázový (loňská data pro seed modelu).
 - `data/public_key.txt` / `data/secret_key.txt` — NaCl klíče (secret gitignored!)
 - `data/players.json` — telegram id → jméno (gitignored)
 - `data/telegram.json`, `data/telegram_offset.txt` — bot (gitignored, token!)
+- `data/reported.json` — tikety, které bot už ohlásil do chatu (gitignored)
 
 ## TODO / nápady
 
