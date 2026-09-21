@@ -116,7 +116,7 @@ def dokoupit(user_id: int, person: str) -> str:
         1 for rows in state["open"].values() for t in rows if t["person"] == person
     ) + sum(1 for t in _load(_p("bets_sealed.json"), []) if t["user_id"] == user_id)
     if bank >= 1:
-        return f"{who}, bank není 0, je {bank:.0f}."
+        return f"{who}, bank není 0, je {gs.kr(bank)}."
     if live:
         return f"{who}, máš ještě živý tiket."
 
@@ -223,7 +223,7 @@ def place(
         return False, "Vklad musí být kladný.", None
     avail = available_bank(person)
     if stake > avail:
-        return False, f"Na to nemáš — k dispozici máš {avail:.0f}.", None
+        return False, f"Na to nemáš — k dispozici máš {gs.kr(avail)}.", None
 
     total_odd = 1.0
     for leg in legs:
@@ -257,7 +257,7 @@ def place(
         lines.append(f"  {m['home']} – {m['away']}  {leg['market']} @ {leg['odd']:.2f}")
     lines.append(
         f"Vklad {stake:.0f}, celkový kurz {total_odd:.2f}, možná výhra "
-        f"{stake * total_odd:.0f}. Zbývá ti {avail - stake:.0f}."
+        f"{stake * total_odd:.1f}. Zbývá ti {gs.kr(avail - stake)}."
     )
     return True, "\n".join(lines), h
 
@@ -362,7 +362,7 @@ def my_tickets(user_id: int, person: str) -> str:
     by_id = {m["id"]: m for m in season["matches"]}
     latest = max((v["round"] for v in published.values()), default=None)
     mine = [t for t in _load(_p("bets_sealed.json"), []) if t["user_id"] == user_id]
-    lines = [f"Bank k dispozici: {available_bank(person):.0f}"]
+    lines = [f"Bank k dispozici: {gs.kr(available_bank(person))}"]
     if not mine:
         lines.append("Žádný živý tiket.")
     for t in mine:

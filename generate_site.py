@@ -238,7 +238,8 @@ def settle(
                 continue
             leg_wins = [o in WINS[leg["market"]] for o, leg in zip(outcomes, t["legs"])]
             won = all(leg_wins)
-            delta = t["stake"] * (t["odd"] - 1) if won else -t["stake"]
+            # čistá výhra na desetiny kreditu (bez float šumu typu 57.4999)
+            delta = round(t["stake"] * (t["odd"] - 1), 1) if won else -t["stake"]
             banks[t["person"]] += delta
             settled_rows[rnd].append(
                 {**t, "won": won, "delta": delta, "leg_wins": leg_wins}
@@ -246,7 +247,7 @@ def settle(
         for person, staked in stakes_this_round.items():
             if staked > banks[person]:
                 warnings.append(
-                    f"{person} má v {rnd}. kole vsazeno {staked:.0f}, ale bank je {banks[person]:.0f}"
+                    f"{person} má v {rnd}. kole vsazeno {kr(staked)}, ale bank je {kr(banks[person])}"
                 )
         if settled_rows.get(rnd):
             history.append({"round": rnd, "banks": dict(banks)})
@@ -260,6 +261,12 @@ def settle(
         "open": open_rows,
         "warnings": warnings,
     }
+
+
+def kr(x: float, sign: bool = False) -> str:
+    """Kredity: celé číslo bez desetin, jinak na jednu desetinu (57.5)."""
+    s = f"{x:+.1f}" if sign else f"{x:.1f}"
+    return s[:-2] if s.endswith(".0") else s
 
 
 def person_stats(state: dict) -> dict[str, dict]:
@@ -411,7 +418,7 @@ def bank_chart(history: list[dict], persons: list[str]) -> str:
         out.append(f'<polyline points="{pts}" fill="none" stroke="{color[p]}" stroke-width="2"/>')
         for i, v in enumerate(series[p]):
             r = rounds[i]
-            tip = f"{p} · {'start' if r == 0 else f'{r}. kolo'} · bank {v:.0f}"
+            tip = f"{p} · {'start' if r == 0 else f'{r}. kolo'} · bank {kr(v)}"
             out.append(
                 f'<circle cx="{px(i):.1f}" cy="{py(v):.1f}" r="4" fill="{color[p]}" '
                 f'stroke="var(--card)" stroke-width="2"><title>{e(tip)}</title></circle>'
@@ -422,7 +429,7 @@ def bank_chart(history: list[dict], persons: list[str]) -> str:
         used_y.append(y)
         out.append(
             f'<text x="{W - R + 8}" y="{y + 4:.1f}" class="lbl" fill="{color[p]}">'
-            f'{e(p)} {series[p][-1]:.0f}</text>'
+            f'{e(p)} {kr(series[p][-1])}</text>'
         )
     out.append("</svg>")
     return "".join(out)
@@ -579,8 +586,8 @@ def betting_sections(
             dep = state["deposits"][p]
             pay = payout.get(p)
             rows += (
-                f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td><b>{b:.0f}</b></td>'
-                f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{b - dep["credits"]:+.0f}</td>'
+                f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td><b>{kr(b)}</b></td>'
+                f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{kr(b - dep["credits"], sign=True)}</td>'
                 + (f'<td class="plus"><b>{pay:.0f} Kč</b></td>' if pay else "<td>–</td>")
             )
             rows += f'<td title="dokupů · zaplaceno celkem">{dep["topups"]}× · {dep["kc"]:.0f} Kč</td>'
@@ -591,7 +598,7 @@ def betting_sections(
                     f'<td title="výherních tiketů / všech">{st["wins"]}/{st["tickets"]} · {pct(st["hit"])}</td>'
                     f'<td>{st["staked"]:.0f}</td>'
                     f'<td class="{roi_cls}" title="čistý zisk / vsazeno">{pct(st["roi"])}</td>'
-                    + (f'<td>{st["best"]:+.0f}</td>' if st["best"] else "<td>–</td>")
+                    + (f'<td>{kr(st["best"], sign=True)}</td>' if st["best"] else "<td>–</td>")
                 )
             rows += "</tr>"
         head = (
@@ -690,7 +697,7 @@ def betting_sections(
                     f'<tr class="{"plus" if t["won"] else "minus"}"><td>{e(t["person"])}</td>'
                     f'<td class="tname">{legs}</td><td>{kind}</td><td>{t["odd"]:.2f}</td>'
                     f'<td>{t["stake"]:.0f}</td>'
-                    f'<td>{"✅ " if t["won"] else "❌ "}{t["delta"]:+.0f}</td></tr>'
+                    f'<td>{"✅ " if t["won"] else "❌ "}{kr(t["delta"], sign=True)}</td></tr>'
                 )
             bets_html = (
                 f'<table class="bets"><tr><th>Sázkař</th><th class="tname">Tiket</th><th>Typ</th>'
@@ -786,11 +793,11 @@ def main() -> None:
             ticket_rows += (
                 f'<tr class="{"plus" if t["won"] else "minus"}" data-person="{e(t["person"])}"'
                 f' data-won="{"win" if t["won"] else "lost"}" data-round="{rnd}"'
-                f' data-delta="{t["delta"]:.0f}">'
+                f' data-delta="{t["delta"]:.1f}">'
                 f'<td>{rnd}.</td><td>{e(t["person"])}</td><td class="tname">{legs}</td>'
                 f'<td>{"AKO" if len(t["legs"]) > 1 else "sólo"}</td><td>{t["odd"]:.2f}</td>'
                 f'<td>{t["stake"]:.0f}</td>'
-                f'<td>{"✅ " if t["won"] else "❌ "}{t["delta"]:+.0f}</td></tr>'
+                f'<td>{"✅ " if t["won"] else "❌ "}{kr(t["delta"], sign=True)}</td></tr>'
             )
     if ticket_rows:
         person_chips = '<span class="fchip active" data-f="">Všichni</span>' + "".join(
@@ -1121,7 +1128,7 @@ if (document.getElementById("tickets-table")) {{
       if (ok) {{ n++; sum += parseFloat(r.dataset.delta); }}
     }});
     document.getElementById("tikety-sum").textContent = n
-      ? "Tiketů: " + n + " · bilance " + (sum > 0 ? "+" : "") + Math.round(sum)
+      ? "Tiketů: " + n + " · bilance " + (sum > 0 ? "+" : "") + (Math.round(sum * 10) / 10)
       : "Žádný tiket neodpovídá filtru.";
   }};
   document.querySelectorAll(".fchip").forEach(function (ch) {{

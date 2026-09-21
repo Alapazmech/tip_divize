@@ -32,6 +32,7 @@ import unicodedata
 import urllib.parse
 import urllib.request
 
+import generate_site
 import tickets
 from cestina import genitiv, vokativ
 
@@ -85,7 +86,6 @@ def react(token: str, chat_id: int, message_id: int) -> None:
 
 def banks_summary() -> str:
     """Jen jména a banky. Kdo ještě nesázel, má startovní bank."""
-    import generate_site
 
     season = json.load(open(tickets._p("season.json"), encoding="utf-8"))
     pub_path = tickets._p("published.json")
@@ -97,7 +97,7 @@ def banks_summary() -> str:
     lines = ["💰 Banky:"]
     key = lambda x: (-x[1], unicodedata.normalize("NFKD", x[0]).encode("ascii", "ignore").lower())
     for i, (p, b) in enumerate(sorted(banks.items(), key=key), 1):
-        lines.append(f"{i}. {p}: {b:.0f}")
+        lines.append(f"{i}. {p}: {generate_site.kr(b)}")
     return "\n".join(lines)
 
 
@@ -152,7 +152,6 @@ AKO_LINES = (
 def _culprit(ticket: dict) -> str:
     """Tým, který hráči zkazil tiket: soupeř toho, na koho sázel v prvním
     prohraném legu (u remízy nebo sázky na remízu ten, kdo neprohrál/vyhrál)."""
-    import generate_site
 
     for leg, win in zip(ticket["legs"], ticket["leg_wins"]):
         if win:
@@ -170,7 +169,6 @@ def _culprit(ticket: dict) -> str:
 
 
 def _state() -> dict:
-    import generate_site
 
     season = json.load(open(tickets._p("season.json"), encoding="utf-8"))
     pub_path = tickets._p("published.json")
@@ -228,7 +226,7 @@ def ako_lines(won: list[dict]) -> list[str]:
         i = int(hashlib.sha1(_ticket_key(t).encode()).hexdigest(), 16) % len(AKO_LINES)
         out.append(
             AKO_LINES[i].format(
-                v=vokativ(t["person"]), p=t["person"], n=n, odd=f"{t['odd']:.2f}", win=f"{t['delta']:.0f}"
+                v=vokativ(t["person"]), p=t["person"], n=n, odd=f"{t['odd']:.2f}", win=generate_site.kr(t["delta"])
             )
         )
     return out
@@ -243,7 +241,7 @@ def round_report(state: dict, rnd: int) -> list[str]:
         per[t["person"]] += t["delta"]
     for p, d in sorted(per.items(), key=lambda x: (-x[1], x[0])):
         mark = "✅" if d > 0 else ("❌" if d < 0 else "➖")
-        lines.append(f"{mark} {p}: {d:+.0f}  (bank {state['banks'][p]:.0f})")
+        lines.append(f"{mark} {p}: {generate_site.kr(d, sign=True)}  (bank {generate_site.kr(state['banks'][p])})")
     if live:
         lines.append("⏳ Živý tiket: " + ", ".join(sorted(live)))
     return lines
