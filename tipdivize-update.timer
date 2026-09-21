@@ -9,10 +9,12 @@
 # Stav / log:  systemctl --user list-timers ; tail -f .update.log
 # Ruční spuštění hned:  systemctl --user start tipdivize-update.service
 [Unit]
-Description=Tipdivize update denně v poledne
+Description=Tipdivize update: všední den 2×, víkend 4×
 
 [Timer]
-OnCalendar=*-*-* 12:00:00
+OnCalendar=Mon..Fri *-*-* 08,20:00:00
+OnCalendar=Sat,Sun *-*-* 12,17,23:00:00
+OnCalendar=Sat,Sun *-*-* 20:30:00
 RandomizedDelaySec=300
 Persistent=true
 

@@ -13,26 +13,13 @@ Poslouchá skupinu přes oficiální Bot API (long polling, čisté stdlib) a um
                                zapíše dokup (100 kreditů za 100 Kč, bez limitu)
 Nic jiného bot neumí a jiné zprávy mlčky ignoruje.
 
-Sám hlídá dohrané zápasy: od 2 h po začátku každého vypsaného zápasu bez
-výsledku spouští každou půlhodinu update.sh (max. 10 h po začátku, pak to
-nechá na denním timeru) a do skupiny pošle nově vyhodnocené tikety —
-klidně jen sobotní část kola, nedělní přijde zvlášť. Co už hlásil, si
-pamatuje v data/reported.json; při prvním startu si tam zapíše všechno
+Do chatu sám píše jen tohle: hlášku tomu, kdo skončil na nule (s pobídkou
+k dokupu), uznání za vyhrané AKO se 3+ zápasy a v pondělí v 9:00 vyhodnocení
+posledního kola. Nic jiného — výsledky a tikety jsou na stránce, kterou
+plní timer (update.sh 2× ve všední den, 4× o víkendu). Co už ohlásil,
+si pamatuje v data/reported.json; při prvním startu si tam zapíše vše
 dosud vyhodnocené, aby nespamoval historii. Hráče oslovuje 5. pádem
 (cestina.py).
-
-Nastavení (jednorázově):
-  1. U @BotFather: /newbot -> token; /setprivacy -> Disable (jinak bot ve
-     skupině nevidí obyčejné zprávy, jen /příkazy).
-  2. Přidat bota do skupiny.
-  3. Vytvořit data/telegram.json (je v .gitignore!):
-     {"token": "123:ABC", "chat_id": null, "admins": ["mschejbal"]}
-     chat_id null = bot reaguje všude; id skupiny je v logu bota
-     ([msg] chat=…) — doplň ho, ať reaguje jen ve vašem chatu.
-  4. Spustit: python3 telegram_bot.py  (např. v tmux / systemd)
-
-Spuštění update je frontované — bot zpracovává zprávy sériově, takže dvě
-rychlá „updatuj" za sebou nespustí dva scrapy najednou.
 """
 
 import datetime
@@ -55,12 +42,8 @@ DATA = ROOT / "data"
 CONFIG = DATA / "telegram.json"
 OFFSET = DATA / "telegram_offset.txt"
 
-# automatické uzavírání: kdy po začátku zápasu začít zjišťovat výsledek,
-# jak dlouho to zkoušet a jak často
-CHECK_AFTER = 2 * 3600
-CHECK_WINDOW = 10 * 3600
-CHECK_EVERY = 30 * 60
-REPORT_EVERY = 10 * 60
+REPORT_EVERY = 10 * 60  # jak často bot kouká, zda timer vyhodnotil něco nového
+MONDAY_HOUR = 9  # vyhodnocení kola do chatu: pondělí od této hodiny
 
 OUR_TEAM = "FbŠ Florbal Bohemians"
 
@@ -155,6 +138,17 @@ BROKE_LINES = (
 )
 
 
+# uznání za vyhrané AKO se 3+ zápasy: {v} oslovení, {p} jméno, {n} legů, {odd} kurz, {win} čistá výhra
+AKO_LINES = (
+    "🏆 {v}, AKO {n}/{n} za kurz {odd} — +{win}. Klobouk dolů.",
+    "🎯 {p} trefil AKO {n}/{n} @ {odd} a bere +{win}. Takhle se to dělá.",
+    "👑 {v}, {n} zápasy a všechny sedly. Kurz {odd}, +{win}. Bookmaker skřípe zuby.",
+    "🔥 AKO {n}/{n} za {odd} — {p} si přidává +{win}. Uznání.",
+    "🧠 {v}, {n} z {n} za kurz {odd}. +{win} a čest sázkařské divize je zachráněna.",
+    "🍀 {p} dal {n} zápasy na jeden tiket a všechny vyšly: kurz {odd}, +{win}. Respekt.",
+)
+
+
 def _culprit(ticket: dict) -> str:
     """Tým, který hráči zkazil tiket: soupeř toho, na koho sázel v prvním
     prohraném legu (u remízy nebo sázky na remízu ten, kdo neprohrál/vyhrál)."""
@@ -222,20 +216,31 @@ def _ticket_key(t: dict) -> str:
     return f"{t['round']}:{t['person']}:{t['label']}"
 
 
-def round_report(state: dict, rnd: int, new: list[dict]) -> list[str]:
-    """Řádky vyhodnocení kola. Dohrané celé (nikdo v něm nemá živý tiket):
-    ± všech členů za celé kolo. Rozehrané: jen tikety z `new` a kdo ještě čeká."""
+def ako_lines(won: list[dict]) -> list[str]:
+    """Uznání za vyhrané AKO se 3 a více zápasy."""
+    import hashlib
+
+    out = []
+    for t in sorted(won, key=lambda t: (t["person"], -t["delta"])):
+        n = len(t["legs"])
+        if n < 3:
+            continue
+        i = int(hashlib.sha1(_ticket_key(t).encode()).hexdigest(), 16) % len(AKO_LINES)
+        out.append(
+            AKO_LINES[i].format(
+                v=vokativ(t["person"]), p=t["person"], n=n, odd=f"{t['odd']:.2f}", win=f"{t['delta']:.0f}"
+            )
+        )
+    return out
+
+
+def round_report(state: dict, rnd: int) -> list[str]:
+    """Vyhodnocení kola: ± všech členů; kdo má v kole živý tiket, je označený."""
     live = _live_persons(state, rnd)
-    if not live:
-        lines = [f"📊 Vyhodnocení {rnd}. kola:"]
-        per = {p: 0.0 for p in state["banks"]}
-        for t in state["settled"].get(rnd, []):
-            per[t["person"]] += t["delta"]
-    else:
-        lines = [f"📊 {rnd}. kolo, zatím dohrané tikety:"]
-        per = {}
-        for t in new:
-            per[t["person"]] = per.get(t["person"], 0.0) + t["delta"]
+    lines = [f"📊 Vyhodnocení {rnd}. kola:"]
+    per = {p: 0.0 for p in state["banks"]}
+    for t in state["settled"].get(rnd, []):
+        per[t["person"]] += t["delta"]
     for p, d in sorted(per.items(), key=lambda x: (-x[1], x[0])):
         mark = "✅" if d > 0 else ("❌" if d < 0 else "➖")
         lines.append(f"{mark} {p}: {d:+.0f}  (bank {state['banks'][p]:.0f})")
@@ -244,44 +249,61 @@ def round_report(state: dict, rnd: int, new: list[dict]) -> list[str]:
     return lines
 
 
-def pending_report(mark: bool = True) -> str:
-    """Nově vyhodnocené tikety od posledního hlášení (po kolech) + hlášky
-    pro ty, co skončili na nule. Prázdný řetězec = nic nového.
+def _reported() -> dict:
+    """Stav hlášení: {"tickets": [klíče už ohlášených tiketů], "monday": "YYYY-MM-DD"}."""
+    path = tickets._p("reported.json")
+    if not path.exists():
+        return {}
+    obj = json.loads(path.read_text())
+    return {"tickets": obj} if isinstance(obj, list) else obj
+
+
+def pending_report() -> str:
+    """Co má bot sám poslat po nově vyhodnocených tiketech: hlášky těm na
+    nule a uznání za AKO 3+. Prázdný řetězec = nic.
 
     Bez data/reported.json (první start) se všechno dosud vyhodnocené jen
     zapíše jako ohlášené — historie se do chatu nesype."""
     state = _state()
     settled = [t for rows in state["settled"].values() for t in rows]
-    path = tickets._p("reported.json")
     keys = sorted(_ticket_key(t) for t in settled)
-    if not path.exists():
-        path.write_text(json.dumps(keys))
+    rep = _reported()
+    path = tickets._p("reported.json")
+    if "tickets" not in rep:
+        rep["tickets"] = keys
+        path.write_text(json.dumps(rep))
         return ""
-    seen = set(json.loads(path.read_text()))
+    seen = set(rep["tickets"])
     new = [t for t in settled if _ticket_key(t) not in seen]
     if not new:
         return ""
-    if mark:
-        path.write_text(json.dumps(keys))
-    lines: list[str] = []
-    for rnd in sorted({t["round"] for t in new}):
-        if lines:
-            lines.append("")
-        lines.extend(round_report(state, rnd, [t for t in new if t["round"] == rnd]))
-    broke = broke_lines(state, [t for t in new if not t["won"]])
-    if broke:
-        lines.append("")
-        lines.extend(broke)
+    rep["tickets"] = keys
+    path.write_text(json.dumps(rep))
+    lines = ako_lines([t for t in new if t["won"]])
+    lines += broke_lines(state, [t for t in new if not t["won"]])
     return "\n".join(lines)
 
 
+def monday_report() -> str:
+    """Pondělí od MONDAY_HOUR: vyhodnocení posledního kola, jednou týdně."""
+    now = datetime.datetime.now()
+    if now.weekday() != 0 or now.hour < MONDAY_HOUR:
+        return ""
+    rep = _reported()
+    today = now.date().isoformat()
+    if rep.get("monday") == today:
+        return ""
+    rep["monday"] = today
+    tickets._p("reported.json").write_text(json.dumps(rep))
+    return results_summary()
+
+
 def results_summary() -> str:
-    """/vysledky: stav posledního kola, které má něco vyhodnoceného."""
+    """/vysledky a pondělní hlášení: poslední kolo, které má něco vyhodnoceného."""
     state = _state()
     if not state["settled"] or not state["banks"]:
         return ""
-    rnd = max(state["settled"])
-    return "\n".join(round_report(state, rnd, state["settled"][rnd]))
+    return "\n".join(round_report(state, max(state["settled"])))
 
 
 def _published_rounds() -> set[int]:
@@ -291,10 +313,8 @@ def _published_rounds() -> set[int]:
     return {v["round"] for v in json.loads(pub_path.read_text()).values()}
 
 
-def run_update(force: bool = False, quiet: bool = False) -> str:
-    """Spustí update.sh a vrátí, co se má poslat do chatu: nově vyhodnocené
-    tikety a případně že je vypsané nové kolo. quiet=True (automatický běh)
-    vrací prázdno, když není co hlásit."""
+def run_update(force: bool = False) -> str:
+    """Ruční „updatuj kurzy“: spustí update.sh a odpoví, co se stalo."""
     if tickets.is_demo():
         import demo
 
@@ -308,46 +328,29 @@ def run_update(force: bool = False, quiet: bool = False) -> str:
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout).strip().splitlines()[-5:]
         return "❌ Update selhal:\n" + "\n".join(tail)
-    parts = []
+    parts = ["✅ Stránka je aktuální."]
+    new_rounds = _published_rounds() - before
+    if new_rounds:
+        parts[0] = f"✅ Vypsané {max(new_rounds)}. kolo — kurzy jsou na stránce."
     report = pending_report()
     if report:
         parts.append(report)
-    new_rounds = _published_rounds() - before
-    if new_rounds:
-        parts.append(f"🎲 Vypsané {max(new_rounds)}. kolo — kurzy jsou na stránce.")
-    if parts:
-        return "\n\n".join(parts)
-    return "" if quiet else "Nic nového — vypsané kolo se ještě hraje."
-
-
-def update_due(now: datetime.datetime) -> bool:
-    """Hraje se právě něco vypsaného, co by už mohlo mít výsledek?"""
-    season = tickets._season()
-    for m in tickets.open_matches(season, tickets._published()):
-        start = tickets.deadline(m)
-        if start + datetime.timedelta(seconds=CHECK_AFTER) <= now <= start + datetime.timedelta(seconds=CHECK_WINDOW):
-            return True
-    return False
+    return "\n\n".join(parts)
 
 
 def auto_tick(token: str, cfg: dict, clock: dict) -> None:
-    """Automatika mezi zprávami: update po dohraných zápasech a hlášení
-    tiketů, které mezitím vyhodnotil denní timer."""
+    """Mezi zprávami: každých REPORT_EVERY s kouknout, zda timer vyhodnotil
+    něco nového (nuly, AKO), a v pondělí ráno poslat vyhodnocení kola."""
     if not cfg.get("chat_id") or tickets.is_demo():
         return
     now = time.time()
-    text = ""
-    if now - clock.get("update", 0) >= CHECK_EVERY and update_due(datetime.datetime.now()):
-        clock["update"] = now
-        clock["report"] = now
-        print("[auto] update po zápase", flush=True)
-        text = run_update(quiet=True)
-    elif now - clock.get("report", 0) >= REPORT_EVERY:
-        clock["report"] = now
-        text = pending_report()
-    if text:
-        print(f"[auto] hlásím:\n{text}", flush=True)
-        send(token, cfg["chat_id"], text)
+    if now - clock.get("report", 0) < REPORT_EVERY:
+        return
+    clock["report"] = now
+    for text in (pending_report(), monday_report()):
+        if text:
+            print(f"[auto] hlásím:\n{text}", flush=True)
+            send(token, cfg["chat_id"], text)
 
 
 def is_admin(cfg: dict, username: str, user_id: int) -> bool:

@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-20 20:33:56",
+ "scraped_at": "2026-09-21 11:23:45",
  "prior": 1500,
  "matches": [
   {
@@ -497,20 +497,6 @@
    "score": null
   },
   {
-   "id": 1312171,
-   "round": 6,
-   "round_label": "6. kolo",
-   "date": "2026-10-17",
-   "time": "00:00",
-   "home": "Fbc Strakonice",
-   "away": "Florbal Jindřichův Hradec",
-   "home_short": "Strakonice",
-   "away_short": "Florbal J. Hradec",
-   "place": "SH Strakonice",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312172,
    "round": 6,
    "round_label": "6. kolo",
@@ -549,6 +535,20 @@
    "home_short": "Soběslav",
    "away_short": "Králův Dvůr",
    "place": "SH TJ Spartak Soběslav",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312171,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2026-10-17",
+   "time": "17:00",
+   "home": "Fbc Strakonice",
+   "away": "Florbal Jindřichův Hradec",
+   "home_short": "Strakonice",
+   "away_short": "Florbal J. Hradec",
+   "place": "SH Strakonice",
    "status": "",
    "score": null
   },

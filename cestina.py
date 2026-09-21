@@ -5,7 +5,13 @@ patří do IRREGULAR jako (5. pád, 2. pád). Víceslovné jméno skloňuje
 jen první slovo, jméno končící tečkou nebo číslem se nechává být.
 """
 
-IRREGULAR: dict[str, tuple[str, str]] = {}
+IRREGULAR: dict[str, tuple[str, str]] = {
+    "Schejby": ("Schejby", "Schejby"),
+    "Ejdm": ("Adame", "Ejdma"),
+    "Kunc": ("Kune", "Kunce"),
+    "Bejdžin": ("Bagoši", "Bejdžina"),
+    "Žoužel": ("Žouželko", "Žoužela"),
+}
 
 SOFT = "sšzžcčjřďťň"  # měkké souhlásky: 5. p. -i, 2. p. -e
 VOWELS = "aeiouyáéěíóúůý"
