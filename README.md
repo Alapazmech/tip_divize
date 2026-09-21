@@ -40,15 +40,14 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
    - **Informace**: pravidla pro hráče (vklad, dokupy, dělení banku), jak
      sázet, příkazy bota a co znamenají emoji.
 4. **`telegram_bot.py`** — bot v sázkovém Telegram chatu: na „updatuj kurzy"
-   od bookmakera spustí `update.sh` a pošle nově vyhodnocené tikety; dál umí
-   jen /banky, /vysledky a /dokoupit (pro všechny), jiné zprávy ignoruje.
-   **Dohrané zápasy hlídá sám**: od 2 h po začátku každého vypsaného zápasu
-   bez výsledku spouští každou půlhodinu update (max. 10 h po začátku) a do
-   skupiny pošle, co se nově vyhodnotilo — po sobotě jen sobotní tikety
-   („zatím dohrané tikety“ + kdo má ještě živý tiket), po neděli celé kolo.
-   Co už hlásil, drží v `data/reported.json` (gitignored; při prvním startu
-   si tam zapíše vše dosud vyhodnocené). Hráče oslovuje 5. pádem
-   (`cestina.py`, jména/přezdívky jsou v `data/players.json`). Nastavení je v docstringu souboru
+   od bookmakera spustí `update.sh`; dál umí jen /banky, /vysledky
+   a /dokoupit (pro všechny), jiné zprávy ignoruje. **Sám do chatu píše jen
+   tohle**: hlášku tomu, kdo skončil na nule (s pobídkou k dokupu), uznání za
+   vyhrané AKO se 3+ zápasy a v pondělí v 9:00 vyhodnocení posledního kola.
+   Všechno ostatní je jen na stránce. Co už hlásil, drží v `data/reported.json`
+   (gitignored; při prvním startu si tam zapíše vše dosud vyhodnocené). Hráče
+   oslovuje 5. pádem (`cestina.py`; jména/přezdívky jsou v `data/players.json`,
+   nepravidelné tvary v `IRREGULAR`). Nastavení je v docstringu souboru
    (token od @BotFather, **/setprivacy → Disable**, `data/telegram.json`
    je v .gitignore). Běží dlouhodobě, např. v tmux/systemd.
 
@@ -125,14 +124,15 @@ tiketu pošli jako text nebo jako popisek k obrázku.
 
 ## Update běží automaticky
 
-Systemd user timer `tipdivize-update.timer` spouští `update.sh` **každý den
-v poledne** (instalace v hlavičce souboru timeru). Los na ceskyflorbal.cz se
+Systemd user timer `tipdivize-update.timer` spouští `update.sh` **ve všední
+den v 8 a ve 20, o víkendu ve 12, 17, 20:30 a 23** (instalace v hlavičce
+souboru timeru) — vyhodnocené tikety jsou na stránce brzy po zápase. Los na ceskyflorbal.cz se
 mění — přesuny zápasů, doplněné časy, výsledky — a bez pravidelného scrapu by
 stránka ukazovala starý termín. Commit + push + Render deploy vznikne jen když
 se data opravdu změní (samotné razítko `scraped_at` se zahazuje). `update.sh`
 drží zámek `.update.lock`, takže se timer, bot a ruční spuštění nepoperou.
 Log: `.update.log`; stav: `systemctl --user list-timers`. Když je potřeba mít
-výsledky dřív (třeba hned po nedělním zápase), stačí botovi napsat „updatuj kurzy".
+výsledky dřív, stačí botovi napsat „updatuj kurzy".
 
 Ručně kdykoli:
 
@@ -140,7 +140,7 @@ Ručně kdykoli:
 ./update.sh   # scraper season → odds (vypíše kolo, když je čas) → index.html
 ```
 
-…nebo napsat botovi „updatuj kurzy" do chatu (bot navíc pošle vyhodnocení). `scraper.py history` je
+…nebo napsat botovi „updatuj kurzy" do chatu. `scraper.py history` je
 jednorázový (loňská data pro seed modelu).
 
 ## Data
