@@ -6,11 +6,11 @@ jen první slovo, jméno končící tečkou nebo číslem se nechává být.
 """
 
 IRREGULAR: dict[str, tuple[str, str]] = {
-    "Schejby": ("Schejby", "Schejby"),
-    "Ejdm": ("Adame", "Ejdma"),
+    "Schejby": ("Schejby", "Schejbyho"),
+    "Ejdm": ("Adame", "Adama"),
     "Kunc": ("Kune", "Kunce"),
     "Bejdžin": ("Bagoši", "Bejdžina"),
-    "Žoužel": ("Žouželko", "Žoužela"),
+    "Žoužel": ("Žouželko", "Žouželky"),
 }
 
 SOFT = "sšzžcčjřďťň"  # měkké souhlásky: 5. p. -i, 2. p. -e
