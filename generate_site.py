@@ -264,9 +264,10 @@ def settle(
 
 
 def kr(x: float, sign: bool = False) -> str:
-    """Kredity: celé číslo bez desetin, jinak na jednu desetinu (57.5)."""
-    s = f"{x:+.1f}" if sign else f"{x:.1f}"
-    return s[:-2] if s.endswith(".0") else s
+    """Kredity k zobrazení: uvnitř se počítá na desetiny, ven jde celé číslo.
+    Půlka se zaokrouhluje od nuly (57.5 → 58, bank 157.5 → 158), aby výhra a bank seděly."""
+    n = int(math.copysign(math.floor(abs(x) + 0.5), x))
+    return f"{n:+d}" if sign else f"{n:d}"
 
 
 def person_stats(state: dict) -> dict[str, dict]:
@@ -1128,7 +1129,7 @@ if (document.getElementById("tickets-table")) {{
       if (ok) {{ n++; sum += parseFloat(r.dataset.delta); }}
     }});
     document.getElementById("tikety-sum").textContent = n
-      ? "Tiketů: " + n + " · bilance " + (sum > 0 ? "+" : "") + (Math.round(sum * 10) / 10)
+      ? "Tiketů: " + n + " · bilance " + (sum > 0 ? "+" : "") + Math.round(sum)
       : "Žádný tiket neodpovídá filtru.";
   }};
   document.querySelectorAll(".fchip").forEach(function (ch) {{

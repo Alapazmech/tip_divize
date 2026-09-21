@@ -257,7 +257,7 @@ def place(
         lines.append(f"  {m['home']} – {m['away']}  {leg['market']} @ {leg['odd']:.2f}")
     lines.append(
         f"Vklad {stake:.0f}, celkový kurz {total_odd:.2f}, možná výhra "
-        f"{stake * total_odd:.1f}. Zbývá ti {gs.kr(avail - stake)}."
+        f"{stake * total_odd:.0f}. Zbývá ti {gs.kr(avail - stake)}."
     )
     return True, "\n".join(lines), h
 
