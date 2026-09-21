@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-21 11:23:45",
+ "scraped_at": "2026-09-21 20:03:35",
  "prior": 1500,
  "matches": [
   {
@@ -889,20 +889,6 @@
    "score": null
   },
   {
-   "id": 1312198,
-   "round": 10,
-   "round_label": "10. kolo",
-   "date": "2026-11-14",
-   "time": "00:00",
-   "home": "Sokol Rudná",
-   "away": "FbŠ Florbal Bohemians",
-   "home_short": "Rudná",
-   "away_short": "Bohemians",
-   "place": "",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312196,
    "round": 10,
    "round_label": "10. kolo",
@@ -913,6 +899,20 @@
    "home_short": "Štíři",
    "away_short": "Králův Dvůr",
    "place": "SH České Budějovice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312198,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2026-11-15",
+   "time": "00:00",
+   "home": "Sokol Rudná",
+   "away": "FbŠ Florbal Bohemians",
+   "home_short": "Rudná",
+   "away_short": "Bohemians",
+   "place": "SH ZŠ Rudná",
    "status": "",
    "score": null
   },
