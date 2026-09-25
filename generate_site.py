@@ -655,30 +655,25 @@ def betting_sections(
         sazky.append(round_table(ms, published, clickable=can))
     if open_rounds:
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
-        # přehled po lidech: jméno + počet tiketů (otisky jen v tooltipu,
-        # ověřit si je může kdo chce po odhalení)
-        per: dict[str, dict] = {}
+        # nevyhodnocené tikety po lidech: jen jméno a počet (i nula — ať je
+        # vidět, kdo ještě nesází); otisky jsou v tooltipu
+        per: dict[str, dict] = {p: {"n": 0, "hashes": []} for p in state["banks"]}
         for c in commits:
             if "revealed" in c:
                 continue
-            d = per.setdefault(c["person"], {"n": 0, "hashes": [], "wait": False})
+            d = per.setdefault(c["person"], {"n": 0, "hashes": []})
             d["n"] += 1
             d["hashes"].append(c["hash"][:8])
-            if latest_pub and c["round"] < latest_pub:
-                d["wait"] = True
         for rows in state["open"].values():
             for t in rows:
-                per.setdefault(t["person"], {"n": 0, "hashes": [], "wait": False})["n"] += 1
+                per.setdefault(t["person"], {"n": 0, "hashes": []})["n"] += 1
         if per:
             items = []
             for person, d in sorted(per.items(), key=lambda kv: (-kv[1]["n"], kv[0])):
-                n = d["n"]
-                word = "tiket" if n == 1 else "tikety" if n < 5 else "tiketů"
                 title = f' title="#{", #".join(d["hashes"])}"' if d["hashes"] else ""
-                wait = " ⏳ čeká na dohrávku" if d["wait"] else ""
-                items.append(f"<li{title}>{e(person)} — {n} {word}{wait}</li>")
+                items.append(f"<li{title}>{e(person)} — {d['n']}</li>")
             sazky.append(
-                '<p class="note">🔒 Živé tikety — podané, odhalí se po dohrání zápasů:</p>'
+                "<h2>Nevyhodnocené tikety</h2>"
                 '<ul class="sealed">' + "".join(items) + "</ul>"
             )
 
@@ -941,7 +936,7 @@ details.round p.note {{ padding:0 14px; }}
 details.round .scrollx table {{ margin:0; border-radius:0; }}
 .rspan {{ color:var(--muted); font-weight:400; }}
 p.note {{ color:var(--muted); font-size:13px; }}
-ul.sealed {{ margin:-6px 0 14px; padding-left:22px; font-size:14px; }}
+ul.sealed {{ margin:0 0 14px; padding-left:22px; font-size:14px; }}
 ul.rules, ol.rules {{ padding-left:22px; font-size:15px; line-height:1.55; max-width:720px; }}
 ul.rules li, ol.rules li {{ margin:8px 0; }}
 .rules code, p.note code {{ background:var(--card2); border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-size:13px; }}
