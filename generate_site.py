@@ -655,9 +655,9 @@ def betting_sections(
         sazky.append(round_table(ms, published, clickable=can))
     if open_rounds:
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
-        # nevyhodnocené tikety po lidech: jen jméno a počet (i nula — ať je
-        # vidět, kdo ještě nesází); otisky jsou v tooltipu
-        per: dict[str, dict] = {p: {"n": 0, "hashes": []} for p in state["banks"]}
+        # nevyhodnocené tikety po lidech: jen jméno a počet, kdo nemá žádný,
+        # není v seznamu; otisky jsou v tooltipu
+        per: dict[str, dict] = {}
         for c in commits:
             if "revealed" in c:
                 continue
