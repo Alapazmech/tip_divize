@@ -311,6 +311,18 @@ def _published_rounds() -> set[int]:
     return {v["round"] for v in json.loads(pub_path.read_text()).values()}
 
 
+def publish_site() -> None:
+    """Po přijatém tiketu/dokupu nasadit stránku (na pozadí, ať bot neblokuje)."""
+    if tickets.is_demo():
+        return
+    subprocess.Popen(
+        [str(ROOT / "publish.sh")],
+        cwd=ROOT,
+        stdout=open(ROOT / ".update.log", "a"),
+        stderr=subprocess.STDOUT,
+    )
+
+
 def run_update(force: bool = False) -> str:
     """Ruční „updatuj kurzy“: spustí update.sh a odpoví, co se stalo."""
     if tickets.is_demo():
@@ -391,6 +403,7 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
         print(f"[tip] {person}: {'✅' if ok else '❌'} {reply}", flush=True)
         if ok:
             react(token, chat_id, msg["message_id"])
+            publish_site()
         else:
             send(token, chat_id, f"{vokativ(person)}, {reply[0].lower()}{reply[1:]}", msg["message_id"])
         return
@@ -414,6 +427,8 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
         reply = tickets.dokoupit(user_id, person)
         print(f"[dokup] {person}: {reply}", flush=True)
         send(token, chat_id, reply, msg["message_id"])
+        if reply.startswith("✅"):
+            publish_site()
     elif word == "vysledky":
         send(
             token,

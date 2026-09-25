@@ -137,10 +137,15 @@ drží zámek `.update.lock`, takže se timer, bot a ruční spuštění nepoper
 Log: `.update.log`; stav: `systemctl --user list-timers`. Když je potřeba mít
 výsledky dřív, stačí botovi napsat „updatuj kurzy".
 
+Po každém přijatém tiketu a dokupu bot navíc spustí `publish.sh` (jen
+generate_site → commit → push → Render), aby na stránce hned seděly
+nevyhodnocené tikety a banky. Stejný zámek jako `update.sh`.
+
 Ručně kdykoli:
 
 ```sh
 ./update.sh   # scraper season → odds (vypíše kolo, když je čas) → index.html
+./publish.sh  # jen stránka, bez scrapu a kurzů
 ```
 
 …nebo napsat botovi „updatuj kurzy" do chatu. `scraper.py history` je
