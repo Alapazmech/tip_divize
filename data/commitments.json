@@ -197,5 +197,17 @@
   "person": "Schejby",
   "round": 3,
   "placed_at": "2026-09-25 15:54:30"
+ },
+ {
+  "hash": "acc5c74deaf344875ccc426b23b3c9b580a543b15e0ba62023eb687da7487680",
+  "person": "Schejby",
+  "round": 3,
+  "placed_at": "2026-09-25 15:56:28"
+ },
+ {
+  "hash": "9bfa562e1b9c628449f667dedf55bb7fc441f78ca24a29edc81a1275a94c0919",
+  "person": "Radek",
+  "round": 3,
+  "placed_at": "2026-09-25 15:58:43"
  }
 ]
