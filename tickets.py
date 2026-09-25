@@ -64,10 +64,12 @@ def person_for(user_id: int, fallback: str) -> str:
 def open_matches(season: dict, published: dict) -> list[dict]:
     """Všechny vypsané a neodehrané zápasy (může jít o víc kol — dohrávky)."""
     by_id = {m["id"]: m for m in season["matches"]}
+    # zápas stažený z rozpisu ČF (odložen bez termínu) v season.json chybí —
+    # přeskočit, ať kvůli němu nepadá každý tiket
     return [
         by_id[v["match_id"]]
         for v in published.values()
-        if not by_id[v["match_id"]].get("score")
+        if v["match_id"] in by_id and not by_id[v["match_id"]].get("score")
     ]
 
 

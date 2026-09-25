@@ -20,6 +20,7 @@ Použití:
     python3 odds.py --refresh  # přepočítá vypsané kurzy NEODEHRANÝCH zápasů
 """
 
+import csv
 import glob
 import json
 import math
@@ -254,12 +255,38 @@ def current_round(matches: list[dict], published: dict) -> int | None:
     ]
 
 
+def bet_on(match_id: int) -> bool:
+    """Má někdo tiket (živý nebo odhalený) na daný zápas?"""
+    sealed_path = DATA / "bets_sealed.json"
+    sealed = json.loads(sealed_path.read_text()) if sealed_path.exists() else []
+    if any(leg["match_id"] == match_id for t in sealed for leg in t["legs"]):
+        return True
+    bets_path = DATA / "bets.csv"
+    return bets_path.exists() and any(
+        row.get("match", "").strip() == str(match_id)
+        for row in csv.DictReader(bets_path.open(encoding="utf-8"))
+    )
+
+
 def main() -> None:
     refresh = "--refresh" in sys.argv
     model = build_model()
     season = json.load(open(DATA / "season.json", encoding="utf-8"))
     pub_path = DATA / "published.json"
     published = json.loads(pub_path.read_text()) if pub_path.exists() else {}
+
+    # Zápas stažený z rozpisu ČF (odložen bez nového termínu) vypadne
+    # ze season.json — z nabídky ho vyřadit, pokud na něm nikdo nemá tiket.
+    ids = {m["id"] for m in season["matches"]}
+    for key, v in list(published.items()):
+        if v["match_id"] in ids:
+            continue
+        if bet_on(v["match_id"]):
+            print(f"POZOR: {v['home']} - {v['away']} zmizel z rozpisu, ale jsou na něm tikety")
+            continue
+        del published[key]
+        print(f"Stažen z nabídky (zmizel z rozpisu ČF): {v['home']} - {v['away']}")
+    pub_path.write_text(json.dumps(published, ensure_ascii=False, indent=1))
 
     if refresh:
         targets = [
