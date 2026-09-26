@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-24 20:05:42",
+ "scraped_at": "2026-09-26 20:33:43",
  "prior": 1500,
  "matches": [
   {
@@ -249,14 +249,20 @@
    "round": 3,
    "round_label": "3. kolo",
    "date": "2026-09-26",
-   "time": "18:00",
+   "time": null,
    "home": "TJ Centropen Dačice",
    "away": "FA Č. Budějovice",
    "home_short": "Dačice",
    "away_short": "FA ČB",
-   "place": "SH SŠTO Dačice",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    3,
+    1
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312154,
