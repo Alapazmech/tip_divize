@@ -307,13 +307,27 @@ CHART_COLORS = (
 
 
 def payout_now(state: dict) -> dict[str, float]:
-    """Kdyby základní část skončila teď: první dva si dělí bank v poměru svých banků."""
+    """Kdyby základní část skončila teď: první dva si dělí bank v poměru svých
+    banků. Shoda banků na 1. místě = všichni se shodou si dělí celý bank rovným
+    dílem; shoda na 2. místě = podíl druhého se mezi ně dělí rovným dílem."""
     pot = state["pot_kc"]
-    top = sorted(state["banks"].items(), key=lambda x: -x[1])[:2]
-    total = sum(b for _, b in top)
-    if not pot or len(top) < 2 or total <= 0:
+    banks = sorted(state["banks"].items(), key=lambda x: -x[1])
+    if not pot or len(banks) < 2:
         return {}
-    return {p: pot * b / total for p, b in top}
+    b1 = banks[0][1]
+    first = [p for p, b in banks if b == b1]
+    if b1 <= 0:
+        return {}
+    if len(first) > 1:
+        return {p: pot / len(first) for p in first}
+    b2 = banks[1][1]
+    second = [p for p, b in banks if b == b2]
+    if b2 <= 0:
+        return {first[0]: pot}
+    share2 = pot * b2 / (b1 + b2)
+    out = {first[0]: pot - share2}
+    out.update({p: share2 / len(second) for p in second})
+    return out
 
 
 def pot_note(state: dict) -> str:
@@ -333,7 +347,7 @@ def info_tab() -> str:
 <li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu. Dohrávky hrané před dalším kolem se sází spolu s ním.</li>
 <li><b>Vše je vidět.</b> Živý tiket je tajný (na stránce jen 🔒 otisk). Po dohrání kola se odhalí a vyhodnotí — všechny jsou v záložce <a href="#tikety">Tikety</a>.</li>
 <li><b>Bank 0? Dokup.</b> Dalších {BUYIN_KC} Kč = dalších <b>{START_BANK} kreditů</b>, kdykoliv a kolikrát chceš. Napiš <code>/dokoupit</code>.</li>
-<li><b>Na konci berou první dva vše</b>, v poměru svých banků. Pavel 3000 a Jan 1000 → Pavel ¾, Jan ¼.</li>
+<li><b>Na konci berou první dva vše</b>, v poměru svých banků. Pavel 3000 a Jan 1000 → Pavel ¾, Jan ¼. Shoda banků = podíl napůl.</li>
 </ul>
 
 <h2>Jak vsadit</h2>
@@ -603,7 +617,7 @@ def betting_sections(
             rows += "</tr>"
         head = (
             "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th title='bank − vložené kredity'>±</th>"
-            "<th title='kdyby základní část skončila teď: první dva si dělí bank v poměru banků'>Bere teď</th>"
+            "<th title='kdyby základní část skončila teď: první dva si dělí bank v poměru banků, při shodě napůl'>Bere teď</th>"
         )
         head += "<th title='kolikrát dokoupil'>Dokoupeno</th>"
         if has_stats:
