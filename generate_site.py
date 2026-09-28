@@ -319,14 +319,18 @@ def payout_now(state: dict) -> dict[str, float]:
     if b1 <= 0:
         return {}
     if len(first) > 1:
-        return {p: pot / len(first) for p in first}
-    b2 = banks[1][1]
-    second = [p for p, b in banks if b == b2]
-    if b2 <= 0:
-        return {first[0]: pot}
-    share2 = pot * b2 / (b1 + b2)
-    out = {first[0]: pot - share2}
-    out.update({p: share2 / len(second) for p in second})
+        out = {p: pot / len(first) for p in first}
+    else:
+        b2 = banks[1][1]
+        second = [p for p, b in banks if b == b2]
+        if b2 <= 0:
+            return {first[0]: pot}
+        share2 = pot * b2 / (b1 + b2)
+        out = {first[0]: pot - share2}
+        out.update({p: share2 / len(second) for p in second})
+    # celé koruny, ať součet sedí na bank: zaokrouhlovací rozdíl nese vítěz
+    out = {p: float(round(v)) for p, v in out.items()}
+    out[first[0]] += pot - sum(out.values())
     return out
 
 
