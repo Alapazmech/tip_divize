@@ -86,7 +86,7 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   **✅ reakci** (žádné zprávy navíc), nepodaný krátkou odpověď s důvodem.
 - **Pojmy** (stejně na stránce v Informacích): *zapečetěný* = kód vyrobený
   v prohlížeči, ještě nic neplatí; *podaný* = bot dal ✅, vklad je odečtený;
-  *živý* = podaný a nevyhodnocený; *vyhodnocený* = po dohrání všech zápasů.
+  *živý* = podaný a nevyhodnocený; *vyhodnocený* = po rozhodnutí (všechny zápasy dohrané, nebo jeden leg prohraný).
 - Po dohrání kola `python3 tickets.py` (součást update.sh) tikety **odhalí**:
   zapíše je do `data/bets.csv` a k otisku doplní obsah + nonce, takže si
   každý může hash přepočítat — nikdo (ani bookmaker) nemohl tiket zpětně
@@ -95,9 +95,12 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   (`round,person,ticket,match,market,stake`; stejný `ticket` = AKO).
 - Vypořádání: podle základní hrací doby (prodloužení/nájezdy = remíza
   v základní době); výhra = vklad × (kurz − 1), prohra = −vklad.
-- **Dohrávky**: tiket se odhalí a vyhodnotí, až jsou dohrané VŠECHNY jeho
-  zápasy — tiket s odloženým zápasem zůstává živý („⏳ čeká na dohrávku")
-  a vklad zůstává blokovaný. Nové kolo se vypíše normálním updatem (odložený
+- **Dohrávky**: tiket se odhalí a vyhodnotí, jakmile je rozhodnutý — buď
+  jsou dohrané VŠECHNY jeho zápasy, nebo má aspoň jeden prohraný leg (pak
+  je prohraný hned, ať hráč nečeká s posledními penězi na dohrávku). Jen
+  tiket, který může ještě vyhrát, zůstává živý („⏳ čeká na dohrávku")
+  a vklad blokovaný. Zápas, který web zrovna neukazuje (hraje se), scraper
+  doplní z minulého stažení. Nové kolo se vypíše normálním updatem (odložený
   zápas ho neblokuje). Dohrávka se **sází spolu s aktuálním kolem**, pokud se
   hraje dřív než první zápas příštího kola (`dohravka_bettable`; cokoliv
   před 3. kolem patří do okna 2. kola); kurz zůstává ten původně vypsaný.

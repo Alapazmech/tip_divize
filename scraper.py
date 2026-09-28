@@ -241,11 +241,31 @@ def scrape(cfg: dict) -> dict:
     }
 
 
+def keep_missing(new: list[dict], prev: list[dict]) -> list[dict]:
+    """Zápasy, které web zrovna neukazuje (typicky ty, co se právě hrají),
+    doplní z minulého stažení — jinak by kvůli nim padaly tikety."""
+    have = {m["id"] for m in new}
+    missing = [m for m in prev if m["id"] not in have]
+    if not missing:
+        return new
+    print(
+        f"  na webu zrovna chybí {len(missing)} zápasů, beru z minula: "
+        + ", ".join(f"{m['home_short'] or m['home']} - {m['away_short'] or m['away']}" for m in missing)
+    )
+    merged = new + missing
+    merged.sort(key=lambda m: (m["round"] or 0, m["date"] or "", m["time"] or ""))  # stabilní: pořadí ze stránky zůstane
+    return merged
+
+
 def main() -> None:
     mode = sys.argv[1] if len(sys.argv) > 1 else "season"
     DATA.mkdir(exist_ok=True)
     if mode == "season":
         data = scrape(SEASON)
+        out_path = DATA / "season.json"
+        if out_path.exists():
+            prev = json.loads(out_path.read_text(encoding="utf-8"))
+            data["matches"] = keep_missing(data["matches"], prev["matches"])
         fetched = enrich_with_details(data["matches"])
         played = sum(1 for m in data["matches"] if m["score"])
         (DATA / "season.json").write_text(

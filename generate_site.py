@@ -115,6 +115,11 @@ def resolve_match(ref: str, round_matches: list[dict]) -> dict | None:
     return hits[0] if len(hits) == 1 else None
 
 
+def leg_mark(win: bool | None) -> str:
+    """✓ vyhraný leg, ✗ prohraný, ⏳ zápas ještě nedohraný (tiket už prohrál jinde)."""
+    return "✓" if win else ("✗" if win is False else "⏳")
+
+
 def settle(
     matches: list[dict], published: dict, bets_path: pathlib.Path | None = None
 ) -> dict:
@@ -232,11 +237,16 @@ def settle(
         stakes_this_round: dict[str, float] = collections.defaultdict(float)
         for t in [x for x in tickets if x["round"] == rnd]:
             outcomes = [reg_outcome(leg["match"]) for leg in t["legs"]]
-            if any(o is None for o in outcomes):
+            # None = zápas ještě nedohraný; tiket s prohraným legem je prohraný
+            # hned, na dohrávku se čeká jen dokud může ještě vyhrát
+            leg_wins = [
+                None if o is None else o in WINS[leg["market"]]
+                for o, leg in zip(outcomes, t["legs"])
+            ]
+            if None in leg_wins and False not in leg_wins:
                 open_rows[rnd].append(t)
                 stakes_this_round[t["person"]] += t["stake"]
                 continue
-            leg_wins = [o in WINS[leg["market"]] for o, leg in zip(outcomes, t["legs"])]
             won = all(leg_wins)
             # čistá výhra na desetiny kreditu (bez float šumu typu 57.4999)
             delta = round(t["stake"] * (t["odd"] - 1), 1) if won else -t["stake"]
@@ -307,22 +317,11 @@ def payout_now(state: dict) -> dict[str, float]:
 
 
 def pot_note(state: dict) -> str:
-    """Věta pod tabulkou banků: kolik je reálně ve hře a jak by se to teď dělilo."""
+    """Věta pod tabulkou banků: kolik je reálně ve hře (dělení ukazuje sloupec Bere teď)."""
     pot = state["pot_kc"]
     if not pot:
         return ""
-    n = len(state["deposits"])
-    topups_kc = sum(d["kc"] - BUYIN_KC for d in state["deposits"].values())
-    text = f"V banku je <b>{pot:.0f} Kč</b> ({n} × {BUYIN_KC} Kč"
-    text += f" + dokupy {topups_kc:.0f} Kč)." if topups_kc else ")."
-    top = sorted(state["banks"].items(), key=lambda x: -x[1])[:2]
-    if len(top) == 2 and top[0][1] + top[1][1] > 0:
-        total = top[0][1] + top[1][1]
-        share = " a ".join(
-            f"{e(p)} {b / total * 100:.0f} % = {pot * b / total:.0f} Kč" for p, b in top
-        )
-        text += f" Kdyby základní část skončila teď, berou první dva: {share}."
-    return f'<p class="note">{text}</p>'
+    return f'<p class="note">V banku je <b>{pot:.0f} Kč</b>.</p>'
 
 
 def info_tab() -> str:
@@ -357,7 +356,7 @@ Počítá se základní hrací doba (prodloužení = remíza). Bohemians: jen v�
 <h2>Emoji</h2>
 <ul class="rules">
 <li>✅ reakce na tvůj kód — tiket podaný. Bez reakce a s odpovědí — tiket nepodaný, bot napíše proč.</li>
-<li>Po kole: ✅ tiket vyhrál, ❌ prohrál, ⏳ čeká na dohrávku.</li>
+<li>Po kole: ✅ tiket vyhrál, ❌ prohrál, ⏳ čeká na dohrávku (s prohraným zápasem je tiket prohraný hned).</li>
 </ul>
 """
 
@@ -591,7 +590,7 @@ def betting_sections(
                 f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{kr(b - dep["credits"], sign=True)}</td>'
                 + (f'<td class="plus"><b>{pay:.0f} Kč</b></td>' if pay else "<td>–</td>")
             )
-            rows += f'<td title="dokupů · zaplaceno celkem">{dep["topups"]}× · {dep["kc"]:.0f} Kč</td>'
+            rows += f'<td title="kolikrát dokoupil">{dep["topups"] or "–"}</td>'
             if has_stats:
                 roi_cls = "" if st["roi"] is None else ("plus" if st["roi"] >= 0 else "minus")
                 rows += (
@@ -606,7 +605,7 @@ def betting_sections(
             "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th title='bank − vložené kredity'>±</th>"
             "<th title='kdyby základní část skončila teď: první dva si dělí bank v poměru banků'>Bere teď</th>"
         )
-        head += "<th title='počet dokupů · zaplaceno celkem'>Dokupy</th>"
+        head += "<th title='kolikrát dokoupil'>Dokoupeno</th>"
         if has_stats:
             head += (
                 "<th title='vypořádaných tiketů'>Tiketů</th><th title='výherních / všech'>Úspěšnost</th>"
@@ -685,7 +684,7 @@ def betting_sections(
             for t in state["settled"].get(rnd, []):
                 legs = "<br>".join(
                     f'{e(leg["match"]["home"])} – {e(leg["match"]["away"])} '
-                    f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {"✓" if win else "✗"}'
+                    f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {leg_mark(win)}'
                     for leg, win in zip(t["legs"], t["leg_wins"])
                 )
                 kind = "AKO" if len(t["legs"]) > 1 else "sólo"
@@ -783,7 +782,7 @@ def main() -> None:
         for t in state["settled"][rnd]:
             legs = "<br>".join(
                 f'{e(leg["match"]["home"])} – {e(leg["match"]["away"])} '
-                f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {"✓" if win else "✗"}'
+                f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {leg_mark(win)}'
                 for leg, win in zip(t["legs"], t["leg_wins"])
             )
             ticket_rows += (

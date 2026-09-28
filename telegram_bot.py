@@ -154,7 +154,7 @@ def _culprit(ticket: dict) -> str:
     prohraném legu (u remízy nebo sázky na remízu ten, kdo neprohrál/vyhrál)."""
 
     for leg, win in zip(ticket["legs"], ticket["leg_wins"]):
-        if win:
+        if win is not False:  # None = zápas se ještě nehrál
             continue
         m = leg["match"]
         home = m.get("home_short") or m["home"]

@@ -345,7 +345,10 @@ def storno(user_id: int) -> str:
     keep, cancelled = [], []
     for t in sealed:
         mine = t["user_id"] == user_id
-        started = any(deadline(by_id[leg["match_id"]]) <= now for leg in t["legs"])
+        started = any(
+            leg["match_id"] not in by_id or deadline(by_id[leg["match_id"]]) <= now
+            for leg in t["legs"]
+        )
         (cancelled if mine and not started else keep).append(t)
     if not cancelled:
         return "Nemáš žádný tiket, který by šel stornovat."
@@ -356,6 +359,10 @@ def storno(user_id: int) -> str:
         [c for c in _load(_p("commitments.json"), []) if c["hash"] not in gone],
     )
     return f"Stornováno tiketů: {len(cancelled)}. Vklady se vrací do banku."
+
+
+def _home_label(m: dict | None, match_id: int) -> str:
+    return (m["home_short"] or m["home"]) if m else f"zápas {match_id}"
 
 
 def my_tickets(user_id: int, person: str) -> str:
@@ -369,7 +376,7 @@ def my_tickets(user_id: int, person: str) -> str:
         lines.append("Žádný živý tiket.")
     for t in mine:
         legs = ", ".join(
-            f"{by_id[leg['match_id']]['home_short'] or by_id[leg['match_id']]['home']}"
+            f"{_home_label(by_id.get(leg['match_id']), leg['match_id'])}"
             f" {leg['market']} @{leg['odd']:.2f}"
             for leg in t["legs"]
         )
@@ -380,11 +387,29 @@ def my_tickets(user_id: int, person: str) -> str:
     return "\n".join(lines)
 
 
-def reveal_completed() -> list[str]:
-    """Odhalí tikety, jejichž VŠECHNY zápasy jsou dohrané -> bets.csv.
+def leg_lost(m: dict | None, market: str) -> bool:
+    """Leg je prohraný, jakmile je jeho zápas dohraný a výsledek nesedí."""
+    if not m:
+        return False
+    out = gs.reg_outcome(m)
+    return out is not None and out not in gs.WINS[market]
 
-    Tiket s odloženým zápasem (dohrávkou) zůstává zapečetěný a čeká,
-    dokud se nedohraje i on; ostatní tikety kola se odhalí normálně.
+
+def decided(t: dict, by_id: dict) -> bool:
+    """Tiket je rozhodnutý: všechny zápasy dohrané, nebo aspoň jeden leg
+    prohraný (pak už vyhrát nemůže a nemá smysl čekat na dohrávku)."""
+    ms = [by_id.get(leg["match_id"]) for leg in t["legs"]]
+    if all(m and m.get("score") for m in ms):
+        return True
+    return any(leg_lost(m, leg["market"]) for m, leg in zip(ms, t["legs"]))
+
+
+def reveal_completed() -> list[str]:
+    """Odhalí rozhodnuté tikety -> bets.csv (viz `decided`).
+
+    Tiket s odloženým zápasem (dohrávkou) zůstává zapečetěný jen dokud
+    může ještě vyhrát; s prohraným legem se odhalí a vypořádá hned.
+    Zápas, který v season.json chybí, se bere jako nedohraný.
     """
     season = _season()
     by_id = {m["id"]: m for m in season["matches"]}
@@ -398,8 +423,7 @@ def reveal_completed() -> list[str]:
         bets_path.write_text("round,person,ticket,match,market,stake\n")
     lines_to_append = []
     for t in sealed:
-        done = all(by_id[leg["match_id"]].get("score") for leg in t["legs"])
-        if not done:
+        if not decided(t, by_id):
             keep.append(t)
             continue
         for leg in t["legs"]:
