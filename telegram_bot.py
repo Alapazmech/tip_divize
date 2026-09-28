@@ -23,6 +23,7 @@ dosud vyhodnocené, aby nespamoval historii. Hráče oslovuje 5. pádem
 """
 
 import datetime
+import html
 import json
 import pathlib
 import re
@@ -56,10 +57,15 @@ def api(token: str, method: str, **params) -> dict:
         return json.loads(resp.read())
 
 
-def send(token: str, chat_id: int, text: str, reply_to: int | None = None) -> None:
+def send(
+    token: str, chat_id: int, text: str, reply_to: int | None = None, html_mode: bool = False
+) -> None:
+    """html_mode: text je HTML (kvůli tagům <a href="tg://user?id=…">), musí být escapovaný."""
     params = {"chat_id": chat_id, "text": text}
     if reply_to:
         params["reply_to_message_id"] = reply_to
+    if html_mode:
+        params["parse_mode"] = "HTML"
     try:
         api(token, "sendMessage", **params)
     except Exception as exc:
@@ -190,6 +196,16 @@ def _live_persons(state: dict, rnd: int | None = None) -> set[str]:
     return out
 
 
+def mention(person: str, text: str | None = None) -> str:
+    """Tag hráče (přijde mu notifikace) — odkaz na jeho Telegram účet podle
+    data/players.json; koho neznáme, jen jméno. Výstup je HTML."""
+    label = html.escape(text or person)
+    for uid, name in tickets._load(tickets.PLAYERS, {}).items():
+        if name == person:
+            return f'<a href="tg://user?id={uid}">{label}</a>'
+    return label
+
+
 def broke_lines(state: dict, lost: list[dict]) -> list[str]:
     """Kdo těmito prohranými tikety přišel o poslední kredity (a nemá už nic
     živého): hláška s viníkem + pobídka k dokupu."""
@@ -205,7 +221,12 @@ def broke_lines(state: dict, lost: list[dict]) -> list[str]:
             t = first[p]
             i = int(hashlib.sha1(f"{t['round']}:{p}".encode()).hexdigest(), 16) % len(BROKE_LINES)
             out.append(
-                BROKE_LINES[i].format(p=p, v=vokativ(p), g=genitiv(p), team=_culprit(t))
+                BROKE_LINES[i].format(
+                    p=mention(p),
+                    v=mention(p, vokativ(p)),
+                    g=mention(p, genitiv(p)),
+                    team=html.escape(_culprit(t)),
+                )
             )
     return out
 
@@ -226,7 +247,11 @@ def ako_lines(won: list[dict]) -> list[str]:
         i = int(hashlib.sha1(_ticket_key(t).encode()).hexdigest(), 16) % len(AKO_LINES)
         out.append(
             AKO_LINES[i].format(
-                v=vokativ(t["person"]), p=t["person"], n=n, odd=f"{t['odd']:.2f}", win=generate_site.kr(t["delta"])
+                v=mention(t["person"], vokativ(t["person"])),
+                p=mention(t["person"]),
+                n=n,
+                odd=f"{t['odd']:.2f}",
+                win=generate_site.kr(t["delta"]),
             )
         )
     return out
@@ -258,7 +283,8 @@ def _reported() -> dict:
 
 def pending_report() -> str:
     """Co má bot sám poslat po nově vyhodnocených tiketech: hlášky těm na
-    nule a uznání za AKO 3+. Prázdný řetězec = nic.
+    nule a uznání za AKO 3+ (HTML s tagy hráčů, posílat s html_mode).
+    Prázdný řetězec = nic.
 
     Bez data/reported.json (první start) se všechno dosud vyhodnocené jen
     zapíše jako ohlášené — historie se do chatu nesype."""
@@ -324,20 +350,20 @@ def publish_site() -> None:
 
 
 def run_update(force: bool = False) -> str:
-    """Ruční „updatuj kurzy“: spustí update.sh a odpoví, co se stalo."""
+    """Ruční „updatuj kurzy“: spustí update.sh a odpoví, co se stalo (HTML)."""
     if tickets.is_demo():
         import demo
 
         try:
-            return demo.step()
+            return html.escape(demo.step())
         except Exception as exc:
-            return f"❌ Zkušební update selhal: {exc}"
+            return html.escape(f"❌ Zkušební update selhal: {exc}")
     before = _published_rounds()
     cmd = [str(ROOT / "update.sh")] + (["force"] if force else [])
     proc = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT, timeout=600)
     if proc.returncode != 0:
         tail = (proc.stderr or proc.stdout).strip().splitlines()[-5:]
-        return "❌ Update selhal:\n" + "\n".join(tail)
+        return html.escape("❌ Update selhal:\n" + "\n".join(tail))
     parts = ["✅ Stránka je aktuální."]
     new_rounds = _published_rounds() - before
     if new_rounds:
@@ -357,10 +383,10 @@ def auto_tick(token: str, cfg: dict, clock: dict) -> None:
     if now - clock.get("report", 0) < REPORT_EVERY:
         return
     clock["report"] = now
-    for text in (pending_report(), monday_report()):
+    for text in (pending_report(), html.escape(monday_report())):
         if text:
             print(f"[auto] hlásím:\n{text}", flush=True)
-            send(token, cfg["chat_id"], text)
+            send(token, cfg["chat_id"], text, html_mode=True)
 
 
 def is_admin(cfg: dict, username: str, user_id: int) -> bool:
@@ -420,7 +446,9 @@ def handle(token: str, cfg: dict, msg: dict) -> None:
                 msg["message_id"],
             )
             return
-        send(token, chat_id, run_update(force="force" in low), msg["message_id"])
+        send(
+            token, chat_id, run_update(force="force" in low), msg["message_id"], html_mode=True
+        )
     elif word == "banky":
         send(token, chat_id, banks_summary(), msg["message_id"])
     elif word == "dokoupit":

@@ -1,4 +1,5 @@
-# Timer: update každý den v poledne (los se na ceskyflorbal.cz mění — přesuny
+# Timer: update ve všední den ráno a večer, o víkendu v době zápasů každou
+# půlhodinu, aby se tikety uzavíraly hned po zápase (los se na ceskyflorbal.cz mění — přesuny
 # zápasů, doplněné časy, výsledky). Commit vznikne jen když se něco opravdu
 # změní. Když stroj v poledne nebyl zapnutý, Persistent= to dohoní po startu.
 # Instalace (jednorázově, jako běžný uživatel):
@@ -9,13 +10,13 @@
 # Stav / log:  systemctl --user list-timers ; tail -f .update.log
 # Ruční spuštění hned:  systemctl --user start tipdivize-update.service
 [Unit]
-Description=Tipdivize update: všední den 2×, víkend 4×
+Description=Tipdivize update: všední den 2×, víkend v poledne a 14–23 každou půlhodinu
 
 [Timer]
 OnCalendar=Mon..Fri *-*-* 08,20:00:00
-OnCalendar=Sat,Sun *-*-* 12,17,23:00:00
-OnCalendar=Sat,Sun *-*-* 20:30:00
-RandomizedDelaySec=300
+OnCalendar=Sat,Sun *-*-* 12:00:00
+OnCalendar=Sat,Sun *-*-* 14..23:00,30:00
+RandomizedDelaySec=120
 Persistent=true
 
 [Install]

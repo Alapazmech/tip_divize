@@ -306,6 +306,20 @@ CHART_COLORS = (
 )
 
 
+def in_play_stakes(state: dict, bets_path: pathlib.Path) -> dict[str, float]:
+    """Vklady na živých tiketech: odhalené čekající na dohrávku (settle „open")
+    + podané zapečetěné (bets_sealed.json vedle bets.csv, demo_ má své)."""
+    out: dict[str, float] = collections.defaultdict(float)
+    for rows in state["open"].values():
+        for t in rows:
+            out[t["person"]] += t["stake"]
+    sealed_path = bets_path.with_name(bets_path.name.replace("bets.csv", "bets_sealed.json"))
+    if sealed_path.exists():
+        for t in json.loads(sealed_path.read_text()):
+            out[t["person"]] += t["stake"]
+    return dict(out)
+
+
 def payout_now(state: dict) -> dict[str, float]:
     """Kdyby základní část skončila teď: první dva si dělí bank v poměru svých
     banků. Shoda banků na 1. místě = všichni se shodou si dělí celý bank rovným
@@ -598,13 +612,16 @@ def betting_sections(
         has_stats = any(st["tickets"] for st in stats.values())
         pct = lambda x: f"{x * 100:.0f} %" if x is not None else "–"
         payout = payout_now(state)
+        in_play = in_play_stakes(state, bets_path)
         rows = ""
         for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
             st = stats[p]
             dep = state["deposits"][p]
             pay = payout.get(p)
+            live = in_play.get(p, 0)
             rows += (
                 f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td><b>{kr(b)}</b></td>'
+                f'<td title="vklady na živých tiketech">{kr(live) if live else "–"}</td>'
                 f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{kr(b - dep["credits"], sign=True)}</td>'
                 + (f'<td class="plus"><b>{pay:.0f} Kč</b></td>' if pay else "<td>–</td>")
             )
@@ -620,7 +637,9 @@ def betting_sections(
                 )
             rows += "</tr>"
         head = (
-            "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th><th title='bank − vložené kredity'>±</th>"
+            "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th>"
+            "<th title='vklady na živých tiketech (podané i čekající na dohrávku)'>Ve hře</th>"
+            "<th title='bank − vložené kredity'>±</th>"
             "<th title='kdyby základní část skončila teď: první dva si dělí bank v poměru banků, při shodě napůl'>Bere teď</th>"
         )
         head += "<th title='kolikrát dokoupil'>Dokoupeno</th>"

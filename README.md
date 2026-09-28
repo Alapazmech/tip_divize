@@ -106,6 +106,8 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
   před 3. kolem patří do okna 2. kola); kurz zůstává ten původně vypsaný.
   Dohrávka s pozdějším nebo neznámým termínem se otevře až s dalším kolem. Tiket s dohrávkou patří do
   aktuálního kola (v bets.csv má jeho číslo, zápas je podle id).
+- Testy pravidel (settle, decided, payout, scraper): `python3 -m unittest discover tests`
+  — spouštět před commitem po každé změně pravidel.
 - Klíče: `python3 keygen.py` (jednorázově) → `data/secret_key.txt`
   (gitignored, jen bookmaker) + `data/public_key.txt` (zabuduje se do
   stránky). Jména hráčů mapuje `data/players.json` (telegram id → jméno,
