@@ -609,7 +609,7 @@ def betting_sections(
                 roi_cls = "" if st["roi"] is None else ("plus" if st["roi"] >= 0 else "minus")
                 rows += (
                     f'<td>{st["tickets"]}</td>'
-                    f'<td title="výherních tiketů / všech">{st["wins"]}/{st["tickets"]} · {pct(st["hit"])}</td>'
+                    f'<td title="podíl výherních tiketů">{pct(st["hit"])}</td>'
                     f'<td>{st["staked"]:.0f}</td>'
                     f'<td class="{roi_cls}" title="čistý zisk / vsazeno">{pct(st["roi"])}</td>'
                     + (f'<td>{kr(st["best"], sign=True)}</td>' if st["best"] else "<td>–</td>")
@@ -622,7 +622,7 @@ def betting_sections(
         head += "<th title='kolikrát dokoupil'>Dokoupeno</th>"
         if has_stats:
             head += (
-                "<th title='vypořádaných tiketů'>Tiketů</th><th title='výherních / všech'>Úspěšnost</th>"
+                "<th title='vypořádaných tiketů'>Tiketů</th><th title='podíl výherních tiketů'>Úspěšnost</th>"
                 "<th>Vsazeno</th><th title='čistý zisk / vsazeno'>ROI</th><th title='nejvyšší čistá výhra na tiket'>Top výhra</th>"
             )
         banky.append(
