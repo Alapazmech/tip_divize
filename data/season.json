@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-27 23:03:42",
+ "scraped_at": "2026-09-29 08:01:42",
  "prior": 1500,
  "matches": [
   {
@@ -555,20 +555,6 @@
    "score": null
   },
   {
-   "id": 1312172,
-   "round": 6,
-   "round_label": "6. kolo",
-   "date": "2026-10-17",
-   "time": "18:00",
-   "home": "SK Florbal Benešov",
-   "away": "FbŠ Florbal Bohemians",
-   "home_short": "Benešov",
-   "away_short": "Bohemians",
-   "place": "ZŠ Jiráskova Benešov",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312175,
    "round": 6,
    "round_label": "6. kolo",
@@ -593,6 +579,20 @@
    "home_short": "Štíři",
    "away_short": "FbC Plzeň",
    "place": "SH České Budějovice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312172,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2026-10-22",
+   "time": "20:00",
+   "home": "SK Florbal Benešov",
+   "away": "FbŠ Florbal Bohemians",
+   "home_short": "Benešov",
+   "away_short": "Bohemians",
+   "place": "ZŠ Jiráskova Benešov",
    "status": "",
    "score": null
   },
