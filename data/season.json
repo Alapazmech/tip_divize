@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-09-30 08:01:42",
+ "scraped_at": "2026-09-30 20:00:44",
  "prior": 1500,
  "matches": [
   {
@@ -695,20 +695,6 @@
    "score": null
   },
   {
-   "id": 1312187,
-   "round": 8,
-   "round_label": "8. kolo",
-   "date": "2026-10-31",
-   "time": "00:00",
-   "home": "Sokol Rudná",
-   "away": "FbC Plzeň",
-   "home_short": "Rudná",
-   "away_short": "FbC Plzeň",
-   "place": "",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312182,
    "round": 8,
    "round_label": "8. kolo",
@@ -775,6 +761,20 @@
    "home_short": "Benešov",
    "away_short": "Králův Dvůr",
    "place": "ZŠ Jiráskova Benešov",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312187,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2026-11-01",
+   "time": "17:00",
+   "home": "Sokol Rudná",
+   "away": "FbC Plzeň",
+   "home_short": "Rudná",
+   "away_short": "FbC Plzeň",
+   "place": "SH ZŠ Rudná",
    "status": "",
    "score": null
   },
