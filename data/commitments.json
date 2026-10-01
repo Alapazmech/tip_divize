@@ -340,5 +340,11 @@
   "person": "Radek",
   "round": 4,
   "placed_at": "2026-10-01 10:47:52"
+ },
+ {
+  "hash": "60b111c6de6a313cb2857455ecfb3a250c8de3396e734f4766551119d7f6542f",
+  "person": "Psík",
+  "round": 4,
+  "placed_at": "2026-10-01 10:49:00"
  }
 ]
