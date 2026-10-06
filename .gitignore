@@ -11,3 +11,4 @@ data/render_hook.txt
 .update.lock
 .venv/
 data/reported.json
+data/heartbeat.txt

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Tipdivize
+Comment=Po přihlášení spustí bota a update timer (viz autostart.sh)
+Exec=/home/trader/Projects/tipdivize/autostart.sh
+X-GNOME-Autostart-enabled=true
+NoDisplay=true

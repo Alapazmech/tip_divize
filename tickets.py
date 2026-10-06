@@ -162,9 +162,11 @@ def place(
     stake: float,
     legs_spec: list[tuple[str, str]],
     code_hash: str | None = None,
+    now: datetime.datetime | None = None,
 ) -> tuple[bool, str, str | None]:
     """Přijme tiket (legs_spec = [(tým/id, trh), …]).
 
+    now: čas podání — jinak teď; dohnat_tikety.py dává čas odeslání zprávy.
     Vrací (ok, odpověď pro sázkaře, hash tiketu).
     """
     season = _season()
@@ -177,7 +179,7 @@ def place(
     latest = max(v["round"] for v in published.values())
     next_ms = [m for m in season["matches"] if m["round"] == latest + 1]
 
-    now = datetime.datetime.now()
+    now = now or datetime.datetime.now()
     legs = []
     for team_ref, market in legs_spec:
         m = gs.resolve_match(str(team_ref), all_open)
@@ -301,7 +303,7 @@ def decrypt_tip(code: str) -> dict:
 
 
 def place_from_tip(
-    user_id: int, person: str, code: str
+    user_id: int, person: str, code: str, now: datetime.datetime | None = None
 ) -> tuple[bool, str, str | None]:
     """Dešifruje kód ze stránky a vsadí tiket.
 
@@ -333,7 +335,7 @@ def place_from_tip(
             "zkopíruj ho celý tlačítkem „Zkopírovat“ a pošli znovu.",
             None,
         )
-    return place(user_id, person, stake, legs_spec, code_hash=code_hash)
+    return place(user_id, person, stake, legs_spec, code_hash=code_hash, now=now)
 
 
 def storno(user_id: int) -> str:

@@ -43,6 +43,9 @@ ROOT = pathlib.Path(__file__).parent
 DATA = ROOT / "data"
 CONFIG = DATA / "telegram.json"
 OFFSET = DATA / "telegram_offset.txt"
+HEARTBEAT = DATA / "heartbeat.txt"  # čas posledního kola smyčky (gitignored)
+
+OUTAGE_ALERT = 30 * 60  # bot stál déle -> po startu soukromá zpráva bookmakerovi
 
 REPORT_EVERY = 10 * 60  # jak často bot kouká, zda timer vyhodnotil něco nového
 MONDAY_HOUR = 9  # vyhodnocení kola do chatu: pondělí od této hodiny
@@ -389,6 +392,24 @@ def auto_tick(token: str, cfg: dict, clock: dict) -> None:
             send(token, cfg["chat_id"], text, html_mode=True)
 
 
+def outage_alert(token: str, cfg: dict) -> None:
+    """Po startu: když bot stál déle než OUTAGE_ALERT, napíše bookmakerovi
+    (první admin, nebo "alert_to" v configu) soukromě, od kdy do kdy."""
+    if not HEARTBEAT.exists():
+        return
+    last, now = float(HEARTBEAT.read_text()), time.time()
+    if now - last < OUTAGE_ALERT:
+        return
+    fmt = lambda t: datetime.datetime.fromtimestamp(t).strftime("%-d. %-m. %H:%M")
+    text = f"⚠️ Bot neběžel od {fmt(last)} do {fmt(now)}."
+    if now - last > 24 * 3600:
+        text += " Zprávy starší 24 h Telegram zahodil — tikety z té doby chybí (dohnat_tikety.py)."
+    to = cfg.get("alert_to") or (cfg.get("admins") or [None])[0]
+    print(f"[auto] výpadek: {text}", flush=True)
+    if to:
+        send(token, int(to), text)
+
+
 def is_admin(cfg: dict, username: str, user_id: int) -> bool:
     """Admin podle username NEBO telegram user_id (kdo nemá @username)."""
     admins = [str(a) for a in cfg.get("admins") or []]
@@ -476,7 +497,9 @@ def main() -> None:
     offset = int(OFFSET.read_text()) if OFFSET.exists() else 0
     clock: dict[str, float] = {}
     print("Tipdivize bot běží, čekám na zprávy…")
+    outage_alert(token, cfg)
     while True:
+        HEARTBEAT.write_text(str(int(time.time())))
         try:
             auto_tick(token, cfg, clock)
         except Exception as exc:
