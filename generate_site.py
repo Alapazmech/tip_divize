@@ -625,7 +625,7 @@ def betting_sections(
                 f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{kr(b - dep["credits"], sign=True)}</td>'
                 + (f'<td class="plus"><b>{pay:.0f} Kč</b></td>' if pay else "<td>–</td>")
             )
-            rows += f'<td title="kolikrát dokoupil">{dep["topups"] or "–"}</td>'
+            rows += f'<td title="kolikrát dokoupil">{dep["topups"] or ""}</td>'
             if has_stats:
                 roi_cls = "" if st["roi"] is None else ("plus" if st["roi"] >= 0 else "minus")
                 rows += (
