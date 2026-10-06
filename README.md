@@ -125,7 +125,12 @@ je drží 24 h, po startu je bot dožene). Trvalé spuštění je přes systemd 
 service `tipdivize-bot.service` (návod v hlavičce souboru: `systemctl --user
 enable --now tipdivize-bot` + `loginctl enable-linger`). Nouzově stačí
 `tmux new -d -s tipbot '.venv/bin/python3 -u telegram_bot.py >> .bot.log 2>&1'`.
-Musí běžet **jen jedna instance** — dvě se perou o token (HTTP 409 v logu).
+**Domov je šifrovaný (ecryptfs)**: po rebootu se bot ani timer samy
+nespustí, dokud se nepřihlásíš do plochy — pak je spustí `autostart.sh`
+(`cp tipdivize.desktop ~/.config/autostart/`). Když bot stál déle než 30 min,
+napíše po startu bookmakerovi soukromě, od kdy do kdy. Tikety starší 24 h
+dožene `dohnat_tikety.py` z exportu chatu (Telegram Desktop → Export chat
+history → JSON) — podá je s časem odeslání. Musí běžet **jen jedna instance** — dvě se perou o token (HTTP 409 v logu).
 Bot importuje `tickets.py`/`generate_site.py` jen při startu, po změně kódu
 ho restartuj. Zprávy bez textu (samotný obrázek) ignoruje a zaloguje; kód
 tiketu pošli jako text nebo jako popisek k obrázku.
