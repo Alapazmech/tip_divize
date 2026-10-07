@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-06 10:23:22",
+ "scraped_at": "2026-10-07 08:00:26",
  "prior": 1500,
  "matches": [
   {
@@ -577,20 +577,6 @@
    "score": null
   },
   {
-   "id": 1312170,
-   "round": 6,
-   "round_label": "6. kolo",
-   "date": "2026-10-17",
-   "time": "17:00",
-   "home": "Banes Florbal Soběslav",
-   "away": "T.B.C. Králův Dvůr",
-   "home_short": "Soběslav",
-   "away_short": "Králův Dvůr",
-   "place": "SH TJ Spartak Soběslav",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312171,
    "round": 6,
    "round_label": "6. kolo",
@@ -615,6 +601,20 @@
    "home_short": "Dačice",
    "away_short": "Rudná",
    "place": "SH SŠTO Dačice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312170,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2026-10-18",
+   "time": "15:00",
+   "home": "Banes Florbal Soběslav",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "Soběslav",
+   "away_short": "Králův Dvůr",
+   "place": "SH TJ Spartak Soběslav",
    "status": "",
    "score": null
   },
