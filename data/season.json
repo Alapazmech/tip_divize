@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-07 08:00:26",
+ "scraped_at": "2026-10-07 20:02:26",
  "prior": 1500,
  "matches": [
   {
@@ -829,20 +829,6 @@
    "score": null
   },
   {
-   "id": 1312188,
-   "round": 9,
-   "round_label": "9. kolo",
-   "date": "2026-11-07",
-   "time": "00:00",
-   "home": "FbC Plzeň",
-   "away": "Banes Florbal Soběslav",
-   "home_short": "FbC Plzeň",
-   "away_short": "Soběslav",
-   "place": "MSH Plzeň (Lokomotiva)",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312189,
    "round": 9,
    "round_label": "9. kolo",
@@ -861,7 +847,7 @@
    "round": 9,
    "round_label": "9. kolo",
    "date": "2026-11-07",
-   "time": "00:00",
+   "time": "16:00",
    "home": "Florbal Jindřichův Hradec",
    "away": "FBC Štíři Č. Budějovice",
    "home_short": "Florbal J. Hradec",
@@ -871,11 +857,25 @@
    "score": null
   },
   {
+   "id": 1312188,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2026-11-07",
+   "time": "17:00",
+   "home": "FbC Plzeň",
+   "away": "Banes Florbal Soběslav",
+   "home_short": "FbC Plzeň",
+   "away_short": "Soběslav",
+   "place": "MSH Plzeň (Lokomotiva)",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312192,
    "round": 9,
    "round_label": "9. kolo",
    "date": "2026-11-07",
-   "time": "00:00",
+   "time": "18:00",
    "home": "T.B.C. Králův Dvůr",
    "away": "FA Č. Budějovice",
    "home_short": "Králův Dvůr",
