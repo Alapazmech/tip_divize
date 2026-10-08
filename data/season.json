@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-07 20:02:26",
+ "scraped_at": "2026-10-08 20:02:26",
  "prior": 1500,
  "matches": [
   {
@@ -885,20 +885,6 @@
    "score": null
   },
   {
-   "id": 1312190,
-   "round": 9,
-   "round_label": "9. kolo",
-   "date": "2026-11-08",
-   "time": "00:00",
-   "home": "FbŠ Florbal Bohemians",
-   "away": "TJ Centropen Dačice",
-   "home_short": "Bohemians",
-   "away_short": "Dačice",
-   "place": "Bublina Arena",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312193,
    "round": 9,
    "round_label": "9. kolo",
@@ -909,6 +895,20 @@
    "home_short": "Strakonice",
    "away_short": "Benešov",
    "place": "SH Strakonice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312190,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2026-11-08",
+   "time": "18:00",
+   "home": "FbŠ Florbal Bohemians",
+   "away": "TJ Centropen Dačice",
+   "home_short": "Bohemians",
+   "away_short": "Dačice",
+   "place": "Bublina Arena",
    "status": "",
    "score": null
   },
