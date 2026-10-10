@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-10 19:30:26",
+ "scraped_at": "2026-10-10 20:01:26",
  "prior": 1500,
  "matches": [
   {
@@ -503,14 +503,20 @@
    "round": 5,
    "round_label": "5. kolo",
    "date": "2026-10-10",
-   "time": "17:00",
+   "time": null,
    "home": "FbC Plzeň",
    "away": "FA Č. Budějovice",
    "home_short": "FbC Plzeň",
    "away_short": "FA ČB",
-   "place": "MSH Plzeň III (Lokomotiva III)",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    13,
+    5
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312164,
