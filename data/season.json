@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-08 20:02:26",
+ "scraped_at": "2026-10-10 15:00:26",
  "prior": 1500,
  "matches": [
   {
@@ -345,6 +345,20 @@
    "shootout": false
   },
   {
+   "id": 1312152,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2026-10-16",
+   "time": "19:45",
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Banes Florbal Soběslav",
+   "home_short": "Štíři",
+   "away_short": "Soběslav",
+   "place": "SH České Budějovice",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312158,
    "round": 4,
    "round_label": "4. kolo",
@@ -549,20 +563,6 @@
    "score": null
   },
   {
-   "id": 1312152,
-   "round": 3,
-   "round_label": "3. kolo",
-   "date": "2026-10-16",
-   "time": "19:45",
-   "home": "FBC Štíři Č. Budějovice",
-   "away": "Banes Florbal Soběslav",
-   "home_short": "Štíři",
-   "away_short": "Soběslav",
-   "place": "SH České Budějovice",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312173,
    "round": 6,
    "round_label": "6. kolo",
@@ -699,20 +699,6 @@
    "home_short": "Olymp",
    "away_short": "Štíři",
    "place": "SH Zelený Pruh",
-   "status": "",
-   "score": null
-  },
-  {
-   "id": 1312203,
-   "round": 11,
-   "round_label": "11. kolo",
-   "date": "2026-10-25",
-   "time": "16:00",
-   "home": "T.B.C. Králův Dvůr",
-   "away": "TJ Centropen Dačice",
-   "home_short": "Králův Dvůr",
-   "away_short": "Dačice",
-   "place": "SH Králův Dvůr",
    "status": "",
    "score": null
   },
@@ -993,6 +979,20 @@
    "home_short": "FbC Plzeň",
    "away_short": "Olymp",
    "place": "MSH Plzeň III (Lokomotiva III)",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312203,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2026-10-25",
+   "time": "16:00",
+   "home": "T.B.C. Králův Dvůr",
+   "away": "TJ Centropen Dačice",
+   "home_short": "Králův Dvůr",
+   "away_short": "Dačice",
+   "place": "SH Králův Dvůr",
    "status": "",
    "score": null
   },
