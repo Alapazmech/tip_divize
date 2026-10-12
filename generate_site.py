@@ -46,6 +46,24 @@ WINS = {"1": {"1"}, "10": {"1", "0"}, "0": {"0"}, "02": {"0", "2"}, "2": {"2"}}
 DAYS = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"]
 
 
+# krátké názvy do tiketů (Budějovice a my zůstávají celé)
+SHORT = {
+    "OLYMP FLORBAL": "Olymp",
+    "SK Florbal Benešov": "Benešov",
+    "Banes Florbal Soběslav": "Soběslav",
+    "TJ Centropen Dačice": "Dačice",
+    "Sokol Rudná": "Rudná",
+    "Florbal Jindřichův Hradec": "Jindřicháč",
+    "T.B.C. Králův Dvůr": "Králův Dvůr",
+    "Fbc Strakonice": "Strakonice",
+    "FbC Plzeň": "Plzeň",
+}
+
+
+def short(team: str) -> str:
+    return SHORT.get(team, team)
+
+
 def e(s) -> str:
     return html.escape(str(s) if s is not None else "")
 
@@ -720,7 +738,7 @@ def betting_sections(
             bet_rows = ""
             for t in state["settled"].get(rnd, []):
                 legs = "<br>".join(
-                    f'{e(leg["match"]["home"])} – {e(leg["match"]["away"])} '
+                    f'{e(short(leg["match"]["home"]))} – {e(short(leg["match"]["away"]))} '
                     f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {leg_mark(win)}'
                     for leg, win in zip(t["legs"], t["leg_wins"])
                 )
@@ -816,9 +834,11 @@ def main() -> None:
     ticket_rows = ""
     persons = sorted(state["banks"])
     for rnd in sorted(state["settled"], reverse=True):
+        if ticket_rows:
+            ticket_rows += f'<tr class="rsep" data-sep="{rnd}"><td colspan="7"></td></tr>'
         for t in state["settled"][rnd]:
             legs = "<br>".join(
-                f'{e(leg["match"]["home"])} – {e(leg["match"]["away"])} '
+                f'{e(short(leg["match"]["home"]))} – {e(short(leg["match"]["away"]))} '
                 f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {leg_mark(win)}'
                 for leg, win in zip(t["legs"], t["leg_wins"])
             )
@@ -968,6 +988,7 @@ details.round summary {{ cursor:pointer; padding:10px 14px; font-weight:700;
   background:var(--card2); list-style:none; display:flex; justify-content:space-between; }}
 details.round summary::-webkit-details-marker {{ display:none; }}
 details.round table.bets {{ border-radius:0; }}
+tr.rsep td {{ padding:0; height:10px; background:var(--bg); border-bottom:1px solid var(--line); }}
 details.round p.note {{ padding:0 14px; }}
 details.round .scrollx table {{ margin:0; border-radius:0; }}
 .rspan {{ color:var(--muted); font-weight:400; }}
@@ -1158,6 +1179,14 @@ if (document.getElementById("tickets-table")) {{
                (!fState.round || r.dataset.round === fState.round);
       r.style.display = ok ? "" : "none";
       if (ok) {{ n++; sum += parseFloat(r.dataset.delta); }}
+    }});
+    // oddělovač kola jen mezi dvěma koly s viditelnými tikety
+    var seen = false, sep = null;
+    document.querySelectorAll("#tickets-table tr[data-person], #tickets-table tr.rsep").forEach(function (r) {{
+      if (r.classList.contains("rsep")) {{ r.style.display = "none"; sep = r; return; }}
+      if (r.style.display === "none") return;
+      if (sep && seen) sep.style.display = "";
+      sep = null; seen = true;
     }});
     document.getElementById("tikety-sum").textContent = n
       ? "Tiketů: " + n + " · bilance " + (sum > 0 ? "+" : "") + Math.round(sum)
