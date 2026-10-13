@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-11 20:01:26",
+ "scraped_at": "2026-10-13 20:01:26",
  "prior": 1500,
  "matches": [
   {
@@ -728,8 +728,8 @@
    "id": 1312178,
    "round": 7,
    "round_label": "7. kolo",
-   "date": "2026-10-24",
-   "time": "20:00",
+   "date": "2026-10-25",
+   "time": "13:00",
    "home": "OLYMP FLORBAL",
    "away": "FBC Štíři Č. Budějovice",
    "home_short": "Olymp",
@@ -925,7 +925,7 @@
    "round": 9,
    "round_label": "9. kolo",
    "date": "2026-11-08",
-   "time": "00:00",
+   "time": "17:00",
    "home": "Fbc Strakonice",
    "away": "SK Florbal Benešov",
    "home_short": "Strakonice",
