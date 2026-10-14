@@ -46,7 +46,7 @@ WINS = {"1": {"1"}, "10": {"1", "0"}, "0": {"0"}, "02": {"0", "2"}, "2": {"2"}}
 DAYS = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"]
 
 
-# krátké názvy týmů na stránce (my zůstáváme celí)
+# krátké názvy týmů na stránce
 SHORT = {
     "OLYMP FLORBAL": "Olymp",
     "SK Florbal Benešov": "Benešov",
@@ -59,6 +59,7 @@ SHORT = {
     "FbC Plzeň": "Plzeň",
     "FA Č. Budějovice": "FA Budějovice",
     "FBC Štíři Č. Budějovice": "Štíři Budějovice",
+    "FbŠ Florbal Bohemians": "Florbal Praha",
 }
 
 
@@ -138,6 +139,22 @@ def resolve_match(ref: str, round_matches: list[dict]) -> dict | None:
 def leg_mark(win: bool | None) -> str:
     """✓ vyhraný leg, ✗ prohraný, ⏳ zápas ještě nedohraný (tiket už prohrál jinde)."""
     return "✓" if win else ("✗" if win is False else "⏳")
+
+
+def ticket_legs(t: dict) -> str:
+    """Nohy tiketu pod sebou; u prohraného zčervená noha, která ho shodila."""
+    out = []
+    for leg, win in zip(t["legs"], t["leg_wins"]):
+        cls = "" if t["won"] else (" class=\"legx\"" if win is False else " class=\"legok\"")
+        out.append(
+            f'<span{cls}>{e(short(leg["match"]["home"]))} – {e(short(leg["match"]["away"]))} '
+            f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {leg_mark(win)}</span>'
+        )
+    return "<br>".join(out)
+
+
+def by_person(tickets: list[dict]) -> list[dict]:
+    return sorted(tickets, key=lambda t: fold(t["person"]))
 
 
 def settle(
@@ -738,12 +755,8 @@ def betting_sections(
         sazky.append("<h2>Odehraná kola</h2>")
         for rnd in reversed(settled_rounds):
             bet_rows = ""
-            for t in state["settled"].get(rnd, []):
-                legs = "<br>".join(
-                    f'{e(short(leg["match"]["home"]))} – {e(short(leg["match"]["away"]))} '
-                    f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {leg_mark(win)}'
-                    for leg, win in zip(t["legs"], t["leg_wins"])
-                )
+            for t in by_person(state["settled"].get(rnd, [])):
+                legs = ticket_legs(t)
                 kind = "AKO" if len(t["legs"]) > 1 else "sólo"
                 bet_rows += (
                     f'<tr class="{"plus" if t["won"] else "minus"}"><td>{e(t["person"])}</td>'
@@ -838,12 +851,8 @@ def main() -> None:
     for rnd in sorted(state["settled"], reverse=True):
         if ticket_rows:
             ticket_rows += f'<tr class="rsep" data-sep="{rnd}"><td colspan="7"></td></tr>'
-        for t in state["settled"][rnd]:
-            legs = "<br>".join(
-                f'{e(short(leg["match"]["home"]))} – {e(short(leg["match"]["away"]))} '
-                f'<b>{leg["market"]}</b> @{leg["odd"]:.2f} {leg_mark(win)}'
-                for leg, win in zip(t["legs"], t["leg_wins"])
-            )
+        for t in by_person(state["settled"][rnd]):
+            legs = ticket_legs(t)
             ticket_rows += (
                 f'<tr class="{"plus" if t["won"] else "minus"}" data-person="{e(t["person"])}"'
                 f' data-won="{"win" if t["won"] else "lost"}" data-round="{rnd}"'
@@ -924,6 +933,8 @@ tr.us td {{ background:rgba(74,222,128,.09); }}
 tr:last-child td {{ border-bottom:none; }}
 td.plus, tr.plus td:last-child {{ color:var(--accent); }}
 td.minus, tr.minus td:last-child {{ color:var(--red); }}
+.legx {{ color:var(--red); }}
+.legok {{ color:var(--muted); }}
 .mdate {{ color:var(--muted); font-size:13px; margin-right:6px; }}
 .mtime {{ color:var(--muted); font-size:13px; }}
 .score {{ font-weight:800; color:var(--accent2); }}
