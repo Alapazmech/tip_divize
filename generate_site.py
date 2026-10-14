@@ -735,15 +735,8 @@ def betting_sections(
     latest_pub = published_rounds[-1] if published_rounds else None
     next_ms = by_round.get(latest_pub + 1, []) if latest_pub else []
     if latest_pub in open_rounds:
-        ms = by_round[latest_pub]
-        dates = sorted({m["date"] for m in ms if m["date"]})
-        span = cz_date(dates[0]) + (
-            f" – {cz_date(dates[-1])}" if len(dates) > 1 else ""
-        )
-        sazky.append(
-            f"<h2>Vypsané kolo: {latest_pub}. kolo <span class='hspan'>{span}</span></h2>"
-        )
-        sazky.append(round_table(ms, published, clickable=clickable))
+        sazky.append("<h2>Vypsané další kolo</h2>")
+        sazky.append(round_table(by_round[latest_pub], published, clickable=clickable))
     dohravky = sorted(
         (m for r in open_rounds if r != latest_pub for m in by_round[r] if not m["score"]),
         key=lambda m: (m["date"] or "9999", m["time"] or "99"),
