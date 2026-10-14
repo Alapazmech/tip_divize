@@ -32,7 +32,7 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
 3. **`generate_site.py`** — statický `index.html` se záložkami:
    - **Divize Sázky**: vypsané kolo s kurzy (jen to, na které se právě
      sází — příští kolo se neukazuje, celý los je v jiné záložce), pod ním
-     Dohrávky (nedohrané zápasy starších kol), živé tikety a výsledky
+     Vypsané dohrávky (nedohrané zápasy starších kol), živé tikety a výsledky
      odehraných kol (tikety jsou v záložce Tikety).
    - **Banky**: banky sázkařů s dokupy (kolikrát · zaplaceno) a statistikou
      (tikety, úspěšnost, vsazeno, ROI, top výhra), kolik korun je reálně

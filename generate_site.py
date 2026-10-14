@@ -751,7 +751,7 @@ def betting_sections(
     if dohravky:
         can = clickable and (lambda m: dohravka_bettable(m, next_ms))
         later = [m for m in dohravky if not dohravka_bettable(m, next_ms)]
-        sazky.append("<h2>Dohrávky</h2>")
+        sazky.append("<h2>Vypsané dohrávky</h2>")
         sazky.append(f'<div class="dohr">{round_table(dohravky, published, clickable=can)}</div>')
         if later:
             sazky.append(
