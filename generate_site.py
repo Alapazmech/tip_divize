@@ -603,7 +603,8 @@ def round_table(
                 )
             cells.append(f'<td class="{cls}"{attrs}>{odds[mk]:.2f}</td>')
         rows.append(
-            f'<tr><td class="tname"><span class="mdate">{cz_date(m["date"])}</span> '
+            f'<tr{" class=\"us\"" if OUR_TEAM in (m["home"], m["away"]) else ""}>'
+            f'<td class="tname"><span class="mdate">{cz_date(m["date"])}</span> '
             f'{e(short(m["home"]))} – {e(short(m["away"]))}</td>'
             f"<td>{center}</td>" + "".join(cells) + "</tr>"
         )
@@ -668,8 +669,8 @@ def betting_sections(
         for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
             move = prev_rank.get(p, cur_rank[p]) - cur_rank[p]
             arrow = (
-                f' <span class="up">▲{move}</span>' if move > 0
-                else f' <span class="down">▼{-move}</span>' if move < 0
+                ' <span class="up">▲</span>' if move > 0
+                else ' <span class="down">▼</span>' if move < 0
                 else ""
             )
             ld = last_delta.get(p)
@@ -967,6 +968,11 @@ td.rank {{ white-space:nowrap; }}
 .hash {{ font-family:monospace; font-size:12px; color:var(--muted); }}
 .ourmatch {{ margin:8px 0 0; color:var(--accent); font-weight:700; }}
 .scrollx {{ overflow-x:auto; }}
+/* Banky: pořadí a jméno zůstávají vidět při posunu do strany */
+table.stats td:nth-child(-n+2), table.stats th:nth-child(-n+2) {{ position:sticky; z-index:1; }}
+table.stats td:nth-child(1), table.stats th:nth-child(1) {{ left:0; width:44px; min-width:44px; }}
+table.stats td:nth-child(2), table.stats th:nth-child(2) {{ left:44px; }}
+table.stats td:nth-child(-n+2) {{ background:var(--card); }}
 h3 {{ color:var(--muted); font-size:15px; margin:18px 0 6px; font-weight:600; }}
 .chartwrap {{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 6px; }}
 .bankchart {{ width:100%; height:auto; display:block; font:11px system-ui,sans-serif; }}
