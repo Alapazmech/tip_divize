@@ -336,27 +336,36 @@ def person_stats(state: dict) -> dict[str, dict]:
     return stats
 
 
-def hall_of_fame(state: dict) -> list[tuple[str, str, str, str]]:
-    """Síň slávy: (disciplína, vítěz, hodnota, jak se rozhoduje shoda)."""
+def hall_of_fame(state: dict) -> list[tuple[str, list[tuple[str, str]], str]]:
+    """Síň slávy: (disciplína, [(sázkař, hodnota)] první tři, jak se rozhoduje shoda).
+    Medaile se dávají lidem — u tiketových disciplín platí nejlepší tiket každého."""
     won = [t for rows in state["settled"].values() for t in rows if t["won"]]
     if not won:
         return []
     stats = person_stats(state)
     won_profit: dict[str, float] = collections.defaultdict(float)
+    best_win: dict[str, tuple] = {}
+    most_legs: dict[str, tuple] = {}
     for t in won:
-        won_profit[t["person"]] += t["delta"]
-    # při úplné shodě vyhraje dřív v abecedě (sorted je stabilní)
-    names = sorted({t["person"] for t in won}, key=fold)
-    p1 = max(names, key=lambda p: (stats[p]["wins"], stats[p]["hit"], won_profit[p]))
-    won.sort(key=lambda t: fold(t["person"]))
-    t2 = max(won, key=lambda t: (t["delta"], t["odd"], -t["round"]))
-    t3 = max(won, key=lambda t: (len(t["legs"]), t["odd"], t["delta"]))
+        p = t["person"]
+        won_profit[p] += t["delta"]
+        best_win[p] = max(best_win.get(p, ()), (t["delta"], t["odd"], -t["round"]))
+        most_legs[p] = max(most_legs.get(p, ()), (len(t["legs"]), t["odd"], t["delta"]))
+    # při úplné shodě rozhoduje abeceda (řazení je stabilní)
+    names = sorted(won_profit, key=fold)
+
+    def top3(key) -> list[str]:
+        return sorted(names, key=key, reverse=True)[:3]
+
     return [
-        ("Nejvíc trefených tiketů", p1, str(stats[p1]["wins"]),
+        ("Nejvíc trefených tiketů",
+         [(p, str(stats[p]["wins"])) for p in top3(lambda p: (stats[p]["wins"], stats[p]["hit"], won_profit[p]))],
          "Při shodě rozhoduje vyšší úspěšnost, pak vyšší zisk z výherních tiketů."),
-        ("Nejvyšší výhra", t2["person"], kr(t2["delta"], sign=True),
+        ("Nejvyšší výhra",
+         [(p, kr(best_win[p][0], sign=True)) for p in top3(best_win.get)],
          "Při shodě rozhoduje vyšší kurz, pak dřívější kolo."),
-        ("Nejvíc zápasů na výherním tiketu", t3["person"], str(len(t3["legs"])),
+        ("Nejvíc zápasů na výherním tiketu",
+         [(p, str(most_legs[p][0])) for p in top3(most_legs.get)],
          "Při shodě rozhoduje vyšší kurz tiketu, pak vyšší výhra."),
     ]
 
@@ -753,9 +762,15 @@ def betting_sections(
             banky.append(
                 '<h2>Síň slávy</h2><table class="fame">'
                 + "".join(
-                    f'<tr title="{e(tie)}"><td class="tname">{e(what)}</td>'
-                    f'<td class="tname">👑 <b>{e(who)}</b></td><td><b>{e(val)}</b></td></tr>'
-                    for what, who, val, tie in fame
+                    f'<tbody title="{e(tie)}">'
+                    + "".join(
+                        "<tr>"
+                        + (f'<td class="tname disc" rowspan="{len(podium)}">{e(what)}</td>' if i == 0 else "")
+                        + f'<td class="tname">{medal} <b>{e(who)}</b></td><td class="fv"><b>{e(val)}</b></td></tr>'
+                        for i, (medal, (who, val)) in enumerate(zip(("👑", "🥈", "🥉"), podium))
+                    )
+                    + "</tbody>"
+                    for what, podium, tie in fame
                 )
                 + "</table>"
             )
@@ -993,8 +1008,13 @@ table.stats td:nth-child(-n+2), table.stats th:nth-child(-n+2) {{ position:stick
 table.stats td:nth-child(1), table.stats th:nth-child(1) {{ left:0; width:44px; min-width:44px; }}
 table.stats td:nth-child(2), table.stats th:nth-child(2) {{ left:44px; }}
 table.stats td:nth-child(-n+2) {{ background:var(--card); }}
-table.fame td:first-child {{ color:var(--muted); }}
-table.fame td:last-child {{ color:var(--accent2); width:80px; }}
+table.fame {{ max-width:560px; }}
+table.fame td.disc {{ color:var(--muted); }}
+table.fame td.fv {{ color:var(--accent2); width:60px; }}
+table.fame td:not(.disc) {{ white-space:nowrap; }}
+table.fame tbody:last-child td.disc {{ border-bottom:none; }}
+table.fame tbody tr:not(:last-child) td:not(.disc) {{ border-bottom:none; }}
+table.fame tbody:not(:last-child) tr:last-child td {{ border-bottom:1px solid var(--line); }}
 h3 {{ color:var(--muted); font-size:15px; margin:18px 0 6px; font-weight:600; }}
 .chartwrap {{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 6px; }}
 .bankchart {{ width:100%; height:auto; display:block; font:11px system-ui,sans-serif; }}

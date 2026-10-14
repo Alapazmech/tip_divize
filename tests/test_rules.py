@@ -99,11 +99,12 @@ class HallOfFame(unittest.TestCase):
             "4,B,c,1,1,12\n4,B,c,4,0,12\n"  # AKO 2 zápasy @6: +60
         )
         st = gs.settle(MATCHES, pub, bets(rows))
-        fame = {what: (who, val) for what, who, val, _ in gs.hall_of_fame(st)}
+        fame = {what: podium for what, podium, _ in gs.hall_of_fame(st)}
         # po jedné výhře: A má horší úspěšnost, B a C shodné úplně -> abeceda
-        self.assertEqual(fame["Nejvíc trefených tiketů"], ("B", "1"))
-        self.assertEqual(fame["Nejvyšší výhra"], ("B", "+60"))  # shoda +60, B vyšší kurz
-        self.assertEqual(fame["Nejvíc zápasů na výherním tiketu"], ("B", "2"))
+        self.assertEqual(fame["Nejvíc trefených tiketů"], [("B", "1"), ("C", "1"), ("A", "1")])
+        # shoda +60, B vyšší kurz
+        self.assertEqual(fame["Nejvyšší výhra"], [("B", "+60"), ("C", "+60"), ("A", "+10")])
+        self.assertEqual(fame["Nejvíc zápasů na výherním tiketu"][0], ("B", "2"))
         self.assertEqual(gs.hall_of_fame(gs.settle(MATCHES, pub, bets("4,A,a,4,1,10\n"))), [])
 
 
