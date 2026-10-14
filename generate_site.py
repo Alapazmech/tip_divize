@@ -778,25 +778,9 @@ def betting_sections(
     if settled_rounds:
         sazky.append("<h2>Odehraná kola</h2>")
         for rnd in reversed(settled_rounds):
-            bet_rows = ""
-            for t in by_person(state["settled"].get(rnd, [])):
-                legs = ticket_legs(t)
-                kind = "AKO" if len(t["legs"]) > 1 else "sólo"
-                bet_rows += (
-                    f'<tr class="{"plus" if t["won"] else "minus"}"><td>{e(t["person"])}</td>'
-                    f'<td class="tname">{legs}</td><td>{kind}</td><td>{t["odd"]:.2f}</td>'
-                    f'<td>{t["stake"]:.0f}</td>'
-                    f'<td>{"✅ " if t["won"] else "❌ "}{kr(t["delta"], sign=True)}</td></tr>'
-                )
-            bets_html = (
-                f'<table class="bets"><tr><th>Sázkař</th><th class="tname">Tiket</th><th>Typ</th>'
-                f"<th>Kurz</th><th>Vklad</th><th>Výsledek</th></tr>{bet_rows}</table>"
-                if bet_rows
-                else '<p class="note">Bez tiketů.</p>'
-            )
             sazky.append(
                 f'<details class="round"><summary>{rnd}. kolo</summary>'
-                f"{round_table(by_round[rnd], published)}{bets_html}</details>"
+                f"{round_table(by_round[rnd], published)}</details>"
             )
 
     return banky, sazky, state, open_round, by_round
