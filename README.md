@@ -36,7 +36,9 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
      odehraných kol (tikety jsou v záložce Tikety).
    - **Banky**: banky sázkařů s dokupy (kolikrát · zaplaceno) a statistikou
      (tikety, úspěšnost, vsazeno, ROI, top výhra), kolik korun je reálně
-     v banku a jak by se teď dělily, graf vývoje banků po kolech.
+     v banku a jak by se teď dělily, graf vývoje banků po kolech a Síň slávy
+     (nejvíc trefených tiketů, nejvyšší výhra, nejvíc zápasů na výherním tiketu;
+     shodu rozsekne kritérium v `hall_of_fame`).
    - **Tikety**: všechny vyhodnocené tikety s filtry.
    - **Los a tabulka**: tabulka (bodování 3/2/1/0) a kompletní los.
    - **Informace**: pravidla pro hráče (vklad, dokupy, dělení banku), jak

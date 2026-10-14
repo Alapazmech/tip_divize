@@ -90,6 +90,23 @@ class Payout(unittest.TestCase):
         self.assertEqual(self.P({"A": 100, "B": 0}), {"A": 1100})
 
 
+class HallOfFame(unittest.TestCase):
+    def test_winners_and_ties(self):
+        pub = {str(i): {"round": 4, "match_id": i, "odds": {"1": 2.0, "0": 3.0}} for i in (1, 4)}
+        rows = (
+            "4,A,a,1,1,10\n4,A,b,4,1,10\n"  # výhra +10 a prohra (úspěšnost 50 %)
+            "4,C,d,1,1,60\n"  # sólo @2: +60
+            "4,B,c,1,1,12\n4,B,c,4,0,12\n"  # AKO 2 zápasy @6: +60
+        )
+        st = gs.settle(MATCHES, pub, bets(rows))
+        fame = {what: (who, val) for what, who, val, _ in gs.hall_of_fame(st)}
+        # po jedné výhře: A má horší úspěšnost, B a C shodné úplně -> abeceda
+        self.assertEqual(fame["Nejvíc trefených tiketů"], ("B", "1"))
+        self.assertEqual(fame["Nejvyšší výhra"], ("B", "+60"))  # shoda +60, B vyšší kurz
+        self.assertEqual(fame["Nejvíc zápasů na výherním tiketu"], ("B", "2"))
+        self.assertEqual(gs.hall_of_fame(gs.settle(MATCHES, pub, bets("4,A,a,4,1,10\n"))), [])
+
+
 class Blocking(unittest.TestCase):
     def test_dohravka_does_not_block(self):
         ms = [

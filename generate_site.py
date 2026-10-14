@@ -336,6 +336,31 @@ def person_stats(state: dict) -> dict[str, dict]:
     return stats
 
 
+def hall_of_fame(state: dict) -> list[tuple[str, str, str, str]]:
+    """Síň slávy: (disciplína, vítěz, hodnota, jak se rozhoduje shoda)."""
+    won = [t for rows in state["settled"].values() for t in rows if t["won"]]
+    if not won:
+        return []
+    stats = person_stats(state)
+    won_profit: dict[str, float] = collections.defaultdict(float)
+    for t in won:
+        won_profit[t["person"]] += t["delta"]
+    # při úplné shodě vyhraje dřív v abecedě (sorted je stabilní)
+    names = sorted({t["person"] for t in won}, key=fold)
+    p1 = max(names, key=lambda p: (stats[p]["wins"], stats[p]["hit"], won_profit[p]))
+    won.sort(key=lambda t: fold(t["person"]))
+    t2 = max(won, key=lambda t: (t["delta"], t["odd"], -t["round"]))
+    t3 = max(won, key=lambda t: (len(t["legs"]), t["odd"], t["delta"]))
+    return [
+        ("Nejvíc trefených tiketů", p1, str(stats[p1]["wins"]),
+         "Při shodě rozhoduje vyšší úspěšnost, pak vyšší zisk z výherních tiketů."),
+        ("Nejvyšší výhra", t2["person"], kr(t2["delta"], sign=True),
+         "Při shodě rozhoduje vyšší kurz, pak dřívější kolo."),
+        ("Nejvíc zápasů na výherním tiketu", t3["person"], str(len(t3["legs"])),
+         "Při shodě rozhoduje vyšší kurz tiketu, pak vyšší výhra."),
+    ]
+
+
 # kategorická paleta pro graf (validovaná na tmavém podkladu karty), pořadí pevné
 CHART_COLORS = (
     "#3987e5", "#d95926", "#199e70", "#c98500",
@@ -723,6 +748,17 @@ def betting_sections(
                 '<p class="note">Bank po každém dohraném kole. Šedá linka = startovních '
                 f"{START_BANK}. Najetím na bod uvidíš hodnotu.</p>"
             )
+        fame = hall_of_fame(state)
+        if fame:
+            banky.append(
+                '<h2>Síň slávy</h2><table class="fame">'
+                + "".join(
+                    f'<tr title="{e(tie)}"><td class="tname">{e(what)}</td>'
+                    f'<td class="tname">👑 <b>{e(who)}</b></td><td><b>{e(val)}</b></td></tr>'
+                    for what, who, val, tie in fame
+                )
+                + "</table>"
+            )
     else:
         banky.append(
             f'<h2>Banky</h2><p class="note">Zatím nikdo nesází. Každý vloží {BUYIN_KC} Kč a začíná s bankem {START_BANK} — '
@@ -957,6 +993,8 @@ table.stats td:nth-child(-n+2), table.stats th:nth-child(-n+2) {{ position:stick
 table.stats td:nth-child(1), table.stats th:nth-child(1) {{ left:0; width:44px; min-width:44px; }}
 table.stats td:nth-child(2), table.stats th:nth-child(2) {{ left:44px; }}
 table.stats td:nth-child(-n+2) {{ background:var(--card); }}
+table.fame td:first-child {{ color:var(--muted); }}
+table.fame td:last-child {{ color:var(--accent2); width:80px; }}
 h3 {{ color:var(--muted); font-size:15px; margin:18px 0 6px; font-weight:600; }}
 .chartwrap {{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 6px; }}
 .bankchart {{ width:100%; height:auto; display:block; font:11px system-ui,sans-serif; }}
