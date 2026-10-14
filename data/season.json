@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-13 20:01:26",
+ "scraped_at": "2026-10-14 14:20:36",
  "prior": 1500,
  "matches": [
   {
@@ -599,20 +599,6 @@
    "score": null
   },
   {
-   "id": 1312173,
-   "round": 6,
-   "round_label": "6. kolo",
-   "date": "2026-10-17",
-   "time": "16:30",
-   "home": "FA Č. Budějovice",
-   "away": "OLYMP FLORBAL",
-   "home_short": "FA ČB",
-   "away_short": "Olymp",
-   "place": "TJ Lokomotiva Č. Budějovice",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312171,
    "round": 6,
    "round_label": "6. kolo",
@@ -623,6 +609,20 @@
    "home_short": "Strakonice",
    "away_short": "Florbal J. Hradec",
    "place": "SH Strakonice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312173,
+   "round": 6,
+   "round_label": "6. kolo",
+   "date": "2026-10-17",
+   "time": "17:05",
+   "home": "FA Č. Budějovice",
+   "away": "OLYMP FLORBAL",
+   "home_short": "FA ČB",
+   "away_short": "Olymp",
+   "place": "TJ Lokomotiva Č. Budějovice",
    "status": "",
    "score": null
   },
@@ -963,25 +963,11 @@
    "score": null
   },
   {
-   "id": 1312195,
-   "round": 10,
-   "round_label": "10. kolo",
-   "date": "2026-11-14",
-   "time": "00:00",
-   "home": "FA Č. Budějovice",
-   "away": "Fbc Strakonice",
-   "home_short": "FA ČB",
-   "away_short": "Strakonice",
-   "place": "TJ Lokomotiva Č. Budějovice",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312197,
    "round": 10,
    "round_label": "10. kolo",
    "date": "2026-11-14",
-   "time": "00:00",
+   "time": "18:00",
    "home": "TJ Centropen Dačice",
    "away": "Florbal Jindřichův Hradec",
    "home_short": "Dačice",
@@ -991,11 +977,25 @@
    "score": null
   },
   {
+   "id": 1312195,
+   "round": 10,
+   "round_label": "10. kolo",
+   "date": "2026-11-14",
+   "time": "18:40",
+   "home": "FA Č. Budějovice",
+   "away": "Fbc Strakonice",
+   "home_short": "FA ČB",
+   "away_short": "Strakonice",
+   "place": "TJ Lokomotiva Č. Budějovice",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312196,
    "round": 10,
    "round_label": "10. kolo",
    "date": "2026-11-15",
-   "time": "00:00",
+   "time": "16:45",
    "home": "FBC Štíři Č. Budějovice",
    "away": "T.B.C. Králův Dvůr",
    "home_short": "Štíři",
@@ -1009,7 +1009,7 @@
    "round": 10,
    "round_label": "10. kolo",
    "date": "2026-11-15",
-   "time": "00:00",
+   "time": "17:00",
    "home": "Sokol Rudná",
    "away": "FbŠ Florbal Bohemians",
    "home_short": "Rudná",
@@ -1023,7 +1023,7 @@
    "round": 10,
    "round_label": "10. kolo",
    "date": "2026-11-15",
-   "time": "00:00",
+   "time": "17:00",
    "home": "FbC Plzeň",
    "away": "OLYMP FLORBAL",
    "home_short": "FbC Plzeň",
