@@ -650,15 +650,37 @@ def betting_sections(
         pct = lambda x: f"{x * 100:.0f} %" if x is not None else "–"
         payout = payout_now(state)
         in_play = in_play_stakes(state, bets_path)
+        # posun v pořadí a výsledek posledního dohraného kola
+        hist = state["history"]
+        last_rnd = hist[-1]["round"] if hist else None
+        last_delta: dict[str, float] = collections.defaultdict(float)
+        for t in state["settled"].get(last_rnd, []):
+            last_delta[t["person"]] += t["delta"]
+        # při shodném banku sdílené pořadí, ať se nehýbe, kdo nesázel
+        rank = lambda bs: {p: 1 + sum(o > b for o in bs.values()) for p, b in bs.items()}
+        prev_rank = {}
+        if len(hist) > 1:
+            # nováček (bez tiketu do předminulého kola) šipku nedostane
+            played = {t["person"] for r, ts in state["settled"].items() if r <= hist[-2]["round"] for t in ts}
+            prev_rank = {p: r for p, r in rank(hist[-2]["banks"]).items() if p in played}
+        cur_rank = rank(state["banks"])
         rows = ""
         for i, (p, b) in enumerate(sorted(state["banks"].items(), key=lambda x: -x[1]), 1):
+            move = prev_rank.get(p, cur_rank[p]) - cur_rank[p]
+            arrow = (
+                f' <span class="up">▲{move}</span>' if move > 0
+                else f' <span class="down">▼{-move}</span>' if move < 0
+                else ""
+            )
+            ld = last_delta.get(p)
             st = stats[p]
             dep = state["deposits"][p]
             pay = payout.get(p)
             live = in_play.get(p, 0)
             rows += (
-                f'<tr><td>{i}.</td><td class="tname">{e(p)}</td><td><b>{kr(b)}</b></td>'
-                f'<td title="vklady na živých tiketech">{kr(live) if live else "–"}</td>'
+                f'<tr><td class="rank">{i}.{arrow}</td><td class="tname">{e(p)}</td><td><b>{kr(b)}</b></td>'
+                + (f'<td class="{"plus" if ld >= 0 else "minus"}">{kr(ld, sign=True)}</td>' if ld else "<td>–</td>")
+                + f'<td title="vklady na živých tiketech">{kr(live) if live else "–"}</td>'
                 f'<td class="{"plus" if b >= dep["credits"] else "minus"}" title="bank − vložené kredity">{kr(b - dep["credits"], sign=True)}</td>'
                 + (f'<td class="plus"><b>{pay:.0f} Kč</b></td>' if pay else "<td>–</td>")
             )
@@ -675,6 +697,7 @@ def betting_sections(
             rows += "</tr>"
         head = (
             "<th>#</th><th class='tname'>Sázkař</th><th>Bank</th>"
+            f"<th title='zisk/ztráta v {last_rnd}. kole'>{last_rnd}. kolo</th>"
             "<th title='vklady na živých tiketech (podané i čekající na dohrávku)'>Ve hře</th>"
             "<th title='bank − vložené kredity'>±</th>"
             "<th title='kdyby základní část skončila teď: první dva si dělí bank v poměru banků, při shodě napůl'>Bere teď</th>"
@@ -933,6 +956,9 @@ tr.us td {{ background:rgba(74,222,128,.09); }}
 tr:last-child td {{ border-bottom:none; }}
 td.plus, tr.plus td:last-child {{ color:var(--accent); }}
 td.minus, tr.minus td:last-child {{ color:var(--red); }}
+td.rank {{ white-space:nowrap; }}
+.up {{ color:var(--accent); font-size:11px; }}
+.down {{ color:var(--red); font-size:11px; }}
 .legx {{ color:var(--red); }}
 .legok {{ color:var(--muted); }}
 .mdate {{ color:var(--muted); font-size:13px; margin-right:6px; }}
