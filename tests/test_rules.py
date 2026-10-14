@@ -8,6 +8,7 @@ import unittest
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 
 import generate_site as gs  # noqa: E402
+import odds  # noqa: E402
 import scraper  # noqa: E402
 import tickets  # noqa: E402
 
@@ -87,6 +88,20 @@ class Payout(unittest.TestCase):
         self.assertEqual(sum(self.P({"A": 100, "B": 100, "C": 100}).values()), 1100)
         self.assertEqual(self.P({"A": 300, "B": 100}), {"A": 825, "B": 275})
         self.assertEqual(self.P({"A": 100, "B": 0}), {"A": 1100})
+
+
+class Blocking(unittest.TestCase):
+    def test_dohravka_does_not_block(self):
+        ms = [
+            m(1, rnd=3, date="2026-10-16"),  # dohrávka 3. kola před 6. kolem
+            m(2, rnd=5, score=[1, 0], date="2026-10-10"),
+            m(3, rnd=5, date="2026-10-11"),
+            m(4, rnd=6, date="2026-10-17"),
+        ]
+        pub = {str(i): {"round": r} for i, r in ((1, 3), (2, 5), (3, 5))}
+        self.assertEqual([x["id"] for x in odds.blocking_matches(ms, pub, 6)], [3])
+        ms[2]["score"] = [2, 2]
+        self.assertEqual(odds.blocking_matches(ms, pub, 6), [])
 
 
 class Scraper(unittest.TestCase):

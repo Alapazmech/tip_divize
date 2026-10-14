@@ -25,7 +25,7 @@ ligu, kde hraje **FbŠ Florbal Bohemians**. Nástupce Tipromile.
      (neprohra hostů), **2** (výhra hostů).
      **Na zápasy Bohemians jedině výhra Bohemky** — buď věříš, nebo nesázíš. Marže 8 %.
    - **Vypisuje se vždy jedno celé kolo** — další až po dohrání vypsaného
-     (dohrávku přeskočí `--force`). Model se mezitím učí z výsledků, kurzy
+     (dohrávka ze staršího kola neblokuje; jinak přeskočí `--force`). Model se mezitím učí z výsledků, kurzy
      dalšího kola odrážejí formu.
    - Vypsaný kurz je zmrazený v `data/published.json` a nemění se
      (`--refresh` přepočítá jen neodehrané, používat vědomě).

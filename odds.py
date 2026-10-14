@@ -255,6 +255,26 @@ def current_round(matches: list[dict], published: dict) -> int | None:
     ]
 
 
+def blocking_matches(matches: list[dict], published: dict, rnd: int) -> list[dict]:
+    """Zápasy, kvůli kterým se kolo `rnd` ještě nevypíše: neodehrané zápasy
+    posledního vypsaného kola hrané před jeho začátkem. Dohrávka ze staršího
+    kola neblokuje — sází se spolu s novým kolem, nebo až s dalším."""
+    if not published:
+        return []
+    latest = max(v["round"] for v in published.values())
+    next_start = min(
+        (m["date"] or "9999") for m in matches if m["round"] == rnd and not m["score"]
+    )
+    return [
+        m
+        for m in matches
+        if str(m["id"]) in published
+        and m["round"] == latest
+        and not m["score"]
+        and (m["date"] or "") <= next_start
+    ]
+
+
 def bet_on(match_id: int) -> bool:
     """Má někdo tiket (živý nebo odhalený) na daný zápas?"""
     sealed_path = DATA / "bets_sealed.json"
@@ -298,21 +318,8 @@ def main() -> None:
         if rnd is None:
             print("Není co vypsat — všechny neodehrané zápasy už mají kurz.")
             return
-        # Nové kolo se vypisuje po dohrání toho vypsaného. Zápas odložený až ZA
-        # start nového kola je dohrávka — ta vypsání neblokuje (tikety na ní
-        # visí dál, ale nové sázky už nepřijímá). --force přeskočí i blokující.
-        next_start = min(
-            (m["date"] or "9999")
-            for m in season["matches"]
-            if m["round"] == rnd and not m["score"]
-        )
-        blocking = [
-            m
-            for m in season["matches"]
-            if str(m["id"]) in published
-            and not m["score"]
-            and (m["date"] or "") <= next_start
-        ]
+        # --force přeskočí i blokující zápasy
+        blocking = blocking_matches(season["matches"], published, rnd)
         if blocking and "--force" not in sys.argv:
             print("Vypsané kolo ještě není dohrané, nové se nevypisuje. Čeká se na:")
             for m in blocking:
