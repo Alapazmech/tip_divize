@@ -639,7 +639,10 @@ def betting_sections(
         r for r in published_rounds if any(not m["score"] for m in by_round[r])
     ]
     open_round = open_rounds[-1] if open_rounds else None  # aktuální, ne dohrávka
-    settled_rounds = [r for r in published_rounds if r not in open_rounds]
+    # odehraná = všechna kromě aktuálního (kolo s dohrávkou sem patří taky)
+    settled_rounds = [
+        r for r in published_rounds if not (r == published_rounds[-1] and r in open_rounds)
+    ]
 
     sazky: list[str] = []
     banky: list[str] = []
@@ -726,30 +729,34 @@ def betting_sections(
             'první tiket zakládá účet. Pravidla jsou v záložce <a href="#info">Informace</a>.</p>'
         )
 
-    # vypsaná kola (víc než jedno = čeká se na dohrávku; ta se sází spolu
-    # s aktuálním kolem, pokud se hraje nejpozději s ním)
+    # nahoře nejbližší celé vypsané kolo, pod ním všechny nedohrané zápasy
+    # starších kol (dohrávky); ta se sází spolu s aktuálním kolem, pokud se
+    # hraje dřív než začne příští
     latest_pub = published_rounds[-1] if published_rounds else None
     next_ms = by_round.get(latest_pub + 1, []) if latest_pub else []
-    for rnd in sorted(open_rounds, key=lambda r: r != latest_pub):  # aktuální kolo první
-        is_latest = rnd == latest_pub
-        ms = (
-            by_round[rnd] if is_latest else [m for m in by_round[rnd] if not m["score"]]
-        )
+    if latest_pub in open_rounds:
+        ms = by_round[latest_pub]
         dates = sorted({m["date"] for m in ms if m["date"]})
         span = cz_date(dates[0]) + (
             f" – {cz_date(dates[-1])}" if len(dates) > 1 else ""
         )
-        if is_latest:
-            tag = ""
-        elif any(dohravka_bettable(m, next_ms) for m in ms):
-            tag = " · dohrávka — sází se spolu s aktuálním kolem"
-        else:
-            tag = " · dohrávka — sázky se otevřou s dalším kolem"
         sazky.append(
-            f"<h2>Vypsané kolo: {rnd}. kolo <span class='hspan'>{span}{tag}</span></h2>"
+            f"<h2>Vypsané kolo: {latest_pub}. kolo <span class='hspan'>{span}</span></h2>"
         )
-        can = clickable and (is_latest or (lambda m: dohravka_bettable(m, next_ms)))
-        sazky.append(round_table(ms, published, clickable=can))
+        sazky.append(round_table(ms, published, clickable=clickable))
+    dohravky = sorted(
+        (m for r in open_rounds if r != latest_pub for m in by_round[r] if not m["score"]),
+        key=lambda m: (m["date"] or "9999", m["time"] or "99"),
+    )
+    if dohravky:
+        can = clickable and (lambda m: dohravka_bettable(m, next_ms))
+        later = [m for m in dohravky if not dohravka_bettable(m, next_ms)]
+        sazky.append("<h2>Dohrávky</h2>")
+        sazky.append(f'<div class="dohr">{round_table(dohravky, published, clickable=can)}</div>')
+        if later:
+            sazky.append(
+                f'<p class="note">Zašedlé se otevřou s {latest_pub + 1}. kolem.</p>'
+            )
     if open_rounds:
         commits = json.loads(commits_path.read_text()) if commits_path.exists() else []
         # nevyhodnocené tikety po lidech: jen jméno a počet, kdo nemá žádný,
@@ -780,7 +787,7 @@ def betting_sections(
         for rnd in reversed(settled_rounds):
             sazky.append(
                 f'<details class="round"><summary>{rnd}. kolo</summary>'
-                f"{round_table(by_round[rnd], published)}</details>"
+                f"{round_table(by_round[rnd], published, clickable=False)}</details>"
             )
 
     return banky, sazky, state, open_round, by_round
@@ -974,6 +981,7 @@ td.ocell.click:hover {{ color:var(--accent); }}
 td.ocell.sel {{ background:rgba(250,204,21,.15); color:var(--accent2); }}
 td.ocell.win {{ color:var(--accent); }}
 td.ocell.lost {{ color:var(--lost); }}
+.dohr td.ocell:not(.click):not(.win) {{ color:var(--lost); }}
 #tbar {{ position:fixed; right:18px; bottom:18px; width:290px; max-height:80vh;
   overflow-y:auto; background:var(--card2); border:1px solid var(--line);
   border-radius:14px; display:none; z-index:9;
