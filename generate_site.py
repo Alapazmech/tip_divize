@@ -638,7 +638,7 @@ def betting_sections(
     open_rounds = [
         r for r in published_rounds if any(not m["score"] for m in by_round[r])
     ]
-    open_round = open_rounds[0] if open_rounds else None
+    open_round = open_rounds[-1] if open_rounds else None  # aktuální, ne dohrávka
     settled_rounds = [r for r in published_rounds if r not in open_rounds]
 
     sazky: list[str] = []
