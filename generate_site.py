@@ -370,6 +370,32 @@ def hall_of_fame(state: dict) -> list[tuple[str, list[tuple[str, str]], str]]:
     ]
 
 
+def fame_html(fame: list) -> str:
+    """Síň slávy jako stupně vítězů: pro každou disciplínu pódium 2 – 1 – 3."""
+    cards = []
+    for icon, (what, podium, tie) in zip(("🎯", "💰", "🧩"), fame):
+        slots = podium + [None] * (3 - len(podium))
+        cols = ""
+        for place in (1, 0, 2):  # stříbro vlevo, zlato uprostřed, bronz vpravo
+            n = place + 1
+            if slots[place] is None:
+                cols += f'<div class="pcol p{n} empty"><div class="who">—</div><div class="step">{n}</div></div>'
+                continue
+            who, val = slots[place]
+            crown = '<div class="crown">👑</div>' if place == 0 else ""
+            cols += (
+                f'<div class="pcol p{n}">{crown}<div class="av">{e(who[:1])}</div>'
+                f'<div class="who">{e(who)}</div><div class="val">{e(val)}</div>'
+                f'<div class="step">{n}</div></div>'
+            )
+        cards.append(
+            f'<div class="fcard" title="{e(tie)}"><div class="ftitle">'
+            f'<span class="ficon">{icon}</span>{e(what)}</div>'
+            f'<div class="podium">{cols}</div></div>'
+        )
+    return '<h2>🏆 Síň slávy</h2><div class="fame">' + "".join(cards) + "</div>"
+
+
 # kategorická paleta pro graf (validovaná na tmavém podkladu karty), pořadí pevné
 CHART_COLORS = (
     "#3987e5", "#d95926", "#199e70", "#c98500",
@@ -759,21 +785,7 @@ def betting_sections(
             )
         fame = hall_of_fame(state)
         if fame:
-            banky.append(
-                '<h2>Síň slávy</h2><table class="fame">'
-                + "".join(
-                    f'<tbody title="{e(tie)}">'
-                    + "".join(
-                        "<tr>"
-                        + (f'<td class="tname disc" rowspan="{len(podium)}">{e(what)}</td>' if i == 0 else "")
-                        + f'<td class="tname">{medal} <b>{e(who)}</b></td><td class="fv"><b>{e(val)}</b></td></tr>'
-                        for i, (medal, (who, val)) in enumerate(zip(("👑", "🥈", "🥉"), podium))
-                    )
-                    + "</tbody>"
-                    for what, podium, tie in fame
-                )
-                + "</table>"
-            )
+            banky.append(fame_html(fame))
     else:
         banky.append(
             f'<h2>Banky</h2><p class="note">Zatím nikdo nesází. Každý vloží {BUYIN_KC} Kč a začíná s bankem {START_BANK} — '
@@ -1008,13 +1020,38 @@ table.stats td:nth-child(-n+2), table.stats th:nth-child(-n+2) {{ position:stick
 table.stats td:nth-child(1), table.stats th:nth-child(1) {{ left:0; width:44px; min-width:44px; }}
 table.stats td:nth-child(2), table.stats th:nth-child(2) {{ left:44px; }}
 table.stats td:nth-child(-n+2) {{ background:var(--card); }}
-table.fame {{ max-width:560px; }}
-table.fame td.disc {{ color:var(--muted); }}
-table.fame td.fv {{ color:var(--accent2); width:60px; }}
-table.fame td:not(.disc) {{ white-space:nowrap; }}
-table.fame tbody:last-child td.disc {{ border-bottom:none; }}
-table.fame tbody tr:not(:last-child) td:not(.disc) {{ border-bottom:none; }}
-table.fame tbody:not(:last-child) tr:last-child td {{ border-bottom:1px solid var(--line); }}
+/* Síň slávy — stupně vítězů */
+.fame {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }}
+.fcard {{ position:relative; overflow:hidden; border:1px solid var(--line); border-radius:14px;
+  padding:14px 12px 0; background:radial-gradient(circle at 50% 0,rgba(250,204,21,.13),transparent 65%),
+  linear-gradient(180deg,var(--card2),var(--card)); }}
+.ftitle {{ text-align:center; font-weight:700; font-size:14px; margin-bottom:8px; min-height:58px; }}
+.ficon {{ display:block; font-size:24px; line-height:1.2; }}
+.podium {{ display:flex; align-items:flex-end; justify-content:center; gap:6px; }}
+.pcol {{ flex:1; max-width:96px; min-width:0; display:flex; flex-direction:column; align-items:center; text-align:center; }}
+.av {{ width:40px; height:40px; border-radius:50%; display:grid; place-items:center; margin-bottom:4px;
+  font-weight:800; font-size:17px; color:#0e1512; animation:pop .45s ease-out both; }}
+.p1 .av {{ width:54px; height:54px; font-size:23px; background:linear-gradient(135deg,#fef08a,#eab308);
+  box-shadow:0 0 0 3px rgba(250,204,21,.25),0 0 22px rgba(250,204,21,.45); animation-delay:.85s; }}
+.p2 .av {{ background:linear-gradient(135deg,#f8fafc,#94a3b8); animation-delay:.55s; }}
+.p3 .av {{ background:linear-gradient(135deg,#fed7aa,#c2410c); animation-delay:.7s; }}
+.crown {{ font-size:24px; line-height:1; margin-bottom:-1px; animation:pop .45s 1s ease-out both, bob 2.6s 1.5s ease-in-out infinite; }}
+.who {{ max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; font-weight:700; font-size:13px; }}
+.val {{ margin:0 0 6px; font-weight:800; font-size:15px; color:var(--muted); }}
+.p1 .val {{ color:var(--accent2); font-size:17px; }}
+.p2 .val {{ color:#cbd5e1; }}
+.p3 .val {{ color:#fdba74; }}
+.step {{ width:100%; display:grid; place-items:center; border-radius:8px 8px 0 0; font-weight:900; font-size:24px;
+  color:rgba(14,21,18,.5); transform-origin:bottom; animation:rise .7s cubic-bezier(.2,.8,.2,1) both; }}
+.p1 .step {{ height:80px; background:linear-gradient(180deg,#fde047,#a16207); animation-delay:.3s; }}
+.p2 .step {{ height:58px; background:linear-gradient(180deg,#e2e8f0,#64748b); animation-delay:.1s; }}
+.p3 .step {{ height:42px; background:linear-gradient(180deg,#fdba74,#9a3412); animation-delay:.2s; }}
+.pcol.empty .who {{ color:var(--muted); margin-bottom:6px; }}
+.pcol.empty .step {{ opacity:.25; }}
+@keyframes rise {{ from {{ transform:scaleY(0); }} to {{ transform:scaleY(1); }} }}
+@keyframes pop {{ from {{ opacity:0; transform:scale(.4); }} to {{ opacity:1; transform:scale(1); }} }}
+@keyframes bob {{ 0%,100% {{ transform:translateY(0) rotate(-7deg); }} 50% {{ transform:translateY(-3px) rotate(7deg); }} }}
+@media (prefers-reduced-motion: reduce) {{ .step, .av, .crown {{ animation:none; }} }}
 h3 {{ color:var(--muted); font-size:15px; margin:18px 0 6px; font-weight:600; }}
 .chartwrap {{ background:var(--card); border:1px solid var(--line); border-radius:12px; padding:8px 6px; }}
 .bankchart {{ width:100%; height:auto; display:block; font:11px system-ui,sans-serif; }}
