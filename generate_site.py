@@ -46,7 +46,7 @@ WINS = {"1": {"1"}, "10": {"1", "0"}, "0": {"0"}, "02": {"0", "2"}, "2": {"2"}}
 DAYS = ["Po", "Út", "St", "Čt", "Pá", "So", "Ne"]
 
 
-# krátké názvy do tiketů (Budějovice a my zůstávají celé)
+# krátké názvy týmů na stránce (my zůstáváme celí)
 SHORT = {
     "OLYMP FLORBAL": "Olymp",
     "SK Florbal Benešov": "Benešov",
@@ -57,6 +57,8 @@ SHORT = {
     "T.B.C. Králův Dvůr": "Králův Dvůr",
     "Fbc Strakonice": "Strakonice",
     "FbC Plzeň": "Plzeň",
+    "FA Č. Budějovice": "FA Budějovice",
+    "FBC Štíři Č. Budějovice": "Štíři Budějovice",
 }
 
 
@@ -566,7 +568,7 @@ def round_table(
             if m["score"]
             else f'<span class="mtime">{e(m["time"] if m["time"] and m["time"] != "00:00" else "—")}</span>'
         )
-        label = f'{m["home"]} – {m["away"]}'
+        label = f'{short(m["home"])} – {short(m["away"])}'
         cells = []
         for mk in MARKETS if odds_cols else ():
             if mk not in odds:
@@ -585,7 +587,7 @@ def round_table(
             cells.append(f'<td class="{cls}"{attrs}>{odds[mk]:.2f}</td>')
         rows.append(
             f'<tr><td class="tname"><span class="mdate">{cz_date(m["date"])}</span> '
-            f'{e(m["home"])} – {e(m["away"])}</td>'
+            f'{e(short(m["home"]))} – {e(short(m["away"]))}</td>'
             f"<td>{center}</td>" + "".join(cells) + "</tr>"
         )
     return (
@@ -807,7 +809,7 @@ def main() -> None:
 
     # ---------- záložka Los a tabulka ----------
     tab_rows = "".join(
-        f'<tr class="{"us" if r["team"] == OUR_TEAM else ""}"><td>{i}.</td><td class="tname">{e(r["team"])}</td>'
+        f'<tr class="{"us" if r["team"] == OUR_TEAM else ""}"><td>{i}.</td><td class="tname">{e(short(r["team"]))}</td>'
         f'<td>{r["z"]}</td><td>{r["v"]}</td><td>{r["vp"]}</td><td>{r["pp"]}</td><td>{r["p"]}</td>'
         f'<td>{r["gf"]}:{r["ga"]}</td><td><b>{r["b"]}</b></td></tr>'
         for i, r in enumerate(standings(matches), 1)
