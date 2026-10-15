@@ -461,7 +461,7 @@ def info_tab() -> str:
 <li><b>Hraje se jen základní část</b> (22 kol), na play-off se nesází.</li>
 <li><b>Sázej, jak chceš.</b> Sólo i AKO, klidně celý bank. Jen na právě vypsané kolo, do začátku zápasu. Dohrávky hrané před dalším kolem se sází spolu s ním.</li>
 <li><b>Vše je vidět.</b> Živý tiket je tajný (na stránce jen 🔒 otisk). Po dohrání kola se odhalí a vyhodnotí — všechny jsou v záložce <a href="#tikety">Tikety</a>.</li>
-<li><b>Bank 0? Dokup.</b> Dalších {BUYIN_KC} Kč = dalších <b>{START_BANK} kreditů</b>, kdykoliv a kolikrát chceš. Napiš <code>/dokoupit</code>.</li>
+<li><b>Bank 0 a žádný živý tiket? Dokup.</b> Dalších {BUYIN_KC} Kč = dalších <b>{START_BANK} kreditů</b>, kolikrát chceš. Napiš <code>/dokoupit</code>.</li>
 <li><b>Na konci berou první dva vše</b>, v poměru svých banků. Pavel 3000 a Jan 1000 → Pavel ¾, Jan ¼. Shoda banků = podíl napůl.</li>
 </ul>
 
