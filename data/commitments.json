@@ -948,5 +948,11 @@
    "nonce": "f5b121cffb65ac44",
    "placed_at": "2026-10-16 11:30:56"
   }
+ },
+ {
+  "hash": "d1b1b83f57f3975cde6dd7babe6c0fd613ec26d645810adbf0776c5ce1612489",
+  "person": "Radek",
+  "round": 6,
+  "placed_at": "2026-10-17 20:02:10"
  }
 ]
