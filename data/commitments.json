@@ -850,7 +850,26 @@
   "hash": "eef0ccb429f0dbd6abffadf13b3ff5f507d253d76922a58925a20f8063fc0c9f",
   "person": "Kunc",
   "round": 6,
-  "placed_at": "2026-10-14 21:25:21"
+  "placed_at": "2026-10-14 21:25:21",
+  "revealed": {
+   "stake": 20.0,
+   "legs": [
+    [
+     1312152,
+     "1"
+    ],
+    [
+     1312170,
+     "1"
+    ],
+    [
+     1312175,
+     "1"
+    ]
+   ],
+   "nonce": "d36964b4820aacc6",
+   "placed_at": "2026-10-14 21:25:21"
+  }
  },
  {
   "hash": "79db33520c627065d79234c99399a6c5eb36b68fe05f70b6dc60c7983d88bf92",
@@ -887,7 +906,22 @@
   "hash": "4c317121e6edb19f7dc1bf0b15af56ec6a2751b5984b8005c381c3a5ee0e2e84",
   "person": "Ejdm",
   "round": 6,
-  "placed_at": "2026-10-15 10:24:54"
+  "placed_at": "2026-10-15 10:24:54",
+  "revealed": {
+   "stake": 20.0,
+   "legs": [
+    [
+     1312170,
+     "1"
+    ],
+    [
+     1312175,
+     "1"
+    ]
+   ],
+   "nonce": "4672ca2646d3c3a1",
+   "placed_at": "2026-10-15 10:24:54"
+  }
  },
  {
   "hash": "e05da070a3ee7d5a1335c95c2e2110b7ec8b9e68cc3d2135e641558936f9e3f4",
