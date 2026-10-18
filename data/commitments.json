@@ -875,7 +875,22 @@
   "hash": "79db33520c627065d79234c99399a6c5eb36b68fe05f70b6dc60c7983d88bf92",
   "person": "Schejby",
   "round": 6,
-  "placed_at": "2026-10-15 10:17:06"
+  "placed_at": "2026-10-15 10:17:06",
+  "revealed": {
+   "stake": 24.0,
+   "legs": [
+    [
+     1312152,
+     "1"
+    ],
+    [
+     1312174,
+     "1"
+    ]
+   ],
+   "nonce": "f3419ec0f59a8965",
+   "placed_at": "2026-10-15 10:17:06"
+  }
  },
  {
   "hash": "38593609da5efc33a85149fa7656f134bf11b0043d241f89bbe9d3749ca389ae",
@@ -952,7 +967,22 @@
   "hash": "f56bc4b37e65aa66737d9b4fe24b00bea651266c0bf7ff5f5726d5fa5d715ef6",
   "person": "Žoužel",
   "round": 6,
-  "placed_at": "2026-10-16 08:15:35"
+  "placed_at": "2026-10-16 08:15:35",
+  "revealed": {
+   "stake": 20.0,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ],
+    [
+     1312174,
+     "2"
+    ]
+   ],
+   "nonce": "b06165d522372a6e",
+   "placed_at": "2026-10-16 08:15:35"
+  }
  },
  {
   "hash": "5201f67acef8c2a50cd45c1e5ba3a300e69c5f1877faaf2fdda30452e95f6905",
@@ -987,18 +1017,59 @@
   "hash": "d1b1b83f57f3975cde6dd7babe6c0fd613ec26d645810adbf0776c5ce1612489",
   "person": "Radek",
   "round": 6,
-  "placed_at": "2026-10-17 20:02:10"
+  "placed_at": "2026-10-17 20:02:10",
+  "revealed": {
+   "stake": 50.0,
+   "legs": [
+    [
+     1312170,
+     "2"
+    ],
+    [
+     1312174,
+     "2"
+    ]
+   ],
+   "nonce": "b307ee791e3ed87e",
+   "placed_at": "2026-10-17 20:02:10"
+  }
  },
  {
   "hash": "975e30102b4ed1eb53ab0768efa429ca3a35ad3cac821b22bcc819a7c79d88d0",
   "person": "Šárkys",
   "round": 6,
-  "placed_at": "2026-10-18 09:37:03"
+  "placed_at": "2026-10-18 09:37:03",
+  "revealed": {
+   "stake": 10.0,
+   "legs": [
+    [
+     1312170,
+     "2"
+    ],
+    [
+     1312174,
+     "2"
+    ]
+   ],
+   "nonce": "6844721456433924",
+   "placed_at": "2026-10-18 09:37:03"
+  }
  },
  {
   "hash": "6bb2e3b0ce3dabb9b4676a65b5d05b92d54625d3e8366ce110f411eb7052cd59",
   "person": "Michal",
   "round": 6,
-  "placed_at": "2026-10-18 09:48:50"
+  "placed_at": "2026-10-18 09:48:50",
+  "revealed": {
+   "stake": 50.0,
+   "legs": [
+    [
+     1312170,
+     "1"
+    ]
+   ],
+   "nonce": "61d0457d45c32b04",
+   "placed_at": "2026-10-18 09:48:50"
+  }
  }
 ]
