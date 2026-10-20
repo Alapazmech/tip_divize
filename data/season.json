@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-18 18:30:53",
+ "scraped_at": "2026-10-20 20:01:53",
  "prior": 1500,
  "matches": [
   {
@@ -901,20 +901,6 @@
    "score": null
   },
   {
-   "id": 1312189,
-   "round": 9,
-   "round_label": "9. kolo",
-   "date": "2026-11-07",
-   "time": "00:00",
-   "home": "OLYMP FLORBAL",
-   "away": "Sokol Rudná",
-   "home_short": "Olymp",
-   "away_short": "Rudná",
-   "place": "SH Zelený Pruh",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312191,
    "round": 9,
    "round_label": "9. kolo",
@@ -953,6 +939,20 @@
    "home_short": "Králův Dvůr",
    "away_short": "FA ČB",
    "place": "SH Králův Dvůr",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312189,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2026-11-07",
+   "time": "20:00",
+   "home": "OLYMP FLORBAL",
+   "away": "Sokol Rudná",
+   "home_short": "Olymp",
+   "away_short": "Rudná",
+   "place": "SH Zelený Pruh",
    "status": "",
    "score": null
   },
