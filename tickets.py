@@ -79,7 +79,7 @@ def deadline(m: dict) -> datetime.datetime:
     return datetime.datetime.fromisoformat(f"{m['date']}T{t}")
 
 
-def available_bank(person: str) -> float:
+def available_bank(person: str) -> int:
     """Bank po vypořádání minus vklady živých tiketů (bets.csv i bets_sealed)."""
     season = _season()
     state = gs.settle(season["matches"], _published(), _p("bets.csv"))
@@ -91,7 +91,9 @@ def available_bank(person: str) -> float:
         if t["person"] == person
     )
     sealed = sum(
-        t["stake"] for t in _load(_p("bets_sealed.json"), []) if t["person"] == person
+        int(t["stake"])
+        for t in _load(_p("bets_sealed.json"), [])
+        if t["person"] == person
     )
     return bank - in_play - sealed
 
@@ -159,7 +161,7 @@ def _ticket_hash(ticket: dict) -> str:
 def place(
     user_id: int,
     person: str,
-    stake: float,
+    stake: int,
     legs_spec: list[tuple[str, str]],
     code_hash: str | None = None,
     now: datetime.datetime | None = None,
@@ -229,9 +231,7 @@ def place(
     if stake > avail:
         return False, f"Na to nemáš — k dispozici máš {gs.kr(avail)}.", None
 
-    total_odd = 1.0
-    for leg in legs:
-        total_odd *= leg["odd"]
+    total_odd = gs.ticket_odd([leg["odd"] for leg in legs])
     ticket = {
         "round": rnd,
         "user_id": user_id,
@@ -260,8 +260,8 @@ def place(
         m = by_id[leg["match_id"]]
         lines.append(f"  {m['home']} – {m['away']}  {leg['market']} @ {leg['odd']:.2f}")
     lines.append(
-        f"Vklad {stake:.0f}, celkový kurz {total_odd:.2f}, možná výhra "
-        f"{stake * total_odd:.0f}. Zbývá ti {gs.kr(avail - stake)}."
+        f"Vklad {stake}, celkový kurz {total_odd:.2f}, možná výhra "
+        f"{stake + gs.profit(stake, total_odd)}. Zbývá ti {gs.kr(avail - stake)}."
     )
     return True, "\n".join(lines), h
 
@@ -320,7 +320,7 @@ def place_from_tip(
             )
     try:
         payload = decrypt_tip(code)
-        stake = float(payload["stake"])
+        stake = int(payload["stake"])
         legs_spec = [(str(mid), str(mk)) for mid, mk in payload["legs"]]
     except Exception as exc:
         # celý kód do logu, ať jde selhání zpětně přehrát (log vidí jen bookmaker)

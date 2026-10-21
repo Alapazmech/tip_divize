@@ -65,6 +65,19 @@ class Settle(unittest.TestCase):
         self.assertEqual(gs.in_play_stakes(st, path), {"Y": 30, "Q": 15})
 
 
+class Credits(unittest.TestCase):
+    def test_whole_credits(self):
+        self.assertEqual(gs.profit(28, 1.45), 13)  # 12,6
+        self.assertEqual(gs.profit(50, 2.15), 58)  # 57,5 -> nahoru
+        self.assertEqual(gs.profit(25, 2.54), 39)  # 38,5 -> nahoru
+        self.assertEqual(gs.profit(50, 1.15), 8)  # 7,5 (float 57.49999…)
+        self.assertEqual(gs.ticket_odd([1.25, 1.30]), 1.63)  # 1,625 -> nahoru
+        st = gs.settle(MATCHES, {"4": {"round": 4, "match_id": 4, "odds": {"0": 1.45}}},
+                       bets("4,Z,c,4,0,28\n"))
+        self.assertEqual(st["banks"]["Z"], 113)
+        self.assertIsInstance(st["banks"]["Z"], int)
+
+
 class Decided(unittest.TestCase):
     def T(self, *legs):
         return {"legs": [{"match_id": i, "market": k} for i, k in legs]}

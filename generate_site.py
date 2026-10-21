@@ -175,11 +175,11 @@ def settle(
         topups[int(row["round"])].append(
             {
                 "person": row["person"].strip(),
-                "credits": float(row["credits"]),
+                "credits": int(row["credits"]),
                 "paid": float(row.get("paid") or BUYIN_KC),
             }
         )
-    banks: dict[str, float] = {}
+    banks: dict[str, int] = {}
     # kolik kdo do hry vložil: kredity (start + dokupy) a skutečné koruny
     deposits: dict[str, dict] = {}
 
@@ -244,17 +244,14 @@ def settle(
             )
         if not ok or not legs:
             continue
-        total_odd = 1.0
-        for leg in legs:
-            total_odd *= leg["odd"]
         tickets.append(
             {
                 "round": rnd,
                 "person": person,
                 "label": label,
                 "legs": legs,
-                "stake": float(rows[0]["stake"]),
-                "odd": round(total_odd, 2),
+                "stake": int(rows[0]["stake"]),
+                "odd": ticket_odd([leg["odd"] for leg in legs]),
             }
         )
         join(person)
@@ -285,8 +282,7 @@ def settle(
                 stakes_this_round[t["person"]] += t["stake"]
                 continue
             won = all(leg_wins)
-            # čistá výhra na desetiny kreditu (bez float šumu typu 57.4999)
-            delta = round(t["stake"] * (t["odd"] - 1), 1) if won else -t["stake"]
+            delta = profit(t["stake"], t["odd"]) if won else -t["stake"]
             banks[t["person"]] += delta
             settled_rows[rnd].append(
                 {**t, "won": won, "delta": delta, "leg_wins": leg_wins}
@@ -310,10 +306,25 @@ def settle(
     }
 
 
-def kr(x: float, sign: bool = False) -> str:
-    """Kredity k zobrazení: uvnitř se počítá na desetiny, ven jde celé číslo.
-    Půlka se zaokrouhluje od nuly (57.5 → 58, bank 157.5 → 158), aby výhra a bank seděly."""
-    n = int(math.copysign(math.floor(abs(x) + 0.5), x))
+def ticket_odd(odds: list[float]) -> float:
+    """Kurz tiketu = součin kurzů zaokrouhlený na setiny (půlka nahoru).
+    Počítá se v celých setinách, ať nevzniká float šum. Stejně to dělá JS na stránce."""
+    num, den = 1, 1
+    for o in odds:
+        num *= round(o * 100)
+        den *= 100
+    return (2 * num * 100 + den) // (2 * den) / 100
+
+
+def profit(stake: int, odd: float) -> int:
+    """Čistá výhra v celých kreditech: vklad × (kurz − 1), půlka nahoru (57,5 → 58).
+    Kredity jsou všude celé (bank, vklad, výhra), nic se nezaokrouhluje až při zobrazení."""
+    return (stake * (round(odd * 100) - 100) + 50) // 100
+
+
+def kr(x: int, sign: bool = False) -> str:
+    """Kredity k zobrazení (jsou vždy celé, viz `profit`)."""
+    n = int(x)
     return f"{n:+d}" if sign else f"{n:d}"
 
 
@@ -927,7 +938,7 @@ def main() -> None:
             ticket_rows += (
                 f'<tr class="{"plus" if t["won"] else "minus"}" data-person="{e(t["person"])}"'
                 f' data-won="{"win" if t["won"] else "lost"}" data-round="{rnd}"'
-                f' data-delta="{t["delta"]:.1f}">'
+                f' data-delta="{t["delta"]}">'
                 f'<td>{rnd}.</td><td>{e(t["person"])}</td><td class="tname">{legs}</td>'
                 f'<td>{"AKO" if len(t["legs"]) > 1 else "sólo"}</td><td>{t["odd"]:.2f}</td>'
                 f'<td>{t["stake"]:.0f}</td>'
@@ -1182,15 +1193,19 @@ var PUBKEY = "{pubkey}";
 var MKLABEL = {{ "1": "výhra domácích", "10": "neprohra domácích",
   "0": "remíza v základní době", "02": "neprohra hostů", "2": "výhra hostů" }};
 var sel = {{}};
-function totalOdd() {{
-  var total = 1;
-  Object.keys(sel).forEach(function (mid) {{ total *= parseFloat(sel[mid].odd); }});
-  return total;
+// kurz tiketu v celých setinách a výhra v celých kreditech — stejně jako
+// ticket_odd() a profit() v generate_site.py, ať stránka ukazuje přesně to, co bot
+function totalCents() {{
+  var num = 1n, den = 1n;
+  Object.keys(sel).forEach(function (mid) {{
+    num *= BigInt(Math.round(parseFloat(sel[mid].odd) * 100)); den *= 100n;
+  }});
+  return Number((2n * num * 100n + den) / (2n * den));
 }}
 function renderWin() {{
   var stake = parseInt(document.getElementById("tstake").value, 10);
   document.getElementById("twin").textContent =
-    stake > 0 ? Math.round(stake * totalOdd()) : "–";
+    stake > 0 ? stake + Math.floor((stake * (totalCents() - 100) + 50) / 100) : "–";
 }}
 function renderBar() {{
   var bar = document.getElementById("tbar");
@@ -1207,7 +1222,7 @@ function renderBar() {{
       '<span class="slip-x" data-x="' + mid + '" title="odebrat">×</span></div></div>';
   }});
   document.getElementById("tlegs").innerHTML = rows;
-  document.getElementById("ttotal").textContent = totalOdd().toFixed(2);
+  document.getElementById("ttotal").textContent = (totalCents() / 100).toFixed(2);
   renderWin();
   document.getElementById("tout").style.display = "none";
   bar.classList.add("on");

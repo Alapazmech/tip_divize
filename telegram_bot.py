@@ -102,7 +102,7 @@ def banks_summary() -> str:
     state = generate_site.settle(season["matches"], published, tickets._p("bets.csv"))
     banks = dict(state["banks"])
     for name in tickets._load(tickets.PLAYERS, {}).values():
-        banks.setdefault(name, float(generate_site.START_BANK))
+        banks.setdefault(name, generate_site.START_BANK)
     lines = ["💰 Banky:"]
     key = lambda x: (-x[1], unicodedata.normalize("NFKD", x[0]).encode("ascii", "ignore").lower())
     for i, (p, b) in enumerate(sorted(banks.items(), key=key), 1):
