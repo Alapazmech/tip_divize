@@ -1076,48 +1076,136 @@
   "hash": "9432ad0baa20f942f8de539c83f3a7d52bb84b80126584736f5371277b3580d5",
   "person": "Radek",
   "round": 6,
-  "placed_at": "2026-10-20 21:09:12"
+  "placed_at": "2026-10-20 21:09:12",
+  "revealed": {
+   "stake": 62,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "72c08b98086a9522",
+   "placed_at": "2026-10-20 21:09:12"
+  }
  },
  {
   "hash": "4188fc311d851683e8cfeddac7f676d79ebe31f9677bcb75d96b5aed4fed5015",
   "person": "Michal",
   "round": 6,
-  "placed_at": "2026-10-21 09:21:45"
+  "placed_at": "2026-10-21 09:21:45",
+  "revealed": {
+   "stake": 100.0,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "d61486b246dd1f4b",
+   "placed_at": "2026-10-21 09:21:45"
+  }
  },
  {
   "hash": "5a6c6e05fd09004e5cfb5afea53a7ac98493a5424007433ce6d094073287f073",
   "person": "Kunc",
   "round": 6,
-  "placed_at": "2026-10-21 15:14:34"
+  "placed_at": "2026-10-21 15:14:34",
+  "revealed": {
+   "stake": 220.0,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "514dcdb6712c3175",
+   "placed_at": "2026-10-21 15:14:34"
+  }
  },
  {
   "hash": "fff0f79862b39930531a32d3dfdb9133022c9e6774c37e90e70493ca43ccdc01",
   "person": "Psík",
   "round": 6,
-  "placed_at": "2026-10-21 15:28:09"
+  "placed_at": "2026-10-21 15:28:09",
+  "revealed": {
+   "stake": 41,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "404340f7c92e71f6",
+   "placed_at": "2026-10-21 15:28:09"
+  }
  },
  {
   "hash": "569840a4b794665cf39b61eddc94ffa5a8b789b323568204f625256681cc58bb",
   "person": "Schejby",
   "round": 6,
-  "placed_at": "2026-10-21 15:28:20"
+  "placed_at": "2026-10-21 15:28:20",
+  "revealed": {
+   "stake": 153.0,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "22a3834f4658d39d",
+   "placed_at": "2026-10-21 15:28:20"
+  }
  },
  {
   "hash": "e5907e89741d3d69f645e4536d263c79099cc98630533ac3af1faa2879afe7fe",
   "person": "Štěpa",
   "round": 6,
-  "placed_at": "2026-10-21 20:23:12"
+  "placed_at": "2026-10-21 20:23:12",
+  "revealed": {
+   "stake": 155,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "44eaee36095babc9",
+   "placed_at": "2026-10-21 20:23:12"
+  }
  },
  {
   "hash": "deba91ce40be152f46a5953f5ea00590d5644ee8158248fdcbb2015755dc0a53",
   "person": "Šárkys",
   "round": 6,
-  "placed_at": "2026-10-22 18:29:29"
+  "placed_at": "2026-10-22 18:29:29",
+  "revealed": {
+   "stake": 16,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "00d065b52e2b0cf9",
+   "placed_at": "2026-10-22 18:29:29"
+  }
  },
  {
   "hash": "a126d7b15ff473068bb33f86146ba7b5def64476b5dcc69de3df26e94f1f5259",
   "person": "Žoužel",
   "round": 6,
-  "placed_at": "2026-10-22 18:30:27"
+  "placed_at": "2026-10-22 18:30:27",
+  "revealed": {
+   "stake": 50,
+   "legs": [
+    [
+     1312172,
+     "2"
+    ]
+   ],
+   "nonce": "baf5f549b54698d2",
+   "placed_at": "2026-10-22 18:30:27"
+  }
  }
 ]
