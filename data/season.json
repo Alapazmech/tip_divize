@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-24 18:31:53",
+ "scraped_at": "2026-10-24 21:31:53",
  "prior": 1500,
  "matches": [
   {
@@ -345,26 +345,6 @@
    "shootout": false
   },
   {
-   "id": 1312152,
-   "round": 3,
-   "round_label": "3. kolo",
-   "date": "2026-10-16",
-   "time": null,
-   "home": "FBC Štíři Č. Budějovice",
-   "away": "Banes Florbal Soběslav",
-   "home_short": "Štíři",
-   "away_short": "Soběslav",
-   "place": "",
-   "status": "odehráno",
-   "score": [
-    10,
-    2
-   ],
-   "score_note": "",
-   "overtime": false,
-   "shootout": false
-  },
-  {
    "id": 1312158,
    "round": 4,
    "round_label": "4. kolo",
@@ -605,6 +585,26 @@
    "shootout": false
   },
   {
+   "id": 1312152,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2026-10-16",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Banes Florbal Soběslav",
+   "home_short": "Štíři",
+   "away_short": "Soběslav",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    2
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
+  },
+  {
    "id": 1312171,
    "round": 6,
    "round_label": "6. kolo",
@@ -749,28 +749,40 @@
    "round": 7,
    "round_label": "7. kolo",
    "date": "2026-10-24",
-   "time": "18:00",
+   "time": null,
    "home": "T.B.C. Králův Dvůr",
    "away": "Fbc Strakonice",
    "home_short": "Králův Dvůr",
    "away_short": "Strakonice",
-   "place": "SH Králův Dvůr",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    2,
+    8
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312177,
    "round": 7,
    "round_label": "7. kolo",
    "date": "2026-10-24",
-   "time": "19:30",
+   "time": null,
    "home": "FbC Plzeň",
    "away": "TJ Centropen Dačice",
    "home_short": "FbC Plzeň",
    "away_short": "Dačice",
-   "place": "MSH Plzeň (Lokomotiva)",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    5
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312178,
@@ -783,6 +795,20 @@
    "home_short": "Olymp",
    "away_short": "Štíři",
    "place": "SH Zelený Pruh",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312203,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2026-10-25",
+   "time": "16:00",
+   "home": "T.B.C. Králův Dvůr",
+   "away": "TJ Centropen Dačice",
+   "home_short": "Králův Dvůr",
+   "away_short": "Dačice",
+   "place": "SH Králův Dvůr",
    "status": "",
    "score": null
   },
@@ -1063,20 +1089,6 @@
    "home_short": "FbC Plzeň",
    "away_short": "Olymp",
    "place": "MSH Plzeň III (Lokomotiva III)",
-   "status": "",
-   "score": null
-  },
-  {
-   "id": 1312203,
-   "round": 11,
-   "round_label": "11. kolo",
-   "date": "2026-10-25",
-   "time": "16:00",
-   "home": "T.B.C. Králův Dvůr",
-   "away": "TJ Centropen Dačice",
-   "home_short": "Králův Dvůr",
-   "away_short": "Dačice",
-   "place": "SH Králův Dvůr",
    "status": "",
    "score": null
   },
