@@ -1218,7 +1218,22 @@
   "hash": "c433ecb5b7d18646dd41b7541ee6d1f319eb33992439f29dba1bf0d46eb8ce3b",
   "person": "Kunc",
   "round": 7,
-  "placed_at": "2026-10-23 11:29:57"
+  "placed_at": "2026-10-23 11:29:57",
+  "revealed": {
+   "stake": 30,
+   "legs": [
+    [
+     1312176,
+     "2"
+    ],
+    [
+     1312177,
+     "1"
+    ]
+   ],
+   "nonce": "c9cde7d86b8c3b9d",
+   "placed_at": "2026-10-23 11:29:57"
+  }
  },
  {
   "hash": "c5835a11a0d81a94dc9fec403e774138e1bae011bd98b7b345796b41a723bdd4",
