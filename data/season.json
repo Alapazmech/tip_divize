@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-25 20:31:53",
+ "scraped_at": "2026-10-26 20:00:53",
  "prior": 1500,
  "matches": [
   {
@@ -879,20 +879,6 @@
    "score": null
   },
   {
-   "id": 1312184,
-   "round": 8,
-   "round_label": "8. kolo",
-   "date": "2026-10-31",
-   "time": "17:05",
-   "home": "FA Č. Budějovice",
-   "away": "Florbal Jindřichův Hradec",
-   "home_short": "FA ČB",
-   "away_short": "Florbal J. Hradec",
-   "place": "TJ Lokomotiva Č. Budějovice",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312186,
    "round": 8,
    "round_label": "8. kolo",
@@ -903,6 +889,20 @@
    "home_short": "Dačice",
    "away_short": "Olymp",
    "place": "SH SŠTO Dačice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312184,
+   "round": 8,
+   "round_label": "8. kolo",
+   "date": "2026-10-31",
+   "time": "19:30",
+   "home": "FA Č. Budějovice",
+   "away": "Florbal Jindřichův Hradec",
+   "home_short": "FA ČB",
+   "away_short": "Florbal J. Hradec",
+   "place": "TJ Lokomotiva Č. Budějovice",
    "status": "",
    "score": null
   },
@@ -1159,20 +1159,6 @@
    "score": null
   },
   {
-   "id": 1312202,
-   "round": 11,
-   "round_label": "11. kolo",
-   "date": "2026-11-22",
-   "time": "00:00",
-   "home": "Florbal Jindřichův Hradec",
-   "away": "Sokol Rudná",
-   "home_short": "Florbal J. Hradec",
-   "away_short": "Rudná",
-   "place": "SH Jindřichův Hradec",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312205,
    "round": 11,
    "round_label": "11. kolo",
@@ -1183,6 +1169,20 @@
    "home_short": "Benešov",
    "away_short": "FA ČB",
    "place": "ZŠ Jiráskova Benešov",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312202,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2026-11-22",
+   "time": "13:30",
+   "home": "Florbal Jindřichův Hradec",
+   "away": "Sokol Rudná",
+   "home_short": "Florbal J. Hradec",
+   "away_short": "Rudná",
+   "place": "SH Jindřichův Hradec",
    "status": "",
    "score": null
   },
