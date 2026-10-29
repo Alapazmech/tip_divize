@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-10-26 20:00:53",
+ "scraped_at": "2026-10-29 20:01:53",
  "prior": 1500,
  "matches": [
   {
@@ -1005,20 +1005,6 @@
    "score": null
   },
   {
-   "id": 1312190,
-   "round": 9,
-   "round_label": "9. kolo",
-   "date": "2026-11-08",
-   "time": "00:00",
-   "home": "FbŠ Florbal Bohemians",
-   "away": "TJ Centropen Dačice",
-   "home_short": "Bohemians",
-   "away_short": "Dačice",
-   "place": "Bublina Arena",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312193,
    "round": 9,
    "round_label": "9. kolo",
@@ -1029,6 +1015,20 @@
    "home_short": "Strakonice",
    "away_short": "Benešov",
    "place": "SH Strakonice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312190,
+   "round": 9,
+   "round_label": "9. kolo",
+   "date": "2026-11-08",
+   "time": "18:00",
+   "home": "FbŠ Florbal Bohemians",
+   "away": "TJ Centropen Dačice",
+   "home_short": "Bohemians",
+   "away_short": "Dačice",
+   "place": "Bublina Arena",
    "status": "",
    "score": null
   },
@@ -1145,20 +1145,6 @@
    "score": null
   },
   {
-   "id": 1312201,
-   "round": 11,
-   "round_label": "11. kolo",
-   "date": "2026-11-22",
-   "time": "00:00",
-   "home": "FbŠ Florbal Bohemians",
-   "away": "FbC Plzeň",
-   "home_short": "Bohemians",
-   "away_short": "FbC Plzeň",
-   "place": "Bublina Arena",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312205,
    "round": 11,
    "round_label": "11. kolo",
@@ -1187,6 +1173,20 @@
    "score": null
   },
   {
+   "id": 1312201,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2026-11-22",
+   "time": "18:00",
+   "home": "FbŠ Florbal Bohemians",
+   "away": "FbC Plzeň",
+   "home_short": "Bohemians",
+   "away_short": "FbC Plzeň",
+   "place": "Bublina Arena",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312207,
    "round": 12,
    "round_label": "12. kolo",
@@ -1205,7 +1205,7 @@
    "round": 12,
    "round_label": "12. kolo",
    "date": "2026-11-28",
-   "time": "00:00",
+   "time": "18:00",
    "home": "TJ Centropen Dačice",
    "away": "SK Florbal Benešov",
    "home_short": "Dačice",
@@ -1229,25 +1229,11 @@
    "score": null
   },
   {
-   "id": 1312208,
-   "round": 12,
-   "round_label": "12. kolo",
-   "date": "2026-11-29",
-   "time": "00:00",
-   "home": "FbC Plzeň",
-   "away": "T.B.C. Králův Dvůr",
-   "home_short": "FbC Plzeň",
-   "away_short": "Králův Dvůr",
-   "place": "MSH Plzeň III (Lokomotiva III)",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312209,
    "round": 12,
    "round_label": "12. kolo",
    "date": "2026-11-29",
-   "time": "00:00",
+   "time": "16:30",
    "home": "Sokol Rudná",
    "away": "Fbc Strakonice",
    "home_short": "Rudná",
@@ -1261,12 +1247,26 @@
    "round": 12,
    "round_label": "12. kolo",
    "date": "2026-11-29",
-   "time": "00:00",
+   "time": "16:30",
    "home": "FBC Štíři Č. Budějovice",
    "away": "FA Č. Budějovice",
    "home_short": "Štíři",
    "away_short": "FA ČB",
    "place": "SH České Budějovice",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312208,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2026-11-29",
+   "time": "17:00",
+   "home": "FbC Plzeň",
+   "away": "T.B.C. Králův Dvůr",
+   "home_short": "FbC Plzeň",
+   "away_short": "Králův Dvůr",
+   "place": "MSH Plzeň III (Lokomotiva III)",
    "status": "",
    "score": null
   },
