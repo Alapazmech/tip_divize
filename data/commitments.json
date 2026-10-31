@@ -1318,7 +1318,26 @@
   "hash": "b6deef569404e658de66d59b73910a7e52f1bcd9b0a385e5ec15a28b3df3a004",
   "person": "Šárkys",
   "round": 8,
-  "placed_at": "2026-10-30 20:54:58"
+  "placed_at": "2026-10-30 20:54:58",
+  "revealed": {
+   "stake": 10,
+   "legs": [
+    [
+     1312182,
+     "2"
+    ],
+    [
+     1312183,
+     "1"
+    ],
+    [
+     1312187,
+     "2"
+    ]
+   ],
+   "nonce": "adc7b629bae5d132",
+   "placed_at": "2026-10-30 20:54:58"
+  }
  },
  {
   "hash": "97eefbdae92bba85f3797a9c45c1a845593f95252e30939a8b657866af4b7eaf",
@@ -1336,7 +1355,22 @@
   "hash": "800b839277cfaa66283ab5ab3ee76ef591e989aaca244b2a0e5c34d15ae31be5",
   "person": "Michal",
   "round": 8,
-  "placed_at": "2026-10-30 21:00:13"
+  "placed_at": "2026-10-30 21:00:13",
+  "revealed": {
+   "stake": 50,
+   "legs": [
+    [
+     1312182,
+     "2"
+    ],
+    [
+     1312187,
+     "2"
+    ]
+   ],
+   "nonce": "3a7592ea278f1666",
+   "placed_at": "2026-10-30 21:00:13"
+  }
  },
  {
   "hash": "8f7a80adf9d0b099cab0be78b6de40d8b6e166e9421f7a474a975db787b69ad4",
