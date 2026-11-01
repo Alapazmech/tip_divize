@@ -1312,7 +1312,26 @@
   "hash": "9f73ea9134048472fc51eeee6a4fce5f8d23871e32632c379053b29e5df9bef2",
   "person": "Kunc",
   "round": 8,
-  "placed_at": "2026-10-30 13:26:24"
+  "placed_at": "2026-10-30 13:26:24",
+  "revealed": {
+   "stake": 30,
+   "legs": [
+    [
+     1312183,
+     "1"
+    ],
+    [
+     1312186,
+     "2"
+    ],
+    [
+     1312187,
+     "2"
+    ]
+   ],
+   "nonce": "f9a2b78c067f5198",
+   "placed_at": "2026-10-30 13:26:24"
+  }
  },
  {
   "hash": "b6deef569404e658de66d59b73910a7e52f1bcd9b0a385e5ec15a28b3df3a004",
@@ -1343,7 +1362,18 @@
   "hash": "97eefbdae92bba85f3797a9c45c1a845593f95252e30939a8b657866af4b7eaf",
   "person": "Šárkys",
   "round": 8,
-  "placed_at": "2026-10-30 20:56:26"
+  "placed_at": "2026-10-30 20:56:26",
+  "revealed": {
+   "stake": 30,
+   "legs": [
+    [
+     1312183,
+     "1"
+    ]
+   ],
+   "nonce": "b8df590151df0279",
+   "placed_at": "2026-10-30 20:56:26"
+  }
  },
  {
   "hash": "2707ced51f8fa875eea066d87897bb498ad27c1c6dc71e9c2d9913685384ee90",
