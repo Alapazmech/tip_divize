@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-01 19:30:53",
+ "scraped_at": "2026-11-02 20:00:53",
  "prior": 1500,
  "matches": [
   {
@@ -1153,20 +1153,6 @@
    "score": null
   },
   {
-   "id": 1312204,
-   "round": 11,
-   "round_label": "11. kolo",
-   "date": "2026-11-21",
-   "time": "00:00",
-   "home": "Fbc Strakonice",
-   "away": "FBC Štíři Č. Budějovice",
-   "home_short": "Strakonice",
-   "away_short": "Štíři",
-   "place": "SH Strakonice",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312200,
    "round": 11,
    "round_label": "11. kolo",
@@ -1177,6 +1163,20 @@
    "home_short": "Soběslav",
    "away_short": "Olymp",
    "place": "SH TJ Spartak Soběslav",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312204,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2026-11-21",
+   "time": "17:00",
+   "home": "Fbc Strakonice",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Strakonice",
+   "away_short": "Štíři",
+   "place": "SH Strakonice",
    "status": "",
    "score": null
   },
