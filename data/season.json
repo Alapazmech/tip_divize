@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-02 20:00:53",
+ "scraped_at": "2026-11-03 20:00:53",
  "prior": 1500,
  "matches": [
   {
@@ -1223,20 +1223,6 @@
    "score": null
   },
   {
-   "id": 1312207,
-   "round": 12,
-   "round_label": "12. kolo",
-   "date": "2026-11-28",
-   "time": "00:00",
-   "home": "OLYMP FLORBAL",
-   "away": "Florbal Jindřichův Hradec",
-   "home_short": "Olymp",
-   "away_short": "Florbal J. Hradec",
-   "place": "SH Zelený Pruh",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312210,
    "round": 12,
    "round_label": "12. kolo",
@@ -1251,16 +1237,16 @@
    "score": null
   },
   {
-   "id": 1312206,
+   "id": 1312207,
    "round": 12,
    "round_label": "12. kolo",
-   "date": "2026-11-29",
-   "time": "00:00",
-   "home": "FbŠ Florbal Bohemians",
-   "away": "Banes Florbal Soběslav",
-   "home_short": "Bohemians",
-   "away_short": "Soběslav",
-   "place": "Bublina Arena",
+   "date": "2026-11-28",
+   "time": "20:00",
+   "home": "OLYMP FLORBAL",
+   "away": "Florbal Jindřichův Hradec",
+   "home_short": "Olymp",
+   "away_short": "Florbal J. Hradec",
+   "place": "SH Zelený Pruh",
    "status": "",
    "score": null
   },
@@ -1303,6 +1289,20 @@
    "home_short": "FbC Plzeň",
    "away_short": "Králův Dvůr",
    "place": "MSH Plzeň III (Lokomotiva III)",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312206,
+   "round": 12,
+   "round_label": "12. kolo",
+   "date": "2026-11-29",
+   "time": "18:00",
+   "home": "FbŠ Florbal Bohemians",
+   "away": "Banes Florbal Soběslav",
+   "home_short": "Bohemians",
+   "away_short": "Soběslav",
+   "place": "Bublina Arena",
    "status": "",
    "score": null
   },
