@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-03 20:00:53",
+ "scraped_at": "2026-11-05 20:00:53",
  "prior": 1500,
  "matches": [
   {
@@ -1307,20 +1307,6 @@
    "score": null
   },
   {
-   "id": 1312212,
-   "round": 13,
-   "round_label": "13. kolo",
-   "date": "2026-12-05",
-   "time": "00:00",
-   "home": "Banes Florbal Soběslav",
-   "away": "FBC Štíři Č. Budějovice",
-   "home_short": "Soběslav",
-   "away_short": "Štíři",
-   "place": "SH TJ Spartak Soběslav",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312215,
    "round": 13,
    "round_label": "13. kolo",
@@ -1335,11 +1321,25 @@
    "score": null
   },
   {
+   "id": 1312212,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2026-12-05",
+   "time": "17:00",
+   "home": "Banes Florbal Soběslav",
+   "away": "FBC Štíři Č. Budějovice",
+   "home_short": "Soběslav",
+   "away_short": "Štíři",
+   "place": "SH TJ Spartak Soběslav",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312216,
    "round": 13,
    "round_label": "13. kolo",
    "date": "2026-12-05",
-   "time": "00:00",
+   "time": "18:00",
    "home": "T.B.C. Králův Dvůr",
    "away": "OLYMP FLORBAL",
    "home_short": "Králův Dvůr",
