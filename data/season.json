@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-05 20:00:53",
+ "scraped_at": "2026-11-06 20:01:53",
  "prior": 1500,
  "matches": [
   {
@@ -1307,20 +1307,6 @@
    "score": null
   },
   {
-   "id": 1312215,
-   "round": 13,
-   "round_label": "13. kolo",
-   "date": "2026-12-05",
-   "time": "00:00",
-   "home": "Fbc Strakonice",
-   "away": "FbC Plzeň",
-   "home_short": "Strakonice",
-   "away_short": "FbC Plzeň",
-   "place": "SH Strakonice",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312212,
    "round": 13,
    "round_label": "13. kolo",
@@ -1349,11 +1335,25 @@
    "score": null
   },
   {
+   "id": 1312215,
+   "round": 13,
+   "round_label": "13. kolo",
+   "date": "2026-12-05",
+   "time": "19:00",
+   "home": "Fbc Strakonice",
+   "away": "FbC Plzeň",
+   "home_short": "Strakonice",
+   "away_short": "FbC Plzeň",
+   "place": "SH Strakonice",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312213,
    "round": 13,
    "round_label": "13. kolo",
    "date": "2026-12-06",
-   "time": "00:00",
+   "time": "17:00",
    "home": "FA Č. Budějovice",
    "away": "TJ Centropen Dačice",
    "home_short": "FA ČB",
@@ -1367,7 +1367,7 @@
    "round": 13,
    "round_label": "13. kolo",
    "date": "2026-12-06",
-   "time": "00:00",
+   "time": "17:00",
    "home": "SK Florbal Benešov",
    "away": "Sokol Rudná",
    "home_short": "Benešov",
@@ -1381,12 +1381,12 @@
    "round": 13,
    "round_label": "13. kolo",
    "date": "2026-12-06",
-   "time": "00:00",
+   "time": "17:30",
    "home": "Florbal Jindřichův Hradec",
    "away": "FbŠ Florbal Bohemians",
    "home_short": "Florbal J. Hradec",
    "away_short": "Bohemians",
-   "place": "SH Jindřichův Hradec",
+   "place": "SH Jindřichův Hradec III",
    "status": "",
    "score": null
   },
