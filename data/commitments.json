@@ -1525,7 +1525,18 @@
   "hash": "c213cf13ffe8f79d98081d63b6424d55227306f7a59713c4699b0e1069a0f992",
   "person": "Šárkys",
   "round": 9,
-  "placed_at": "2026-11-04 10:51:11"
+  "placed_at": "2026-11-04 10:51:11",
+  "revealed": {
+   "stake": 10,
+   "legs": [
+    [
+     1312188,
+     "02"
+    ]
+   ],
+   "nonce": "e061e9b808bb7b68",
+   "placed_at": "2026-11-04 10:51:11"
+  }
  },
  {
   "hash": "feb946d366c291f1f6a5cfb85115e3121e3019efc25a6dd869c4adeb7ffceed5",
