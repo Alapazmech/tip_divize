@@ -1513,13 +1513,51 @@
   "hash": "7307317564aae5ca45af66e8b2312f2308c7e8e5b557c5f1d2545211ee2c0c78",
   "person": "Schejby",
   "round": 9,
-  "placed_at": "2026-11-02 20:52:10"
+  "placed_at": "2026-11-02 20:52:10",
+  "revealed": {
+   "stake": 30,
+   "legs": [
+    [
+     1312189,
+     "1"
+    ],
+    [
+     1312193,
+     "2"
+    ]
+   ],
+   "nonce": "f5bd284e977aa3f9",
+   "placed_at": "2026-11-02 20:52:10"
+  }
  },
  {
   "hash": "16e043e7a941539e4281ad5698c77e9d5d915365cd7f977e44a857a0a1be162f",
   "person": "Kunc",
   "round": 9,
-  "placed_at": "2026-11-02 22:07:35"
+  "placed_at": "2026-11-02 22:07:35",
+  "revealed": {
+   "stake": 20,
+   "legs": [
+    [
+     1312188,
+     "1"
+    ],
+    [
+     1312189,
+     "2"
+    ],
+    [
+     1312192,
+     "2"
+    ],
+    [
+     1312193,
+     "1"
+    ]
+   ],
+   "nonce": "c3fb3f817b2bb572",
+   "placed_at": "2026-11-02 22:07:35"
+  }
  },
  {
   "hash": "c213cf13ffe8f79d98081d63b6424d55227306f7a59713c4699b0e1069a0f992",
@@ -1542,12 +1580,42 @@
   "hash": "feb946d366c291f1f6a5cfb85115e3121e3019efc25a6dd869c4adeb7ffceed5",
   "person": "Šárkys",
   "round": 9,
-  "placed_at": "2026-11-04 10:51:51"
+  "placed_at": "2026-11-04 10:51:51",
+  "revealed": {
+   "stake": 10,
+   "legs": [
+    [
+     1312191,
+     "1"
+    ],
+    [
+     1312192,
+     "2"
+    ],
+    [
+     1312193,
+     "1"
+    ]
+   ],
+   "nonce": "3ec426a38dfc491c",
+   "placed_at": "2026-11-04 10:51:51"
+  }
  },
  {
   "hash": "20d67fda28efca927fef74987be6a6a8d6ef5208fcd43fa3537f2ba1b2f1b13e",
   "person": "Šárkys",
   "round": 9,
-  "placed_at": "2026-11-04 10:52:29"
+  "placed_at": "2026-11-04 10:52:29",
+  "revealed": {
+   "stake": 10,
+   "legs": [
+    [
+     1312192,
+     "2"
+    ]
+   ],
+   "nonce": "fe8369b6a8c3dce0",
+   "placed_at": "2026-11-04 10:52:29"
+  }
  }
 ]
