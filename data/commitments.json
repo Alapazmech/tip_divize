@@ -1492,7 +1492,22 @@
   "hash": "2b1d5138f488a943ae97c0575f2f3fa5e36546258e04feee27c844dce187f33f",
   "person": "Schejby",
   "round": 9,
-  "placed_at": "2026-11-02 20:51:47"
+  "placed_at": "2026-11-02 20:51:47",
+  "revealed": {
+   "stake": 39,
+   "legs": [
+    [
+     1312191,
+     "2"
+    ],
+    [
+     1312192,
+     "2"
+    ]
+   ],
+   "nonce": "e8cdda73426c8f18",
+   "placed_at": "2026-11-02 20:51:47"
+  }
  },
  {
   "hash": "7307317564aae5ca45af66e8b2312f2308c7e8e5b557c5f1d2545211ee2c0c78",
