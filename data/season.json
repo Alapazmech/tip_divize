@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-09 20:00:53",
+ "scraped_at": "2026-11-12 20:00:51",
  "prior": 1500,
  "matches": [
   {
@@ -1413,20 +1413,6 @@
    "score": null
   },
   {
-   "id": 1312218,
-   "round": 14,
-   "round_label": "14. kolo",
-   "date": "2026-12-12",
-   "time": "00:00",
-   "home": "Florbal Jindřichův Hradec",
-   "away": "Banes Florbal Soběslav",
-   "home_short": "Florbal J. Hradec",
-   "away_short": "Soběslav",
-   "place": "SH Jindřichův Hradec",
-   "status": "",
-   "score": null
-  },
-  {
    "id": 1312220,
    "round": 14,
    "round_label": "14. kolo",
@@ -1455,11 +1441,25 @@
    "score": null
   },
   {
+   "id": 1312218,
+   "round": 14,
+   "round_label": "14. kolo",
+   "date": "2026-12-12",
+   "time": "18:00",
+   "home": "Florbal Jindřichův Hradec",
+   "away": "Banes Florbal Soběslav",
+   "home_short": "Florbal J. Hradec",
+   "away_short": "Soběslav",
+   "place": "SH Jindřichův Hradec",
+   "status": "",
+   "score": null
+  },
+  {
    "id": 1312223,
    "round": 14,
    "round_label": "14. kolo",
    "date": "2026-12-12",
-   "time": "00:00",
+   "time": "18:00",
    "home": "TJ Centropen Dačice",
    "away": "FBC Štíři Č. Budějovice",
    "home_short": "Dačice",
