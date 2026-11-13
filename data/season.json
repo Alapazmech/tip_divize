@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-12 20:00:51",
+ "scraped_at": "2026-11-13 20:01:53",
  "prior": 1500,
  "matches": [
   {
@@ -1473,7 +1473,7 @@
    "round": 14,
    "round_label": "14. kolo",
    "date": "2026-12-13",
-   "time": "00:00",
+   "time": "18:00",
    "home": "FbŠ Florbal Bohemians",
    "away": "T.B.C. Králův Dvůr",
    "home_short": "Bohemians",
@@ -1487,7 +1487,7 @@
    "round": 14,
    "round_label": "14. kolo",
    "date": "2026-12-13",
-   "time": "00:00",
+   "time": "18:00",
    "home": "FbC Plzeň",
    "away": "SK Florbal Benešov",
    "home_short": "FbC Plzeň",
