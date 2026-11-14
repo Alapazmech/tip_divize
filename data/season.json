@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-14 20:31:53",
+ "scraped_at": "2026-11-14 21:00:53",
  "prior": 1500,
  "matches": [
   {
@@ -345,26 +345,6 @@
    "shootout": false
   },
   {
-   "id": 1312152,
-   "round": 3,
-   "round_label": "3. kolo",
-   "date": "2026-10-16",
-   "time": null,
-   "home": "FBC Štíři Č. Budějovice",
-   "away": "Banes Florbal Soběslav",
-   "home_short": "Štíři",
-   "away_short": "Soběslav",
-   "place": "",
-   "status": "odehráno",
-   "score": [
-    10,
-    2
-   ],
-   "score_note": "",
-   "overtime": false,
-   "shootout": false
-  },
-  {
    "id": 1312158,
    "round": 4,
    "round_label": "4. kolo",
@@ -605,6 +585,26 @@
    "shootout": false
   },
   {
+   "id": 1312152,
+   "round": 3,
+   "round_label": "3. kolo",
+   "date": "2026-10-16",
+   "time": null,
+   "home": "FBC Štíři Č. Budějovice",
+   "away": "Banes Florbal Soběslav",
+   "home_short": "Štíři",
+   "away_short": "Soběslav",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    10,
+    2
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
+  },
+  {
    "id": 1312171,
    "round": 6,
    "round_label": "6. kolo",
@@ -799,6 +799,26 @@
    "score": [
     7,
     6
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
+  },
+  {
+   "id": 1312203,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2026-10-25",
+   "time": null,
+   "home": "T.B.C. Králův Dvůr",
+   "away": "TJ Centropen Dačice",
+   "home_short": "Králův Dvůr",
+   "away_short": "Dačice",
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    2
    ],
    "score_note": "",
    "overtime": false,
@@ -1109,28 +1129,40 @@
    "round": 10,
    "round_label": "10. kolo",
    "date": "2026-11-14",
-   "time": "18:00",
+   "time": null,
    "home": "TJ Centropen Dačice",
    "away": "Florbal Jindřichův Hradec",
    "home_short": "Dačice",
    "away_short": "Florbal J. Hradec",
-   "place": "SH SŠTO Dačice",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    4,
+    5
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312195,
    "round": 10,
    "round_label": "10. kolo",
    "date": "2026-11-14",
-   "time": "18:40",
+   "time": null,
    "home": "FA Č. Budějovice",
    "away": "Fbc Strakonice",
    "home_short": "FA ČB",
    "away_short": "Strakonice",
-   "place": "TJ Lokomotiva Č. Budějovice",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    10
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312196,
@@ -1173,26 +1205,6 @@
    "place": "MSH Plzeň III (Lokomotiva III)",
    "status": "",
    "score": null
-  },
-  {
-   "id": 1312203,
-   "round": 11,
-   "round_label": "11. kolo",
-   "date": "2026-10-25",
-   "time": null,
-   "home": "T.B.C. Králův Dvůr",
-   "away": "TJ Centropen Dačice",
-   "home_short": "Králův Dvůr",
-   "away_short": "Dačice",
-   "place": "",
-   "status": "odehráno",
-   "score": [
-    4,
-    2
-   ],
-   "score_note": "",
-   "overtime": false,
-   "shootout": false
   },
   {
    "id": 1312200,
@@ -1247,20 +1259,6 @@
    "home_short": "Bohemians",
    "away_short": "FbC Plzeň",
    "place": "Bublina Arena",
-   "status": "",
-   "score": null
-  },
-  {
-   "id": 1312205,
-   "round": 11,
-   "round_label": "11. kolo",
-   "date": "2027-01-14",
-   "time": "00:00",
-   "home": "SK Florbal Benešov",
-   "away": "FA Č. Budějovice",
-   "home_short": "Benešov",
-   "away_short": "FA ČB",
-   "place": "ZŠ Jiráskova Benešov",
    "status": "",
    "score": null
   },
@@ -1681,6 +1679,20 @@
    "home_short": "Bohemians",
    "away_short": "Benešov",
    "place": "Marsch Arena",
+   "status": "",
+   "score": null
+  },
+  {
+   "id": 1312205,
+   "round": 11,
+   "round_label": "11. kolo",
+   "date": "2027-01-14",
+   "time": "00:00",
+   "home": "SK Florbal Benešov",
+   "away": "FA Č. Budějovice",
+   "home_short": "Benešov",
+   "away_short": "FA ČB",
+   "place": "ZŠ Jiráskova Benešov",
    "status": "",
    "score": null
   },

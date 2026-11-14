@@ -1679,7 +1679,22 @@
   "hash": "3ced5e83c2b2c0dc94daf03c4681f677ff3840fa5560792a3a7605f73ade73e4",
   "person": "Michal",
   "round": 10,
-  "placed_at": "2026-11-14 16:05:04"
+  "placed_at": "2026-11-14 16:05:04",
+  "revealed": {
+   "stake": 30,
+   "legs": [
+    [
+     1312195,
+     "2"
+    ],
+    [
+     1312197,
+     "2"
+    ]
+   ],
+   "nonce": "987c179d36c8430e",
+   "placed_at": "2026-11-14 16:05:04"
+  }
  },
  {
   "hash": "c3f69437fdc992d7bcc9afe92e11569aa78331e3e5cbaf2c67d0203ba7e2f948",
