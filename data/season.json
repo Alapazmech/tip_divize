@@ -1,7 +1,7 @@
 {
  "label": "Divize B 2026/27",
  "url": "https://www.ceskyflorbal.cz/competition/detail/matches/8XM4?divisionAlias=8XM4-B&competitionFisId=4822",
- "scraped_at": "2026-11-14 17:30:51",
+ "scraped_at": "2026-11-14 20:31:53",
  "prior": 1500,
  "matches": [
   {
@@ -1089,14 +1089,20 @@
    "round": 10,
    "round_label": "10. kolo",
    "date": "2026-11-14",
-   "time": "17:00",
+   "time": null,
    "home": "Banes Florbal Soběslav",
    "away": "SK Florbal Benešov",
    "home_short": "Soběslav",
    "away_short": "Benešov",
-   "place": "SH TJ Spartak Soběslav",
-   "status": "",
-   "score": null
+   "place": "",
+   "status": "odehráno",
+   "score": [
+    6,
+    4
+   ],
+   "score_note": "",
+   "overtime": false,
+   "shootout": false
   },
   {
    "id": 1312197,
